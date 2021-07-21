@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Overview from './components/overview/overview.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,15 +12,15 @@ class App extends React.Component {
 
   render() {
     return(
-      <h1>HELLO!</h1>
-      //Tag for overView
-      //Tag for q&a
-      //Tag for related Products
-      //Tag for reviews
+      <div>
+        <h1>HELLO!</h1>
+        <Overview />
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+      </div>
     )
   }
 }
 
 
+// export default App;
 ReactDOM.render(<App />, document.getElementById('app'));
-export default App;
