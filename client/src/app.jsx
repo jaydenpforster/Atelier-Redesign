@@ -1,26 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Overview from './components/overview/overview.jsx'
+import Main from './components/relatedProducts/Main.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      placeHolder: []
+      hovered: false
     }
   }
 
+onEnter() {
+  this.setState({
+    hovered: true
+  });
+}
+
+onExit() {
+  this.setState({
+    hovered: false
+  });
+}
+
   render() {
     return(
+
       <div>
-        <h1>HELLO!</h1>
-        <Overview />
-        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <h1 onMouseEnter={this.onEnter.bind(this)} onMouseLeave={this.onExit.bind(this)}>WHAT</h1>
+        {console.log(this.state)}
+        <Main />
       </div>
+
     )
   }
 }
 
 
-// export default App;
-ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
