@@ -14,8 +14,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.use('/overview', overview);
+// app.use('/overview', overview);
 app.use('/relatedProducts', relatedProducts);
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

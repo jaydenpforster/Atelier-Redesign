@@ -16,7 +16,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: 'http://localhost:4000/relatedProducts',
+      url: 'http://localhost:4000/relatedProducts/relatedProducts',
       type: 'GET',
       data: {id: '28212'},
       success: (data) => {
@@ -28,7 +28,7 @@ class Main extends React.Component {
     });
 
     $.ajax({
-      url: 'http://localhost:4000/styles',
+      url: 'http://localhost:4000/relatedProducts/styles',
       type: 'GET',
       data: {id: '28212'},
       success: (data) => {
