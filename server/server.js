@@ -5,6 +5,7 @@ const port = 4000;
 const path = require('path');
 const bodyParser = require('body-parser');
 const overview = require('./routes/overviewRoutes');
+const relatedProducts = require('./routes/relatedProducts');
 
 // const jsonParser = bodyParser.json();
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use('/overview', overview);
+app.use('/relatedProducts', relatedProducts);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
