@@ -1,25 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from './components/relatedProducts/Main.jsx';
+import $ from 'jquery';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state ={
-      placeHolder: []
+      hovered: false
     }
   }
 
+onEnter() {
+  this.setState({
+    hovered: true
+  });
+}
+
+onExit() {
+  this.setState({
+    hovered: false
+  });
+}
+
   render() {
     return(
-      <h1>HELLO!</h1>
-      //Tag for overView
-      //Tag for q&a
-      //Tag for related Products
-      //Tag for reviews
+
+      <div>
+        <h1 onMouseEnter={this.onEnter.bind(this)} onMouseLeave={this.onExit.bind(this)}></h1>
+        {console.log(this.state)}
+        <Main />
+      </div>
+
     )
   }
 }
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app'));
 export default App;
