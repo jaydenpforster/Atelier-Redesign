@@ -2,6 +2,9 @@
 
 exports[`App Test that App renders 1`] = `
 <div>
+<<<<<<< HEAD
+  <h1 />
+=======
   <h1
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
@@ -77,5 +80,6 @@ exports[`App Test that App renders 1`] = `
       </div>
     </div>
   </div>
+>>>>>>> d9ebe7c08cdc508129ca661b085fede473712ea4
 </div>
 `;
