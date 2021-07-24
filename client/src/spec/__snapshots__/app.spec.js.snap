@@ -2,10 +2,7 @@
 
 exports[`App Test that App renders 1`] = `
 <div>
-  <h1
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  />
+  <h1 />
   <div>
     <h2>
       Related Products
@@ -74,6 +71,101 @@ exports[`App Test that App renders 1`] = `
         className="cardRating"
       >
         *****
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
       </div>
     </div>
   </div>

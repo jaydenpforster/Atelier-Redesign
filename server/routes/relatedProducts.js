@@ -4,11 +4,11 @@ const relatedProductsHelper = require('./relatedProductsHelper')
 
 
 router.get('/relatedProducts', (req, res) => {
-  console.log('REQUEST=', req.query.id)
+  // console.log('REQUEST=', req.query.id)
   let productId = req.query.id;
   relatedProductsHelper.getProductID(productId)
   .then((relatedProductIdList) => {
-    console.log('FIRST DATA=', relatedProductIdList);
+    // console.log('FIRST DATA=', relatedProductIdList);
     res.status(200).send(relatedProductIdList);
   })
   .catch((err) => {

@@ -2,7 +2,8 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import ReactDOM from 'react-dom';
 import Main from './components/relatedProducts/Main.jsx';
-import $ from 'jquery';
+// import $ from 'jquery';
+import RatingsAndReviews from './components/Reviews/Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,9 @@ class App extends React.Component {
         <h1></h1>
         {console.log(this.state)}
         <Main />
+        <br>
+        </br>
+        <RatingsAndReviews />
       </div>
 
     )
