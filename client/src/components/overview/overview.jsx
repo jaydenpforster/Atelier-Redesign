@@ -8,6 +8,18 @@ class Overview extends React.Component {
     this.state = {
       value: '',
     };
+    this.getFirstProduct = this.getFirstProduct.bind(this)
+  }
+  getFirstProduct(newProduct) {
+    if (!newProduct) { newProduct = 1; }
+    axios.get('http://localhost:4000/overview/product')
+      .then(productInfo => {
+        console.log('info', productInfo)
+      })
+      .catch(err => console.error(err))
+  }
+  componentDidMount() {
+    this.getFirstProduct()
   }
 
   render() {

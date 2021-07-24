@@ -11,12 +11,12 @@ const getProductID = (productId) => {
         'Authorization': config.TOKEN
       }
     })
-    .then((data) => {
-      resolve(data.data);
-    })
-    .catch((err) => {
-      reject('ERROR', err);
-    });
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        reject('ERROR', err);
+      });
   });
 };
 
@@ -30,12 +30,12 @@ const getProductStyles = (productId) => {
         'Authorization': config.TOKEN
       }
     })
-    .then((data) => {
-      resolve(data.data);
-    })
-    .catch((err) => {
-      reject(err);
-    })
+      .then((data) => {
+        resolve(data.data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
   })
 }
 
