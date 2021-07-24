@@ -36,14 +36,6 @@ const getProductRating = (resultsArr) => {
   })
 }
 
-
-
-
-
-
-
-
-
 module.exports = {
   getReviews,
   getProductRating

@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express();
-<<<<<<< HEAD
-const relatedProductsHelper = require('./relatedProductsHelper');
-=======
 const relatedProductsHelper = require('./relatedProductsHelper')
->>>>>>> eed64517310e9f3f81e8e52ab9f1a5292f60f0d2
 
 
 router.get('/relatedProducts', (req, res) => {
