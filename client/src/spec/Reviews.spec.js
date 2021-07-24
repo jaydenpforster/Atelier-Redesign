@@ -8,11 +8,11 @@ describe('Reviews Test Suite', () => {
   });
 });
 
-describe('App', () => {
-  test('Test that App renders', () => {
-    const component = renderer.create(<App ></App>);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+// describe('App', () => {
+//   test('Test that App renders', () => {
+//     const component = renderer.create(<App ></App>);
+//     let tree = component.toJSON();
+//     expect(tree).toMatchSnapshot();
+//   });
+// });
 

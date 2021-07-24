@@ -13,23 +13,11 @@ class App extends React.Component {
     }
   }
 
-  onEnter() {
-    this.setState({
-      hovered: true
-    });
-  }
-
-  onExit() {
-    this.setState({
-      hovered: false
-    });
-  }
-
   render() {
     return (
 
       <div>
-        <h1 onMouseEnter={this.onEnter.bind(this)} onMouseLeave={this.onExit.bind(this)}></h1>
+        <h1></h1>
         {console.log(this.state)}
         <Main />
         <br>
