@@ -3,6 +3,7 @@ import React from 'react';
 
 let QuarterStars = (props) => {
   //need to send rating through props
+  let ratingBefore = props.rating || 0;
   let rating = props.rating || 0;
 
   let stars = [];
@@ -29,15 +30,18 @@ let QuarterStars = (props) => {
 
   return (
     <div>
-      {stars.map((item, i) => {
-        return (
-          <div className="single-star-container" key={i}>
-            <div className="single-star-fill" style={{'width': `${parseInt(item*31)}px`}}>
-              <img className="single-star-outline" src="star.png" alt="stars alt"></img>
+      <h1>{ratingBefore}</h1>
+      <div>
+        {stars.map((item, i) => {
+          return (
+            <div className="single-star-container" key={i}>
+              <div className="single-star-fill" style={{'width': `${parseInt(item*31)}px`}}>
+                <img className="single-star-outline" src="star.png" alt="stars alt"></img>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
