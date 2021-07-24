@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express();
+const relatedProductsHelper = require('./relatedProductsHelper')
 
 
 router.get('/relatedProducts', (req, res) => {
@@ -19,7 +20,7 @@ router.get('/styles', (req, res) => {
   let productId = req.query.id;
   relatedProductsHelper.getProductStyles(productId)
   .then((productStyleInfo) => {
-    console.log('productStyleInfo',productStyleInfo);
+    // console.log('productStyleInfo',productStyleInfo);
     res.status(200).send(productStyleInfo);
   })
   .catch((err) => {
