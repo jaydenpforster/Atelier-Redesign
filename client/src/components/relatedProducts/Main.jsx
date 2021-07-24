@@ -8,17 +8,18 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      placeHolder: []
+      productId: '28212',
+
     }
   }
 
-//props will be the Product ID coming from Overview
+  //props will be the Product ID coming from Overview
 
   componentDidMount() {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/relatedProducts',
       type: 'GET',
-      data: {id: '28212'},
+      data: {id: this.state.productId},
       success: (data) => {
         console.log('Success', data);
       },
@@ -30,7 +31,7 @@ class Main extends React.Component {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/styles',
       type: 'GET',
-      data: {id: '28212'},
+      data: {id: this.state.productId},
       success: (data) => {
         console.log('SECOND DATA', data);
       },
@@ -53,5 +54,3 @@ class Main extends React.Component {
 }
 
 export default Main;
-
-// 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
