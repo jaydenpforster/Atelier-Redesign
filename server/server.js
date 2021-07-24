@@ -6,6 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const overview = require('./routes/overviewRoutes');
 const relatedProducts = require('./routes/relatedProducts');
+const reviews = require('./routes/reviewsRoutes');
 
 // const jsonParser = bodyParser.json();
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // app.use('/overview', overview);
 app.use('/relatedProducts', relatedProducts);
+app.use('/reviews', reviews);
 
 
 app.listen(port, () => {

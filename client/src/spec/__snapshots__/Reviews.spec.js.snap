@@ -77,5 +77,100 @@ exports[`App Test that App renders 1`] = `
       </div>
     </div>
   </div>
+  <br />
+  <div>
+    <div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "31px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "31px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "31px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "16px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="single-star-container"
+      >
+        <div
+          className="single-star-fill"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="single-star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
