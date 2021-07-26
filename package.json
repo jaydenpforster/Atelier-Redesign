@@ -4,9 +4,11 @@
   "description": "Cheddar FEC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "del-cli --force ./client/src/spec/__snapshots__ && jest --config ./jest.config.json",
+    "test:qna": "jest qna.spec.js",
     "build:dev": "webpack -w",
-    "start": "nodemon ./server/server.js"
+    "start": "nodemon ./server/server.js",
+    "sass": "sass --watch client/dist/styles.scss output.css"
   },
   "repository": {
     "type": "git",
@@ -25,20 +27,34 @@
   },
   "homepage": "https://github.com/rpp29-fec-cheddar/api#readme",
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.14.5",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "jQuery": "^1.7.4",
+    "jquery": "^3.6.0",
     "nodemon": "^2.0.12",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sass": "^1.35.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
+    "chai": "^4.3.4",
+    "del-cli": "^4.0.1",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^27.0.6",
+    "mocha": "^9.0.2",
+    "react-test-renderer": "^17.0.2",
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2"
   }
