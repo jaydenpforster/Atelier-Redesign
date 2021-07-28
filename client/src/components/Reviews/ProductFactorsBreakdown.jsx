@@ -2,7 +2,7 @@ import React from 'react';
 import FactorBar from './FactorBar.jsx';
 import $ from 'jquery';
 
-class Factors extends React.Component {
+class ProductFactorsBreakdown extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -28,4 +28,4 @@ class Factors extends React.Component {
 }
 
 
-export default Factors;
+export default ProductFactorsBreakdown;

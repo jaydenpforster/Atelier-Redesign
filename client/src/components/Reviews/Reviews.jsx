@@ -3,7 +3,9 @@ import $ from 'jquery';
 import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
-import Factors from './Factors.jsx';
+import ProductFactorsBreakdown from './ProductFactorsBreakdown.jsx';
+import ReviewTiles from './ReviewTiles.jsx';
+import ReviewForm from './ReviewForm.jsx';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {
@@ -55,6 +57,10 @@ class RatingsAndReviews extends React.Component {
     })
   }
 
+  // click handler for more Reviews button
+
+  // click handler for add a review button
+
   render() {
 
     return (
@@ -64,7 +70,9 @@ class RatingsAndReviews extends React.Component {
           metaData={this.state.metaData}
           reviews={this.state.reviews} />
         <Sort getReviews={this.getReviews} />
-        <Factors />
+        <ProductFactorsBreakdown />
+        {/* more reviews button with onClick */}
+        {/* add a review button with onClick*/}
       </div>
     )
   }

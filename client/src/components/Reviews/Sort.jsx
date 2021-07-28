@@ -20,7 +20,7 @@ class Sort extends React.Component {
   render() {
     return (
       <div>
-        {/*dropdown should go hear with onClick={this.handleClick}*/}
+        {/*dropdown should go here with onClick={this.handleClick}*/}
       </div>
     )
   }
