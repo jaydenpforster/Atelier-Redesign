@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import QuarterStars from './Stars.jsx';
 import Sort from './Sort.jsx';
-import Breakdown from './Breakdown.jsx';
+import Filters from './Filters.jsx';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {

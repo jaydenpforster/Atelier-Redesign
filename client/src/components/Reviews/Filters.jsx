@@ -1,8 +1,8 @@
 import React from 'react';
-import BreakdownBars from './BreakdownBars.jsx';
+import FilterBars from './FilterBars.jsx';
 
 
-class Breakdown extends React.Component {
+class Filters extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -31,4 +31,4 @@ class Breakdown extends React.Component {
 
 }
 
-export default Breakdown;
+export default Filters;
