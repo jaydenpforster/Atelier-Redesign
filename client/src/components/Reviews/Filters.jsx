@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterBars from './FilterBars.jsx';
+import FilterBar from './FilterBar.jsx';
 
 
 class Filters extends React.Component {

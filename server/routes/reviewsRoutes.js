@@ -3,27 +3,35 @@ const router = express();
 const rev = require('./reviewsHelpers');
 
 
-router.get('/ratings', (req, res) => {
+router.get('/reviews', (req, res) => {
   let productId = req.query.id;
   rev.getReviews(productId)
     .then((product) => {
-      console.log('PROD: ', product)
-      return rev.getProductRating(product.data.results);
-    })
-    .then((data) => {
-      res.send({
-        total: data.total,
-        average: data.average});
+      res.send(product.results);
     })
     .catch((err) => {
       console.log('Err: ', err);
     })
 })
 
-router.get('/reviews', (req, res) => {
-  //use rev.getReviews(productId)
-    //then use rev.getRecPercentage
-      //then send reviews and percentage here
+// router.get('/reviews', (req, res) => {
+//   //use rev.getReviews(productId)
+//     //then use rev.getRecPercentage
+//       //then send reviews and percentage here
+// })
+
+router.get('/meta', (req, res) => {
+  let productId = req.query.id;
+  rev.getMetaData(productId)
+    .then((data) => {
+      return rev.filterMetaData(data)
+    })
+    .then((data) => {
+      res.send(data)
+    })
+    .catch((err) => {
+      console.log('ERROR in /meta router: ', err)
+    })
 })
 
 

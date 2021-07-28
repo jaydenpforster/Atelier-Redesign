@@ -1,8 +1,9 @@
 import React from 'react';
 
 
-let QuarterStars = (props) => {
+let Stars = (props) => {
   //need to send rating through props
+
   let ratingBefore = props.rating || 0;
   let rating = props.rating || 0;
 
@@ -46,4 +47,4 @@ let QuarterStars = (props) => {
   );
 };
 
-export default QuarterStars;
+export default Stars;

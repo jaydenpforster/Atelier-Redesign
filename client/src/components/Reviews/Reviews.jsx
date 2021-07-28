@@ -1,35 +1,38 @@
 import React from 'react';
 import $ from 'jquery';
-import QuarterStars from './Stars.jsx';
+import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
-import Filters from './Filters.jsx';
+// import Filters from './Filters.jsx';
+import Factors from './Factors.jsx';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 0,
-      total: 0
-      //recommend percentage
+      reviews: [],
+      metaData: {}
     }
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.getStarRating = this.getStarRating.bind(this);
+    this.getReviews = this.getReviews.bind(this);
+    this.getMetaData = this.getMetaData.bind(this);
   }
 
   componentDidMount() {
-    this.getStarRating();
+    this.getReviews();
+    this.getMetaData();
   }
 
-  getStarRating() {
+
+  getReviews() {
     $.ajax({
       type: 'get',
-      url: 'http://localhost:4000/reviews/ratings',
+      url: 'http://localhost:4000/reviews/reviews',
       data: {id: '28212'},
       success: (response) => {
-        this.setState({
-          rating: response.average,
-          total: response.total
-        });
+        console.log('getReviews Client response: ', response);
+        // this.setState({
+
+        // });
       },
       error: (err) => {
         console.log('Error in getStarRating(): ', err);
@@ -37,11 +40,27 @@ class RatingsAndReviews extends React.Component {
     })
   }
 
+  getMetaData() {
+    //ajax request to get meta data characteristics
+    $.ajax({
+      type: 'get',
+      url: 'http://localhost:4000/reviews/meta',
+      data: {id: '28212'},
+      success: (response) => {
+        console.log('metaData Client response: ', response)
+      },
+      error: (err) => {
+        console.log('Error in getCharacteristics(): ', err);
+      }
+    })
+  }
+
   render() {
     return (
       <div>
-        <QuarterStars rating={this.state.rating}/>
-        <Sort rating={this.state.total} />
+        <Stars rating={this.state.metaData}/>
+        <Sort rating={this.state.metaData} />
+        <Factors />
       </div>
     )
   }

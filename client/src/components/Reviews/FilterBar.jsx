@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class FilterBars extends React.Component {
+class FilterBar extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -32,4 +32,4 @@ class FilterBars extends React.Component {
 
 
 
-export default FilterBars;
+export default FilterBar;
