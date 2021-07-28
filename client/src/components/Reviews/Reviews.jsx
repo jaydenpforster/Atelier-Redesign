@@ -29,10 +29,9 @@ class RatingsAndReviews extends React.Component {
       url: 'http://localhost:4000/reviews/reviews',
       data: {id: '28212'},
       success: (response) => {
-        console.log('getReviews Client response: ', response);
-        // this.setState({
-
-        // });
+        this.setState({
+          reviews: response
+        });
       },
       error: (err) => {
         console.log('Error in getStarRating(): ', err);
@@ -47,7 +46,9 @@ class RatingsAndReviews extends React.Component {
       url: 'http://localhost:4000/reviews/meta',
       data: {id: '28212'},
       success: (response) => {
-        console.log('metaData Client response: ', response)
+        this.setState({
+          metaData: response
+        });
       },
       error: (err) => {
         console.log('Error in getCharacteristics(): ', err);
@@ -58,8 +59,8 @@ class RatingsAndReviews extends React.Component {
   render() {
     return (
       <div>
-        <Stars rating={this.state.metaData}/>
-        <Sort rating={this.state.metaData} />
+        <Stars ratings={this.state.metaData.ratings} />
+        {/* <Sort rating={this.state.metaData} /> */}
         <Factors />
       </div>
     )

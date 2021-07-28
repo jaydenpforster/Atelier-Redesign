@@ -82,10 +82,10 @@ exports[`App Test that App renders 1`] = `
       </h1>
       <div>
         <div
-          className="single-star-container"
+          className="star-box"
         >
           <div
-            className="single-star-fill"
+            className="star-filled-in"
             style={
               Object {
                 "width": "0px",
@@ -94,16 +94,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-              className="single-star-outline"
+              className="star-outline"
               src="star.png"
             />
           </div>
         </div>
         <div
-          className="single-star-container"
+          className="star-box"
         >
           <div
-            className="single-star-fill"
+            className="star-filled-in"
             style={
               Object {
                 "width": "0px",
@@ -112,16 +112,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-              className="single-star-outline"
+              className="star-outline"
               src="star.png"
             />
           </div>
         </div>
         <div
-          className="single-star-container"
+          className="star-box"
         >
           <div
-            className="single-star-fill"
+            className="star-filled-in"
             style={
               Object {
                 "width": "0px",
@@ -130,16 +130,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-              className="single-star-outline"
+              className="star-outline"
               src="star.png"
             />
           </div>
         </div>
         <div
-          className="single-star-container"
+          className="star-box"
         >
           <div
-            className="single-star-fill"
+            className="star-filled-in"
             style={
               Object {
                 "width": "0px",
@@ -148,16 +148,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-              className="single-star-outline"
+              className="star-outline"
               src="star.png"
             />
           </div>
         </div>
         <div
-          className="single-star-container"
+          className="star-box"
         >
           <div
-            className="single-star-fill"
+            className="star-filled-in"
             style={
               Object {
                 "width": "0px",
@@ -166,19 +166,14 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-              className="single-star-outline"
+              className="star-outline"
               src="star.png"
             />
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <h4>
-        0
-         reviews
-      </h4>
-    </div>
+    <div />
   </div>
 </div>
 `;

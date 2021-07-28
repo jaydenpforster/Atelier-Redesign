@@ -1,11 +1,25 @@
 import React from 'react';
 
-
 let Stars = (props) => {
-  //need to send rating through props
+  //getting and calculating the average rating
+  let ratingsObject = props.ratings;
+  let totalOfRatings = 0;
+  let howManyRatings = 0;
+  let averageRating;
 
-  let ratingBefore = props.rating || 0;
-  let rating = props.rating || 0;
+  for (let rating in ratingsObject) {
+    howManyRatings++;
+    totalOfRatings += (rating * ratingsObject[rating])
+  }
+  if (howManyRatings === 0) {
+    averageRating = 0;
+  } else {
+    averageRating = (totalOfRatings / howManyRatings);
+    averageRating = Number((averageRating).toFixed(1));
+  }
+
+  let ratingBefore = averageRating;
+  let rating = averageRating;
 
   let stars = [];
   while (stars.length < 5) {
@@ -35,9 +49,9 @@ let Stars = (props) => {
       <div>
         {stars.map((item, i) => {
           return (
-            <div className="single-star-container" key={i}>
-              <div className="single-star-fill" style={{'width': `${parseInt(item*31)}px`}}>
-                <img className="single-star-outline" src="star.png" alt="stars alt"></img>
+            <div className="star-box" key={i}>
+              <div className="star-filled-in" style={{'width': `${parseInt(item * 31)}px`}}>
+                <img className="star-outline" src="star.png" alt="stars alt"></img>
               </div>
             </div>
           );

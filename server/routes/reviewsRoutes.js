@@ -22,7 +22,8 @@ router.get('/reviews', (req, res) => {
 
 router.get('/meta', (req, res) => {
   let productId = req.query.id;
-  rev.getMetaData(productId)
+  let sortOption = req.query.sort;
+  rev.getMetaData(productId, sortOption)
     .then((data) => {
       return rev.filterMetaData(data)
     })

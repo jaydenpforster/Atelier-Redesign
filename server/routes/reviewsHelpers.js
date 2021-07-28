@@ -1,11 +1,12 @@
 const axios = require('axios');
 const config = require('../../config.js');
 
-const getReviews = (productId) => {
+const getReviews = (productId, sortOption) => {
+  sortOption = sortOption || 'relevant';
   return new Promise((resolve, reject) => {
     axios({
       method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&sort=${sortOption}`,
       headers: {
         'User-Agent': 'request',
         'Authorization': config.TOKEN
