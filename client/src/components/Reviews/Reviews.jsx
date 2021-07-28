@@ -62,10 +62,8 @@ class RatingsAndReviews extends React.Component {
         <Stars ratings={this.state.metaData.ratings} />
         <RatingBreakdown
           metaData={this.state.metaData}
-          reviews={this.state.reviews}
-        />
-
-        {/* <Sort rating={this.state.metaData} /> */}
+          reviews={this.state.reviews} />
+        <Sort getReviews={this.getReviews} />
         <Factors />
       </div>
     )

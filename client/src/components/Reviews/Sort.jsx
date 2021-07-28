@@ -13,12 +13,13 @@ class Sort extends React.Component {
     //helpful
     //newest
     //relevance DEFAULT (combo of helpful and newest)
+    // perhaps send the get request from Reviews.jsx with the sortOption
+      //this.props.getReviews
   }
 
   render() {
     return (
       <div>
-        <h4>{this.props.rating} reviews</h4>
         {/*dropdown should go hear with onClick={this.handleClick}*/}
       </div>
     )

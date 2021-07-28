@@ -58,6 +58,7 @@ let Stars = (props) => {
           );
         })}
       </div>
+      <h4>{totalOfRatings} reviews</h4>
     </div>
   );
 };
