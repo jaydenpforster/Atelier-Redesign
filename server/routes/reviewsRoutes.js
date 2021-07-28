@@ -11,14 +11,8 @@ router.get('/reviews', (req, res) => {
     })
     .catch((err) => {
       console.log('Err: ', err);
-    })
-})
-
-// router.get('/reviews', (req, res) => {
-//   //use rev.getReviews(productId)
-//     //then use rev.getRecPercentage
-//       //then send reviews and percentage here
-// })
+    });
+});
 
 router.get('/meta', (req, res) => {
   let productId = req.query.id;
@@ -32,8 +26,8 @@ router.get('/meta', (req, res) => {
     })
     .catch((err) => {
       console.log('ERROR in /meta router: ', err)
-    })
-})
+    });
+});
 
 
 module.exports = router;

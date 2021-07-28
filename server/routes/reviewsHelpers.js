@@ -21,27 +21,6 @@ const getReviews = (productId, sortOption) => {
   });
 }
 
-// const getProductRating = (resultsArr) => {
-//   return new Promise((resolve, reject) => {
-//     let howManyAndAverage = {};
-//     let sumRatings = 0;
-//     let howManyRatings = 0;
-//     for (let i = 0; i < resultsArr.length; i++) {
-//       let currentReview = resultsArr[i];
-//       sumRatings += currentReview.rating;
-//       howManyRatings++;
-//     }
-//     let averageRating = sumRatings / howManyRatings;
-
-//     averageRating = Number((averageRating).toFixed(1))
-
-//     howManyAndAverage['total'] = howManyRatings;
-//     howManyAndAverage['average'] = averageRating;
-//     resolve(howManyAndAverage);
-//   })
-// }
-
-
 const getMetaData = (productId) => {
   return new Promise((resolve, reject) => {
     axios({

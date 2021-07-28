@@ -18,6 +18,7 @@ let Stars = (props) => {
     averageRating = Number((averageRating).toFixed(1));
   }
 
+  //applying average rating to stars
   let ratingBefore = averageRating;
   let rating = averageRating;
 

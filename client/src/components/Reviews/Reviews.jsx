@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
-// import Filters from './Filters.jsx';
+import RatingBreakdown from './RatingBreakdown.jsx';
 import Factors from './Factors.jsx';
 
 class RatingsAndReviews extends React.Component {
@@ -12,7 +12,7 @@ class RatingsAndReviews extends React.Component {
       reviews: [],
       metaData: {}
     }
-    this.componentDidMount = this.componentDidMount.bind(this);
+
     this.getReviews = this.getReviews.bind(this);
     this.getMetaData = this.getMetaData.bind(this);
   }
@@ -21,7 +21,6 @@ class RatingsAndReviews extends React.Component {
     this.getReviews();
     this.getMetaData();
   }
-
 
   getReviews() {
     $.ajax({
@@ -57,9 +56,15 @@ class RatingsAndReviews extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <Stars ratings={this.state.metaData.ratings} />
+        <RatingBreakdown
+          metaData={this.state.metaData}
+          reviews={this.state.reviews}
+        />
+
         {/* <Sort rating={this.state.metaData} /> */}
         <Factors />
       </div>
