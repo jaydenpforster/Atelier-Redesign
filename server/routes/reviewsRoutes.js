@@ -11,7 +11,9 @@ router.get('/reviews', (req, res) => {
       return rev.getProductRating(product.data.results);
     })
     .then((data) => {
-      res.send({average: data});
+      res.send({
+        total: data.total,
+        average: data.average});
     })
     .catch((err) => {
       console.log('Err: ', err);

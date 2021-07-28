@@ -22,6 +22,7 @@ const getReviews = (productId) => {
 
 const getProductRating = (resultsArr) => {
   return new Promise((resolve, reject) => {
+    let howManyAndAverage = {};
     let sumRatings = 0;
     let howManyRatings = 0;
     for (let i = 0; i < resultsArr.length; i++) {
@@ -32,7 +33,10 @@ const getProductRating = (resultsArr) => {
     let averageRating = sumRatings / howManyRatings;
 
     averageRating = Number((averageRating).toFixed(1))
-    resolve(averageRating);
+
+    howManyAndAverage['total'] = howManyRatings;
+    howManyAndAverage['average'] = averageRating;
+    resolve(howManyAndAverage);
   })
 }
 
