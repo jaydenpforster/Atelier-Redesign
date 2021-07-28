@@ -41,7 +41,7 @@ const getProductRating = (resultsArr) => {
   })
 }
 
-const getRecommendationPercentage = (resultsArr) => {
+const getRecPercentage = (resultsArr) => {
   //data.data.results is an array of objects
     //then check recommend
 }
@@ -53,7 +53,8 @@ const getRecommendationPercentage = (resultsArr) => {
 
 module.exports = {
   getReviews,
-  getProductRating
+  getProductRating,
+  getRecPercentage
 }
 
 

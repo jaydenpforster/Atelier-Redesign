@@ -22,7 +22,8 @@ router.get('/ratings', (req, res) => {
 
 router.get('/reviews', (req, res) => {
   //use rev.getReviews(productId)
-    //either send reviews back here or incorporate them into above
+    //then use rev.getRecPercentage
+      //then send reviews and percentage here
 })
 
 

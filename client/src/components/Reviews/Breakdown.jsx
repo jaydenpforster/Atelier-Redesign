@@ -6,25 +6,24 @@ class Breakdown extends React.Component {
   constructor() {
     super();
     this.state = {
-      reviews: []
+      reviews: [],
+      percentage: 0
     }
     //binding
   }
 
-  //ajax request to get array of reviews
+  //ajax request to get array of reviews and percentage recommended
     //send to 'http://localhost:4000/reviews/reviews',
 
-  //handleClick
-    //will display reviews of that many stars when clicked
-      //additive
-      //toggles
 
   render() {
     return(
       <div>
         {/* {send reviews data to be mapped to BreakdowBars} */}
         {/* product breakdown form will go here */}
-        {/* must have onClick handler for 5star, 4star, 3star, 2star, 1star */}
+
+        {/* The percentage of reviews that ‘recommend’
+        the product will be displayed below the breakdown. */}
       </div>
     )
   }
