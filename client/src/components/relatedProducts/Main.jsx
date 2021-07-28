@@ -52,8 +52,6 @@ class Main extends React.Component {
     return(
       <div>
         <h2>Related Products</h2>
-        {console.log('Product Info', this.state.productInfo)}
-        {console.log('Product DEtail Info', this.state.productDetailInfo)}
         <ProductCard info={this.state.productInfo} detailInfo={this.state.productDetailInfo}/>
         <h2 className="yourOutfitTitle">Your Outfit</h2>
         <YourOutfit />
