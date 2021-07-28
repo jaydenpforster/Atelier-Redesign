@@ -12,6 +12,7 @@ const getReviews = (productId) => {
       }
     })
       .then((data) => {
+        // console.log('I AM REVIEWS obj: ', data.data.results)
         resolve(data);
       })
       .catch((err) => {
@@ -39,6 +40,16 @@ const getProductRating = (resultsArr) => {
     resolve(howManyAndAverage);
   })
 }
+
+const getRecommendationPercentage = (resultsArr) => {
+  //data.data.results is an array of objects
+    //then check recommend
+}
+
+
+//going to need to use promise.all
+
+
 
 module.exports = {
   getReviews,

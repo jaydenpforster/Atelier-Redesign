@@ -21,7 +21,7 @@ class Main extends React.Component {
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        console.log('Success', data);
+        // console.log('Success', data);
       },
       error: (data) => {
         console.log('Error', data);
@@ -33,7 +33,7 @@ class Main extends React.Component {
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        console.log('SECOND DATA', data);
+        // console.log('SECOND DATA', data);
       },
       error: (data) => {
         console.log('SECOND ERROR', data);

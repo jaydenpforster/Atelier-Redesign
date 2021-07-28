@@ -28,7 +28,7 @@ const getProductID = (productId) => {
           })
 
             .then((relatedInfo) => {
-              console.log('DATA===', relatedInfo.data)
+              // console.log('DATA===', relatedInfo.data)
               return users.push(relatedInfo.data);
               // console.log('HERE==', relatedInfo.data)
             }))

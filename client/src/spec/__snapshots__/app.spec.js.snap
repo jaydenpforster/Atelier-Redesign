@@ -77,96 +77,107 @@ exports[`App Test that App renders 1`] = `
   <br />
   <div>
     <div>
-      <div
-        className="single-star-container"
-      >
+      <h1>
+        0
+      </h1>
+      <div>
         <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
+          className="single-star-container"
         >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
+          <div
+            className="single-star-fill"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="single-star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="single-star-container"
+        >
+          <div
+            className="single-star-fill"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="single-star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="single-star-container"
+        >
+          <div
+            className="single-star-fill"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="single-star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="single-star-container"
+        >
+          <div
+            className="single-star-fill"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="single-star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="single-star-container"
+        >
+          <div
+            className="single-star-fill"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="single-star-outline"
+              src="star.png"
+            />
+          </div>
         </div>
       </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
-      </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
-      </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
-      </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
-      </div>
+    </div>
+    <div>
+      <h4>
+        0
+         reviews
+      </h4>
     </div>
   </div>
 </div>

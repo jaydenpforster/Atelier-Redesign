@@ -3,7 +3,7 @@ const router = express();
 const rev = require('./reviewsHelpers');
 
 
-router.get('/reviews', (req, res) => {
+router.get('/ratings', (req, res) => {
   let productId = req.query.id;
   rev.getReviews(productId)
     .then((product) => {
@@ -18,6 +18,11 @@ router.get('/reviews', (req, res) => {
     .catch((err) => {
       console.log('Err: ', err);
     })
+})
+
+router.get('/reviews', (req, res) => {
+  //use rev.getReviews(productId)
+    //either send reviews back here or incorporate them into above
 })
 
 

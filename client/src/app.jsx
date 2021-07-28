@@ -18,7 +18,6 @@ class App extends React.Component {
 
       <div>
         <h1></h1>
-        {console.log(this.state)}
         <Main />
         <br>
         </br>

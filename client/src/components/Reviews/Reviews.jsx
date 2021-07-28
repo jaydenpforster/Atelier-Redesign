@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import QuarterStars from './Stars.jsx';
 import Sort from './Sort.jsx';
+import Breakdown from './Breakdown.jsx';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       rating: 0,
       total: 0
+      //recommend percentage
     }
     this.componentDidMount = this.componentDidMount.bind(this);
     this.getStarRating = this.getStarRating.bind(this);
@@ -21,7 +23,7 @@ class RatingsAndReviews extends React.Component {
   getStarRating() {
     $.ajax({
       type: 'get',
-      url: 'http://localhost:4000/reviews/reviews',
+      url: 'http://localhost:4000/reviews/ratings',
       data: {id: '28212'},
       success: (response) => {
         this.setState({
