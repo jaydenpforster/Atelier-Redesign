@@ -1,7 +1,7 @@
-.productCard {
+.eachCard {
   border-style: solid;
   border-width: 1px;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .yourOutfitCard {
