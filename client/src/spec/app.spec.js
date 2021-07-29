@@ -1,3 +1,5 @@
+/*eslint-env es6*/
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';

@@ -1,6 +1,7 @@
+/*eslint-env es6*/
 const express = require('express');
 const router = express();
-// const axios = require('axios');
+
 const getOverviewInfo = require('./getOverviewInfo');
 
 router.get('/product', (req, res) => {

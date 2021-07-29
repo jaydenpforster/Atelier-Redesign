@@ -4,7 +4,8 @@
   "description": "Cheddar FEC",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config ./jest.config.json",
+    "test": "jest",
+    "test:overview": "jest overview.spec.js",
     "build:dev": "webpack -w",
     "start": "nodemon ./server/server.js",
     "sass": "sass --watch client/dist/styles.scss output.css"
@@ -29,6 +30,7 @@
     "@babel/plugin-syntax-jsx": "^7.14.5",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "del-cli": "^4.0.1",
     "express": "^4.17.1",
     "jquery": "^3.6.0",
     "nodemon": "^2.0.12",

@@ -1,25 +1,7 @@
-const axios = require('axios');
-const config = require('../config.js');
-// import axios from 'axios'
-// import config from '../config.js'
+/*eslint-env es6*/const axios = require('axios');
 
-// const getFirstProduct = () => {
-//   return axios({
-//     method: 'GET',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/1`,
-//     headers: {
-//       'User-Agent': 'request',
-//       'Authorization': config.TOKEN
-//     }
-//   })
-//     .then(something => {
-//       console.log('file: helper something', something)
-//       return something
-//     })
-//     .catch(data => {
-//       console.error('file helper: getFirstProduct data', data)
-//     })
-// };
+const config = require('../config.js');
+
 const getProduct = (productID) => {
   if (!productID) { productID = 28212 }
   return new Promise((resolve, reject) => {
@@ -63,3 +45,9 @@ module.exports = {
   getProductStyles,
   getProduct,
 }
+
+
+
+
+
+
