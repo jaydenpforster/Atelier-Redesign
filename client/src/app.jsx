@@ -2,8 +2,13 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import ReactDOM from 'react-dom';
 import Main from './components/relatedProducts/Main.jsx';
+<<<<<<< HEAD
 import Overview from './components/overview/overview.jsx';
 import $ from 'jquery';
+=======
+// import $ from 'jquery';
+import RatingsAndReviews from './components/Reviews/Reviews.jsx';
+>>>>>>> 6115ae46967e5ad1adf303c873410a7b63c6625f
 
 class App extends React.Component {
   constructor(props) {
@@ -13,27 +18,16 @@ class App extends React.Component {
     }
   }
 
-  onEnter() {
-    this.setState({
-      hovered: true
-    });
-  }
-
-  onExit() {
-    this.setState({
-      hovered: false
-    });
-  }
-
   render() {
     return (
 
       <div>
-        <h1 onMouseEnter={this.onEnter.bind(this)} onMouseLeave={this.onExit.bind(this)}>H1 Element</h1>
-        <Overview />
-        <br></br><br></br><br></br><br></br><br></br><br></br>
+        <h1></h1>
         {console.log(this.state)}
         <Main />
+        <br>
+        </br>
+        <RatingsAndReviews />
       </div>
 
     )
