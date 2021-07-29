@@ -20,7 +20,6 @@ class RatingBreakdown extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (this.props.metaData !== prevProps.metaData) {
       this.calculatePercentage();
       this.calculateReviewTotals();
