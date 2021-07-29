@@ -11,14 +11,14 @@ class YourOutfit extends React.Component {
   render() {
     return(
       <div className="yourOutfitCard">
-      <div className="img">
-        X
+        <div className="img">
+          X
+        </div>
+        <div className="cardCategory">Category</div>
+        <div className="expProductName">Expanded product name with extra text</div>
+        <div className="cardPrice">$80.00</div>
+        <div className="cardRating">*****</div>
       </div>
-      <div className="cardCategory">Category</div>
-      <div className="expProductName">Expanded product name with extra text</div>
-      <div className="cardPrice">$80.00</div>
-      <div className="cardRating">*****</div>
-    </div>
     )
   }
 

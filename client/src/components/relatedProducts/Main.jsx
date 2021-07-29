@@ -9,7 +9,8 @@ class Main extends React.Component {
     super(props);
     this.state = {
       productId: '28212',
-
+      productInfo: [],
+      productDetailInfo: []
     }
   }
 
@@ -22,6 +23,9 @@ class Main extends React.Component {
       data: {id: this.state.productId},
       success: (data) => {
         console.log('Success', data);
+        this.setState({
+          productInfo: data
+        })
       },
       error: (data) => {
         console.log('Error', data);
@@ -34,18 +38,21 @@ class Main extends React.Component {
       data: {id: this.state.productId},
       success: (data) => {
         console.log('SECOND DATA', data);
+        this.setState({
+          productDetailInfo: data
+        })
       },
       error: (data) => {
         console.log('SECOND ERROR', data);
       }
     });
-  };
+  }
 
   render() {
     return(
       <div>
         <h2>Related Products</h2>
-        <ProductCard />
+        <ProductCard info={this.state.productInfo} detailInfo={this.state.productDetailInfo}/>
         <h2 className="yourOutfitTitle">Your Outfit</h2>
         <YourOutfit />
       </div>

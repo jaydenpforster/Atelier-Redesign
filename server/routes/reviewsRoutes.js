@@ -7,7 +7,7 @@ router.get('/reviews', (req, res) => {
   let productId = req.query.id;
   rev.getReviews(productId)
     .then((product) => {
-      console.log('PROD: ', product)
+      // console.log('PROD: ', product)
       return rev.getProductRating(product.data.results);
     })
     .then((data) => {
