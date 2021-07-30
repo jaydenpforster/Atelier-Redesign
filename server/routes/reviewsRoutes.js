@@ -7,15 +7,7 @@ router.get('/reviews', (req, res) => {
   let productId = req.query.id;
   rev.getReviews(productId)
     .then((product) => {
-<<<<<<< HEAD
       res.send(product.results);
-=======
-      // console.log('PROD: ', product)
-      return rev.getProductRating(product.data.results);
-    })
-    .then((data) => {
-      res.send({average: data});
->>>>>>> 6115ae46967e5ad1adf303c873410a7b63c6625f
     })
     .catch((err) => {
       console.log('Err: ', err);

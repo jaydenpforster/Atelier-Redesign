@@ -27,10 +27,6 @@ const getProductID = (productId) => {
             }
           })
             .then((relatedInfo) => {
-<<<<<<< HEAD
-              // console.log('DATA===', relatedInfo.data)
-=======
->>>>>>> 6115ae46967e5ad1adf303c873410a7b63c6625f
               return users.push(relatedInfo.data);
             }))
       }
