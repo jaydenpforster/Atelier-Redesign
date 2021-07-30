@@ -1,27 +1,55 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import Overview from './components/overview/overview.jsx';
 import Main from './components/relatedProducts/Main.jsx';
-// import $ from 'jquery';
+// import QandA from './components/QandA/QandA.jsx';
 import RatingsAndReviews from './components/Reviews/Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
+      starRating: '',
       hovered: false
     }
+
+    //bind
   }
+
+  //GET REQUESTS
+
+  //Overview
+    //productId
+    //style
+    //stars
+
+  //Related Products / Main
+    //productId
+    //style
+    //stars
+
+  //QandA
+    //...
+
+  //Revies
+    //productId
+    //stars
 
   render() {
     return (
 
       <div>
-        <h1></h1>
         {console.log(this.state)}
+        <h1></h1>
+        <Overview />
+        <br></br>
         <Main />
-        <br>
-        </br>
+        <br></br>
+        <QandA />
+        <br></br>
         <RatingsAndReviews />
       </div>
 
