@@ -11,9 +11,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
-      starRating: '',
+      // productId: 'GET /products/:product_id',
+      // starRating: '',
+      // reviews: 'GET /reviews/
+      // metaData: 'GET /reviews/meta',
+      // cart: 'GET /cart
+      // styles: 'GET /products/:product_id/styles',
+      // relatedProducts: 'GET /products/:product_id/related',
       hovered: false
+
     }
 
     //bind
@@ -25,6 +31,7 @@ class App extends React.Component {
     //productId
     //style
     //stars
+    //cart
 
   //Related Products / Main
     //productId
@@ -36,7 +43,8 @@ class App extends React.Component {
 
   //Revies
     //productId
-    //stars
+    //stars / reviews
+    //metadata
 
   render() {
     return (
@@ -48,7 +56,7 @@ class App extends React.Component {
         <br></br>
         <Main />
         <br></br>
-        <QandA />
+        {/* <QandA /> */}
         <br></br>
         <RatingsAndReviews />
       </div>
