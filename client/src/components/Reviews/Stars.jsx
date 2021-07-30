@@ -46,6 +46,7 @@ let Stars = (props) => {
 
   return (
     <div>
+      <strong>!!!Average Rating and Stars Here!!!</strong>
       <h1>{ratingBefore}</h1>
       <div>
         {stars.map((item, i) => {

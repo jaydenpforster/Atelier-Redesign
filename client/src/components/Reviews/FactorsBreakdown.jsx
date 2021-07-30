@@ -2,7 +2,7 @@ import React from 'react';
 import FactorBar from './FactorBar.jsx';
 import $ from 'jquery';
 
-class ProductFactorsBreakdown extends React.Component {
+class FactorsBreakdown extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -20,6 +20,9 @@ class ProductFactorsBreakdown extends React.Component {
   render() {
     return (
       <div>
+        <strong>!!!Factors Breakdown Here!!!</strong>
+        <FactorBar />
+        <FactorBar />
         {/* Each characteristic will be mapped out to FactorBar.jsx*/}
       </div>
     )
@@ -28,4 +31,4 @@ class ProductFactorsBreakdown extends React.Component {
 }
 
 
-export default ProductFactorsBreakdown;
+export default FactorsBreakdown;

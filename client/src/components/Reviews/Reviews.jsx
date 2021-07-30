@@ -3,11 +3,11 @@ import $ from 'jquery';
 import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
-import ProductFactorsBreakdown from './ProductFactorsBreakdown.jsx';
+import FactorsBreakdown from './FactorsBreakdown.jsx';
 import ReviewTiles from './ReviewTiles.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
-class RatingsAndReviews extends React.Component {
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,11 +66,24 @@ class RatingsAndReviews extends React.Component {
     return (
       <div>
         <Stars ratings={this.state.metaData.ratings} />
+
+        <br></br>
+
         <RatingBreakdown
           metaData={this.state.metaData}
           reviews={this.state.reviews} />
+
+        <br></br>
+
+        <FactorsBreakdown />
+
+        <br></br>
+
         <Sort getReviews={this.getReviews} />
-        <ProductFactorsBreakdown />
+
+        <br></br>
+
+        <ReviewTiles />
         {/* more reviews button with onClick */}
         {/* add a review button with onClick*/}
       </div>
@@ -80,4 +93,4 @@ class RatingsAndReviews extends React.Component {
 }
 
 
-export default RatingsAndReviews;
+export default Reviews;

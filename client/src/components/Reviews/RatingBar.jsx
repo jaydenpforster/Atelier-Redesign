@@ -22,7 +22,7 @@ class RatingBar extends React.Component {
     // then the total number of reviews with that particular rating
     return (
       <div>
-        null
+        <strong>!!!Rating Bar Here!!!</strong>
         {/* ex. 5 Stars ____________----- (2) */}
         {/* must have onClick handler for 5star, 4star, 3star, 2star, 1star */}
       </div>

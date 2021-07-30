@@ -14,6 +14,11 @@ const SingleTile = (props) => {
   //rating helpfulness
     //Helpful? with ability to click and cast vote
       //if yes, can't select yes again
+    return (
+      <div>
+        !!!Single Review Tile Here!!!
+      </div>
+    )
 }
 
 export default SingleTile;

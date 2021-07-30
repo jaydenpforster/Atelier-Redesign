@@ -55,11 +55,13 @@ class RatingBreakdown extends React.Component {
       <div>
         {/* maybe if I turn these into an array I can map it into RatingBar */}
         {/* make number of reviews clickable to then display the reviews */}
-        5 stars: {this.state.five} *RatingBar here* <br></br>
-        4 stars: {this.state.four} *RatingBar here* <br></br>
-        3 stars: {this.state.three} *RatingBar here* <br></br>
-        2 stars: {this.state.two} *RatingBar here* <br></br>
-        1 stars: {this.state.one} *RatingBar here* <br></br>
+        <strong>!!!Rating Breakdown Here!!!</strong>
+        <br></br>
+        5 stars: {this.state.five} <RatingBar /> <br></br>
+        4 stars: {this.state.four} <RatingBar /> <br></br>
+        3 stars: {this.state.three} <RatingBar /> <br></br>
+        2 stars: {this.state.two} <RatingBar /> <br></br>
+        1 stars: {this.state.one} <RatingBar /> <br></br>
 
         <h3>{this.state.percentage}% of reviews recommend this product</h3>
       </div>
