@@ -1,0 +1,40 @@
+.eachCard {
+  border-style: solid;
+  border-width: 1px;
+  max-width: 300px;
+}
+
+.yourOutfitCard {
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 200px;
+}
+
+.yourOutfitTitle {
+  margin-top: 50px;
+}
+
+.cardImg {
+  max-width: 200px;
+}
+
+.single-star-outline {
+  height: 36px;
+  width: 31px;
+}
+
+.single-star-fill {
+  position: relative;
+  display: inline-block;
+  height: 36px;
+  background-color: #333333;
+}
+
+.single-star-container {
+  height: 36px;
+  width: 31px;
+  display: inline-block;
+}
+
+

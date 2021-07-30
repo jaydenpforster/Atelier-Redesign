@@ -8,19 +8,24 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      placeHolder: []
+      productId: '28212',
+      productInfo: [],
+      productDetailInfo: []
     }
   }
 
-//props will be the Product ID coming from Overview
+  //props will be the Product ID coming from Overview
 
   componentDidMount() {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/relatedProducts',
       type: 'GET',
-      data: {id: '28212'},
+      data: {id: this.state.productId},
       success: (data) => {
         console.log('Success', data);
+        this.setState({
+          productInfo: data
+        })
       },
       error: (data) => {
         console.log('Error', data);
@@ -30,21 +35,24 @@ class Main extends React.Component {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/styles',
       type: 'GET',
-      data: {id: '28212'},
+      data: {id: this.state.productId},
       success: (data) => {
         console.log('SECOND DATA', data);
+        this.setState({
+          productDetailInfo: data
+        })
       },
       error: (data) => {
         console.log('SECOND ERROR', data);
       }
     });
-  };
+  }
 
   render() {
     return(
       <div>
         <h2>Related Products</h2>
-        <ProductCard />
+        <ProductCard info={this.state.productInfo} detailInfo={this.state.productDetailInfo}/>
         <h2 className="yourOutfitTitle">Your Outfit</h2>
         <YourOutfit />
       </div>
@@ -53,5 +61,3 @@ class Main extends React.Component {
 }
 
 export default Main;
-
-// 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

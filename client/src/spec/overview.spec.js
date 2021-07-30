@@ -6,7 +6,7 @@ import Overview from '../components/overview/overview.jsx';
 
 
 describe('My Test Suite', () => {
-  it('My Test Case', () => {
+  test('My Test Case', () => {
     expect(true).toEqual(true);
   });
 });
