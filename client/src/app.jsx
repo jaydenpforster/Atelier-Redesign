@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
 import Main from './components/relatedProducts/Main.jsx';
 // import QandA from './components/QandA/QandA.jsx';
-import RatingsAndReviews from './components/Reviews/Reviews.jsx';
+import Reviews from './components/Reviews/Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class App extends React.Component {
     return (
 
       <div>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
         <h1></h1>
         <Overview />
         <br></br>
@@ -58,7 +58,7 @@ class App extends React.Component {
         <br></br>
         {/* <QandA /> */}
         <br></br>
-        <RatingsAndReviews />
+        <Reviews />
       </div>
 
     )
