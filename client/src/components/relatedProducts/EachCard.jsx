@@ -9,7 +9,7 @@ const EachCard = (props) => {
   return (
     <div className="eachCard">
       {console.log(props)}
-      {/* <img onClick={clicked} src={props.info.results[0].photos[0].thumbnail_url}></img> */}
+      <img onClick={clicked} src={props.info.results[0].photos[0].thumbnail_url}></img>
       <img className="cardStar" src="star.png" alt="stars alt"></img>
       <div className="category">{props.info.category}</div>
       <div className="name">{props.info.name}</div>
