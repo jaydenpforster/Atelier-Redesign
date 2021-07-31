@@ -1,6 +1,6 @@
 /*eslint-env es6*/const axios = require('axios');
 
-const config = require('../config.js');
+const config = require('../../config.js');
 
 const getProduct = (productID) => {
   if (!productID) { productID = 28212 }
