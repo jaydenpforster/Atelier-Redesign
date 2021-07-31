@@ -22,9 +22,10 @@ afterEach(() => {
   container = null;
 });
 
-let CardData = {info:
+let cardData = {info:
   {
     id: 28212,
+    results: [{photos: [{thumbnail_url: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80'}]}],
     name: 'Bright Future Sunglasses',
     category: 'accessories',
     description: 'Sweet Sunglasses',
@@ -35,7 +36,7 @@ let CardData = {info:
 it('should render', () => {
   act(() => {
     let div = document.createElement('div');
-    ReactDOM.render(<EachCard info={CardData.info}/>, div);
+    ReactDOM.render(<EachCard info={cardData.info}/>, div);
 
     let element = div.querySelector('.eachCard');
 

@@ -4,7 +4,7 @@
   "description": "Cheddar FEC",
   "main": "index.js",
   "scripts": {
-    "test": "del-cli --force ./client/src/spec/__snapshots__ && jest --config ./jest.config.json",
+    "test": "del-cli --force ./client/src/spec/__snapshots__ && jest --config ./jest.config.json --collectCoverage",
     "test:qna": "jest qna.spec.js",
     "build:dev": "webpack -w",
     "start": "nodemon ./server/server.js",
