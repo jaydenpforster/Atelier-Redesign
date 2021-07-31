@@ -3,8 +3,6 @@ import React from 'react'
 import axios from 'axios'
 import Features from './components/features.jsx'
 import Styles from './components/styles.jsx'
-import Size from './components/size.jsx'
-import Quantity from './components/quantity.jsx'
 
 class Overview extends React.Component {
   constructor(props) {
@@ -20,12 +18,12 @@ class Overview extends React.Component {
     if (!newProduct) { newProduct = 1; }
     axios.get('http://localhost:4000/overview/product')
       .then(productInfo => {
-        console.log('info', productInfo)
+        // console.log('info', productInfo)
         this.setState({
           info: productInfo.data[0],
           styles: productInfo.data[1]
         })
-        console.log('state', this.state.styles)
+        // console.log('state', this.state.styles)
       })
       .catch(err => console.error(err))
   }
@@ -34,8 +32,8 @@ class Overview extends React.Component {
   }
 
   render() {
-    let renderFeatures;
-    let renderStyles;
+    let renderFeatures, renderStyles
+    // let renderStyles;
     if (this.state.info !== '') {
       renderFeatures = <Features features={this.state.info.features} />
       renderStyles = <Styles styles={this.state.styles.results} />

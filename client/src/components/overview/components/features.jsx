@@ -12,15 +12,17 @@ class Features extends React.Component {
 
   makeFeatures() {
     let featuresArr = [];
+    let i = 0;
     for (let feature of this.props.features) {
-      console.log('feature', feature)
-      featuresArr.push(<div id="feature">{feature.feature} {feature.value}</div>)
+      // console.log('feature', feature)
+      featuresArr.push(<div key={i} id="feature">{feature.feature} {feature.value}</div>)
+      i++;
     }
     return <div id="features">{featuresArr}</div>
   }
 
   componentDidMount() {
-    console.log('OUR ARRAY', this.props.features)
+    // console.log('OUR ARRAY', this.props.features)
   }
 
 

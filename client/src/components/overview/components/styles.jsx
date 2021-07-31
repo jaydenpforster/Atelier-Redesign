@@ -20,22 +20,26 @@ class Styles extends React.Component {
 
   renderStyleChoices() {
     let arr = [];
-    console.log('styles?!?!', this.props.styles)
+    let i = 0;
+    // console.log('styles?!?!', this.props.styles)
+    // eslint-disable-next-line react/prop-types
     for (let style of this.props.styles) {
       arr.push(<div
+        key={i}
         onClick={(e) => {
           e.preventDefault()
-          console.log('hi')
-          console.log(style.style_id)
+          // console.log('hi')
+          // console.log(style.style_id)
           this.setState({currentSku: style.style_id})
         }}
         id={style.style_id}>{style.name}</div>)
+      i++;
     }
     return arr;
   }
 
   render() {
-    console.log('styles', this.props.styles)
+    // console.log('styles', this.props.styles)
     let renderSize;
     if (this.props.styles === undefined) {
       renderSize = <div></div>

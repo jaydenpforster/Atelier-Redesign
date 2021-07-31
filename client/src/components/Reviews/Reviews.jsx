@@ -25,7 +25,7 @@ class RatingsAndReviews extends React.Component {
         this.setState({rating: response.average});
       },
       error: (err) => {
-        console.log('Error in getStarRating(): ', err);
+        // console.log('Error in getStarRating(): ', err);
       }
     })
   }

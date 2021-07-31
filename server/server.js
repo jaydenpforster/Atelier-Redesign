@@ -12,10 +12,6 @@ const reviews = require('./routes/reviewsRoutes');
 // const urlencodedParser = bodyParser.urlencoded({ extended: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// const __dirname = path.resolve();
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '/../client/dist')))
 
 // app.use('/overview', overview);
@@ -29,7 +25,7 @@ app.listen(port, () => {
 })
 
 
-app.get('/', (req, res) => {
-  console.log('path: /')
-  res.send('some kind of string')
-})
+// app.get('/', (req, res) => {
+//   // console.log('path: /')
+//   res.send('some kind of string')
+// })

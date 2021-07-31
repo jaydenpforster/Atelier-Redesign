@@ -11,13 +11,15 @@ class Quantity extends React.Component {
   }
   renderQuantity() {
     let amount = this.props.quantity;
-    console.log('Quantity', amount)
+    // console.log('Quantity', amount)
     let arr = [];
+    let i = 0;
     for (let sku in amount) {
       arr.push(amount[sku])
     }
     arr.map(item => {
-      return <option>{item.quantity}</option>
+      i++;
+      return (<option key={i}>{item.quantity}</option>)
     })
   }
 

@@ -4,8 +4,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';
 
+// eslint-disable-next-line no-undef
 describe('Reviews Test Suite', () => {
+  // eslint-disable-next-line no-undef
   it('Reviews Test Case', () => {
+    // eslint-disable-next-line no-undef
     expect(true).toEqual(true);
   });
 });

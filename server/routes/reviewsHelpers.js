@@ -15,12 +15,14 @@ const getReviews = (productId) => {
         resolve(data);
       })
       .catch((err) => {
+        console.error(err);
         reject('ERROR in getReviews: ', err);
       })
   });
 }
 
 const getProductRating = (resultsArr) => {
+  // eslint-disable-next-line no-unused-vars
   return new Promise((resolve, reject) => {
     let sumRatings = 0;
     let howManyRatings = 0;
@@ -34,6 +36,9 @@ const getProductRating = (resultsArr) => {
     averageRating = Number((averageRating).toFixed(1))
     resolve(averageRating);
   })
+
+
+
 }
 
 module.exports = {

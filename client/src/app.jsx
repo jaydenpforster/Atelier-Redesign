@@ -1,14 +1,13 @@
+'use strict';
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import ReactDOM from 'react-dom';
+// eslint-disable-next-line no-unused-vars
 import Main from './components/relatedProducts/Main.jsx';
-<<<<<<< HEAD
-import Overview from './components/overview/overview.jsx';
-import $ from 'jquery';
-=======
 // import $ from 'jquery';
+// eslint-disable-next-line no-unused-vars
 import RatingsAndReviews from './components/Reviews/Reviews.jsx';
->>>>>>> 6115ae46967e5ad1adf303c873410a7b63c6625f
+import Overview from './components/overview/overview.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,11 +22,12 @@ class App extends React.Component {
 
       <div>
         <h1></h1>
-        {console.log(this.state)}
-        <Main />
+        <Overview />
+        {/* {console.log(this.state)} */}
+        {/* <Main /> */}
         <br>
         </br>
-        <RatingsAndReviews />
+        {/* <RatingsAndReviews /> */}
       </div>
 
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ProductCard from './ProductCard.jsx';
 import YourOutfit from './YourOutfit.jsx';
@@ -22,7 +22,7 @@ class Main extends React.Component {
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        console.log('Success', data);
+        // console.log('Success', data);
         this.setState({
           productInfo: data
         })
@@ -37,7 +37,7 @@ class Main extends React.Component {
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        console.log('SECOND DATA', data);
+        // console.log('SECOND DATA', data);
         this.setState({
           productDetailInfo: data
         })
@@ -49,7 +49,7 @@ class Main extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <h2>Related Products</h2>
         <ProductCard info={this.state.productInfo} detailInfo={this.state.productDetailInfo}/>
