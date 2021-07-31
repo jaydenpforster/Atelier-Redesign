@@ -1,31 +1,36 @@
+/* eslint-disable no-undef */
 import React from 'react';
+import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';
+import Reviews from '../components/Reviews/Reviews.jsx';
+import ReviewTiles from '../components/Reviews/ReviewTiles.jsx';
+import 'regenerator-runtime/runtime';
+import {act, render, fireEvent, waitFor, screen} from '@testing-library/react'
+import { unmountComponentAtNode } from "react-dom";
 
-describe('Reviews Test Suite', () => {
-  it('Reviews Test Case', () => {
-    expect(true).toEqual(true);
+
+
+it('should render ReviewTiles component', () => {
+  act(() => {
+    let div = document.createElement('div');
+    ReactDOM.render(<ReviewTiles />, div);
+
+    let element = div.querySelector('.reviewTiles');
+    expect(element.innerHTML).toBe('<strong>!!!Review Tiles Here!!!</strong>');
   });
 });
 
-// describe('App', () => {
-//   test('Test that App renders', () => {
-//     const component = renderer.create(<App ></App>);
+
+// describe('Reviews Component', () => {
+//   test('Test that Reviews Component renders', () => {
+//     const component = renderer.create(<Reviews ></Reviews>);
 //     let tree = component.toJSON();
 //     expect(tree).toMatchSnapshot();
 //   });
 // });
 
 
-const Thumbnail = (props) => {
-  let thumbnailArr = [];
-  for (let i = 0; i < this.props.pics.length; i++) {
-    thumbnailArr.push(<img alt="thumbnail" src={this.props.pics[i].thumbnail_url}></img>)
-  }
-  return (
-    <div>
-      <div>Thumbnail here!</div>
-      {thumbnailArr};
-    </div>
-  )
-}
+
+
+
