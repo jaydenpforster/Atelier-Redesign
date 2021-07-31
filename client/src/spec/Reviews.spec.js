@@ -17,15 +17,3 @@ describe('Reviews Test Suite', () => {
 // });
 
 
-const Thumbnail = (props) => {
-  let thumbnailArr = [];
-  for (let i = 0; i < this.props.pics.length; i++) {
-    thumbnailArr.push(<img alt="thumbnail" src={this.props.pics[i].thumbnail_url}></img>)
-  }
-  return (
-    <div>
-      <div>Thumbnail here!</div>
-      {thumbnailArr};
-    </div>
-  )
-}
