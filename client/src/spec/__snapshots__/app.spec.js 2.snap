@@ -3,20 +3,42 @@
 exports[`App Test that App renders 1`] = `
 <div>
   <h1 />
-<<<<<<< HEAD
-  <div>
-    <div>
-      Overview Here!
-    </div>
-  </div>
-  <br />
   <div>
     <h2>
       Related Products
     </h2>
     <div
       className="productCard"
-    />
+    >
+      <div
+        className="img"
+      >
+        <img
+          className="cardImg"
+          src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+        />
+      </div>
+      <div
+        className="cardCategory"
+      >
+        Category
+      </div>
+      <div
+        className="expProductName"
+      >
+        Expanded product name with extra text
+      </div>
+      <div
+        className="cardPrice"
+      >
+        $80.00
+      </div>
+      <div
+        className="cardRating"
+      >
+        *****
+      </div>
+    </div>
     <h2
       className="yourOutfitTitle"
     >
@@ -52,10 +74,6 @@ exports[`App Test that App renders 1`] = `
       </div>
     </div>
   </div>
-=======
-  <br />
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
-  <br />
   <br />
   <div>
     <div>
@@ -64,17 +82,10 @@ exports[`App Test that App renders 1`] = `
       </h1>
       <div>
         <div
-<<<<<<< HEAD
-          className="single-star-container"
-        >
-          <div
-            className="single-star-fill"
-=======
           className="star-box"
         >
           <div
             className="star-filled-in"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
             style={
               Object {
                 "width": "0px",
@@ -83,27 +94,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-<<<<<<< HEAD
-              className="single-star-outline"
-=======
               className="star-outline"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
               src="star.png"
             />
           </div>
         </div>
         <div
-<<<<<<< HEAD
-          className="single-star-container"
-        >
-          <div
-            className="single-star-fill"
-=======
           className="star-box"
         >
           <div
             className="star-filled-in"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
             style={
               Object {
                 "width": "0px",
@@ -112,27 +112,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-<<<<<<< HEAD
-              className="single-star-outline"
-=======
               className="star-outline"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
               src="star.png"
             />
           </div>
         </div>
         <div
-<<<<<<< HEAD
-          className="single-star-container"
-        >
-          <div
-            className="single-star-fill"
-=======
           className="star-box"
         >
           <div
             className="star-filled-in"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
             style={
               Object {
                 "width": "0px",
@@ -141,27 +130,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-<<<<<<< HEAD
-              className="single-star-outline"
-=======
               className="star-outline"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
               src="star.png"
             />
           </div>
         </div>
         <div
-<<<<<<< HEAD
-          className="single-star-container"
-        >
-          <div
-            className="single-star-fill"
-=======
           className="star-box"
         >
           <div
             className="star-filled-in"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
             style={
               Object {
                 "width": "0px",
@@ -170,27 +148,16 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-<<<<<<< HEAD
-              className="single-star-outline"
-=======
               className="star-outline"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
               src="star.png"
             />
           </div>
         </div>
         <div
-<<<<<<< HEAD
-          className="single-star-container"
-        >
-          <div
-            className="single-star-fill"
-=======
           className="star-box"
         >
           <div
             className="star-filled-in"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
             style={
               Object {
                 "width": "0px",
@@ -199,53 +166,14 @@ exports[`App Test that App renders 1`] = `
           >
             <img
               alt="stars alt"
-<<<<<<< HEAD
-              className="single-star-outline"
-=======
               className="star-outline"
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
               src="star.png"
             />
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-=======
-      <h4>
-        0
-         reviews
-      </h4>
-    </div>
-    <div>
-      5 stars: 
-      0
-       *RatingBar here* 
-      <br />
-      4 stars: 
-      0
-       *RatingBar here* 
-      <br />
-      3 stars: 
-      0
-       *RatingBar here* 
-      <br />
-      2 stars: 
-      0
-       *RatingBar here* 
-      <br />
-      1 stars: 
-      0
-       *RatingBar here* 
-      <br />
-      <h3>
-        0
-        % of reviews recommend this product
-      </h3>
     </div>
     <div />
-    <div />
->>>>>>> e75c7ec82d1da876267e7e898b2d203a472f4d18
   </div>
 </div>
 `;
