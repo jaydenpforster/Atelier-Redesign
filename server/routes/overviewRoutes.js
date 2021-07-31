@@ -1,21 +1,30 @@
-// const express = require('express');
+/*eslint-env es6*/
+const express = require('express');
+const router = express();
 
-// const router = express.router;
+const getOverviewInfo = require('./getOverviewInfo');
 
-// // eslint-disable-next-line no-unused-vars
-// router.get('/path', (req, res) => {
+router.get('/product', (req, res) => {
+  // console.log('first Product!')
+  let firstProductBaseInfo = getOverviewInfo.getProduct()
+    .then(data => {
+      // console.log('file Routes: firstProduct Log', data)
+      // res.send(data)
+      return data
+    })
+    .catch(err => { console.error(err) })
+  let firstProductStylesInfo = getOverviewInfo.getProductStyles()
+    .then(styles => {
+      return styles
+    })
+  Promise.all([firstProductBaseInfo, firstProductStylesInfo])
+    .then(allInfo => {
+      // console.log('allInfo', allInfo)
+      res.send(allInfo)
+    })
+})
 
-// });
 
-// // eslint-disable-next-line no-unused-vars
-// router.post('/path', (req, res) => {
 
-// });
 
-// module.exports = {
-//   // eslint-disable-next-line no-undef
-//   overview,
-//   // eslint-disable-next-line no-undef
-//   test,
-// };
-
+module.exports = router
