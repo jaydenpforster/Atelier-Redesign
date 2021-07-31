@@ -43,10 +43,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
-<<<<<<< HEAD
-=======
     "@testing-library/jest-dom": "^5.14.1",
->>>>>>> 3705ba0fb0d00a88439492bbc0c01eafbc0bcc09
     "@testing-library/react": "^12.0.0",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
