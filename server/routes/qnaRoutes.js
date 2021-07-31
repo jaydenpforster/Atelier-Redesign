@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express();
 const axios = require('axios');
-const config = require('../../config.js');
+const config = require('/home/bofowzi/Documents/rpp29/fec/api/config.js');
 
 router.get('/questions', (req, res) => {
   let id = Number(req.data.id);
@@ -19,7 +19,5 @@ router.get('/questions', (req, res) => {
     });
 
 })
-
-
 
 module.exports = router;

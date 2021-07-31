@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class QnA extends React.Component {
   constructor (props) {
@@ -24,8 +24,8 @@ class QnA extends React.Component {
       question: this.state.questionSearch
     }
 
-    axios.post('http://localhost:4000/api/register', data)
-      .then(response => console.log(response.data))
+    // axios.post('', data)
+    //   .then(response => console.log(response.data))
 
     this.setState({
       questionSearch: ''
