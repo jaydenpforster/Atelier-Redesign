@@ -45,6 +45,7 @@
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "chai": "^4.3.4",
+    "del-cli": "^4.0.1",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.4",

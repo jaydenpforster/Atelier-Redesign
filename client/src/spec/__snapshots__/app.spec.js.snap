@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Test that App renders 1`] = `
+<div>
+  <h1 />
+  <br />
+  <br />
+  <br />
+  <div>
+    <div>
+      <h1>
+        0
+      </h1>
+      <div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+      </div>
+      <h4>
+        0
+         reviews
+      </h4>
+    </div>
+    <div>
+      5 stars: 
+      0
+       *RatingBar here* 
+      <br />
+      4 stars: 
+      0
+       *RatingBar here* 
+      <br />
+      3 stars: 
+      0
+       *RatingBar here* 
+      <br />
+      2 stars: 
+      0
+       *RatingBar here* 
+      <br />
+      1 stars: 
+      0
+       *RatingBar here* 
+      <br />
+      <h3>
+        0
+        % of reviews recommend this product
+      </h3>
+    </div>
+    <div />
+    <div />
+  </div>
+</div>
+`;
