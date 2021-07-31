@@ -13,5 +13,3 @@ import $ from 'jquery';
 
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-
