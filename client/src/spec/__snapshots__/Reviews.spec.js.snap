@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews Component Test that Reviews Component renders 1`] = `
+<div>
+  <div>
+    <strong>
+      !!!Average Rating and Stars Here!!!
+    </strong>
+    <h1>
+      0
+    </h1>
+    <div>
+      <div
+        className="star-box"
+      >
+        <div
+          className="star-filled-in"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="star-box"
+      >
+        <div
+          className="star-filled-in"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="star-box"
+      >
+        <div
+          className="star-filled-in"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="star-box"
+      >
+        <div
+          className="star-filled-in"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+      <div
+        className="star-box"
+      >
+        <div
+          className="star-filled-in"
+          style={
+            Object {
+              "width": "0px",
+            }
+          }
+        >
+          <img
+            alt="stars alt"
+            className="star-outline"
+            src="star.png"
+          />
+        </div>
+      </div>
+    </div>
+    <h4>
+      0
+       reviews
+    </h4>
+  </div>
+  <br />
+  <div>
+    <strong>
+      !!!Rating Breakdown Here!!!
+    </strong>
+    <br />
+    5 stars: 
+    0
+     
+    <div>
+      <strong>
+        !!!Rating Bar Here!!!
+      </strong>
+    </div>
+     
+    <br />
+    4 stars: 
+    0
+     
+    <div>
+      <strong>
+        !!!Rating Bar Here!!!
+      </strong>
+    </div>
+     
+    <br />
+    3 stars: 
+    0
+     
+    <div>
+      <strong>
+        !!!Rating Bar Here!!!
+      </strong>
+    </div>
+     
+    <br />
+    2 stars: 
+    0
+     
+    <div>
+      <strong>
+        !!!Rating Bar Here!!!
+      </strong>
+    </div>
+     
+    <br />
+    1 stars: 
+    0
+     
+    <div>
+      <strong>
+        !!!Rating Bar Here!!!
+      </strong>
+    </div>
+     
+    <br />
+    <h3>
+      0
+      % of reviews recommend this product
+    </h3>
+  </div>
+  <br />
+  <div>
+    <strong>
+      !!!Factors Breakdown Here!!!
+    </strong>
+    <div>
+      <strong>
+        !!!Factor Bar Here!!!
+      </strong>
+    </div>
+    <div>
+      <strong>
+        !!!Factor Bar Here!!!
+      </strong>
+    </div>
+  </div>
+  <br />
+  <div>
+    <strong>
+      !!!Sort Dropdown Here!!!
+    </strong>
+  </div>
+  <br />
+  <div>
+    <strong>
+      !!!Review Tiles Here!!!
+    </strong>
+  </div>
+</div>
+`;

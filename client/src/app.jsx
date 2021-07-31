@@ -1,6 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import ReactDOM from 'react-dom';
+// eslint-disable-next-line no-unused-vars
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
 import Main from './components/relatedProducts/Main.jsx';

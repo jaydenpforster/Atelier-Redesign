@@ -1,19 +1,18 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';
+import Reviews from '../components/Reviews/Reviews.jsx';
 
-describe('Reviews Test Suite', () => {
-  it('Reviews Test Case', () => {
-    expect(true).toEqual(true);
+describe('Reviews Component', () => {
+  test('Test that Reviews Component renders', () => {
+    const component = renderer.create(<Reviews ></Reviews>);
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
-// describe('App', () => {
-//   test('Test that App renders', () => {
-//     const component = renderer.create(<App ></App>);
-//     let tree = component.toJSON();
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
+
+
 
 
