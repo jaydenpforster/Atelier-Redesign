@@ -22,10 +22,4 @@ app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Example app listening at http://localhost:${port}`);
-})
-
-
-// app.get('/', (req, res) => {
-//   // console.log('path: /')
-//   res.send('some kind of string')
-// })
+});

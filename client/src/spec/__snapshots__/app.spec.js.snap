@@ -4,41 +4,18 @@ exports[`App Test that App renders 1`] = `
 <div>
   <h1 />
   <div>
+    <div>
+      Overview Here!
+    </div>
+  </div>
+  <br />
+  <div>
     <h2>
       Related Products
     </h2>
     <div
       className="productCard"
-    >
-      <div
-        className="img"
-      >
-        <img
-          className="cardImg"
-          src="https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-        />
-      </div>
-      <div
-        className="cardCategory"
-      >
-        Category
-      </div>
-      <div
-        className="expProductName"
-      >
-        Expanded product name with extra text
-      </div>
-      <div
-        className="cardPrice"
-      >
-        $80.00
-      </div>
-      <div
-        className="cardRating"
-      >
-        *****
-      </div>
-    </div>
+    />
     <h2
       className="yourOutfitTitle"
     >
@@ -75,98 +52,202 @@ exports[`App Test that App renders 1`] = `
     </div>
   </div>
   <br />
+  <br />
   <div>
     <div>
-      <div
-        className="single-star-container"
-      >
+      <strong>
+        !!!Average Rating and Stars Here!!!
+      </strong>
+      <h1>
+        0
+      </h1>
+      <div>
         <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
+          className="star-box"
         >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
         </div>
       </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
+      <h4>
+        0
+         reviews
+      </h4>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Rating Breakdown Here!!!
+      </strong>
+      <br />
+      5 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
       </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
+       
+      <br />
+      4 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
       </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
+       
+      <br />
+      3 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
       </div>
-      <div
-        className="single-star-container"
-      >
-        <div
-          className="single-star-fill"
-          style={
-            Object {
-              "width": "0px",
-            }
-          }
-        >
-          <img
-            alt="stars alt"
-            className="single-star-outline"
-            src="star.png"
-          />
-        </div>
+       
+      <br />
+      2 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
       </div>
+       
+      <br />
+      1 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      <h3>
+        0
+        % of reviews recommend this product
+      </h3>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Factors Breakdown Here!!!
+      </strong>
+      <div>
+        <strong>
+          !!!Factor Bar Here!!!
+        </strong>
+      </div>
+      <div>
+        <strong>
+          !!!Factor Bar Here!!!
+        </strong>
+      </div>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Sort Dropdown Here!!!
+      </strong>
+    </div>
+    <br />
+    <div
+      className="reviewTiles"
+    >
+      <strong>
+        !!!Review Tiles Here!!!
+      </strong>
     </div>
   </div>
 </div>

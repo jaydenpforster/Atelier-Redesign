@@ -1,5 +1,4 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import ProductCard from './ProductCard.jsx';
 import YourOutfit from './YourOutfit.jsx';
