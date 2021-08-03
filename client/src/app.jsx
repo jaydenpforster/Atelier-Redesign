@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
 import Main from './components/relatedProducts/Main.jsx';
-// import QandA from './components/QandA/QandA.jsx';
+import QnA from './components/QandA/QandA.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 
 class App extends React.Component {
@@ -58,7 +58,7 @@ class App extends React.Component {
         <br></br>
         <Main />
         <br></br>
-        {/* <QandA /> */}
+        <QnA />
         <br></br>
         <Reviews />
       </div>
