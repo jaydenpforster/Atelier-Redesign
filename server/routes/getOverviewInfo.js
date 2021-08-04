@@ -1,5 +1,8 @@
 /*eslint-env es6*/const axios = require('axios');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 562aa03fabeafa0a00b77ab9c1785804f1854035
 const config = require('../../config.js');
 
 const getProduct = (productID) => {
