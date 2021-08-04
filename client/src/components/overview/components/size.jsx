@@ -13,15 +13,15 @@ class Size extends React.Component {
     };
   }
   renderSizes() {
-    console.log('PROP PASSED', this.props.sizes)
+    // console.log('PROP PASSED', this.props.sizes)
     let arr = [];
     for (let obj in this.props.sizes) {
       arr.push(this.props.sizes[obj])
     }
-    console.log('arr', arr)
+    // console.log('arr', arr)
     let resultArr = [];
     for (let i = 0; i < arr.length; i++) {
-      console.log('i', i)
+      // console.log('i', i)
       // i++;
       resultArr.push(<option key={i} value={arr[i].size}>{arr[i].size}</option>)
     }

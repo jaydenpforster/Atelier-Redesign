@@ -14,18 +14,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // starRating: '',
-      // reviews: 'GET /reviews/
-      // metaData: 'GET /reviews/meta',
       // cart: 'GET /cart
       overview: '',
       styles: '',
       related: '',
       mainProductID: '28212',
       relatedProductIDs: '',
+      characteristics: {},
+      ratings: {},
+      recommended: {},
+      averageRating: 0,
+      starRating: 0,
+      reviews: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
+    this.renderStars = this.renderStars.bind(this);
   }
 
   //GET REQUESTS
@@ -62,7 +66,13 @@ class App extends React.Component {
           styles: data[1],
           related: data[2],
           mainProductID: data[1].product_id,
-          relatedProductIDs: data[3]
+          relatedProductIDs: data[3],
+          reviews: data[4],
+          averageRating: data[5].avgRating.averageRating,
+          starRating: data[5].avgRating.ratingPercentage,
+          characteristics: data[5].characteristics,
+          ratings: data[5].ratings,
+          recommended: data[5].recommended
         })
       },
       error: (data) => {
@@ -75,17 +85,41 @@ class App extends React.Component {
     this.getAllProductInfo('28212')
   }
 
+  renderStars() {
+    return (
+      <div className='starContainer'>
+        <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
+          <div className='inlineStars'>
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
         <h1></h1>
-        <Overview />
+        <Overview renderStars={this.renderStars}/>
         <br></br>
-        <Main />
+        <Main renderStars={this.renderStars}/>
         <br></br>
-        <QnA />
+        <QnA renderStars={this.renderStars}/>
         <br></br>
-        <Reviews />
+        <Reviews
+          reviews={this.state.reviews}
+          averageRating={this.state.averageRating}
+          starRating={this.state.starRating}
+          characteristics={this.state.characteristics}
+          ratings={this.state.ratings}
+          recommended={this.state.recommended}
+          renderStars={this.renderStars}
+        />
       </div>
 
     )

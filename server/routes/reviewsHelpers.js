@@ -13,30 +13,11 @@ const getReviews = (productId, sortOption) => {
       }
     })
       .then((data) => {
-        resolve(data.data);
+        resolve(data.data.results);
       })
       .catch((err) => {
         console.error(err);
         reject('ERROR in getReviews: ', err);
-      })
-  });
-}
-
-const getMetaData = (productId) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${productId}`,
-      headers: {
-        'User-Agent': 'request',
-        'Authorization': config.TOKEN
-      }
-    })
-      .then((data) => {
-        resolve(data.data);
-      })
-      .catch((err) => {
-        reject('ERROR in getCharacteristics: ', err);
       })
   });
 }
@@ -50,6 +31,27 @@ const filterMetaData = (metaData) => {
     for (let rate in metaData.ratings) {
       ratings[rate] = Number(metaData.ratings[rate])
     }
+
+    //calculate and format average rating
+    let avgRating = {};
+    let totalOfRatings = 0;
+    let howManyRatings = 0;
+    let averageRating;
+    let ratingPercentage;
+    for (let rating in ratings) {
+      howManyRatings++;
+      totalOfRatings += (rating * ratings[rating])
+    }
+    if (howManyRatings === 0) {
+      averageRating = 0;
+      ratingPercentage = 0;
+    } else {
+      averageRating = (totalOfRatings / howManyRatings);
+      averageRating = Number((averageRating).toFixed(1));
+      ratingPercentage = averageRating * 20;
+    }
+    avgRating['averageRating'] = averageRating;
+    avgRating['ratingPercentage'] = ratingPercentage;
 
     //format recommended
     let recommended = {};
@@ -68,10 +70,32 @@ const filterMetaData = (metaData) => {
     filtered['ratings'] = ratings;
     filtered['recommended'] = recommended;
     filtered['characteristics'] = characteristics;
+    filtered['avgRating'] = avgRating;
 
     resolve(filtered);
   });
 }
+
+
+const getMetaData = (productId) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'GET',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${productId}`,
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      }
+    })
+      .then((data) => {
+        resolve(filterMetaData(data.data));
+      })
+      .catch((err) => {
+        reject('ERROR in getCharacteristics: ', err);
+      })
+  });
+}
+
 
 
 module.exports = {
