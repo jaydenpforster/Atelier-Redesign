@@ -19,25 +19,6 @@
   max-width: 200px;
 }
 
-/* .star-outline {
-  height: 36px;
-  width: 31px;
-}
-
-.star-filled-in {
-  position: relative;
-  display: inline-block;
-  height: 36px;
-  background-color: #333333;
-}
-
-.star-box {
-  height: 36px;
-  width: 31px;
-  display: inline-block;
-} */
-
-
 .starContainer {
   width: 5em;
   height: 1em;
