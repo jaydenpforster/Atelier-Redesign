@@ -8,51 +8,76 @@ import Overview from './components/overview/overview.jsx';
 import Main from './components/relatedProducts/Main.jsx';
 import QnA from './components/QandA/QandA.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
+// import axios from 'axios'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // productId: 'GET /products/:product_id',
       // starRating: '',
       // reviews: 'GET /reviews/
       // metaData: 'GET /reviews/meta',
       // cart: 'GET /cart
-      // styles: 'GET /products/:product_id/styles',
-      // relatedProducts: 'GET /products/:product_id/related',
-      hovered: false
-
+      overview: '',
+      styles: '',
+      related: '',
+      mainProductID: '28212',
+      relatedProductIDs: '',
     }
-
     //bind
+    this.getAllProductInfo = this.getAllProductInfo.bind(this)
   }
 
   //GET REQUESTS
 
   //Overview
-    //productId
-    //style
-    //stars
-    //cart
+  //productId
+  //style
+  //stars
+  //cart
 
   //Related Products / Main
-    //productId
-    //style
-    //stars
+  //productId
+  //style
+  //stars
 
   //QandA
-    //...
+  //...
 
   //Revies
-    //productId
-    //stars / reviews
-    //metadata
+  //productId
+  //stars / reviews
+  //metadata
+
+
+  getAllProductInfo(id) {
+    $.ajax({
+      url: 'http://localhost:4000/getAllProductInfo',
+      type: 'GET',
+      data: { id },
+      success: (data) => {
+        console.log('Success', data);
+        this.setState({
+          overview: data[0],
+          styles: data[1],
+          related: data[2],
+          mainProductID: data[1].product_id,
+          relatedProductIDs: data[3]
+        })
+      },
+      error: (data) => {
+        console.log('Error', data);
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.getAllProductInfo('28212')
+  }
 
   render() {
     return (
-
       <div>
-        {/* {console.log(this.state)} */}
         <h1></h1>
         <Overview />
         <br></br>

@@ -18,7 +18,7 @@ class Overview extends React.Component {
     if (!newProduct) { newProduct = 1; }
     axios.get('http://localhost:4000/overview/product')
       .then(productInfo => {
-        // console.log('info', productInfo)
+        console.log('info', productInfo)
         this.setState({
           info: productInfo.data[0],
           styles: productInfo.data[1]
@@ -42,7 +42,7 @@ class Overview extends React.Component {
       renderStyles = <div></div>
     }
     return (
-      <div>
+      <div className="Overview" data-testid="Overview">
         <div>Overview Here!</div>
         <div>{this.state.info.name}</div>
         <div>{this.state.info.category}</div>
