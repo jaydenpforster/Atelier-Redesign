@@ -242,7 +242,13 @@ exports[`App Test that App renders 1`] = `
       </strong>
     </div>
     <br />
+<<<<<<< HEAD
     <div>
+=======
+    <div
+      className="reviewTiles"
+    >
+>>>>>>> 48f2dd835b95c2449201201cca9466de98027d05
       <strong>
         !!!Review Tiles Here!!!
       </strong>

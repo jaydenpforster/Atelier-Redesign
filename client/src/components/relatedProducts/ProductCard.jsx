@@ -17,7 +17,8 @@ const ProductCard = (props) => {
         name: props.info[i].name,
         category: props.info[i].category,
         description: props.info[i].description,
-        defaultPrice: props.info[i].default_price
+        defaultPrice: props.info[i].default_price,
+        features: props.info[i].features
       })
     }
   }
@@ -25,7 +26,7 @@ const ProductCard = (props) => {
   return (
     <div className="productCard">
       {relevantProps.map((each, index) =>
-        <EachCard info={each} key={index} />)}
+        <EachCard info={each} prodId={props.info} detailInfo={props.detailInfo} key={index} />)}
     </div>
   )
 }

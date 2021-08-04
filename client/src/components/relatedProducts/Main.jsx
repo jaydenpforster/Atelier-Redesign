@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import ProductCard from './ProductCard.jsx';
 import YourOutfit from './YourOutfit.jsx';
+import Modal from './Modal.jsx';
 
 class Main extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class Main extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <h2>Related Products</h2>
         <ProductCard info={this.state.productInfo} detailInfo={this.state.productDetailInfo}/>

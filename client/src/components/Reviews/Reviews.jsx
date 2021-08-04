@@ -35,7 +35,7 @@ class Reviews extends React.Component {
         });
       },
       error: (err) => {
-        console.log('Error in getStarRating(): ', err);
+        // console.log('Error in getStarRating(): ', err);
       }
     })
   }

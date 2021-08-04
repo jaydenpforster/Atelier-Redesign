@@ -16,6 +16,7 @@ const getReviews = (productId, sortOption) => {
         resolve(data.data);
       })
       .catch((err) => {
+        console.error(err);
         reject('ERROR in getReviews: ', err);
       })
   });
