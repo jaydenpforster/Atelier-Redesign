@@ -18,7 +18,7 @@ class Overview extends React.Component {
     if (!newProduct) { newProduct = 1; }
     axios.get('http://localhost:4000/overview/product')
       .then(productInfo => {
-        console.log('info', productInfo)
+        // console.log('info', productInfo)
         this.setState({
           info: productInfo.data[0],
           styles: productInfo.data[1]
