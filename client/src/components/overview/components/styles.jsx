@@ -2,7 +2,7 @@
 import React from 'react'
 import Thumbnails from './thumbnails.jsx'
 import Size from './size.jsx'
-import Quantity from './quantity.jsx'
+// import Quantity from './quantity.jsx'
 
 class Styles extends React.Component {
   constructor(props) {
@@ -37,14 +37,19 @@ class Styles extends React.Component {
     }
     return arr;
   }
+  renderQuantityPerSize() {
+
+  }
 
   render() {
     // console.log('styles', this.props.styles)
-    let renderSize;
+    let renderSize, renderQuantity;
     if (this.props.styles === undefined) {
       renderSize = <div></div>
+      renderQuantity = <div></div>
     } else {
       renderSize = <Size sizes={this.props.styles[this.state.selectedStyle].skus} all={this.props.styles} />
+      renderQuantity = <div></div>
     }
     return (
       <div>
@@ -56,6 +61,7 @@ class Styles extends React.Component {
         <div>Style Price: {this.props.styles[this.state.selectedStyle].original_price}</div>
         <Thumbnails pics={this.props.styles[this.state.selectedStyle].photos} />
         {renderSize}
+        {renderQuantity}
       </div>
     )
   }

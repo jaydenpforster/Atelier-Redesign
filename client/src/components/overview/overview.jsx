@@ -12,26 +12,21 @@ class Overview extends React.Component {
       info: '',
       styles: '',
     };
-    this.getFirstProduct = this.getFirstProduct.bind(this)
+    this.updateState = this.updateState.bind(this)
   }
-  getFirstProduct(newProduct) {
-    if (!newProduct) { newProduct = 1; }
-    axios.get('http://localhost:4000/overview/product')
-      .then(productInfo => {
-        console.log('info', productInfo)
-        this.setState({
-          info: productInfo.data[0],
-          styles: productInfo.data[1]
-        })
-        // console.log('state', this.state.styles)
-      })
-      .catch(err => console.error(err))
+  updateState() {
+    this.setState({
+      info: this.props.overview,
+      styles: this.props.styles
+    })
   }
   componentDidMount() {
-    this.getFirstProduct()
+    this.updateState()
   }
 
   render() {
+    // console.log('this.props.styles', this.props.styles)
+    // console.log('this.props.overview', this.props.overview)
     let renderFeatures, renderStyles
     // let renderStyles;
     if (this.state.info !== '') {
