@@ -13,8 +13,6 @@ class Main extends React.Component {
     }
   }
 
-  //props will be the Product ID coming from Overview
-
   componentDidMount() {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/relatedProducts',

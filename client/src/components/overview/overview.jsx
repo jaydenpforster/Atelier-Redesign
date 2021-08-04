@@ -39,11 +39,11 @@ class Overview extends React.Component {
     return (
       <div className="Overview" data-testid="Overview">
         <div>Overview Here!</div>
-        <div>{this.state.info.name}</div>
-        <div>{this.state.info.category}</div>
-        <div>OV Price: {this.state.info.default_price}</div>
-        <div>{this.state.info.slogan}</div>
-        <div>{this.state.info.description}</div>
+        <div className="ProductTitle" >{this.state.info.name}</div>
+        <div className="Category">{this.state.info.category}</div>
+        {/* <div>OV Price: {this.state.info.default_price}</div> */}
+        <div className="Slogan">{this.state.info.slogan}</div>
+        <div className="Description">{this.state.info.description}</div>
         <br></br><br></br><br></br>
         {renderFeatures}
         <br></br><br></br><br></br>

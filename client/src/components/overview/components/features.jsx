@@ -18,7 +18,7 @@ class Features extends React.Component {
       featuresArr.push(<div key={i} id="feature">{feature.feature} {feature.value}</div>)
       i++;
     }
-    return <div id="features">{featuresArr}</div>
+    return <div id="Features">{featuresArr}</div>
   }
 
   componentDidMount() {
@@ -28,10 +28,10 @@ class Features extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div>Features Here</div>
         {this.makeFeatures()}
-      </div>
+      </>
     )
   }
 }
