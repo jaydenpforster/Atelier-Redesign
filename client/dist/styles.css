@@ -19,7 +19,7 @@
   max-width: 200px;
 }
 
-.star-outline {
+/* .star-outline {
   height: 36px;
   width: 31px;
 }
@@ -35,6 +35,36 @@
   height: 36px;
   width: 31px;
   display: inline-block;
+} */
+
+
+.starContainer {
+  width: 5em;
+  height: 1em;
+  position: relative ;
+}
+
+/*adjust width percentage according to review percentage*/
+.starBox {
+  position: relative;
+  background-color: black;
+  width: 100%;
+  height: 1em;
+  z-index: -1;
+}
+
+.inlineStars {
+  width: 5em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.starsLayout {
+  position: relative;
+  width: 1em;
+  height: auto;
+  float: left;
+  z-index: 1;
 }
 
 
