@@ -2,6 +2,7 @@ const axios = require('axios');
 const config = require('../../config.js');
 
 const getProductID = (productId) => {
+  productId ? productId : productId = 28212;
 
   let proms = [];
   let users = [];
@@ -41,6 +42,7 @@ const getProductID = (productId) => {
 };
 
 const getProductStyles = (productId) => {
+  productId ? productId : productId = 28212;
 
   let proms = [];
   let users = [];

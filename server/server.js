@@ -5,12 +5,12 @@ const port = 4000;
 const path = require('path');
 const bodyParser = require('body-parser');
 const overview = require('./routes/overviewRoutes');
+const ovRouteHelper = require('./routes/getOverviewInfo.js');
 const relatedProducts = require('./routes/relatedProducts');
+const relatedHelper = require('./routes/relatedProductsHelper.js');
 const reviews = require('./routes/reviewsRoutes');
 const qna = require('./routes/qnaRoutes')
 
-// const jsonParser = bodyParser.json();
-// const urlencodedParser = bodyParser.urlencoded({ extended: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')))
@@ -22,9 +22,16 @@ app.use('/qna', qna);
 
 app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
 
+
+app.get('/getAllProductInfo', (req, res) => {
+  console.log('@@hit getAllProductInfo', req.query.id)
+  Promise.all([ovRouteHelper.getProduct(req.query.id), ovRouteHelper.getProductStyles(req.query.id), relatedHelper.getProductStyles(req.query.id), relatedHelper.getProductID(req.query.id)])
+    .then(arrOfInfo => {
+      res.status(200).send(arrOfInfo)
+    })
+});
+
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
-//testing
