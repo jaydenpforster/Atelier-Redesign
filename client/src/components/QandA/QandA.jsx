@@ -41,7 +41,7 @@ class QnA extends React.Component {
         <div className='form-div'>
           <form onSubmit={this.onSubmit}>
             <input type = 'text'
-              placeholder='Ask your question'
+              placeholder='Ask your questions'
               onChange={this.changeFullName}
               value={this.state.fullName}
               className='form-control form-group'

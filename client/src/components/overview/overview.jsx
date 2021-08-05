@@ -42,7 +42,7 @@ class Overview extends React.Component {
       renderStyles = <div></div>
     }
     return (
-      <div>
+      <div className="Overview" data-testid="Overview">
         <div>Overview Here!</div>
         <div>{this.state.info.name}</div>
         <div>{this.state.info.category}</div>

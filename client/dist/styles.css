@@ -19,22 +19,85 @@
   max-width: 200px;
 }
 
-.star-outline {
-  height: 36px;
-  width: 31px;
+.starContainer {
+  width: 4em;
+  position: relative ;
 }
 
-.star-filled-in {
+/*adjust width percentage according to review percentage*/
+/* height must match .starsLayout width */
+.starBox {
   position: relative;
-  display: inline-block;
-  height: 36px;
-  background-color: #333333;
+  background-color: #525252;
+  width: 100%;
+  height: 0.8em;
+  z-index: -1;
 }
 
-.star-box {
-  height: 36px;
-  width: 31px;
-  display: inline-block;
+.inlineStars {
+  width: 4em;
+  background-color: transparent;
 }
 
+/*stars width must be 1/5th of starContainer's width*/
+.starsLayout {
+  position: relative;
+  width: 0.8em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
 
+div {
+  color: #525252;
+}
+
+.factorContainer {
+  width: 13em;
+  background-color: transparent;
+}
+
+.factorBar {
+  width: 113%;
+  height: 0.5em;
+  background-color: #ebebeb;
+  position: relative;
+  z-index: -1;
+}
+
+.factorBreakLeft {
+  position: absolute;
+  z-index: 1;
+  width: 0.3em;
+  height: 0.5em;
+  background: white;
+  margin-left: 4.7em;
+}
+
+.factorBreakRight {
+  position: absolute;
+  z-index: 1;
+  width: 0.3em;
+  height: 0.5em;
+  background: white;
+  margin-left: 9.7em;
+}
+
+.factorPoint {
+  position: relative;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-left: 0.55em solid transparent;
+  border-right: 0.55em solid transparent;
+  border-top: 0.8em solid #525252;
+  margin-left: 6.5em;
+}
+
+.descriptors {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 90%;
+}

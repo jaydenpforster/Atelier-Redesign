@@ -19,9 +19,6 @@ router.get('/meta', (req, res) => {
   let sortOption = req.query.sort;
   rev.getMetaData(productId, sortOption)
     .then((data) => {
-      return rev.filterMetaData(data)
-    })
-    .then((data) => {
       res.send(data)
     })
     .catch((err) => {

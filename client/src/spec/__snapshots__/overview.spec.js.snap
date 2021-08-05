@@ -2,34 +2,330 @@
 
 exports[`App Test that App renders 1`] = `
 <div>
-  <h1
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+  <h1 />
+  <div
+    className="Overview"
+    data-testid="Overview"
   >
-    H1 Element
-  </h1>
+    <div>
+      Overview Here!
+    </div>
+    <div />
+    <div />
+    <div>
+      OV Price: 
+    </div>
+    <div />
+    <div />
+    <br />
+    <br />
+    <br />
+    <div />
+    <br />
+    <br />
+    <br />
+    <div />
+    <br />
+    <br />
+    <br />
+  </div>
   <br />
+  <div>
+    <h2>
+      Related Products
+    </h2>
+    <div
+      className="productCard"
+    />
+    <h2
+      className="yourOutfitTitle"
+    >
+      Your Outfit
+    </h2>
+    <div
+      className="yourOutfitCard"
+    >
+      <div
+        className="img"
+      >
+        X
+      </div>
+      <div
+        className="cardCategory"
+      >
+        Category
+      </div>
+      <div
+        className="expProductName"
+      >
+        Expanded product name with extra text
+      </div>
+      <div
+        className="cardPrice"
+      >
+        $80.00
+      </div>
+      <div
+        className="cardRating"
+      >
+        *****
+      </div>
+    </div>
+  </div>
   <br />
+  <div
+    className="QnA"
+  >
+    <div
+      id="QStart"
+    >
+      Questions and Answers
+    </div>
+    <div
+      className="form-div"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control form-group"
+          placeholder="Ask your questions"
+          type="text"
+        />
+        <input
+          className="btn btn-danger btn-block"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </div>
   <br />
-  <br />
-  <br />
-  <br />
+  <div>
+    <div>
+      <strong>
+        !!!Average Rating and Stars Here!!!
+      </strong>
+      <h1>
+        0
+      </h1>
+      <div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+        <div
+          className="star-box"
+        >
+          <div
+            className="star-filled-in"
+            style={
+              Object {
+                "width": "0px",
+              }
+            }
+          >
+            <img
+              alt="stars alt"
+              className="star-outline"
+              src="star.png"
+            />
+          </div>
+        </div>
+      </div>
+      <h4>
+        0
+         reviews
+      </h4>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Rating Breakdown Here!!!
+      </strong>
+      <br />
+      5 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      4 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      3 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      2 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      1 stars: 
+      0
+       
+      <div>
+        <strong>
+          !!!Rating Bar Here!!!
+        </strong>
+      </div>
+       
+      <br />
+      <h3>
+        0
+        % of reviews recommend this product
+      </h3>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Factors Breakdown Here!!!
+      </strong>
+      <div>
+        <strong>
+          !!!Factor Bar Here!!!
+        </strong>
+      </div>
+      <div>
+        <strong>
+          !!!Factor Bar Here!!!
+        </strong>
+      </div>
+    </div>
+    <br />
+    <div>
+      <strong>
+        !!!Sort Dropdown Here!!!
+      </strong>
+    </div>
+    <br />
+    <div
+      className="reviewTiles"
+    >
+      <strong>
+        !!!Review Tiles Here!!!
+      </strong>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Overview Test that Overview renders 1`] = `
-<div>
+<div
+  className="Overview"
+  data-testid="Overview"
+>
   <div>
     Overview Here!
   </div>
   <div />
   <div />
-  <div />
+  <div>
+    OV Price: 
+  </div>
   <div />
   <div />
   <br />
   <br />
   <br />
   <div />
+  <br />
+  <br />
+  <br />
+  <div />
+  <br />
+  <br />
+  <br />
 </div>
 `;
