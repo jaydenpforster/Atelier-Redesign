@@ -19,11 +19,8 @@ class Size extends React.Component {
       arr.push(this.props.sizes[obj])
     }
     let resultArr = [];
-    for (let i = 0; i < arr.length - 1; i++) {
-      resultArr.push(<option onClick={(e) => {
-        e.preventDefault()
-        console.log('Option Clicked')
-      }} key={i} value={`${arr[i].size} ${arr[i].quantity}`}>{arr[i].size}</option>)
+    for (let i = 0; i < arr.length; i++) {
+      resultArr.push(<option key={i} value={arr[i].size}>{arr[i].size}</option>)
     }
     resultArr.unshift(<option key={100}>none</option>)
     let select = <select

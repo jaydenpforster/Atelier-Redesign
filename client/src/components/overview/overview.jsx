@@ -12,16 +12,13 @@ class Overview extends React.Component {
       info: '',
       styles: '',
     };
-    this.updateState = this.updateState.bind(this)
   }
-  updateState() {
+
+  componentDidMount() {
     this.setState({
       info: this.props.overview,
       styles: this.props.styles
     })
-  }
-  componentDidMount() {
-    this.updateState()
   }
 
   render() {
