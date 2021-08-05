@@ -1,6 +1,4 @@
-/*eslint-env es6*/
 import React from 'react'
-import axios from 'axios'
 import Features from './components/features.jsx'
 import Styles from './components/styles.jsx'
 
@@ -25,7 +23,6 @@ class Overview extends React.Component {
     // console.log('this.props.styles', this.props.styles)
     // console.log('this.props.overview', this.props.overview)
     let renderFeatures, renderStyles
-    // let renderStyles;
     if (this.state.info !== '') {
       renderFeatures = <Features features={this.state.info.features} />
       renderStyles = <Styles styles={this.state.styles.results} />
@@ -36,17 +33,17 @@ class Overview extends React.Component {
     return (
       <div className="Overview" data-testid="Overview">
         <div>Overview Here!</div>
+        {this.props.renderStars()}
         <div className="ProductTitle" >{this.state.info.name}</div>
         <div className="Category">{this.state.info.category}</div>
         {/* <div>OV Price: {this.state.info.default_price}</div> */}
         <div className="Slogan">{this.state.info.slogan}</div>
         <div className="Description">{this.state.info.description}</div>
-        <br></br><br></br><br></br>
+        <br></br>
         {renderFeatures}
-        <br></br><br></br><br></br>
+        <br></br>
         {renderStyles}
-        <br></br><br></br><br></br>
-
+        <br></br>
       </div>
     );
   }

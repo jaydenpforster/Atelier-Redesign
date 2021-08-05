@@ -106,7 +106,10 @@ class App extends React.Component {
     if (this.state.overview.id === undefined) {
       overview = <></>
     } else {
-      overview = <Overview renderStars={this.renderStars} overview={this.state.overview} styles={this.state.styles} />
+      overview = <Overview
+        renderStars={this.renderStars}
+        overview={this.state.overview}
+        styles={this.state.styles} />
     }
     return (
       <div>

@@ -16,16 +16,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')))
 
-// app.use('/overview', overview);
-app.use('/relatedProducts', relatedProducts);
-// app.use('/reviews', reviews);
-app.use('/qna', qna);
 
-app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
+app.use('/relatedProducts', relatedProducts);
+app.use('/qna', qna);
+// app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
+
 
 
 app.get('/getAllProductInfo', (req, res) => {
-  console.log('@@hit getAllProductInfo', req.query.id)
+  // console.log('@@hit getAllProductInfo', req.query.id)
   Promise.all([
     ovRouteHelper.getProduct(req.query.id),
     ovRouteHelper.getProductStyles(req.query.id),
@@ -36,6 +35,9 @@ app.get('/getAllProductInfo', (req, res) => {
   ])
     .then(arrOfInfo => {
       res.status(200).send(arrOfInfo)
+    })
+    .catch(err => {
+      console.log('err', err)
     })
 });
 

@@ -1,6 +1,4 @@
-/*eslint-env es6*/
 import React from 'react'
-
 
 class Size extends React.Component {
   constructor(props) {
@@ -20,7 +18,7 @@ class Size extends React.Component {
     }
     let resultArr = [];
     for (let i = 0; i < arr.length; i++) {
-      resultArr.push(<option key={i} value={arr[i].size}>{arr[i].size}</option>)
+      resultArr.push(<option key={i} value={`${arr[i].size} ${arr[i].quantity}`}>{arr[i].size}</option>)
     }
     resultArr.unshift(<option key={100}>none</option>)
     let select = <select
@@ -31,12 +29,12 @@ class Size extends React.Component {
           selectedSize: e.target.value.split(' ')[0],
           selectedQuantity: e.target.value.split(' ')[1],
         })
-        console.log('this.state', this.state)
       }}
     >{resultArr}</select>
     return select
   }
   renderQuantity() {
+    console.log('this.state.selectedQuantity ', this.state.selectedQuantity)
     if (this.state.selectedQuantity === '-n/a-') {
       return <select
         className="SelectQuantity"
@@ -50,7 +48,7 @@ class Size extends React.Component {
       }
       let arr = [];
       for (let i = 0; i <= Number(this.state.selectedQuantity); i++) {
-        arr.push(<option key={i} value={i}>{i}</option>)
+        arr.push(<option key={`${i}`} value={i}>{i}</option>)
       }
       return <select
         onChange={e => {
