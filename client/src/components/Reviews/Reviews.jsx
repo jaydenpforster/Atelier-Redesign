@@ -18,7 +18,6 @@ class Reviews extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      console.log('I am props!', this.props)
       this.setState({
         numOfRatings: Object.keys(this.props.ratings).length,
         changed: true
@@ -42,17 +41,17 @@ class Reviews extends React.Component {
             averageRating={this.props.averageRating}
             numOfRatings={this.state.numOfRatings}
           />
-          {/*
-          <br></br>
 
+          <br></br>
+{/*
           <RatingBreakdown
             metaData={this.state.metaData}
             reviews={this.state.reviews} />
 
-          <br></br>
+          <br></br> */}
 
-          <FactorsBreakdown />
-
+          <FactorsBreakdown characteristics={this.props.characteristics} />
+{/*
           <br></br>
 
           <Sort getReviews={this.getReviews} />

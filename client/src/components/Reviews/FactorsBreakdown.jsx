@@ -6,29 +6,27 @@ class FactorsBreakdown extends React.Component {
   constructor() {
     super();
     this.state = {
-      characteristics: []
-      //characteristics will be an array of objects
     }
     //binding
-    this.componentDidMount = this.componentDidMount.bind(this);
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
+    let factorNames = Object.keys(this.props.characteristics);
+    let factorValues = Object.values(this.props.characteristics);
+
+    const factors = factorNames.map((name, index) =>
+      <FactorBar key={index} name={name} value={factorValues[index]} />
+    )
+
     return (
       <div>
-        <strong>!!!Factors Breakdown Here!!!</strong>
-        <FactorBar />
-        <FactorBar />
-        {/* Each characteristic will be mapped out to FactorBar.jsx*/}
+        {factors}
       </div>
     )
   }
-
 }
+
+
 
 
 export default FactorsBreakdown;
