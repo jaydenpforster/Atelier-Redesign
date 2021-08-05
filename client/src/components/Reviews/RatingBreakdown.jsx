@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import RatingBar from './RatingBar.jsx';
-
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -47,33 +45,39 @@ class RatingBreakdown extends React.Component {
   }
 
   render() {
+    let totalCountOfReviews = this.state.reviewsCount;
+    let fivePortion = (this.state.five / totalCountOfReviews) * 100;
+    let fourPortion = (this.state.four / totalCountOfReviews) * 100;
+    let threePortion = (this.state.three / totalCountOfReviews) * 100;
+    let twoPortion = (this.state.two / totalCountOfReviews) * 100;
+    let onePortion = (this.state.one / totalCountOfReviews) * 100;
     return (
       <div>
         {this.state.recPercentage}% of reviews recommend this product
         <div className="ratingBreakdown">
           <u>5 stars</u>&nbsp;
-          <div className="ratingBarContainer"><RatingBar amount={this.state.five} total={this.props.numOfRatings} /></div>
+          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
           <br></br>
 
           <u>4 stars</u>&nbsp;
-          <div className="ratingBarContainer"><RatingBar amount={this.state.four} total={this.props.numOfRatings} /></div>
+          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
           <br></br>
 
           <u>3 stars</u>&nbsp;
-          <div className="ratingBarContainer"><RatingBar amount={this.state.three} total={this.props.numOfRatings} /></div>
+          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
           <br></br>
 
           <u>2 stars</u>&nbsp;
-          <div className="ratingBarContainer"><RatingBar amount={this.state.two} total={this.props.numOfRatings} /></div>
+          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
           <br></br>
 
           <u>1 stars</u>&nbsp;
-          <div className="ratingBarContainer"><RatingBar amount={this.state.one} total={this.props.numOfRatings} /></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
         </div>
       </div>
     )
