@@ -2,9 +2,9 @@ import React from 'react';
 
 const FactorBar = (props) => {
   let factorValue = (props.value / 5) * 13;
-  let leftDescriptor;
-  let middleDescriptor;
-  let rightDescriptor;
+  let leftDescriptor,
+    middleDescriptor,
+    rightDescriptor;
 
   if (props.name === 'Size') {
     leftDescriptor = 'Too small';
@@ -34,15 +34,9 @@ const FactorBar = (props) => {
     rightDescriptor = 'Loose';
   }
 
-
-
   return (
     <div>
       <div className="factorName">{props.name}</div>
-      {/* Each characteristic will be mapped out with the title, bar, and range. ex:
-        Size
-        {/* bar here with token
-        Too small - Perfect - Too Large */}
       <div className="factorContainer">
         <div className="factorBar">
           <div className="factorBreakLeft"></div>
@@ -60,6 +54,5 @@ const FactorBar = (props) => {
     </div>
   )
 }
-
 
 export default FactorBar;

@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname, '/../client/dist')))
 
 // app.use('/overview', overview);
 app.use('/relatedProducts', relatedProducts);
-// app.use('/reviews', reviews);
 app.use('/qna', qna);
 
 app.use('/overview', overview) //http://localhost:4000/overview/firstProduct

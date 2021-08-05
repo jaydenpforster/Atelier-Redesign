@@ -7,67 +7,77 @@ class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      percentage: 0,
+      recPercentage: 0,
       five: 0,
       four: 0,
       three: 0,
       two: 0,
-      one: 0
+      one: 0,
+      reviewsCount: 0
     }
-    //binding
-    this.calculatePercentage = this.calculatePercentage.bind(this);
+    this.calculateRecPercentage = this.calculateRecPercentage.bind(this);
     this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.metaData !== prevProps.metaData) {
-      this.calculatePercentage();
-      this.calculateReviewTotals();
-    }
+  componentDidMount() {
+    this.calculateRecPercentage();
+    this.calculateReviewTotals();
   }
 
-  calculatePercentage() {
-    let recs = this.props.metaData.recommended;
+  calculateRecPercentage() {
+    let recs = this.props.recommended;
     let total = (Number(recs.true) + Number(recs.false));
     let decimal = recs.true / total;
     let percent = decimal * 100;
     this.setState({
-      percentage: percent
+      recPercentage: percent,
+      reviewsCount: total
     });
   }
 
   calculateReviewTotals() {
-    let ratingsObj = this.props.metaData.ratings;
+    let ratings = this.props.ratings;
     this.setState({
-      five: ratingsObj[5] || 0,
-      four: ratingsObj[4] || 0,
-      three: ratingsObj[3] || 0,
-      two: ratingsObj[2] || 0,
-      one: ratingsObj[1] || 0
+      five: ratings[5] || 0,
+      four: ratings[4] || 0,
+      three: ratings[3] || 0,
+      two: ratings[2] || 0,
+      one: ratings[1] || 0
     })
   }
 
-  //ajax request to get array of reviews and percentage recommended
-
   render() {
-
     return (
       <div>
-        {/* maybe if I turn these into an array I can map it into RatingBar */}
-        {/* make number of reviews clickable to then display the reviews */}
-        <strong>!!!Rating Breakdown Here!!!</strong>
-        <br></br>
-        5 stars: {this.state.five} <RatingBar /> <br></br>
-        4 stars: {this.state.four} <RatingBar /> <br></br>
-        3 stars: {this.state.three} <RatingBar /> <br></br>
-        2 stars: {this.state.two} <RatingBar /> <br></br>
-        1 stars: {this.state.one} <RatingBar /> <br></br>
+        {this.state.recPercentage}% of reviews recommend this product
+        <div className="ratingBreakdown">
+          <u>5 stars</u>&nbsp;
+          <div className="ratingBarContainer"><RatingBar amount={this.state.five} total={this.props.numOfRatings} /></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
+          <br></br>
 
-        <h3>{this.state.percentage}% of reviews recommend this product</h3>
+          <u>4 stars</u>&nbsp;
+          <div className="ratingBarContainer"><RatingBar amount={this.state.four} total={this.props.numOfRatings} /></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
+          <br></br>
+
+          <u>3 stars</u>&nbsp;
+          <div className="ratingBarContainer"><RatingBar amount={this.state.three} total={this.props.numOfRatings} /></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
+          <br></br>
+
+          <u>2 stars</u>&nbsp;
+          <div className="ratingBarContainer"><RatingBar amount={this.state.two} total={this.props.numOfRatings} /></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+          <br></br>
+
+          <u>1 stars</u>&nbsp;
+          <div className="ratingBarContainer"><RatingBar amount={this.state.one} total={this.props.numOfRatings} /></div>
+          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+        </div>
       </div>
     )
   }
-
 }
 
 export default RatingBreakdown;
