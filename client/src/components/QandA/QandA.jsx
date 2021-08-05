@@ -37,11 +37,11 @@ class QnA extends React.Component {
   render () {
     return (
       <div className='QnA'>
-        <div id='QStart'>Questions and Answers</div>
+        <div id='QStart'>QUESTIONS & ANSWERS</div>
         <div className='form-div'>
           <form onSubmit={this.onSubmit}>
             <input type = 'text'
-              placeholder='Ask your questions'
+              placeholder='HAVE A QUESTION? SEARCH FOR ANSWERS...'
               onChange={this.changeFullName}
               value={this.state.fullName}
               className='form-control form-group'
