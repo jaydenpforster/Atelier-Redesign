@@ -2,7 +2,7 @@
 const config = require('../../config.js');
 
 const getProduct = (productID) => {
-  if (!productID) { productID = 28212 }
+  productID ? productID : '28212'
 
   return axios({
     method: 'GET',
@@ -21,7 +21,7 @@ const getProduct = (productID) => {
 
 };
 const getProductStyles = (productID) => {
-  if (!productID) { productID = 28212 }
+  if (!productID) { productID = '28212' }
 
   return axios({
     method: 'GET',

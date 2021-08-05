@@ -12,15 +12,16 @@ class Size extends React.Component {
     };
   }
   renderSizes() {
-    let arr = [];
+    console.log('this.props.sizes', this.props.sizes)
+    let sizeNQuantityArr = [];
     for (let obj in this.props.sizes) {
-      arr.push(this.props.sizes[obj])
+      sizeNQuantityArr.push(this.props.sizes[obj])
     }
-    let resultArr = [];
-    for (let i = 0; i < arr.length; i++) {
-      resultArr.push(<option key={i} value={`${arr[i].size} ${arr[i].quantity}`}>{arr[i].size}</option>)
+    let optionsArr = [];
+    for (let i = 0; i < sizeNQuantityArr.length; i++) {
+      optionsArr.push(<option key={i} value={`${sizeNQuantityArr[i].size} ${sizeNQuantityArr[i].quantity}`}>{sizeNQuantityArr[i].size}</option>)
     }
-    resultArr.unshift(<option key={100}>none</option>)
+    optionsArr.unshift(<option key={100}>none</option>)
     let select = <select
       className="SelectSize"
       onChange={(e) => {
@@ -30,11 +31,10 @@ class Size extends React.Component {
           selectedQuantity: e.target.value.split(' ')[1],
         })
       }}
-    >{resultArr}</select>
+    >{optionsArr}</select>
     return select
   }
   renderQuantity() {
-    console.log('this.state.selectedQuantity ', this.state.selectedQuantity)
     if (this.state.selectedQuantity === '-n/a-') {
       return <select
         className="SelectQuantity"
@@ -46,9 +46,9 @@ class Size extends React.Component {
       if (this.state.selectedQuantity === '0' || this.state.selectedQuantity === undefined) {
         return <select><option>OUT OF STOCK</option></select>
       }
-      let arr = [];
+      let optionsArr = [];
       for (let i = 0; i <= Number(this.state.selectedQuantity); i++) {
-        arr.push(<option key={`${i}`} value={i}>{i}</option>)
+        optionsArr.push(<option key={`${i}`} value={i}>{i}</option>)
       }
       return <select
         onChange={e => {
@@ -56,7 +56,7 @@ class Size extends React.Component {
           this.setState({
             userChosenQuantity: e.target.value
           })
-        }}>{arr}</select>
+        }}>{optionsArr}</select>
     }
   }
 
@@ -72,13 +72,3 @@ class Size extends React.Component {
 }
 export default Size
 
-
-/**
- *
-     console.log('PROP PASSED', this.props.sizes)
-    let arr = [];
-    for (let obj in this.props.sizes) {
-      arr.push(this.props.sizes[obj])
-    }
-    console.log('arr', arr)
- */

@@ -43,8 +43,10 @@ class Styles extends React.Component {
         <div>Styles Here!</div>
         <div>Style Choices</div>
         <div>{this.renderStyleChoices()}</div>
-        <br></br><br></br>
-        <img alt={'Photo'} height="300" width="200" src={this.props.styles[this.state.selectedStyle].photos[0].url}></img>
+        <br></br>
+        <div className="MainPhotoContainer">
+          <img alt={'Photo'} height="300" width="200" src={this.props.styles[this.state.selectedStyle].photos[0].url}></img>
+        </div>
         <div>Style Price: {this.props.styles[this.state.selectedStyle].original_price}</div>
         <Thumbnails pics={this.props.styles[this.state.selectedStyle].photos} />
         {renderSize}

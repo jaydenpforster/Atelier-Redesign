@@ -20,8 +20,6 @@ class Overview extends React.Component {
   }
 
   render() {
-    // console.log('this.props.styles', this.props.styles)
-    // console.log('this.props.overview', this.props.overview)
     let renderFeatures, renderStyles
     if (this.state.info !== '') {
       renderFeatures = <Features features={this.state.info.features} />

@@ -14,7 +14,6 @@ class Features extends React.Component {
     let featuresArr = [];
     let i = 0;
     for (let feature of this.props.features) {
-      // console.log('feature', feature)
       featuresArr.push(<div key={i} id="feature">{feature.feature} {feature.value}</div>)
       i++;
     }
@@ -22,7 +21,6 @@ class Features extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('OUR ARRAY', this.props.features)
   }
 
 

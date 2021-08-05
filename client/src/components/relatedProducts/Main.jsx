@@ -19,7 +19,6 @@ class Main extends React.Component {
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        // console.log('Success', data);
         this.setState({
           productInfo: data
         })
