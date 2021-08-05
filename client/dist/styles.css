@@ -76,7 +76,7 @@ div {
   display: inline-block;
   width: 50%;
   height: 0.5em;
-  background-color: #525252;
+  background-color: green;
   position: absolute;
   z-index: 1;
 }
@@ -136,4 +136,8 @@ div {
   width: 100%;
   justify-content: space-between;
   font-size: 90%;
+}
+
+u:hover {
+  background-color: lightgreen;
 }

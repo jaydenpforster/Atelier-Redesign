@@ -44,6 +44,11 @@ class RatingBreakdown extends React.Component {
     })
   }
 
+  handleClick(event) {
+    let filterNumber = (event.target.innerText).slice(0, 1);
+    //later this will filter the displayed reviews
+  }
+
   render() {
     let totalCountOfReviews = this.state.reviewsCount;
     let fivePortion = (this.state.five / totalCountOfReviews) * 100;
@@ -55,27 +60,27 @@ class RatingBreakdown extends React.Component {
       <div>
         {this.state.recPercentage}% of reviews recommend this product
         <div className="ratingBreakdown">
-          <u>5 stars</u>&nbsp;
+          <u onClick={this.handleClick}>5 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
           <br></br>
 
-          <u>4 stars</u>&nbsp;
+          <u onClick={this.handleClick}>4 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
           <br></br>
 
-          <u>3 stars</u>&nbsp;
+          <u onClick={this.handleClick}>3 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
           <br></br>
 
-          <u>2 stars</u>&nbsp;
+          <u onClick={this.handleClick}>2 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
           <br></br>
 
-          <u>1 stars</u>&nbsp;
+          <u onClick={this.handleClick}>1 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
         </div>
