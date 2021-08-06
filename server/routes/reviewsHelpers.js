@@ -58,7 +58,7 @@ const filterMetaData = (metaData) => {
     let averageRating;
     let ratingPercentage;
     for (let rating in ratings) {
-      howManyRatings++;
+      howManyRatings += ratings[rating];
       totalOfRatings += (rating * ratings[rating])
     }
     if (howManyRatings === 0) {
