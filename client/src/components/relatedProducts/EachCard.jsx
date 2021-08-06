@@ -9,6 +9,7 @@ class EachCard extends React.Component {
     }
     this.modalClick = this.modalClick.bind(this);
     this.modalClose = this.modalClose.bind(this);
+    this.click = this.click.bind(this);
   }
 
   modalClick() {
@@ -32,7 +33,7 @@ class EachCard extends React.Component {
   render() {
     return (
       <div className="eachCard">
-        <img onClick={this.click.bind(this)} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
+        <img onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
         <img onClick={this.modalClick} className="cardStar" src="star.png" alt="stars alt"></img>
         <div className="category">{this.props.info.category}</div>
         <div className="name">{this.props.info.name}</div>

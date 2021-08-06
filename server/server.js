@@ -25,7 +25,6 @@ app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
 
 
 app.get('/getAllProductInfo', (req, res) => {
-  console.log('@@hit getAllProductInfo', req.query.id)
   console.log('REQUEST', req)
   Promise.all([
     ovRouteHelper.getProduct(req.query.id),

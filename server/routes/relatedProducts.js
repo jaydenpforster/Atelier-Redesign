@@ -4,7 +4,6 @@ const relatedProductsHelper = require('./relatedProductsHelper')
 
 
 router.get('/relatedProducts', (req, res) => {
-  console.log(req.query)
   let productId = req.query.id;
   relatedProductsHelper.getProductID(productId)
     .then((relatedProductIdList) => {
