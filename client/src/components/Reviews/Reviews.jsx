@@ -11,83 +11,62 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: [],
-      metaData: {}
+      numOfRatings: 0,
+      changed: false
     }
-
-    this.getReviews = this.getReviews.bind(this);
-    this.getMetaData = this.getMetaData.bind(this);
   }
 
-  componentDidMount() {
-    this.getReviews();
-    this.getMetaData();
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      console.log('I am props!', this.props)
+      this.setState({
+        numOfRatings: Object.keys(this.props.ratings).length,
+        changed: true
+      })
+    }
   }
 
-  getReviews() {
-    $.ajax({
-      type: 'get',
-      url: 'http://localhost:4000/reviews/reviews',
-      data: {id: '28212'},
-      success: (response) => {
-        this.setState({
-          reviews: response
-        });
-      },
-      error: (err) => {
-        // console.log('Error in getStarRating(): ', err);
-      }
-    })
-  }
 
-  getMetaData() {
-    //ajax request to get meta data characteristics
-    $.ajax({
-      type: 'get',
-      url: 'http://localhost:4000/reviews/meta',
-      data: {id: '28212'},
-      success: (response) => {
-        this.setState({
-          metaData: response
-        });
-      },
-      error: (err) => {
-        console.log('Error in getCharacteristics(): ', err);
-      }
-    })
-  }
 
   // click handler for more Reviews button
 
   // click handler for add a review button
 
   render() {
+    if (this.state.changed) {
+      return (
+        <div>
+          <h1>I am reviews</h1>
+          <Stars
+            renderStars={this.props.renderStars}
+            averageRating={this.props.averageRating}
+            numOfRatings={this.state.numOfRatings}
+          />
+          {/*
+          <br></br>
 
-    return (
-      <div>
-        <Stars ratings={this.state.metaData.ratings} />
+          <RatingBreakdown
+            metaData={this.state.metaData}
+            reviews={this.state.reviews} />
 
-        <br></br>
+          <br></br>
 
-        <RatingBreakdown
-          metaData={this.state.metaData}
-          reviews={this.state.reviews} />
+          <FactorsBreakdown />
 
-        <br></br>
+          <br></br>
 
-        <FactorsBreakdown />
+          <Sort getReviews={this.getReviews} />
 
-        <br></br>
+          <br></br>
 
-        <Sort getReviews={this.getReviews} />
-
-        <br></br>
-
-        <ReviewTiles />
-        {/* more reviews button with onClick */}
-        {/* add a review button with onClick*/}
-      </div>
-    )
+          <ReviewTiles /> */}
+          {/* more reviews button with onClick */}
+          {/* add a review button with onClick*/}
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 
 }

@@ -28,7 +28,7 @@ class RatingBreakdown extends React.Component {
 
   calculatePercentage() {
     let recs = this.props.metaData.recommended;
-    let total = (recs.true + recs.false);
+    let total = (Number(recs.true) + Number(recs.false));
     let decimal = recs.true / total;
     let percent = decimal * 100;
     this.setState({

@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import EachCard from './EachCard.jsx';
 
 const ProductCard = (props) => {
+  if (!props.detailInfo) {
+    return null;
+  }
+
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [length, setLength] = useState(props.)
 
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
@@ -25,8 +31,31 @@ const ProductCard = (props) => {
 
   return (
     <div className="productCard">
-      {relevantProps.map((each, index) =>
-        <EachCard info={each} prodId={props.info} detailInfo={props.detailInfo} key={index} />)}
+      <div className="carousel-container">
+        <div className="carousel-wrapper">
+          <button className="left-arrow">
+            &lt;
+          </button>
+          <div className="carousel-content-wrapper">
+            <div className="carousel-content">
+              {relevantProps.map((each, index) =>
+                <EachCard
+                  info={each}
+                  prodId={props.info}
+                  detailInfo={props.detailInfo}
+                  overViewProd={props.overViewProd}
+                  overViewStyles={props.overViewStyles}
+                  renderStars={props.renderStars}
+                  onClick={props.onClick}
+                  key={index}
+                />)}
+            </div>
+            <button className="right-arrow">
+              &gt;
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

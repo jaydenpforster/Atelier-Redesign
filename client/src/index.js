@@ -6,7 +6,7 @@ import App from './app.jsx';
 
 
 // eslint-disable-next-line no-unused-vars
-import Main from './components/relatedProducts/Main.jsx';
+import RelatedProducts from './components/relatedProducts/RelatedProducts.jsx';
 import $ from 'jquery';
 
 

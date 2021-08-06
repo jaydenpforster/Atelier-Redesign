@@ -19,22 +19,33 @@
   max-width: 200px;
 }
 
-.star-outline {
-  height: 36px;
-  width: 31px;
+.starContainer {
+  width: 5em;
+  height: 1em;
+  position: relative ;
 }
 
-.star-filled-in {
+/*adjust width percentage according to review percentage*/
+.starBox {
   position: relative;
-  display: inline-block;
-  height: 36px;
-  background-color: #333333;
+  background-color: black;
+  width: 100%;
+  height: 1em;
+  z-index: -1;
 }
 
-.star-box {
-  height: 36px;
-  width: 31px;
-  display: inline-block;
+.inlineStars {
+  width: 5em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.starsLayout {
+  position: relative;
+  width: 1em;
+  height: auto;
+  float: left;
+  z-index: 1;
 }
 
 .modal {
@@ -43,7 +54,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,10 +63,14 @@
 .modalContent {
   width: 500px;
   background-color: #fff;
+  border-left: 15px;
 }
 
 .modalHeader {
-  padding: 10px;
+  /* padding: 10px; */
+  border-top: 1px solid rgb(0, 0, 0);
+  border-left: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
 }
 
 .modalTitle {
@@ -65,5 +80,73 @@
 .modalBody {
   padding: 10px;
   border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-left: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+}
+
+.cardStar {
+  position: relative;
+  width: 1em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
+
+
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-content-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-content {
+  display: flex;
+  transition: all 250ms linear;
+  -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
+  scrollbar-width: none;  /* hide scrollbar in Firefox */
+}
+
+/* hide scrollbar in webkit browser */
+.carousel-content::-webkit-scrollbar, .carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-content > * {
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.left-arrow {
+  left: 24px;
+}
+
+.right-arrow {
+  right: 24px;
 }

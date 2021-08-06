@@ -5,7 +5,31 @@ const Modal = (props) => {
     return null;
   }
 
-  return(
+  let arr1 = props.info.features;
+  let arr2 = props.overViewProd.features;
+  let both = [];
+  let overView = [];
+  let related = [];
+
+
+
+  // [
+  //   {feature: Fabric, value: cotton},
+  //   {feature: Cut, value: Loose},
+  //   {feature: Something, value: Something else}
+  // ]
+
+  // [
+  //   {feature: Fabric, value: cotton},
+  //   {feature: Cut, value: Loose}
+  // ]
+
+
+
+  // console.log('BOTH', arr1)
+
+
+  return (
     <div className="modal" onClick={props.close}>
       <div className="modalContent" onClick={e => e.stopPropagation()}>
         <div className="modalHeader">
@@ -14,18 +38,26 @@ const Modal = (props) => {
         <table className="modalBody">
           <thead>
             <tr>
-              <th>Overview Product</th>
+              <th>{props.overViewProd.name}</th>
               <th>Feature</th>
-              <th>Related Product</th>
+              <th>{props.info.name}</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Checkmark 1</td>
-              {props.info.features.map((item, i) =>
-                <td key={i}>{item.feature}: {item.value}</td>)}
-              <td>checkmark 2</td>
-            </tr>
+            {props.info.features.map((item, i) =>
+              <tr key={i + 3}>
+                <th key={i}></th>
+                <th key={i + 1}>{item.feature}: {item.value}</th>
+                <th key={i + 2}>✔️</th>
+              </tr>
+            )}
+            {props.overViewProd.features.map((item, i) =>
+              <tr key={i + 3}>
+                <th key={i}>✔️</th>
+                <th key={i + 1}>{item.feature}: {item.value}</th>
+                <th key={i + 2}></th>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
