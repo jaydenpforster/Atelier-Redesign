@@ -48,8 +48,44 @@
   z-index: 1;
 }
 
+.starsAverageRating {
+  display: inline-block;
+  font-size: 200%;
+  line-height: 77%
+}
+
+.starsAlignment {
+  display: inline-block;
+  vertical-align: top;
+}
+
 div {
   color: #525252;
+}
+
+.ratingBarContainer {
+  display: inline-block;
+  width: 10.45em;
+  height: 0.5em;
+  background-color: #ebebeb;
+  position: relative;
+  z-index: -1;
+}
+
+.ratingBar {
+  display: inline-block;
+  width: 50%;
+  height: 0.5em;
+  background-color: green;
+  position: absolute;
+  z-index: 1;
+}
+
+/* margin left needs to be one more em than ratingBarContainer width */
+.total {
+  display: inline-block;
+  margin-left: 11.45em;
+  font-size: 90%;
 }
 
 .factorContainer {
@@ -100,4 +136,8 @@ div {
   width: 100%;
   justify-content: space-between;
   font-size: 90%;
+}
+
+u:hover {
+  background-color: lightgreen;
 }
