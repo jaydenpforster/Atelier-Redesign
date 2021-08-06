@@ -24,7 +24,6 @@ app.use('/qna', qna);
 
 
 app.get('/getAllProductInfo', (req, res) => {
-
   Promise.all([
     ovRouteHelper.getProduct(req.query.id),
     ovRouteHelper.getProductStyles(req.query.id),
