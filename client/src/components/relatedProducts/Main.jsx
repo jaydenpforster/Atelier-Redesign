@@ -13,15 +13,12 @@ class Main extends React.Component {
     }
   }
 
-  //props will be the Product ID coming from Overview
-
   componentDidMount() {
     $.ajax({
       url: 'http://localhost:4000/relatedProducts/relatedProducts',
       type: 'GET',
       data: {id: this.state.productId},
       success: (data) => {
-        // console.log('Success', data);
         this.setState({
           productInfo: data
         })

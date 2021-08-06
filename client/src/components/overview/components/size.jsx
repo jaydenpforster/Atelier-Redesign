@@ -1,6 +1,4 @@
-/*eslint-env es6*/
 import React from 'react'
-
 
 class Size extends React.Component {
   constructor(props) {
@@ -9,44 +7,60 @@ class Size extends React.Component {
       currentStyleID: '',
       features: '',
       selectedSize: 'none',
-      selectedQuantity: 0,
+      selectedQuantity: '-n/a-',
+      userChosenQuantity: '',
     };
   }
   renderSizes() {
-    // console.log('PROP PASSED', this.props.sizes)
-    let arr = [];
+    console.log('this.props.sizes', this.props.sizes)
+    let sizeNQuantityArr = [];
     for (let obj in this.props.sizes) {
-      arr.push(this.props.sizes[obj])
+      sizeNQuantityArr.push(this.props.sizes[obj])
     }
-    // console.log('arr', arr)
-    let resultArr = [];
-    for (let i = 0; i < arr.length; i++) {
-      // console.log('i', i)
-      // i++;
-      resultArr.push(<option key={i} value={arr[i].size}>{arr[i].size}</option>)
+    let optionsArr = [];
+    for (let i = 0; i < sizeNQuantityArr.length; i++) {
+      optionsArr.push(<option key={i} value={`${sizeNQuantityArr[i].size} ${sizeNQuantityArr[i].quantity}`}>{sizeNQuantityArr[i].size}</option>)
     }
-    resultArr.unshift(<option key={100}>none</option>)
+    optionsArr.unshift(<option key={100}>none</option>)
     let select = <select
-      value={this.state.selectedSize}
+      className="SelectSize"
       onChange={(e) => {
         e.preventDefault()
-        this.setState({selectedSize: e.target.value})
+        this.setState({
+          selectedSize: e.target.value.split(' ')[0],
+          selectedQuantity: e.target.value.split(' ')[1],
+        })
       }}
-    >{resultArr}</select>
+    >{optionsArr}</select>
     return select
   }
   renderQuantity() {
-    // let arr = [];
-    // console.log('this.props.sizes', this.state.currentStyleID)
-    // for (let i = 0; i < this.props.sizes)
-    return <select><option>none</option></select>
-  }
-  setTheState() {
+    if (this.state.selectedQuantity === '-n/a-') {
+      return <select
+        className="SelectQuantity"
+        onClick={e => {
+          e.preventDefault()
+          alert('Please select a Size first')
+        }}><option>size needed</option></select>
+    } else {
+      if (this.state.selectedQuantity === '0' || this.state.selectedQuantity === undefined) {
+        return <select><option>OUT OF STOCK</option></select>
+      }
+      let optionsArr = [];
+      for (let i = 0; i <= Number(this.state.selectedQuantity); i++) {
+        optionsArr.push(<option key={`${i}`} value={i}>{i}</option>)
+      }
+      return <select
+        onChange={e => {
+          e.preventDefault()
+          this.setState({
+            userChosenQuantity: e.target.value
+          })
+        }}>{optionsArr}</select>
+    }
   }
 
   render() {
-    // this.setState({currentStyleID: this.props.sizes[0]})
-    this.setTheState()
     return (
       <div>
         <div>Size here!</div>
@@ -58,13 +72,3 @@ class Size extends React.Component {
 }
 export default Size
 
-
-/**
- *
-     console.log('PROP PASSED', this.props.sizes)
-    let arr = [];
-    for (let obj in this.props.sizes) {
-      arr.push(this.props.sizes[obj])
-    }
-    console.log('arr', arr)
- */

@@ -4,7 +4,7 @@ const app = express()
 const port = 4000;
 const path = require('path');
 const bodyParser = require('body-parser');
-const overview = require('./routes/overviewRoutes');
+// const overview = require('./routes/overviewRoutes');
 const ovRouteHelper = require('./routes/getOverviewInfo.js');
 const relatedProducts = require('./routes/relatedProducts');
 const relatedHelper = require('./routes/relatedProductsHelper.js');
@@ -16,16 +16,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')))
 
-// app.use('/overview', overview);
-app.use('/relatedProducts', relatedProducts);
-// app.use('/reviews', reviews);
-app.use('/qna', qna);
 
-app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
+app.use('/relatedProducts', relatedProducts);
+app.use('/qna', qna);
+// app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
+
 
 
 app.get('/getAllProductInfo', (req, res) => {
-  console.log('@@hit getAllProductInfo', req.query.id)
+
   Promise.all([
     ovRouteHelper.getProduct(req.query.id),
     ovRouteHelper.getProductStyles(req.query.id),
@@ -37,9 +36,30 @@ app.get('/getAllProductInfo', (req, res) => {
     .then(arrOfInfo => {
       res.status(200).send(arrOfInfo)
     })
+    .catch(err => {
+      console.log('err', err)
+    })
 });
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
+
+app.get('/getAllProductInfo', (req, res) => {
+
+  let first = ovRouteHelper.getProduct(req.query.id);
+  let second = ovRouteHelper.getProduct(req.query.id)
+  let third = ovRouteHelper.getProductStyles(req.query.id)
+  let fourth = relatedHelper.getProductStyles(req.query.id)
+  let fifth = relatedHelper.getProductID(req.query.id)
+  let sixth = reviewsHelper.getReviews(req.query.id)
+  let seventh = reviewsHelper.getMetaData(req.query.id)
+  Promise.all([first, second, third, fourth, fifth, sixth, seventh])
+    .then(arrOfInfo => {
+      res.send(arrOfInfo)
+    })
+    .catch(err => {
+      console.log('err', err);
+    })
+});

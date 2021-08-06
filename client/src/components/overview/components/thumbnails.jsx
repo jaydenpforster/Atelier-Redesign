@@ -11,21 +11,26 @@ class Thumbnail extends React.Component {
   }
   renderThumbnails() {
     let arr = [];
-    // eslint-disable-next-line react/prop-types
     for (let i = 0; i < this.props.pics.length; i++) {
-      // eslint-disable-next-line react/prop-types
-      arr.push(<img key={i} alt="thumbnail" src={this.props.pics[i].thumbnail_url}></img>)
+      arr.push(<img
+        className={`Thumbnail ${i}`}
+        onClick={e => {console.log('TN Click')}}
+        key={i} alt="thumbnail"
+        src={this.props.pics[i].thumbnail_url}></img>)
     }
-    return <div>{arr}</div>
+    return <div className="Thumbnail Container">
+      <a className="Prev" onClick={e => { console.log('Prev') }}>Prev</a>
+      {arr}
+      <a className="Next" onClick={e => { console.log('Next') }} >Next</a>
+    </div>
   }
 
   render() {
-    // console.log('there?!', this.props.pics)
     return (
-      <div>
+      <>
         <div>Thumbnail here!</div>
         {this.renderThumbnails()}
-      </div>
+      </>
     )
   }
 }
