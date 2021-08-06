@@ -30,7 +30,8 @@ app.get('/getAllProductInfo', (req, res) => {
     ovRouteHelper.getProductStyles(req.query.id),
     relatedHelper.getProductStyles(req.query.id),
     relatedHelper.getProductID(req.query.id),
-    reviewsHelper.getReviews(req.query.id),
+    reviewsHelper.getHelpfulReviews(req.query.id),
+    reviewsHelper.getNewestReviews(req.query.id),
     reviewsHelper.getMetaData(req.query.id)
   ])
     .then(arrOfInfo => {

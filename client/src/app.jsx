@@ -25,7 +25,8 @@ class App extends React.Component {
       recommended: {},
       averageRating: 0,
       starRating: 0,
-      reviews: []
+      helpfulReviews: [],
+      newestReviews: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
@@ -60,19 +61,19 @@ class App extends React.Component {
       type: 'GET',
       data: { id },
       success: (data) => {
-        // console.log('Success', data);
         this.setState({
           overview: data[0],
           styles: data[1],
           related: data[2],
           mainProductID: data[1].product_id,
           relatedProductIDs: data[3],
-          reviews: data[4],
-          averageRating: data[5].avgRating.averageRating,
-          starRating: data[5].avgRating.ratingPercentage,
-          characteristics: data[5].characteristics,
-          ratings: data[5].ratings,
-          recommended: data[5].recommended
+          helpfulReviews: data[4],
+          newestReviews: data[5],
+          averageRating: data[6].avgRating.averageRating,
+          starRating: data[6].avgRating.ratingPercentage,
+          characteristics: data[6].characteristics,
+          ratings: data[6].ratings,
+          recommended: data[6].recommended
         })
       },
       error: (data) => {
@@ -82,7 +83,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getAllProductInfo('28212')
+    this.getAllProductInfo('29004')
   }
 
   renderStars() {
@@ -121,7 +122,8 @@ class App extends React.Component {
         <QnA renderStars={this.renderStars}/>
         <br></br>
         <Reviews
-          reviews={this.state.reviews}
+          helpfulReviews={this.state.helpfulReviews}
+          newestReviews={this.state.newestReviews}
           averageRating={this.state.averageRating}
           starRating={this.state.starRating}
           characteristics={this.state.characteristics}
