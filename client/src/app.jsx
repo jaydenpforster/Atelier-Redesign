@@ -88,7 +88,7 @@ class App extends React.Component {
       type: 'GET',
       data: { id },
       success: (data) => {
-        console.log('Success', data);
+        // console.log('Success', data);
         this.setState({
           overview: data[0],
           styles: data[1],
@@ -130,11 +130,20 @@ class App extends React.Component {
   }
 
   render() {
+    let overview;
+    if (this.state.overview.id === undefined) {
+      overview = <></>
+    } else {
+      overview = <Overview
+        renderStars={this.renderStars}
+        overview={this.state.overview}
+        styles={this.state.styles} />
+    }
     return (
       <div>
         {console.log('STATE', this.state.mainProductID)}
         <h1></h1>
-        <Overview renderStars={this.renderStars}/>
+        {overview}
         <br></br>
         <RelatedProducts
           info={this.state.relatedProductIDs}

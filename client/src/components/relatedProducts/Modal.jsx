@@ -5,30 +5,6 @@ const Modal = (props) => {
     return null;
   }
 
-  let arr1 = props.info.features;
-  let arr2 = props.overViewProd.features;
-  let both = [];
-  let overView = [];
-  let related = [];
-
-
-
-  // [
-  //   {feature: Fabric, value: cotton},
-  //   {feature: Cut, value: Loose},
-  //   {feature: Something, value: Something else}
-  // ]
-
-  // [
-  //   {feature: Fabric, value: cotton},
-  //   {feature: Cut, value: Loose}
-  // ]
-
-
-
-  // console.log('BOTH', arr1)
-
-
   return (
     <div className="modal" onClick={props.close}>
       <div className="modalContent" onClick={e => e.stopPropagation()}>

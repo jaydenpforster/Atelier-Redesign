@@ -1,34 +1,19 @@
 import React from 'react';
 import FactorBar from './FactorBar.jsx';
-import $ from 'jquery';
 
-class FactorsBreakdown extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      characteristics: []
-      //characteristics will be an array of objects
-    }
-    //binding
-    this.componentDidMount = this.componentDidMount.bind(this);
-  }
+const FactorsBreakdown = (props) => {
+  let factorNames = Object.keys(props.characteristics);
+  let factorValues = Object.values(props.characteristics);
 
-  componentDidMount() {
+  const factors = factorNames.map((name, index) =>
+    <FactorBar key={`factor-${index}`} name={name} value={factorValues[index]} />
+  )
 
-  }
-
-  render() {
-    return (
-      <div>
-        <strong>!!!Factors Breakdown Here!!!</strong>
-        <FactorBar />
-        <FactorBar />
-        {/* Each characteristic will be mapped out to FactorBar.jsx*/}
-      </div>
-    )
-  }
-
+  return (
+    <div>
+      {factors}
+    </div>
+  )
 }
-
 
 export default FactorsBreakdown;

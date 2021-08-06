@@ -6,8 +6,6 @@ const ProductCard = (props) => {
     return null;
   }
 
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const [length, setLength] = useState(props.)
 
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;

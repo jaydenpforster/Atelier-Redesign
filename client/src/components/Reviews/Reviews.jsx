@@ -18,15 +18,12 @@ class Reviews extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      console.log('I am props!', this.props)
       this.setState({
         numOfRatings: Object.keys(this.props.ratings).length,
         changed: true
       })
     }
   }
-
-
 
   // click handler for more Reviews button
 
@@ -36,40 +33,32 @@ class Reviews extends React.Component {
     if (this.state.changed) {
       return (
         <div>
-          <h1>I am reviews</h1>
+          <h1>Reviews</h1>
           <Stars
             renderStars={this.props.renderStars}
             averageRating={this.props.averageRating}
-            numOfRatings={this.state.numOfRatings}
-          />
+            numOfRatings={this.state.numOfRatings} />
+          <br></br>
+          <RatingBreakdown
+            reviews={this.props.reviews}
+            ratings={this.props.ratings}
+            recommended={this.props.recommended} />
+          <br></br>
+          <FactorsBreakdown characteristics={this.props.characteristics} />
           {/*
           <br></br>
-
-          <RatingBreakdown
-            metaData={this.state.metaData}
-            reviews={this.state.reviews} />
-
-          <br></br>
-
-          <FactorsBreakdown />
-
-          <br></br>
-
           <Sort getReviews={this.getReviews} />
-
           <br></br>
-
-          <ReviewTiles /> */}
-          {/* more reviews button with onClick */}
-          {/* add a review button with onClick*/}
+          <ReviewTiles />
+          more reviews button with onClick
+          add a review button with onClick
+          */}
         </div>
       )
     } else {
       return null;
     }
   }
-
 }
-
 
 export default Reviews;

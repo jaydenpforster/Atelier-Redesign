@@ -14,7 +14,7 @@ class RelatedProducts extends React.Component {
     }
   }
 
-  //props will be the Product ID coming from Overview
+
 
   render() {
     return (
