@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // eslint-disable-next-line no-unused-vars
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
-import Main from './components/relatedProducts/Main.jsx';
+import RelatedProducts from './components/relatedProducts/RelatedProducts.jsx';
 import QnA from './components/QandA/QandA.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 // import axios from 'axios'
@@ -30,6 +30,7 @@ class App extends React.Component {
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
     this.renderStars = this.renderStars.bind(this);
+    this.handleRelatedProductClick = this.handleRelatedProductClick.bind(this);
   }
 
   //GET REQUESTS
@@ -52,7 +53,33 @@ class App extends React.Component {
   //productId
   //stars / reviews
   //metadata
+  handleRelatedProductClick(id) {
+    $.ajax({
+      url: 'http://localhost:4000/getAllProductInfo',
+      type: 'GET',
+      data: { id },
+      success: (data) => {
+        console.log('Success', data);
+        this.setState({
+          overview: data[0],
+          styles: data[1],
+          related: data[2],
+          mainProductID: data[1].product_id,
+          relatedProductIDs: data[3],
+          reviews: data[4],
+          averageRating: data[5].avgRating.averageRating,
+          starRating: data[5].avgRating.ratingPercentage,
+          characteristics: data[5].characteristics,
+          ratings: data[5].ratings,
+          recommended: data[5].recommended
+        })
+      },
+      error: (data) => {
+        console.log('Error', data);
+      }
+    });
 
+  }
 
   getAllProductInfo(id) {
     $.ajax({
@@ -82,7 +109,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getAllProductInfo('28212')
+    this.getAllProductInfo(this.state.mainProductID)
   }
 
   renderStars() {
@@ -116,7 +143,14 @@ class App extends React.Component {
         <h1></h1>
         {overview}
         <br></br>
-        <Main renderStars={this.renderStars}/>
+        <RelatedProducts
+          info={this.state.relatedProductIDs}
+          detailInfo={this.state.related}
+          overViewProd={this.state.overview}
+          overViewStyles={this.state.styles}
+          renderStars={this.renderStars}
+          onClick={this.handleRelatedProductClick}
+        />
         <br></br>
         <QnA renderStars={this.renderStars}/>
         <br></br>
