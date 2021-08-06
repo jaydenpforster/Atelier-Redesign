@@ -13,11 +13,9 @@ class EachCard extends React.Component {
   }
 
   modalClick() {
-    console.log('CLICKED');
     this.setState({
       modalShow: !this.state.modalShow
     })
-    console.log('STATE', this.state)
   }
 
   modalClose() {

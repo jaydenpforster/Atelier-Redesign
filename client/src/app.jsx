@@ -54,7 +54,6 @@ class App extends React.Component {
   //stars / reviews
   //metadata
   handleRelatedProductClick(id) {
-    console.log(`ID: ${id} was clicked`)
     $.ajax({
       url: 'http://localhost:4000/getAllProductInfo',
       type: 'GET',
@@ -141,7 +140,6 @@ class App extends React.Component {
     }
     return (
       <div>
-        {console.log('STATE', this.state.mainProductID)}
         <h1></h1>
         {overview}
         <br></br>
