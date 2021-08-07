@@ -18,9 +18,10 @@ router.get('/questions', (req, res) => {
       res.status(200)
     })
     .catch(err => {
-      console.log('err', err);
+      console.log('The error returned: ', err);
     });
 
 })
+
 
 module.exports = router;
