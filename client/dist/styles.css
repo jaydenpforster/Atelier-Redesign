@@ -235,10 +235,24 @@ div {
 
 .descriptors {
   display: flex;
-  position: relative;
   width: 100%;
-  justify-content: space-between;
-  font-size: 90%;
+  font-size: 60%;
+  text-align: justify;
+}
+
+.leftDescriptor {
+  flex: 1;
+  text-align: left;
+}
+
+.centerDescriptor {
+  flex: 1;
+  text-align: center;
+}
+
+.rightDescriptor {
+  flex: 1;
+  text-align: right;
 }
 
 u:hover {

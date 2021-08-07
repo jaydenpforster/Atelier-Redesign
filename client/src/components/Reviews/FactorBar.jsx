@@ -3,34 +3,42 @@ import React from 'react';
 const FactorBar = (props) => {
   let factorValue = (props.value / 5) * 13;
   let leftDescriptor,
-    middleDescriptor,
+    centerDescriptor,
     rightDescriptor;
 
   if (props.name === 'Size') {
     leftDescriptor = 'Too small';
-    middleDescriptor = 'Perfect';
+    centerDescriptor = 'Perfect';
     rightDescriptor = 'Too large';
   }
 
   if (props.name === 'Width') {
-    leftDescriptor = 'Narrow';
-    middleDescriptor = 'Perfect';
-    rightDescriptor = 'Wide'
+    leftDescriptor = 'Too Narrow';
+    centerDescriptor = 'Perfect';
+    rightDescriptor = 'Too Wide'
   }
 
-  if (props.name === 'Comfort' || props.name === 'Quality') {
+  if (props.name === 'Comfort') {
+    leftDescriptor = 'Uncomfortable';
+    centerDescriptor = 'Ok';
+    rightDescriptor = 'Perfect'
+  }
+
+  if (props.name === 'Quality') {
     leftDescriptor = 'Poor';
-    rightDescriptor = 'Great'
+    centerDescriptor = 'What I Expected';
+    rightDescriptor = 'Perfect'
   }
 
   if (props.name === 'Length') {
-    leftDescriptor = 'Too Short';
-    middleDescriptor = 'Perfect';
-    rightDescriptor = 'Too Long';
+    leftDescriptor = 'Runs Tight';
+    centerDescriptor = 'Perfect';
+    rightDescriptor = 'Runs Long';
   }
 
   if (props.name === 'Fit') {
     leftDescriptor = 'Tight';
+    centerDescriptor = 'Perfect';
     rightDescriptor = 'Loose';
   }
 
@@ -43,9 +51,9 @@ const FactorBar = (props) => {
           <div className="factorBreakRight"></div>
           <div className="factorPoint" style={{'marginLeft': `${factorValue}em`}}></div>
           <div className="descriptors">
-            <div>{leftDescriptor}</div>
-            <div>{middleDescriptor}</div>
-            <div>{rightDescriptor}</div>
+            <div className="leftDescriptor">{leftDescriptor}</div>
+            <div className="centerDescriptor">{centerDescriptor}</div>
+            <div className="rightDescriptor">{rightDescriptor}</div>
           </div>
         </div>
         <br></br>
