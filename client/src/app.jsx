@@ -110,11 +110,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    this.getAllProductInfo('29004')
-=======
     this.getAllProductInfo(this.state.mainProductID)
->>>>>>> de5f6bfc25207e431877ecbb3e83087b31793274
   }
 
   renderStars() {
