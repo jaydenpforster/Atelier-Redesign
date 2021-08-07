@@ -1,24 +1,20 @@
 import React from 'react';
 
 const SingleTile = (props) => {
-  //format individual review with props from ReviewTiles
-  //star rating
-  //review summary
-    //next line if necessary
-  //review body
-    //show more if necessary
-  //images if submitted
-  //recommend?
-  //reviewer name
-  //response to review if there is a corresponding response
-  //rating helpfulness
-    //Helpful? with ability to click and cast vote
-      //if yes, can't select yes again
-    return (
-      <div>
-        !!!Single Review Tile Here!!!
-      </div>
-    )
+//star rating (props.renderStars())
+//date of review "Month DD, YYYY" (props.review.date)
+//review summary (props.review.summary)
+//review body (props.review.body)
+  //images (props.review.photos as an array of objects, photo located at props.review.photos[#].url)
+//recommend (props.review.recommend)
+//reviewer name (props.review.reviewer_name)
+//response to review props.review.response
+//rating helpfulness props.review.helpfulness
+//     return (
+//       <div>
+//         null
+//       </div>
+//     )
 }
 
 export default SingleTile;
