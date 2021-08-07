@@ -149,11 +149,12 @@ class Sort extends React.Component {
       <div>
         <label>
           <h4>{this.state.howManyReviews} reviews, sorted by &nbsp;
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="relevant">relevance</option>
-            <option value="helpful">helpfulness</option>
-            <option value="newest">date</option>
-          </select></h4>
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="relevant">relevance</option>
+              <option value="helpful">helpfulness</option>
+              <option value="newest">date</option>
+            </select>
+          </h4>
         </label>
         <ReviewTiles
           reviews={reviewsToPassDown}

@@ -2,6 +2,7 @@ import React from 'react';
 import SingleTile from './SingleTile.jsx';
 
 const ReviewTiles = (props) => {
+  console.log(props.reviews)
   //map to SingleTile
   return (
     <div className='reviewTiles'>

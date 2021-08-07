@@ -42,6 +42,7 @@ class Reviews extends React.Component {
             ratings={this.props.ratings}
             recommended={this.props.recommended} />
           <br></br>
+          <br></br>
           <FactorsBreakdown characteristics={this.props.characteristics} />
           <br></br>
           <Sort
