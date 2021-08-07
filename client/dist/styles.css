@@ -48,7 +48,6 @@
   z-index: 1;
 }
 
-<<<<<<< HEAD
 .modal {
   position: fixed;
   left: 0;
@@ -150,7 +149,8 @@
 
 .right-arrow {
   right: 24px;
-=======
+}
+
 .starsAverageRating {
   display: inline-block;
   font-size: 200%;
@@ -243,5 +243,3 @@ div {
 
 u:hover {
   background-color: lightgreen;
->>>>>>> 1d52b68eba7950096d6d13cd23bdfe031c4e4485
-}
