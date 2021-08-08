@@ -118,11 +118,11 @@ class App extends React.Component {
       <div className='starContainer'>
         <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
           <div className='inlineStars'>
-            <img className="starsLayout" src="star.png" alt="Star" />
-            <img className="starsLayout" src="star.png" alt="Star" />
-            <img className="starsLayout" src="star.png" alt="Star" />
-            <img className="starsLayout" src="star.png" alt="Star" />
-            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
+            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
+            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
+            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
+            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        {/* <h1></h1>
+        <h1></h1>
         {overview}
         <br></br>
         <RelatedProducts
@@ -154,7 +154,7 @@ class App extends React.Component {
         />
         <br></br>
         <QnA renderStars={this.renderStars}/>
-        <br></br> */}
+        <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
           newestReviews={this.state.newestReviews}

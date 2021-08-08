@@ -47,8 +47,8 @@ const FactorBar = (props) => {
       <div className="factorName">{props.name}</div>
       <div className="factorContainer">
         <div className="factorBar">
-          <div className="factorBreakLeft"></div>
-          <div className="factorBreakRight"></div>
+          {/* <div className="factorBreakLeft"></div>
+          <div className="factorBreakRight"></div> */}
           <div className="factorPoint" style={{'marginLeft': `${factorValue}em`}}></div>
           <div className="descriptors">
             <div className="leftDescriptor">{leftDescriptor}</div>

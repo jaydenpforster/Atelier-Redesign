@@ -204,23 +204,23 @@ div {
   z-index: -1;
 }
 
-.factorBreakLeft {
+/* .factorBreakLeft {
   position: absolute;
   z-index: 1;
   width: 0.3em;
   height: 0.5em;
   background: white;
   margin-left: 4.7em;
-}
+} */
 
-.factorBreakRight {
+/* .factorBreakRight {
   position: absolute;
   z-index: 1;
   width: 0.3em;
   height: 0.5em;
   background: white;
   margin-left: 9.7em;
-}
+} */
 
 .factorPoint {
   position: relative;
