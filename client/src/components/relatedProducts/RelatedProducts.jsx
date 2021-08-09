@@ -1,8 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
 import ProductCard from './ProductCard.jsx';
-import YourOutfit from './YourOutfit.jsx';
-import Modal from './Modal.jsx';
+import YourOutfitAdder from './YourOutfitAdder.jsx';
 
 class RelatedProducts extends React.Component {
   constructor(props) {
@@ -28,8 +26,12 @@ class RelatedProducts extends React.Component {
           renderStars={this.props.renderStars}
           onClick={this.props.onClick}
         />
-        <h2 className="yourOutfitTitle">Your Outfit</h2>
-        <YourOutfit />
+        <h2>Your Outfit</h2>
+        <YourOutfitAdder
+          overViewProd={this.props.overViewProd}
+          overViewStyles={this.props.overViewStyles}
+        />
+
       </div>
     )
   }
