@@ -148,4 +148,101 @@
 
 .right-arrow {
   right: 24px;
+<<<<<<< HEAD
 }
+=======
+}
+
+.starsAverageRating {
+  display: inline-block;
+  font-size: 200%;
+  line-height: 77%
+}
+
+.starsAlignment {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div {
+  color: #525252;
+}
+
+.ratingBarContainer {
+  display: inline-block;
+  width: 10.45em;
+  height: 0.5em;
+  background-color: #ebebeb;
+  position: relative;
+  z-index: -1;
+}
+
+.ratingBar {
+  display: inline-block;
+  width: 50%;
+  height: 0.5em;
+  background-color: green;
+  position: absolute;
+  z-index: 1;
+}
+
+/* margin left needs to be one more em than ratingBarContainer width */
+.total {
+  display: inline-block;
+  margin-left: 11.45em;
+  font-size: 90%;
+}
+
+.factorContainer {
+  width: 13em;
+  background-color: transparent;
+}
+
+.factorBar {
+  width: 113%;
+  height: 0.5em;
+  background-color: #ebebeb;
+  position: relative;
+  z-index: -1;
+}
+
+.factorBreakLeft {
+  position: absolute;
+  z-index: 1;
+  width: 0.3em;
+  height: 0.5em;
+  background: white;
+  margin-left: 4.7em;
+}
+
+.factorBreakRight {
+  position: absolute;
+  z-index: 1;
+  width: 0.3em;
+  height: 0.5em;
+  background: white;
+  margin-left: 9.7em;
+}
+
+.factorPoint {
+  position: relative;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-left: 0.55em solid transparent;
+  border-right: 0.55em solid transparent;
+  border-top: 0.8em solid #525252;
+  margin-left: 6.5em;
+}
+
+.descriptors {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 90%;
+}
+
+u:hover {
+  background-color: lightgreen;
+>>>>>>> ef2cff3fc855640b1cf226b7d2af0b57ddee976d
