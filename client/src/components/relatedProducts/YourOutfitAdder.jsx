@@ -35,7 +35,6 @@ class YourOutfitAdder extends React.Component {
     }
 
     if (eachOutfitcopy.length < 1) {
-      console.log('Less than 1')
       eachOutfitcopy.push({
         id: this.props.overViewStyles.product_id,
         results: this.props.overViewStyles.results,
@@ -45,11 +44,9 @@ class YourOutfitAdder extends React.Component {
         defaultPrice: this.props.overViewProd.default_price,
         features: this.props.overViewProd.features
       });
-
       this.setState({
         eachOutfit: eachOutfitcopy
       })
-      console.log(this.state.eachOutfit)
     }
   }
 
@@ -84,7 +81,6 @@ class YourOutfitAdder extends React.Component {
             <div className="carousel-content-wrapper">
 
               <div className="carousel-content">
-                {console.log('HERE==', this.state.eachOutfit)}
                 {this.state.eachOutfit.map((each, index) =>
                   <EachOutfit
                     info={each}
