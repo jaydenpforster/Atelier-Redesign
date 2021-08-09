@@ -23,10 +23,21 @@ class RatingBreakdown extends React.Component {
   }
 
   calculateRecPercentage() {
+    let total,
+      decimal,
+      percent;
     let recs = this.props.recommended;
-    let total = (Number(recs.true) + Number(recs.false));
-    let decimal = Number((recs.true / total).toFixed(1));
-    let percent = (decimal * 100);
+    if (Object.keys(recs).length > 0) {
+      total = (Number(recs.true) + Number(recs.false));
+      decimal = Number((recs.true / total).toFixed(1));
+      percent = (decimal * 100);
+    } else {
+      total = 0;
+      percent = 0
+    }
+    console.log('TOTAL: ', total)
+    console.log('DECIMAL: ', decimal)
+    console.log('PERCENT: ', percent)
     this.setState({
       recPercentage: percent,
       reviewsCount: total

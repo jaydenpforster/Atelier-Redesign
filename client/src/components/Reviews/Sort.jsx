@@ -19,7 +19,12 @@ class Sort extends React.Component {
 
   calculateTotalReviews() {
     let recs = this.props.recommended;
-    let total = (Number(recs.true) + Number(recs.false));
+    let total;
+    if (Object.keys(recs).length > 0) {
+      total = (Number(recs.true) + Number(recs.false));
+    } else {
+      total = 0;
+    }
     this.setState({
       howManyReviews: total
     })
