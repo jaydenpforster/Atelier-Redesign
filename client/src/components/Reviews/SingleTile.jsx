@@ -1,20 +1,28 @@
 import React from 'react';
 
 const SingleTile = (props) => {
-//star rating (props.renderStars())
-//date of review "Month DD, YYYY" (props.review.date)
-//review summary (props.review.summary)
-//review body (props.review.body)
-  //images (props.review.photos as an array of objects, photo located at props.review.photos[#].url)
-//recommend (props.review.recommend)
-//reviewer name (props.review.reviewer_name)
-//response to review props.review.response
-//rating helpfulness props.review.helpfulness
-//     return (
-//       <div>
-//         null
-//       </div>
-//     )
+  let review = props.review;
+  // console.log('Date of Review: ', review.date)
+  // console.log('Review Summary: ', review.summary)
+  // console.log('Review Body: ', review.body)
+  // console.log('Images: ', review.images)
+  // console.log('Recommend: ', review.recommend)
+  // console.log('Reviewer Name: ', review.recommend)
+  // console.log('Response: ', review.response)
+  // console.log('Rating Helpfulness: ', review.helpfulness)
+  return (
+    <div className="singleTile">
+      Star Rating: {props.renderStars()}<br></br>
+      Date of Review: {review.date}<br></br>
+      Review Summary: {review.summary}<br></br>
+      Review Body: {review.body}<br></br>
+      Images: <br></br>
+      Recommend: {review.recommend}<br></br>
+      Reviewer Name: {review.reviewer_name}<br></br>
+      Response: {review.response}<br></br>
+      Rating Helpfulness: {review.helpfulness}
+    </div>
+  )
 }
 
 export default SingleTile;

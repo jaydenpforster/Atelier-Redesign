@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '29000',
+      mainProductID: '28214',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
@@ -118,11 +118,11 @@ class App extends React.Component {
       <div className='starContainer'>
         <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
           <div className='inlineStars'>
-            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
-            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
-            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
-            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
-            <img className="starsLayout" src="star.png" width="5" height="5" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
+            <img className="starsLayout" src="star.png" alt="Star" />
           </div>
         </div>
       </div>

@@ -2,25 +2,22 @@ import React from 'react';
 import SingleTile from './SingleTile.jsx';
 
 const ReviewTiles = (props) => {
-  console.log(props.reviews)
-  //map to SingleTile
+  let allReviews = props.reviews;
+  let reviews;
+
+  if (allReviews.length > 0) {
+    reviews = allReviews.map((review, index) => {
+      <SingleTile key={`review=${index}`} review={review} />
+    })
+  } else {
+    reviews = 'There are no reviews for this product.'
+  }
+
   return (
     <div className='reviewTiles'>
-      {/* <SingleTile renderStars={props.renderStars} /> */}
-      {/* map as review */}
+      {reviews}
     </div>
   )
 }
 
 export default ReviewTiles;
-
-
-//star rating
-//date of review "Month DD, YYYY"
-//review summary
-//review body
-  //images
-//recommend
-//reviewer name
-//response to review
-//rating helpfulness
