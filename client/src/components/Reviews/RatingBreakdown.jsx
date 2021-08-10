@@ -35,9 +35,6 @@ class RatingBreakdown extends React.Component {
       total = 0;
       percent = 0
     }
-    console.log('TOTAL: ', total)
-    console.log('DECIMAL: ', decimal)
-    console.log('PERCENT: ', percent)
     this.setState({
       recPercentage: percent,
       reviewsCount: total

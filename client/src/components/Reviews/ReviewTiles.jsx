@@ -3,21 +3,24 @@ import SingleTile from './SingleTile.jsx';
 
 const ReviewTiles = (props) => {
   let allReviews = props.reviews;
-  let reviews;
 
-  if (allReviews.length > 0) {
-    reviews = allReviews.map((review, index) => {
-      <SingleTile key={`review=${index}`} review={review} />
-    })
+  if (allReviews.length === 0) {
+    return (
+      <div className='reviewTiles'>
+        There are no reviews for this product.
+      </div>
+    )
   } else {
-    reviews = 'There are no reviews for this product.'
-  }
+    const reviews = allReviews.map((rev, index) =>
+      <SingleTile key={`review-${index}`} review={rev} renderStars={props.renderStars} />
+    )
 
-  return (
-    <div className='reviewTiles'>
-      {reviews}
-    </div>
-  )
+    return (
+      <div className='reviewTiles'>
+        {reviews}
+      </div>
+    )
+  }
 }
 
 export default ReviewTiles;

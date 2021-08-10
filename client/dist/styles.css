@@ -258,3 +258,7 @@ div {
 u:hover {
   background-color: lightgreen;
 }
+
+.singleTile {
+  border-style: solid;
+}

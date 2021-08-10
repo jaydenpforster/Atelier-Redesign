@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '28214',
+      mainProductID: '28212',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
@@ -113,10 +113,11 @@ class App extends React.Component {
     this.getAllProductInfo(this.state.mainProductID)
   }
 
-  renderStars() {
+  renderStars(rating) {
+    rating = (rating / 5) * 100 || this.state.starRating;
     return (
       <div className='starContainer'>
-        <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
+        <div className='starBox' style={{'width': `${rating}%`}}>
           <div className='inlineStars'>
             <img className="starsLayout" src="star.png" alt="Star" />
             <img className="starsLayout" src="star.png" alt="Star" />
@@ -141,7 +142,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <h1></h1>
+        {/* <h1></h1>
         {overview}
         <br></br>
         <RelatedProducts
@@ -154,7 +155,7 @@ class App extends React.Component {
         />
         <br></br>
         <QnA renderStars={this.renderStars}/>
-        <br></br>
+        <br></br> */}
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
           newestReviews={this.state.newestReviews}
@@ -166,7 +167,6 @@ class App extends React.Component {
           renderStars={this.renderStars}
         />
       </div>
-
     )
   }
 }

@@ -124,7 +124,6 @@ class Sort extends React.Component {
     let helpfulReviews = this.sortHelpful(this.props.helpfulReviews);
     let newestReviews = this.sortNewest(this.props.newestReviews);
     let relevantArray = this.sortRelevant(helpfulReviews, newestReviews);
-    console.log('relevantArr: ', relevantArray)
     this.setState({
       relevantReviews: relevantArray
     })
@@ -151,7 +150,7 @@ class Sort extends React.Component {
     } else if (this.state.value === 'newest') {
       reviewsToPassDown = this.props.newestReviews;
     }
-    console.log('reviewsToPassDown: ', reviewsToPassDown)
+
     return (
       <div>
         <label>
