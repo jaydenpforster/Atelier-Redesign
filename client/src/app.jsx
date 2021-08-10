@@ -60,7 +60,6 @@ class App extends React.Component {
       type: 'GET',
       data: { id },
       success: (data) => {
-        console.log('Success', data);
         this.setState({
           overview: data[0],
           styles: data[1],

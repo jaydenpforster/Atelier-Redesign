@@ -93,8 +93,6 @@
   z-index: 1;
 }
 
-
-
 .carousel-container {
   width: 100%;
   display: flex;
@@ -257,8 +255,18 @@ div {
 
 u:hover {
   background-color: lightgreen;
+  cursor: pointer;
 }
 
 .singleTile {
+  width: 26em;
   border-style: solid;
+  padding: 1%;
+}
+
+.reviewSummary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60ch;
 }
