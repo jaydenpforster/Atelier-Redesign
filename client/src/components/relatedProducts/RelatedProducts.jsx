@@ -8,7 +8,7 @@ class RelatedProducts extends React.Component {
     this.state = {
       // productId: '28212',
       // productInfo: [],
-      // productDetailInfo: []
+      // productDetailInfo: []s
     }
   }
 
@@ -30,6 +30,7 @@ class RelatedProducts extends React.Component {
         <YourOutfitAdder
           overViewProd={this.props.overViewProd}
           overViewStyles={this.props.overViewStyles}
+          renderStars={this.props.renderStars}
         />
 
       </div>

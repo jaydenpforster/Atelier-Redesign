@@ -8,6 +8,7 @@ class YourOutfitAdder extends React.Component {
       eachOutfit: []
     }
     this.click = this.click.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
 
@@ -50,16 +51,22 @@ class YourOutfitAdder extends React.Component {
     }
   }
 
+  delete(idNum) {
+    let eachOutfitcopy = this.state.eachOutfit.slice();
+    let indexToDelete = eachOutfitcopy.map((item) => { return item.id; }).indexOf(idNum);
+    eachOutfitcopy.splice(indexToDelete, 1);
+    this.setState({
+      eachOutfit: eachOutfitcopy
+    })
+  }
+
   render() {
     if (this.state.eachOutfit.length === 0) {
       return (
-        <div>
+        <div className="yourOutfitCard">
           <div onClick={this.click} className="img">
-            X
+          CLICK TO ADD TO YOUR OUTFIT
           </div>
-          <div className="cardCategory">Category</div>
-          <div className="expProductName">Expanded product name with extra text</div>
-          <div className="cardPrice">$80.00</div>
           <div className="cardRating">*****</div>
         </div>
       )
@@ -67,11 +74,8 @@ class YourOutfitAdder extends React.Component {
     return (
       <div className="yourOutfitCard">
         <div onClick={this.click} className="img">
-          X
+          CLICK TO ADD TO YOUR OUTFIT
         </div>
-        <div className="cardCategory">Category</div>
-        <div className="expProductName">Expanded product name with extra text</div>
-        <div className="cardPrice">$80.00</div>
         <div className="cardRating">*****</div>
         <div className="carousel-container">
           <div className="carousel-wrapper">
@@ -79,7 +83,6 @@ class YourOutfitAdder extends React.Component {
               &lt;
             </button>
             <div className="carousel-content-wrapper">
-
               <div className="carousel-content">
                 {this.state.eachOutfit.map((each, index) =>
                   <EachOutfit
@@ -90,6 +93,8 @@ class YourOutfitAdder extends React.Component {
                     overViewStyles={this.state.overViewStyles}
                     renderStars={this.state.renderStars}
                     onClick={this.props.onClick}
+                    delete={this.delete}
+                    renderStars={this.props.renderStars}
                     key={index}
                   />)}
               </div>
@@ -102,7 +107,6 @@ class YourOutfitAdder extends React.Component {
       </div>
     )
   }
-
 }
 
 export default YourOutfitAdder;
