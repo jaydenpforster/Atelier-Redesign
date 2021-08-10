@@ -141,7 +141,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        {/* <h1></h1>
+        <h1></h1>
         {overview}
         <br></br>
         <RelatedProducts
@@ -154,7 +154,7 @@ class App extends React.Component {
         />
         <br></br>
         <QnA renderStars={this.renderStars}/>
-        <br></br> */}
+        <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
           newestReviews={this.state.newestReviews}
