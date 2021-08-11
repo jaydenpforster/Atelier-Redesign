@@ -50,10 +50,7 @@ class App extends React.Component {
   //QandA
   //...
 
-  //Revies
-  //productId
-  //stars / reviews
-  //metadata
+
   handleRelatedProductClick(id) {
     $.ajax({
       url: 'http://localhost:4000/getAllProductInfo',

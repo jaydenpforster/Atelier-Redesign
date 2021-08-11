@@ -27,6 +27,7 @@ class RatingBreakdown extends React.Component {
       decimal,
       percent;
     let recs = this.props.recommended;
+    console.log('calc!: ', recs)
     if (Object.keys(recs).length > 0) {
       total = (Number(recs.true) + Number(recs.false));
       decimal = Number((recs.true / total).toFixed(1));

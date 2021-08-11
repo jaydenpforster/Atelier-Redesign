@@ -5,7 +5,7 @@ const getHelpfulReviews = (productId) => {
   return new Promise((resolve, reject) => {
     axios({
       method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&sort=helpful`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=helpful`,
       headers: {
         'User-Agent': 'request',
         'Authorization': config.TOKEN
@@ -25,7 +25,7 @@ const getNewestReviews = (productId) => {
   return new Promise((resolve, reject) => {
     axios({
       method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&sort=newest`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=newest`,
       headers: {
         'User-Agent': 'request',
         'Authorization': config.TOKEN
@@ -43,6 +43,7 @@ const getNewestReviews = (productId) => {
 
 const filterMetaData = (metaData) => {
   return new Promise((resolve, reject) => {
+    console.log('😂', metaData.recommended)
     let filtered = {};
 
     //format ratings
