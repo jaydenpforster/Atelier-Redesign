@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import EachCard from './EachCard.jsx';
+import YourOutfitAdder from './YourOutfitAdder.jsx';
 
 const ProductCard = (props) => {
   if (!props.detailInfo) {
     return null;
   }
-
-
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
     return map;
@@ -55,6 +54,7 @@ const ProductCard = (props) => {
         </div>
       </div>
     </div>
+
   )
 }
 

@@ -63,12 +63,13 @@ class App extends React.Component {
           related: data[2],
           mainProductID: data[1].product_id,
           relatedProductIDs: data[3],
-          reviews: data[4],
-          averageRating: data[5].avgRating.averageRating,
-          starRating: data[5].avgRating.ratingPercentage,
-          characteristics: data[5].characteristics,
-          ratings: data[5].ratings,
-          recommended: data[5].recommended
+          helpfulReviews: data[4],
+          newestReviews: data[5],
+          averageRating: data[6].avgRating.averageRating,
+          starRating: data[6].avgRating.ratingPercentage,
+          characteristics: data[6].characteristics,
+          ratings: data[6].ratings,
+          recommended: data[6].recommended
         })
       },
       error: (data) => {

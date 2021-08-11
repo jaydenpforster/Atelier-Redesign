@@ -164,55 +164,55 @@ exports[`App Test that App renders 1`] = `
         !!!Rating Breakdown Here!!!
       </strong>
       <br />
-      5 stars: 
+      5 stars:
       0
-       
+
       <div>
         <strong>
           !!!Rating Bar Here!!!
         </strong>
       </div>
-       
+
       <br />
-      4 stars: 
+      4 stars:
       0
-       
+
       <div>
         <strong>
           !!!Rating Bar Here!!!
         </strong>
       </div>
-       
+
       <br />
-      3 stars: 
+      3 stars:
       0
-       
+
       <div>
         <strong>
           !!!Rating Bar Here!!!
         </strong>
       </div>
-       
+
       <br />
-      2 stars: 
+      2 stars:
       0
-       
+
       <div>
         <strong>
           !!!Rating Bar Here!!!
         </strong>
       </div>
-       
+
       <br />
-      1 stars: 
+      1 stars:
       0
-       
+
       <div>
         <strong>
           !!!Rating Bar Here!!!
         </strong>
       </div>
-       
+
       <br />
       <h3>
         0
@@ -242,13 +242,9 @@ exports[`App Test that App renders 1`] = `
       </strong>
     </div>
     <br />
-<<<<<<< HEAD
-    <div>
-=======
     <div
       className="reviewTiles"
     >
->>>>>>> 48f2dd835b95c2449201201cca9466de98027d05
       <strong>
         !!!Review Tiles Here!!!
       </strong>
