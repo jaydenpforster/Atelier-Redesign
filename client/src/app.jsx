@@ -31,7 +31,6 @@ class App extends React.Component {
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
     this.renderStars = this.renderStars.bind(this);
-    this.handleRelatedProductClick = this.handleRelatedProductClick.bind(this);
   }
 
   //GET REQUESTS
@@ -54,34 +53,6 @@ class App extends React.Component {
   //productId
   //stars / reviews
   //metadata
-  handleRelatedProductClick(id) {
-    $.ajax({
-      url: 'http://localhost:4000/getAllProductInfo',
-      type: 'GET',
-      data: { id },
-      success: (data) => {
-        console.log('Success', data);
-        this.setState({
-          overview: data[0],
-          styles: data[1],
-          related: data[2],
-          mainProductID: data[1].product_id,
-          relatedProductIDs: data[3],
-          helpfulReviews: data[4],
-          newestReviews: data[5],
-          averageRating: data[6].avgRating.averageRating,
-          starRating: data[6].avgRating.ratingPercentage,
-          characteristics: data[6].characteristics,
-          ratings: data[6].ratings,
-          recommended: data[6].recommended
-        })
-      },
-      error: (data) => {
-        console.log('Error', data);
-      }
-    });
-
-  }
 
   getAllProductInfo(id) {
     $.ajax({
@@ -151,7 +122,8 @@ class App extends React.Component {
           overViewProd={this.state.overview}
           overViewStyles={this.state.styles}
           renderStars={this.renderStars}
-          onClick={this.handleRelatedProductClick}
+          starRating={this.state.starRating}
+          onClick={this.getAllProductInfo}
         />
         <br></br>
         <QnA renderStars={this.renderStars}/>

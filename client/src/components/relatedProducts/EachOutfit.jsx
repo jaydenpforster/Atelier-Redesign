@@ -10,14 +10,14 @@ class EachOutfit extends React.Component {
   }
 
   click() {
-    this.props.delete(this.state.id)
+    this.props.delete(this.props.info.id);
   }
 
   render() {
     return (
       <div className="eachOutfit">
         <img src={this.props.info.results[0].photos[0].thumbnail_url}></img>
-        <img className="cardStar" value={this.props.info.id} onClick={this.click} src="star.png" alt="stars alt"></img>
+        <img className="cardStar" onClick={this.click} src="star.png" alt="stars alt"></img>
         <div className="category">{this.props.info.category}</div>
         <div className="name">{this.props.info.name}</div>
         <div className="description">{this.props.info.description}</div>
