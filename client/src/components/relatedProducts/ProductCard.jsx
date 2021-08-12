@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import EachCard from './EachCard.jsx';
 import YourOutfitAdder from './YourOutfitAdder.jsx';
 
@@ -6,6 +6,7 @@ const ProductCard = (props) => {
   if (!props.detailInfo) {
     return null;
   }
+
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
     return map;
@@ -26,31 +27,60 @@ const ProductCard = (props) => {
     }
   }
 
+  const { show } = props;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [length, setLength] = useState(relevantProps.length);
+
+  useEffect(() => {
+    setLength(relevantProps.length)
+  }, [relevantProps])
+
+  const next = () => {
+    if (currentIndex < (length - show)) {
+      setCurrentIndex(prevState => prevState + 1)
+    }
+  }
+
+  const prev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prevState => prevState - 1)
+    }
+  }
+
   return (
-    <div className="productCard">
-      <div className="carousel-container">
-        <div className="carousel-wrapper">
-          <button className="left-arrow">
+    <div className="carousel-container">
+      <div className="carousel-wrapper">
+        {currentIndex > 0 &&
+          <button
+            className="left-arrow"
+            onClick={prev}
+          >
             &lt;
-          </button>
-          <div className="carousel-content-wrapper">
-            <div className="carousel-content">
-              {relevantProps.map((each, index) =>
-                <EachCard
-                  info={each}
-                  prodId={props.info}
-                  detailInfo={props.detailInfo}
-                  overViewProd={props.overViewProd}
-                  overViewStyles={props.overViewStyles}
-                  renderStars={props.renderStars}
-                  onClick={props.onClick}
-                  key={index}
-                />)}
-            </div>
-            <button className="right-arrow">
-              &gt;
-            </button>
+          </button>}
+        <div className="carousel-content-wrapper">
+          <div
+            className={`carousel-content show-${show}`}
+            style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }}
+          >
+            {relevantProps.map((each, index) =>
+              <EachCard
+                info={each}
+                prodId={props.info}
+                detailInfo={props.detailInfo}
+                overViewProd={props.overViewProd}
+                overViewStyles={props.overViewStyles}
+                renderStars={props.renderStars}
+                onClick={props.onClick}
+                key={index}
+              />)}
           </div>
+          {currentIndex < (length - show) &&
+            <button
+              className="right-arrow"
+              onClick={next}
+            >
+              &gt;
+            </button>}
         </div>
       </div>
     </div>
