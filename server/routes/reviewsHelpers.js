@@ -43,7 +43,6 @@ const getNewestReviews = (productId) => {
 
 const filterMetaData = (metaData) => {
   return new Promise((resolve, reject) => {
-    console.log('😂', metaData.recommended)
     let filtered = {};
 
     //format ratings

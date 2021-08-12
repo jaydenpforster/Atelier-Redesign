@@ -4,7 +4,7 @@ import SingleTile from './SingleTile.jsx';
 const ReviewTiles = (props) => {
   let allReviews = props.reviews;
 
-  if (allReviews.length === 0) {
+  if (allReviews === undefined || allReviews.length === 0) {
     return (
       <div className='reviewTiles'>
         There are no reviews for this product.
