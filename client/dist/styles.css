@@ -276,7 +276,7 @@ u:hover {
 }
 
 .singleTile {
-  width: 26em;
+  width: 28em;
   border-style: solid;
   padding: 1%;
 }
@@ -286,4 +286,12 @@ u:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 60ch;
+}
+
+.reviewTiles {
+  border-style: solid;
+  padding: 1%;
+  max-height: 100vh;
+  width: 30em;
+  overflow: scroll;
 }
