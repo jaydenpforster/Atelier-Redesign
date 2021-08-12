@@ -12,8 +12,6 @@ class RelatedProducts extends React.Component {
     }
   }
 
-
-
   render() {
     return (
       <div>
@@ -23,14 +21,18 @@ class RelatedProducts extends React.Component {
           detailInfo={this.props.detailInfo}
           overViewProd={this.props.overViewProd}
           overViewStyles={this.props.overViewStyles}
+          starRating={this.props.starRating}
           renderStars={this.props.renderStars}
+          show={4}
           onClick={this.props.onClick}
         />
         <h2>Your Outfit</h2>
         <YourOutfitAdder
           overViewProd={this.props.overViewProd}
           overViewStyles={this.props.overViewStyles}
+          starRating={this.props.starRating}
           renderStars={this.props.renderStars}
+          show={4}
         />
 
       </div>

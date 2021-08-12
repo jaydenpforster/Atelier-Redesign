@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import Main from '../components/relatedProducts/Main.jsx';
+import RelatedProducts from '../components/relatedProducts/RelatedProducts.jsx';
 import ProductCard from '../components/relatedProducts/ProductCard.jsx';
 import EachCard from '../components/relatedProducts/EachCard.jsx'
 import 'regenerator-runtime/runtime';
@@ -46,3 +46,5 @@ it('should render', () => {
     expect(result.innerHTML).toBe('accessories');
   });
 });
+
+// it('Should ')

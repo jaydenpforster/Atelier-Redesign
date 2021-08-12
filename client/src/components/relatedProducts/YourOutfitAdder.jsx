@@ -5,20 +5,22 @@ class YourOutfitAdder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      eachOutfit: []
+      eachOutfit: [],
+      currentIndex: 0,
+      length: 0
     }
     this.click = this.click.bind(this);
     this.delete = this.delete.bind(this);
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
   }
-
-
 
   click() {
     let eachOutfitcopy = this.state.eachOutfit.slice();
     let compareId = this.props.overViewStyles.product_id;
 
     if (eachOutfitcopy.length >= 1) {
-      if (eachOutfitcopy.filter(i => i.id === compareId).length > 0) {
+      if (eachOutfitcopy.filter(eachOutfit => eachOutfit.id === compareId).length > 0) {
         return;
       }
       eachOutfitcopy.push({
@@ -60,48 +62,78 @@ class YourOutfitAdder extends React.Component {
     })
   }
 
+  next() {
+    if (this.state.currentIndex < (this.state.eachOutfit.length - this.props.show)) {
+      this.setState({
+        currentIndex: this.state.currentIndex + 1,
+      })
+      // setCurrentIndex(prevState => prevState + 1)
+    }
+  }
+
+  prev() {
+    if (this.state.currentIndex > 0) {
+      this.setState({
+        currentIndex: this.state.currentIndex - 1
+      })
+      // setCurrentIndex(prevState => prevState - 1)
+    }
+  }
+
   render() {
-    if (this.state.eachOutfit.length === 0) {
+    if (this.state.eachOutfit.eachOutfit === 0) {
       return (
-        <div className="yourOutfitCard">
+        <div className="carousel-container">
           <div onClick={this.click} className="img">
-          CLICK TO ADD TO YOUR OUTFIT
+            CLICK TO ADD TO YOUR OUTFIT
           </div>
           <div className="cardRating">*****</div>
         </div>
       )
     }
     return (
-      <div className="yourOutfitCard">
+      <div className="carousel-container">
         <div onClick={this.click} className="img">
           CLICK TO ADD TO YOUR OUTFIT
         </div>
         <div className="cardRating">*****</div>
-        <div className="carousel-container">
-          <div className="carousel-wrapper">
-            <button className="left-arrow">
-              &lt;
+
+        <div className="carousel-wrapper">
+          {this.state.currentIndex > 0 &&
+            <button
+              className="left-arrow"
+              onClick={this.prev}
+            >
+            &lt;
             </button>
-            <div className="carousel-content-wrapper">
-              <div className="carousel-content">
-                {this.state.eachOutfit.map((each, index) =>
-                  <EachOutfit
-                    info={each}
-                    prodId={this.state.info}
-                    detailInfo={this.state.detailInfo}
-                    overViewProd={this.state.overViewProd}
-                    overViewStyles={this.state.overViewStyles}
-                    renderStars={this.state.renderStars}
-                    onClick={this.props.onClick}
-                    delete={this.delete}
-                    renderStars={this.props.renderStars}
-                    key={index}
-                  />)}
-              </div>
-              <button className="right-arrow">
-                &gt;
-              </button>
+          }
+          <div className="carousel-content-wrapper">
+            <div
+              className={`carousel-content show-${this.props.show}`}
+              style={{ transform: `translateX(-${this.state.currentIndex * (100 / this.props.show)}%)` }}
+            >
+              {this.state.eachOutfit.map((each, index) =>
+                <EachOutfit
+                  info={each}
+                  prodId={this.state.info}
+                  detailInfo={this.state.detailInfo}
+                  overViewProd={this.state.overViewProd}
+                  overViewStyles={this.state.overViewStyles}
+                  renderStars={this.state.renderStars}
+                  onClick={this.props.onClick}
+                  delete={this.delete}
+                  starRating={this.props.starRating}
+                  renderStars={this.props.renderStars}
+                  key={index}
+                />)}
             </div>
+            {this.state.currentIndex < (this.state.eachOutfit.length - this.props.show) &&
+              <button
+                className="right-arrow"
+                onClick={this.next}
+              >
+              &gt;
+              </button>}
           </div>
         </div>
       </div>
