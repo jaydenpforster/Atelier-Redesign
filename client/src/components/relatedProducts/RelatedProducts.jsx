@@ -14,7 +14,7 @@ class RelatedProducts extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="relatedProduct">
         <h2>Related Products</h2>
         <ProductCard
           info={this.props.info}

@@ -29,8 +29,31 @@ class EachCard extends React.Component {
   }
 
   render() {
+    if (this.props.info.salePrice !== null) {
+      return (
+        <div className="eachCard">
+        {console.log(this.props.info.salePrice)}
+        <img onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
+        <img onClick={this.modalClick} className="cardStar" src="star.png" alt="stars alt"></img>
+        <div className="category">{this.props.info.category}</div>
+        <div className="name">{this.props.info.name}</div>
+        <div className="description">{this.props.info.description}</div>
+        <div className="defaultPrice" style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>${this.props.info.defaultPrice}</div>
+        <div className="defaultPrice">${this.props.info.salePrice}SALE!</div>
+        <div>{this.props.renderStars()}</div>
+        <Modal
+          show={this.state.modalShow}
+          close={this.modalClose}
+          info={this.props.info}
+          overViewProd={this.props.overViewProd}
+          overViewStyles={this.props.overViewStyles}
+        />
+      </div>
+      )
+    }
     return (
       <div className="eachCard">
+        {console.log(this.props.info.salePrice)}
         <img onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
         <img onClick={this.modalClick} className="cardStar" src="star.png" alt="stars alt"></img>
         <div className="category">{this.props.info.category}</div>

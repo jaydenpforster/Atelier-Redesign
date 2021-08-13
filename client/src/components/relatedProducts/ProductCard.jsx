@@ -7,13 +7,17 @@ const ProductCard = (props) => {
     return null;
   }
 
+  console.log('PROPS INFO', props.info);
+  console.log('PROPS DETAIL INFO', props.detailInfo);
+
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
     return map;
   }, {});
   let relevantProps = [];
   for (let i = 0; i < props.info.length; i++) {
-    let items = combine[props.info[i].id]
+    let items = combine[props.info[i].id];
+    console.log('ITEMS', items)
     if (items) {
       relevantProps.push({
         id: items.product_id,
@@ -22,7 +26,8 @@ const ProductCard = (props) => {
         category: props.info[i].category,
         description: props.info[i].description,
         defaultPrice: props.info[i].default_price,
-        features: props.info[i].features
+        features: props.info[i].features,
+        salePrice: items.results[0].sale_price
       })
     }
   }
@@ -63,7 +68,7 @@ const ProductCard = (props) => {
             style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }}
           >
             {relevantProps.map((each, index) =>
-              <EachCard
+              <EachCard className="card"
                 info={each}
                 prodId={props.info}
                 detailInfo={props.detailInfo}
