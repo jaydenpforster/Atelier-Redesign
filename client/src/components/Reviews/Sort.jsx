@@ -160,7 +160,7 @@ class Sort extends React.Component {
     return (
       <div>
         <label>
-          <h4>{this.state.howManyReviews} reviews, sorted by &nbsp;
+          <h4>{reviewsToPassDown.length} reviews, sorted by &nbsp;
             <select value={this.state.value} onChange={this.handleChange}>
               <option value="relevant">relevance</option>
               <option value="helpful">helpfulness</option>
