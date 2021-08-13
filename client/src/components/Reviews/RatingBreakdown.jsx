@@ -23,10 +23,30 @@ class RatingBreakdown extends React.Component {
   }
 
   calculateRecPercentage() {
+
     let recs = this.props.recommended;
-    let total = (Number(recs.true) + Number(recs.false));
-    let decimal = recs.true / total;
-    let percent = decimal * 100;
+    let total,
+      decimal,
+      percent;
+    if (Object.keys(recs).length === 0) {
+      total = 0
+    } else if (Object.keys(recs).length === 1) {
+      if (recs.true) {
+        total = Number(recs.true)
+      } else {
+        total = Number(recs.false)
+      }
+    } else {
+      total = (Number(recs.true) + Number(recs.false));
+    }
+
+    if (recs.true) {
+      decimal = Number((recs.true / total).toFixed(1));
+      percent = (decimal * 100);
+    } else {
+      percent = 0
+    }
+
     this.setState({
       recPercentage: percent,
       reviewsCount: total
@@ -58,7 +78,6 @@ class RatingBreakdown extends React.Component {
     let onePortion = (this.state.one / totalCountOfReviews) * 100;
     return (
       <div>
-        {this.state.recPercentage}% of reviews recommend this product
         <div className="ratingBreakdown">
           <u onClick={this.handleClick}>5 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
@@ -83,6 +102,10 @@ class RatingBreakdown extends React.Component {
           <u onClick={this.handleClick}>1 stars</u>&nbsp;
           <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
           &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
+          <br></br>
+          <br></br>
+
+          {this.state.recPercentage}% of reviews recommend this product
         </div>
       </div>
     )

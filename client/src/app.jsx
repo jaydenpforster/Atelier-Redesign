@@ -85,10 +85,11 @@ class App extends React.Component {
     this.getAllProductInfo(this.state.mainProductID)
   }
 
-  renderStars() {
+  renderStars(rating) {
+    rating = (rating / 5) * 100 || this.state.starRating;
     return (
       <div className='starContainer'>
-        <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
+        <div className='starBox' style={{'width': `${rating}%`}}>
           <div className='inlineStars'>
             <img className="starsLayout" src="star.png" alt="Star" />
             <img className="starsLayout" src="star.png" alt="Star" />
@@ -139,7 +140,6 @@ class App extends React.Component {
           renderStars={this.renderStars}
         />
       </div>
-
     )
   }
 }
