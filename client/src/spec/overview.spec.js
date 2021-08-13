@@ -35,4 +35,10 @@ describe('Overview', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('Test function on Overview', () => {
+    const component = renderer.create(<Overview></Overview>)
+    expect(component.jest()).toEqual('Jest')
+  })
 });
+

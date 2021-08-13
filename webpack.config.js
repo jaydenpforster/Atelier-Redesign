@@ -5,6 +5,7 @@ var DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
   entry: `${SRC_DIR}/index.js`,
+  cache: false,
   mode: 'development',
   output: {
     filename: 'bundle.js',

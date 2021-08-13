@@ -81,10 +81,6 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this.getAllProductInfo('28212')
-  }
-
   renderStars() {
     return (
       <div className='starContainer'>
@@ -101,7 +97,12 @@ class App extends React.Component {
     )
   }
 
+  componentDidMount() {
+    this.getAllProductInfo('28212')
+  }
+
   render() {
+
     let overview;
     if (this.state.overview.id === undefined) {
       overview = <></>
@@ -114,13 +115,13 @@ class App extends React.Component {
     return (
       <div>
         <h1></h1>
-        {overview}
+        {/* {overview} */}
         <br></br>
-        <Main renderStars={this.renderStars}/>
+        {/* <Main renderStars={this.renderStars}/> */}
         <br></br>
-        <QnA renderStars={this.renderStars}/>
+        {/* <QnA renderStars={this.renderStars}/> */}
         <br></br>
-        <Reviews
+        {/* <Reviews
           reviews={this.state.reviews}
           averageRating={this.state.averageRating}
           starRating={this.state.starRating}
@@ -128,7 +129,7 @@ class App extends React.Component {
           ratings={this.state.ratings}
           recommended={this.state.recommended}
           renderStars={this.renderStars}
-        />
+        /> */}
       </div>
 
     )

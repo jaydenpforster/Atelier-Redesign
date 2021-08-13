@@ -46,20 +46,21 @@ app.listen(port, () => {
 });
 
 
-app.get('/getAllProductInfo', (req, res) => {
 
-  let first = ovRouteHelper.getProduct(req.query.id);
-  let second = ovRouteHelper.getProduct(req.query.id)
-  let third = ovRouteHelper.getProductStyles(req.query.id)
-  let fourth = relatedHelper.getProductStyles(req.query.id)
-  let fifth = relatedHelper.getProductID(req.query.id)
-  let sixth = reviewsHelper.getReviews(req.query.id)
-  let seventh = reviewsHelper.getMetaData(req.query.id)
-  Promise.all([first, second, third, fourth, fifth, sixth, seventh])
-    .then(arrOfInfo => {
-      res.send(arrOfInfo)
-    })
-    .catch(err => {
-      console.log('err', err);
-    })
-});
+// app.get('/getAllProductInfo', (req, res) => {
+
+//   let first = ovRouteHelper.getProduct(req.query.id);
+//   let second = ovRouteHelper.getProduct(req.query.id)
+//   let third = ovRouteHelper.getProductStyles(req.query.id)
+//   let fourth = relatedHelper.getProductStyles(req.query.id)
+//   let fifth = relatedHelper.getProductID(req.query.id)
+//   let sixth = reviewsHelper.getReviews(req.query.id)
+//   let seventh = reviewsHelper.getMetaData(req.query.id)
+//   Promise.all([first, second, third, fourth, fifth, sixth, seventh])
+//     .then(arrOfInfo => {
+//       res.send(arrOfInfo)
+//     })
+//     .catch(err => {
+//       console.log('err', err);
+//     })
+// });

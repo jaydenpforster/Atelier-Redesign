@@ -18,7 +18,6 @@ const getProduct = (productID) => {
     .catch(err => {
       console.log('err', err)
     })
-
 };
 const getProductStyles = (productID) => {
   if (!productID) { productID = '28212' }

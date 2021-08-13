@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -136,8 +136,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,8 +146,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,7 +182,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,9 +207,9 @@ import RatingBar from './RatingBar.jsx';
 &nbsp;
 &nbsp;
 class RatingBreakdown extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
       percentage: 0,
       five: 0,
       four: 0,
@@ -218,8 +218,8 @@ class RatingBreakdown extends React.Component {
       one: 0
     }
     //binding
-    this.calculatePercentage = this.calculatePercentage.bind(this);
-    this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
+<span class="cstat-no" title="statement not covered" >    this.calculatePercentage = this.calculatePercentage.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >    this.calculateReviewTotals = this.calculateReviewTotals.bind(this);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  co</span>mponentDidUpdate(prevProps) {
@@ -231,7 +231,7 @@ class RatingBreakdown extends React.Component {
 &nbsp;
 <span class="fstat-no" title="function not covered" >  ca</span>lculatePercentage() {
     let recs = <span class="cstat-no" title="statement not covered" >this.props.metaData.recommended;</span>
-    let total = (<span class="cstat-no" title="statement not covered" >recs.true + recs.false)</span>;
+    let total = (<span class="cstat-no" title="statement not covered" >Number(recs.true) + Number(recs.false))</span>;
     let decimal = <span class="cstat-no" title="statement not covered" >recs.true / total;</span>
     let percent = <span class="cstat-no" title="statement not covered" >decimal * 100;</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
@@ -252,9 +252,9 @@ class RatingBreakdown extends React.Component {
 &nbsp;
   //ajax request to get array of reviews and percentage recommended
 &nbsp;
-  render() {
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
 &nbsp;
-    return (
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;div&gt;
         {/* maybe if I turn these into an array I can map it into RatingBar */}
         {/* make number of reviews clickable to then display the reviews */}
@@ -280,7 +280,7 @@ export default RatingBreakdown;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 03 2021 16:39:47 GMT-0700 (Pacific Daylight Time)
+                at Thu Aug 12 2021 18:35:53 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
