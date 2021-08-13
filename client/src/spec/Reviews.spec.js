@@ -17,7 +17,7 @@ it('should render ReviewTiles component', () => {
     ReactDOM.render(<ReviewTiles />, div);
 
     let element = div.querySelector('.reviewTiles');
-    expect(element.innerHTML).toBe('<strong>!!!Review Tiles Here!!!</strong>');
+    expect(element.innerHTML).toBe('There are no reviews for this product.');
   });
 });
 

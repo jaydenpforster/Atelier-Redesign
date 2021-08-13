@@ -4,6 +4,7 @@ import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import FactorsBreakdown from './FactorsBreakdown.jsx';
+import ReviewTiles from './ReviewTiles.jsx';
 import ReviewForm from './ReviewForm.jsx';
 
 class Reviews extends React.Component {
@@ -42,6 +43,7 @@ class Reviews extends React.Component {
             ratings={this.props.ratings}
             recommended={this.props.recommended} />
           <br></br>
+          <br></br>
           <FactorsBreakdown characteristics={this.props.characteristics} />
           <br></br>
           <Sort
@@ -49,9 +51,8 @@ class Reviews extends React.Component {
             newestReviews={this.props.newestReviews}
             recommended={this.props.recommended}
             renderStars={this.props.renderStars} />
-          {/*
           <br></br>
-          <ReviewTiles />
+          {/*
           more reviews button with onClick
           add a review button with onClick
           */}
