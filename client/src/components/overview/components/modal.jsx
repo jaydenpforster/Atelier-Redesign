@@ -10,9 +10,10 @@ let Modal = (props) => {
     if (props.showModal === true) {
       return (
         <div className="OVmodal">
-          <div onClick={e => { e.stopPropagation() }} className="OVmodal-content">
+          <div onClick={e => { }} className="OVmodal-content">
             <div className="OVmodal-header">
-              <h4 className="OVmodal-title"></h4>
+              <button onClick={e => {console.log('click X')}}>X</button>
+              <h4 className="OVmodal-title">Title</h4>
             </div>
             <div className="OVmodal-body">
               Modal Content
