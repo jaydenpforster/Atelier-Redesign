@@ -12,7 +12,6 @@ class Size extends React.Component {
     };
   }
   renderSizes() {
-    console.log('this.props.sizes', this.props.sizes)
     let sizeNQuantityArr = [];
     for (let obj in this.props.sizes) {
       sizeNQuantityArr.push(this.props.sizes[obj])

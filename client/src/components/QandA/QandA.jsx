@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import SearchQuestion from './SearchQuestion.jsx';
+import TwoButtons from './TwoButtons.jsx';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 class QnA extends React.Component {
@@ -9,6 +12,7 @@ class QnA extends React.Component {
       questionSearch: ''
     }
     this.changeQuestion = this.changeQuestion.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   changeQuestion(event) {
@@ -37,18 +41,9 @@ class QnA extends React.Component {
   render () {
     return (
       <div className='QnA'>
-        <div id='QStart'>Questions and Answers</div>
-        <div className='form-div'>
-          <form onSubmit={this.onSubmit}>
-            <input type = 'text'
-              placeholder='Ask your questions'
-              onChange={this.changeFullName}
-              value={this.state.fullName}
-              className='form-control form-group'
-            />
-            <input type='submit' className='btn btn-danger btn-block' value='Submit'></input>
-          </form>
-        </div>
+        <div id='QStart'>QUESTIONS & ANSWERS</div>
+        <SearchQuestion submit={this.onSubmit} cQuestion={this.changeQuestion} qsearch={this.state.questionSearch}/>
+        <TwoButtons />
       </div>
     )
   }

@@ -1,12 +1,31 @@
 const axios = require('axios');
 const config = require('../../config.js');
 
-const getReviews = (productId, sortOption) => {
-  sortOption = sortOption || 'relevant';
+const getHelpfulReviews = (productId) => {
   return new Promise((resolve, reject) => {
     axios({
       method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&sort=${sortOption}`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=helpful`,
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      }
+    })
+      .then((data) => {
+        resolve(data.data.results);
+      })
+      .catch((err) => {
+        console.error(err);
+        reject('ERROR in getReviews: ', err);
+      })
+  });
+}
+
+const getNewestReviews = (productId) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'GET',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=newest`,
       headers: {
         'User-Agent': 'request',
         'Authorization': config.TOKEN
@@ -39,7 +58,7 @@ const filterMetaData = (metaData) => {
     let averageRating;
     let ratingPercentage;
     for (let rating in ratings) {
-      howManyRatings++;
+      howManyRatings += ratings[rating];
       totalOfRatings += (rating * ratings[rating])
     }
     if (howManyRatings === 0) {
@@ -99,7 +118,8 @@ const getMetaData = (productId) => {
 
 
 module.exports = {
-  getReviews,
+  getHelpfulReviews,
+  getNewestReviews,
   getMetaData,
   filterMetaData
 }

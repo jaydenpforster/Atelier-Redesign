@@ -25,8 +25,6 @@ class Reviews extends React.Component {
     }
   }
 
-
-
   // click handler for more Reviews button
 
   // click handler for add a review button
@@ -35,40 +33,35 @@ class Reviews extends React.Component {
     if (this.state.changed) {
       return (
         <div>
-          <h1>I am reviews</h1>
+          <h1>Reviews</h1>
           <Stars
             renderStars={this.props.renderStars}
             averageRating={this.props.averageRating}
-            numOfRatings={this.state.numOfRatings}
-          />
-
+            numOfRatings={this.state.numOfRatings} />
           <br></br>
-{/*
           <RatingBreakdown
-            metaData={this.state.metaData}
-            reviews={this.state.reviews} />
-
-          <br></br> */}
-
+            ratings={this.props.ratings}
+            recommended={this.props.recommended} />
+          <br></br>
+          <br></br>
           <FactorsBreakdown characteristics={this.props.characteristics} />
-{/*
           <br></br>
-
-          <Sort getReviews={this.getReviews} />
-
+          <Sort
+            helpfulReviews={this.props.helpfulReviews}
+            newestReviews={this.props.newestReviews}
+            recommended={this.props.recommended}
+            renderStars={this.props.renderStars} />
           <br></br>
-
-          <ReviewTiles /> */}
-          {/* more reviews button with onClick */}
-          {/* add a review button with onClick*/}
+          {/*
+          more reviews button with onClick
+          add a review button with onClick
+          */}
         </div>
       )
     } else {
       return null;
     }
   }
-
 }
-
 
 export default Reviews;

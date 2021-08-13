@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // eslint-disable-next-line no-unused-vars
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
-import Main from './components/relatedProducts/Main.jsx';
+import RelatedProducts from './components/relatedProducts/RelatedProducts.jsx';
 import QnA from './components/QandA/QandA.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
 // import axios from 'axios'
@@ -25,7 +25,8 @@ class App extends React.Component {
       recommended: {},
       averageRating: 0,
       starRating: 0,
-      reviews: []
+      helpfulReviews: [],
+      newestReviews: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
@@ -53,26 +54,25 @@ class App extends React.Component {
   //stars / reviews
   //metadata
 
-
   getAllProductInfo(id) {
     $.ajax({
       url: 'http://localhost:4000/getAllProductInfo',
       type: 'GET',
       data: { id },
       success: (data) => {
-        // console.log('Success', data);
         this.setState({
           overview: data[0],
           styles: data[1],
           related: data[2],
           mainProductID: data[1].product_id,
           relatedProductIDs: data[3],
-          reviews: data[4],
-          averageRating: data[5].avgRating.averageRating,
-          starRating: data[5].avgRating.ratingPercentage,
-          characteristics: data[5].characteristics,
-          ratings: data[5].ratings,
-          recommended: data[5].recommended
+          helpfulReviews: data[4],
+          newestReviews: data[5],
+          averageRating: data[6].avgRating.averageRating,
+          starRating: data[6].avgRating.ratingPercentage,
+          characteristics: data[6].characteristics,
+          ratings: data[6].ratings,
+          recommended: data[6].recommended
         })
       },
       error: (data) => {
@@ -81,10 +81,15 @@ class App extends React.Component {
     });
   }
 
-  renderStars() {
+  componentDidMount() {
+    this.getAllProductInfo(this.state.mainProductID)
+  }
+
+  renderStars(rating) {
+    rating = (rating / 5) * 100 || this.state.starRating;
     return (
       <div className='starContainer'>
-        <div className='starBox' style={{'width': `${this.state.starRating}%`}}>
+        <div className='starBox' style={{'width': `${rating}%`}}>
           <div className='inlineStars'>
             <img className="starsLayout" src="star.png" alt="Star" />
             <img className="starsLayout" src="star.png" alt="Star" />
@@ -115,23 +120,31 @@ class App extends React.Component {
     return (
       <div>
         <h1></h1>
-        {/* {overview} */}
+        {overview}
         <br></br>
-        {/* <Main renderStars={this.renderStars}/> */}
+        <RelatedProducts
+          info={this.state.relatedProductIDs}
+          detailInfo={this.state.related}
+          overViewProd={this.state.overview}
+          overViewStyles={this.state.styles}
+          renderStars={this.renderStars}
+          starRating={this.state.starRating}
+          onClick={this.getAllProductInfo}
+        />
         <br></br>
-        {/* <QnA renderStars={this.renderStars}/> */}
+        <QnA renderStars={this.renderStars}/>
         <br></br>
-        {/* <Reviews
-          reviews={this.state.reviews}
+        <Reviews
+          helpfulReviews={this.state.helpfulReviews}
+          newestReviews={this.state.newestReviews}
           averageRating={this.state.averageRating}
           starRating={this.state.starRating}
           characteristics={this.state.characteristics}
           ratings={this.state.ratings}
           recommended={this.state.recommended}
           renderStars={this.renderStars}
-        /> */}
+        />
       </div>
-
     )
   }
 }
