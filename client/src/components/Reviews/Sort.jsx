@@ -36,9 +36,6 @@ class Sort extends React.Component {
     })
   }
 
-
-  //if two reviews have the same helpfulness rating, the one with the newer
-  //date score should have a lower score (come first)
   sortHelpful(array) {
     for (let i = 0; i < array.length; i++) {
       let hReviewObj = array[i];
@@ -56,9 +53,6 @@ class Sort extends React.Component {
     return array;
   }
 
-
-  //if two reviews have the same date, the one with the higher
-  //helpfulness score should have a lower score
   sortNewest(array) {
     for (let i = 0; i < array.length; i++) {
       let nReviewObj = array[i];
@@ -74,20 +68,13 @@ class Sort extends React.Component {
     return array;
   }
 
-
   sortRelevant(helpfulArray, newestArray) {
     let relevance = {}
-    //scoring reviews based on their helpfulness
-    //lowest score is most helpful
     for (let i = 0; i < helpfulArray.length; i++) {
       let hReviewObj = helpfulArray[i];
-      //adding the scores together
-      //lowest score is most relevant
       relevance[hReviewObj.review_id] = i
     }
 
-    //scoring reviews based on their newness
-    //lowest score is newest
     for (let j = 0; j < newestArray.length; j++) {
       let n2ReviewObj = newestArray[j]
       relevance[n2ReviewObj.review_id] += j
@@ -109,9 +96,6 @@ class Sort extends React.Component {
 
     let relevantArray = [];
 
-    //going through sorted tuple array and grabbing the review object from
-    //the newestArray that matches its reviewId so that the resulting relevant
-    //reviews object is in orded
     for (let k = 0; k < byRelevance.length; k++) {
       let reviewTuples = byRelevance[k];
       let reviewId = Number(reviewTuples[0])
@@ -135,14 +119,11 @@ class Sort extends React.Component {
     })
   }
 
-
-
   handleChange(event) {
     this.setState({
       value: event.target.value
     });
   }
-
 
   render() {
     let reviewsToPassDown;

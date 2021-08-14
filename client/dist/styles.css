@@ -296,14 +296,14 @@ u:hover {
   overflow: scroll;
 }
 
-a {
+.yes {
   text-decoration: underline;
 }
 
-a:hover {
+.yes:hover {
   cursor: pointer;
 }
 
-
-
-
+.reviewResponse {
+  background-color: lightgreen;
+}

@@ -11,7 +11,7 @@ class SingleTile extends React.Component {
       helpfulness: 0
     }
     this.formatDate = this.formatDate.bind(this);
-    this.handleShowClick = this.handleShowClick.bind(this);
+    this.handleExtendClick = this.handleExtendClick.bind(this);
     this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
   }
 
@@ -43,7 +43,7 @@ class SingleTile extends React.Component {
     return `${month} ${day}, ${year}`;
   }
 
-  handleShowClick(event) {
+  handleExtendClick(event) {
     this.setState({
       extended: !this.state.extended
     })
@@ -56,7 +56,7 @@ class SingleTile extends React.Component {
         url: '/reviews/helpful',
         type: 'PUT',
         data: {revId},
-        success: (data) => {
+        success: () => {
           this.setState((prevState) => ({
             helpfulness: prevState.helpfulness + 1,
             voted: true
@@ -110,11 +110,11 @@ class SingleTile extends React.Component {
           {renderStars(review.rating)}<br></br>
           {review.reviewer_name},&nbsp;{date}<br></br>
           <strong><p className="reviewSummary"></p>{review.summary}</strong><br></br>
-          <div className="reviewBody">{revBody} <a onClick={this.handleShowClick}>{show}</a></div><br></br>
+          <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div><br></br>
           <div className="reviewImages">{images}</div><br></br>
           {recommends}
           <div className="reviewResponse">{response}</div>
-          <p className="reviewHelpful">Helpful? <a onClick={this.handleHelpfulClick} id={this.props.review.review_id}>Yes</a> ({this.state.helpfulness})</p>
+          <p className="reviewHelpful">Helpful? <a className="yes" onClick={this.handleHelpfulClick} id={this.props.review.review_id}>Yes</a> ({this.state.helpfulness})</p>
         </div>
         <br></br>
       </div>
