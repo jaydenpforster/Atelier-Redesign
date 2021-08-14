@@ -102,10 +102,6 @@ class App extends React.Component {
     )
   }
 
-  componentDidMount() {
-    this.getAllProductInfo('36300')
-  }
-
   render() {
 
     let overview;
