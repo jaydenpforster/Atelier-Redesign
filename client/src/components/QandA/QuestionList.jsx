@@ -1,4 +1,5 @@
 import React from 'react';
+import Question from './Question.jsx'
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -8,12 +9,7 @@ class QuestionList extends React.Component {
   render() {
     return (
       <div className="QuestionList">
-        <div className="Questions">
-          <li>QUESTION SHOULD GO HERE</li>
-          <div className="Answers">
-            <ul>ANSWERS TO THE QUESTION HERE</ul>
-          </div>
-        </div>
+        <Question />
       </div>
     )
   }
