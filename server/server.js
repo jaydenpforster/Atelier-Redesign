@@ -11,6 +11,7 @@ const relatedHelper = require('./routes/relatedProductsHelper.js');
 const reviews = require('./routes/reviewsRoutes');
 const reviewsHelper = require('./routes/reviewsHelpers.js');
 const qna = require('./routes/qnaRoutes')
+const qnaHelper = require('./routes/qnaHelper')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -31,7 +32,8 @@ app.get('/getAllProductInfo', (req, res) => {
     relatedHelper.getProductID(req.query.id),
     reviewsHelper.getHelpfulReviews(req.query.id),
     reviewsHelper.getNewestReviews(req.query.id),
-    reviewsHelper.getMetaData(req.query.id)
+    reviewsHelper.getMetaData(req.query.id),
+    qnaHelper.getQuestions(req.query.id)
   ])
     .then(arrOfInfo => {
       res.status(200).send(arrOfInfo)
