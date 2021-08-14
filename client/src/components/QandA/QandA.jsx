@@ -14,6 +14,8 @@ class QnA extends React.Component {
     }
     this.changeQuestion = this.changeQuestion.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.loadQuestions = this.loadQuestions.bind(this);
+    this.addQuestion = this.addQuestion.bind(this)
   }
 
   changeQuestion(event) {
@@ -29,12 +31,23 @@ class QnA extends React.Component {
       question: this.state.questionSearch
     }
 
+    alert('Question search is currently disabled')
     // axios.post('', data)
     //   .then(response => console.log(response.data))
 
     this.setState({
       questionSearch: ''
     })
+  }
+
+  loadQuestions(event) {
+    event.preventDefault();
+    alert('There are no more questions for this product')
+  }
+
+  addQuestion(event) {
+    event.preventDefault();
+    alert('Please log in to add a question')
   }
 
 
@@ -44,7 +57,7 @@ class QnA extends React.Component {
         <div id='QStart'>QUESTIONS & ANSWERS</div>
         <SearchQuestion submit={this.onSubmit} cQuestion={this.changeQuestion} qsearch={this.state.questionSearch}/>
         <QuestionList qAndA ={this.props.qData}/>
-        <TwoButtons />
+        <TwoButtons loadQ={this.loadQuestions} addQ={this.addQuestion} />
       </div>
     )
   }

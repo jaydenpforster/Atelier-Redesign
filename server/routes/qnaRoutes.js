@@ -6,7 +6,6 @@ const config = require('../../config.js');
 router.get('/questions', (req, res) => {
   let id = Number(36300);
 
-  //&page=1&count=100
   axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${id}`, {
     headers: {
       Authorization: config.TOKEN
