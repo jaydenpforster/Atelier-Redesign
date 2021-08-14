@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import ReviewTiles from './ReviewTiles.jsx';
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -11,10 +12,12 @@ class RatingBreakdown extends React.Component {
       three: 0,
       two: 0,
       one: 0,
-      reviewsCount: 0
+      reviewsCount: 0,
+      filter: []
     }
     this.calculateRecPercentage = this.calculateRecPercentage.bind(this);
     this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -66,10 +69,17 @@ class RatingBreakdown extends React.Component {
 
   handleClick(event) {
     let filterNumber = (event.target.innerText).slice(0, 1);
-    //later this will filter the displayed reviews
+    filterNumber = Number(filterNumber);
+    this.setState(state => {
+      const filter = state.filter.concat(filterNumber);
+      return {
+        filter
+      }
+    })
   }
 
   render() {
+    console.log('FILTER: ', this.state.filter)
     let totalCountOfReviews = this.state.reviewsCount;
     let fivePortion = (this.state.five / totalCountOfReviews) * 100;
     let fourPortion = (this.state.four / totalCountOfReviews) * 100;

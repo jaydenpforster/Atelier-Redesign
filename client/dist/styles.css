@@ -307,3 +307,46 @@ u:hover {
 .reviewResponse {
   background-color: lightgreen;
 }
+
+.reviewImageOpen {
+  cursor: zoom-in;
+}
+
+.reviewImageClose {
+  cursor: zoom-out;
+}
+
+.revImgModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revImgModal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.revImgModal-header, revImgModal-footer {
+  padding: 10px;
+}
+
+.revImgModal-title {
+  margin: 0;
+}
+
+.revImgModal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.reviewImages {
+  display: inline-flex;
+}

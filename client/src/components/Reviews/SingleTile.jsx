@@ -98,11 +98,11 @@ class SingleTile extends React.Component {
     }
 
     if (review.recommend) {
-      recommends = <div>I recommend this product &#10003;</div>
+      recommends = <div>&#10003; I recommend this product</div>
     }
 
     if (review.response) {
-      response = 'Response from seller: ' + <br></br> + review.response + <br></br>;
+      response = <div className="reviewResponse"><strong>Response from seller: </strong><br></br> {review.response}</div>;
     }
     return (
       <div>
@@ -112,8 +112,8 @@ class SingleTile extends React.Component {
           <strong><p className="reviewSummary"></p>{review.summary}</strong><br></br>
           <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div><br></br>
           <div className="reviewImages">{images}</div><br></br>
-          {recommends}
-          <div className="reviewResponse">{response}</div>
+          {recommends}<br></br>
+          {response}
           <p className="reviewHelpful">Helpful? <a className="yes" onClick={this.handleHelpfulClick} id={this.props.review.review_id}>Yes</a> ({this.state.helpfulness})</p>
         </div>
         <br></br>
