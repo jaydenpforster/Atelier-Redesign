@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import ReviewTiles from './ReviewTiles.jsx';
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class RatingBreakdown extends React.Component {
     }
     this.calculateRecPercentage = this.calculateRecPercentage.bind(this);
     this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -65,8 +67,7 @@ class RatingBreakdown extends React.Component {
   }
 
   handleClick(event) {
-    let filterNumber = (event.target.innerText).slice(0, 1);
-    //later this will filter the displayed reviews
+    this.props.filter(event);
   }
 
   render() {
@@ -79,29 +80,39 @@ class RatingBreakdown extends React.Component {
     return (
       <div>
         <div className="ratingBreakdown">
-          <u onClick={this.handleClick}>5 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>5 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
+          </div>
           <br></br>
 
-          <u onClick={this.handleClick}>4 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>4 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
+          </div>
           <br></br>
 
-          <u onClick={this.handleClick}>3 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>3 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
+          </div>
           <br></br>
 
-          <u onClick={this.handleClick}>2 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>2 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+          </div>
           <br></br>
 
-          <u onClick={this.handleClick}>1 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>1 star</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
+          </div>
           <br></br>
           <br></br>
 

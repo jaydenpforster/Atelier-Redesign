@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '28212',
+      mainProductID: '36300',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
@@ -100,10 +100,6 @@ class App extends React.Component {
         </div>
       </div>
     )
-  }
-
-  componentDidMount() {
-    this.getAllProductInfo('36300')
   }
 
   render() {

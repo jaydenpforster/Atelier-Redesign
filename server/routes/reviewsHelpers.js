@@ -2,43 +2,37 @@ const axios = require('axios');
 const config = require('../../config.js');
 
 const getHelpfulReviews = (productId) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=helpful`,
-      headers: {
-        'User-Agent': 'request',
-        'Authorization': config.TOKEN
-      }
+  return axios({
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=helpful`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': config.TOKEN
+    }
+  })
+    .then((data) => {
+      return data.data.results;
     })
-      .then((data) => {
-        resolve(data.data.results);
-      })
-      .catch((err) => {
-        console.error(err);
-        reject('ERROR in getReviews: ', err);
-      })
-  });
+    .catch((err) => {
+      console.error('ERROR in getHelpfulReviews: ', err);
+    })
 }
 
 const getNewestReviews = (productId) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      method: 'GET',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=newest`,
-      headers: {
-        'User-Agent': 'request',
-        'Authorization': config.TOKEN
-      }
+  return axios({
+    method: 'GET',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=newest`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': config.TOKEN
+    }
+  })
+    .then((data) => {
+      return data.data.results;
     })
-      .then((data) => {
-        resolve(data.data.results);
-      })
-      .catch((err) => {
-        console.error(err);
-        reject('ERROR in getReviews: ', err);
-      })
-  });
+    .catch((err) => {
+      console.error('ERROR in getNewestReviews: ', err);
+    })
 }
 
 const filterMetaData = (metaData) => {
@@ -115,13 +109,31 @@ const getMetaData = (productId) => {
   });
 }
 
+const addHelpfulVote = (reviewId) => {
+  return axios({
+    method: 'PUT',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${reviewId}/helpful`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': config.TOKEN
+    }
+  })
+    .then((data) => {
+      return data.status
+    })
+    .catch((err) => {
+      console.error('ERROR in addHelpfulVote: ', err);
+    });
+}
+
 
 
 module.exports = {
   getHelpfulReviews,
   getNewestReviews,
   getMetaData,
-  filterMetaData
+  filterMetaData,
+  addHelpfulVote
 }
 
 
