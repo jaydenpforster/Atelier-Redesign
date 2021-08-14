@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '28212',
+      mainProductID: '36300',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
