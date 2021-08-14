@@ -54,14 +54,16 @@ class Sort extends React.Component {
   }
 
   sortNewest(array) {
-    for (let i = 0; i < array.length; i++) {
-      let nReviewObj = array[i];
-      let nextNReviewObj = array[i + 1] || {};
-      if (nReviewObj.date === nextNReviewObj.date) {
-        if (nReviewObj.helpfulness < nextNReviewObj.helpfulness) {
-          array[i + 1] = nReviewObj;
-          array[i] = nextNReviewObj;
-          return this.sortNewest(array);
+    if (array !== null) {
+      for (let i = 0; i < array.length; i++) {
+        let nReviewObj = array[i];
+        let nextNReviewObj = array[i + 1] || {};
+        if (nReviewObj.date === nextNReviewObj.date) {
+          if (nReviewObj.helpfulness < nextNReviewObj.helpfulness) {
+            array[i + 1] = nReviewObj;
+            array[i] = nextNReviewObj;
+            return this.sortNewest(array);
+          }
         }
       }
     }
@@ -69,39 +71,40 @@ class Sort extends React.Component {
   }
 
   sortRelevant(helpfulArray, newestArray) {
-    let relevance = {}
-    for (let i = 0; i < helpfulArray.length; i++) {
-      let hReviewObj = helpfulArray[i];
-      relevance[hReviewObj.review_id] = i
-    }
-
-    for (let j = 0; j < newestArray.length; j++) {
-      let n2ReviewObj = newestArray[j]
-      relevance[n2ReviewObj.review_id] += j
-    }
-
-    /*byRelevance will be an array of tuples that is sorted by most relevant
-      ex. [
-      [reviewid, most relevant/lowest score],
-      [reviewid, least relevant/highest score]
-      ]
-    */
-    let byRelevance = [];
-    for (let reviewId in relevance) {
-      byRelevance.push([reviewId, relevance[reviewId]])
-    }
-    byRelevance.sort(function(a, b) {
-      return a[1] - b[1]
-    })
-
     let relevantArray = [];
+    if (helpfulArray !== null && newestArray !== null) {
+      let relevance = {}
+      for (let i = 0; i < helpfulArray.length; i++) {
+        let hReviewObj = helpfulArray[i];
+        relevance[hReviewObj.review_id] = i
+      }
 
-    for (let k = 0; k < byRelevance.length; k++) {
-      let reviewTuples = byRelevance[k];
-      let reviewId = Number(reviewTuples[0])
-      for (let m = 0; m < newestArray.length; m++) {
-        if (newestArray[m].review_id === reviewId) {
-          relevantArray.push(newestArray[m])
+      for (let j = 0; j < newestArray.length; j++) {
+        let n2ReviewObj = newestArray[j]
+        relevance[n2ReviewObj.review_id] += j
+      }
+
+      /*byRelevance will be an array of tuples that is sorted by most relevant
+        ex. [
+        [reviewid, most relevant/lowest score],
+        [reviewid, least relevant/highest score]
+        ]
+      */
+      let byRelevance = [];
+      for (let reviewId in relevance) {
+        byRelevance.push([reviewId, relevance[reviewId]])
+      }
+      byRelevance.sort(function(a, b) {
+        return a[1] - b[1]
+      })
+
+      for (let k = 0; k < byRelevance.length; k++) {
+        let reviewTuples = byRelevance[k];
+        let reviewId = Number(reviewTuples[0])
+        for (let m = 0; m < newestArray.length; m++) {
+          if (newestArray[m].review_id === reviewId) {
+            relevantArray.push(newestArray[m])
+          }
         }
       }
     }

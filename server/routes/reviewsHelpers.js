@@ -14,12 +14,12 @@ const getHelpfulReviews = (productId) => {
       return data.data.results;
     })
     .catch((err) => {
-      console.error('ERROR in getReviews: ', err);
+      console.error('ERROR in getHelpfulReviews: ', err);
     })
 }
 
 const getNewestReviews = (productId) => {
-  axios({
+  return axios({
     method: 'GET',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${productId}&count=1000&sort=newest`,
     headers: {
@@ -31,7 +31,7 @@ const getNewestReviews = (productId) => {
       return data.data.results;
     })
     .catch((err) => {
-      console.error('ERROR in getReviews: ', err);
+      console.error('ERROR in getNewestReviews: ', err);
     })
 }
 
