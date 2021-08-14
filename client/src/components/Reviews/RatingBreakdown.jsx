@@ -12,8 +12,7 @@ class RatingBreakdown extends React.Component {
       three: 0,
       two: 0,
       one: 0,
-      reviewsCount: 0,
-      filter: []
+      reviewsCount: 0
     }
     this.calculateRecPercentage = this.calculateRecPercentage.bind(this);
     this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
@@ -68,18 +67,10 @@ class RatingBreakdown extends React.Component {
   }
 
   handleClick(event) {
-    let filterNumber = (event.target.innerText).slice(0, 1);
-    filterNumber = Number(filterNumber);
-    this.setState(state => {
-      const filter = state.filter.concat(filterNumber);
-      return {
-        filter
-      }
-    })
+    this.props.filter(event);
   }
 
   render() {
-    console.log('FILTER: ', this.state.filter)
     let totalCountOfReviews = this.state.reviewsCount;
     let fivePortion = (this.state.five / totalCountOfReviews) * 100;
     let fourPortion = (this.state.four / totalCountOfReviews) * 100;

@@ -128,7 +128,12 @@ class Sort extends React.Component {
     });
   }
 
+  filter() {
+    //number(s) to filter by are now in this.props.filter
+  }
+
   render() {
+    console.log('filter in sort: ', this.props.filter)
     let reviewsToPassDown;
     if (this.state.value === 'relevant') {
       reviewsToPassDown = this.state.relevantReviews;
