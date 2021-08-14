@@ -1,21 +1,19 @@
 import React from 'react'
-import Thumbnails from './thumbnails.jsx'
-import Size from './size.jsx'
+import Photos from './photos.jsx'
+import SizeAmount from './sizeAmount.jsx'
 
 class Styles extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
-      features: '',
       selectedStyle: 0,
-      mainUrl: '',
-      thumbUrls: [],
       currentSku: '',
+      currentStyleInfo: '',
     };
   }
 
   renderStyleChoices() {
+
     let arr = [];
     let i = 0;
     for (let style of this.props.styles) {
@@ -23,7 +21,11 @@ class Styles extends React.Component {
         key={i}
         onClick={(e) => {
           e.preventDefault()
-          this.setState({currentSku: style.style_id})
+          this.setState({
+            currentSku: style.style_id,
+            currentStyleInfo: style
+          })
+
         }}
         id={style.style_id}>{style.name}</div>)
       i++;
@@ -32,11 +34,18 @@ class Styles extends React.Component {
   }
 
   render() {
-    let renderSize;
+    if (this.state.currentStyleInfo === '') {
+      this.setState({
+        currentStyleInfo: this.props.styles[0]
+      })
+    }
+    let renderSize, renderPhotos;
     if (this.props.styles === undefined) {
       renderSize = <div></div>
+      renderPhotos = <div></div>
     } else {
-      renderSize = <Size sizes={this.props.styles[this.state.selectedStyle].skus} all={this.props.styles} />
+      renderSize = <SizeAmount sizes={this.state.currentStyleInfo} />
+      renderPhotos = <Photos pics={this.state.currentStyleInfo.photos} />
     }
     return (
       <>
@@ -44,11 +53,9 @@ class Styles extends React.Component {
         <div>Style Choices</div>
         <div>{this.renderStyleChoices()}</div>
         <br></br>
-        <div className="MainPhotoContainer">
-          <img alt={'Photo'} height="300" width="200" src={this.props.styles[this.state.selectedStyle].photos[0].url}></img>
-        </div>
-        <div>Style Price: {this.props.styles[this.state.selectedStyle].original_price}</div>
-        <Thumbnails pics={this.props.styles[this.state.selectedStyle].photos} />
+
+        {/* <div>Style Price: {this.props.currentStyleInfo.original_price}</div> */}
+        {renderPhotos}
         {renderSize}
       </>
     )

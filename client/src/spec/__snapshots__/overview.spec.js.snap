@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Test that App renders 1`] = `
+<div>
+  <h1 />
+  <br />
+  <div>
+    <h2>
+      Related Products
+    </h2>
+    <h2>
+      Your Outfit
+    </h2>
+    <div
+      className="carousel-container"
+    >
+      <div
+        className="img"
+        onClick={[Function]}
+      >
+        CLICK TO ADD TO YOUR OUTFIT
+      </div>
+      <div
+        className="cardRating"
+      >
+        *****
+      </div>
+      <div
+        className="carousel-wrapper"
+      >
+        <div
+          className="carousel-content-wrapper"
+        >
+          <div
+            className="carousel-content show-4"
+            style={
+              Object {
+                "transform": "translateX(-0%)",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    className="QnA"
+  >
+    <div
+      id="QStart"
+    >
+      QUESTIONS & ANSWERS
+    </div>
+    <div
+      className="form-div"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control form-group"
+          onChange={[Function]}
+          placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
+          type="text"
+        />
+        <input
+          className="btn btn-danger btn-block"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+    <div
+      className="QnA"
+    >
+      <button
+        id="More-Answered-Questions"
+      >
+        MORE ANSWERED QUESTIONS
+      </button>
+      <button
+        id="Add-Question"
+      >
+        ADD A QUESTION +
+      </button>
+    </div>
+  </div>
+  <br />
+</div>
+`;
