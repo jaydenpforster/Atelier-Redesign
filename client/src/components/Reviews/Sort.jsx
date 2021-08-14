@@ -141,9 +141,6 @@ class Sort extends React.Component {
     this.setState({
       value: event.target.value
     });
-    //helpful --> this.props.helpfulReviews
-    //newest --> this.props.newestReviews
-    //relevant --> this.state.relevantReviews
   }
 
 

@@ -295,3 +295,15 @@ u:hover {
   width: 30em;
   overflow: scroll;
 }
+
+a {
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+
+

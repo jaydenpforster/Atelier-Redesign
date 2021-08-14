@@ -115,13 +115,34 @@ const getMetaData = (productId) => {
   });
 }
 
+const addHelpfulVote = (reviewId) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      method: 'PUT',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${reviewId}/helpful`,
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      }
+    })
+      .then((data) => {
+        resolve(data.status)
+      })
+      .catch((err) => {
+        console.error(err);
+        reject('ERROR in addHelpfulVote: ', err);
+      });
+  })
+}
+
 
 
 module.exports = {
   getHelpfulReviews,
   getNewestReviews,
   getMetaData,
-  filterMetaData
+  filterMetaData,
+  addHelpfulVote
 }
 
 

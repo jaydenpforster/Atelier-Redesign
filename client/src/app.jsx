@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '28212',
+      mainProductID: '36300',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
@@ -103,15 +103,15 @@ class App extends React.Component {
   }
 
   render() {
-    let overview;
-    if (this.state.overview.id === undefined) {
-      overview = <></>
-    } else {
-      overview = <Overview
-        renderStars={this.renderStars}
-        overview={this.state.overview}
-        styles={this.state.styles} />
-    }
+    // let overview;
+    // if (this.state.overview.id === undefined) {
+    //   overview = <></>
+    // } else {
+    //   overview = <Overview
+    //     renderStars={this.renderStars}
+    //     overview={this.state.overview}
+    //     styles={this.state.styles} />
+    // }
     return (
       <div>
         {/* <h1></h1>
