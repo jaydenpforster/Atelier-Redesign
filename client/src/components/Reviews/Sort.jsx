@@ -14,6 +14,7 @@ class Sort extends React.Component {
     this.sortNewest = this.sortNewest.bind(this);
     this.sortRelevant = this.sortRelevant.bind(this);
     this.handleChange = this.handleChange.bind(this)
+    this.filter = this.filter.bind(this);
   }
 
 
@@ -128,12 +129,18 @@ class Sort extends React.Component {
     });
   }
 
-  filter() {
-    //number(s) to filter by are now in this.props.filter
+  filter(filters, reviews) {
+    let filteredReviews = [];
+    for (let i = 0; i < reviews.length; i++) {
+      let currentRating = reviews[i].rating;
+      if (filters.includes(currentRating)) {
+        filteredReviews.push(reviews[i]);
+      }
+    }
+    return filteredReviews;
   }
 
   render() {
-    console.log('filter in sort: ', this.props.filter)
     let reviewsToPassDown;
     if (this.state.value === 'relevant') {
       reviewsToPassDown = this.state.relevantReviews;
@@ -141,6 +148,10 @@ class Sort extends React.Component {
       reviewsToPassDown = this.props.helpfulReviews;
     } else if (this.state.value === 'newest') {
       reviewsToPassDown = this.props.newestReviews;
+    }
+
+    if (this.props.filter.length > 0) {
+      reviewsToPassDown = this.filter(this.props.filter, reviewsToPassDown);
     }
 
     return (
