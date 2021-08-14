@@ -190,6 +190,13 @@ div {
   z-index: -1;
 }
 
+.fullRatingLine:hover {
+  font-weight: bold;
+  cursor: pointer;
+  position: inherit;
+  z-index: -2;
+}
+
 .ratingBar {
   display: inline-block;
   width: 0%;
@@ -270,10 +277,10 @@ div {
   text-align: right;
 }
 
-u:hover {
+/* u:hover {
   background-color: lightgreen;
   cursor: pointer;
-}
+} */
 
 .singleTile {
   width: 28em;
