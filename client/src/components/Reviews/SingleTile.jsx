@@ -128,8 +128,3 @@ export default SingleTile;
 
 //TO DO: give image thumbnail ability to open in a modal window
 //displaying at full resolution with ability to close the window
-
-//TO DO: ability to click "yes" next to helpful, add to the amount voted yes,
-//and disable clicking after a vote.
-
-// console.log('Rating Helpfulness: ', review.helpfulness)
