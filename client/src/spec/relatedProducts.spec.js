@@ -138,19 +138,19 @@ it('Modal component should render', () => {
   });
 });
 
-let next = () {
-  if (1 < (5 - 4)) {
-    setCurrentIndex(1 => 1 + 1)
-  }
-}
+// let next = () {
+//   if (0 < (5 - 4)) {
+//     setCurrentIndex(0 => 0 + 1)
+//   }
+// }
 
-it('ProductCard component should render', () => {
-  act(() => {
-    let div = document.createElement('div');
-    ReactDOM.render(<ProductCard info={relatedProductInfo.info} detailInfo={relatedProductDetailInfo.detailinfo}/>, div);
+// it('ProductCard component should render', () => {
+//   act(() => {
+//     let div = document.createElement('div');
+//     ReactDOM.render(<ProductCard info={relatedProductInfo.info} detailInfo={relatedProductDetailInfo.detailinfo}/>, div);
 
 
 
-    expect(element).toBe(element);
-  });
-});
+//     expect(element).toBe(element);
+//   });
+// });

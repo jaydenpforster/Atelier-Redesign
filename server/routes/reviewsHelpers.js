@@ -50,7 +50,6 @@ const filterMetaData = (metaData) => {
     for (let rate in metaData.ratings) {
       ratings[rate] = Number(metaData.ratings[rate])
     }
-
     //calculate and format average rating
     let avgRating = {};
     let totalOfRatings = 0;
@@ -90,6 +89,7 @@ const filterMetaData = (metaData) => {
     filtered['recommended'] = recommended;
     filtered['characteristics'] = characteristics;
     filtered['avgRating'] = avgRating;
+    filtered['id'] = metaData.product_id;
 
     resolve(filtered);
   });
@@ -123,5 +123,3 @@ module.exports = {
   getMetaData,
   filterMetaData
 }
-
-

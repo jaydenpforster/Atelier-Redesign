@@ -23,6 +23,7 @@ class RelatedProducts extends React.Component {
           overViewStyles={this.props.overViewStyles}
           starRating={this.props.starRating}
           renderStars={this.props.renderStars}
+          relatedRatings={this.props.relatedRatings}
           show={4}
           onClick={this.props.onClick}
         />

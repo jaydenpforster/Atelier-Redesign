@@ -7,9 +7,6 @@ const ProductCard = (props) => {
     return null;
   }
 
-  console.log('PROPS INFO', props.info);
-  console.log('PROPS DETAIL INFO', props.detailInfo);
-
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
     return map;
@@ -17,7 +14,6 @@ const ProductCard = (props) => {
   let relevantProps = [];
   for (let i = 0; i < props.info.length; i++) {
     let items = combine[props.info[i].id];
-    console.log('ITEMS', items)
     if (items) {
       relevantProps.push({
         id: items.product_id,
@@ -28,6 +24,29 @@ const ProductCard = (props) => {
         defaultPrice: props.info[i].default_price,
         features: props.info[i].features,
         salePrice: items.results[0].sale_price
+      })
+    }
+  }
+
+  let thisOne = relevantProps.reduce((map, value) => {
+    map[value.id] = value;
+    return map;
+  }, {});
+  let allAccumulatedValues = [];
+
+  for (let j = 0; j < props.relatedRatings.length; j++) {
+    let items = thisOne[props.relatedRatings[j].id];
+    if (items) {
+      allAccumulatedValues.push({
+        id: items.id,
+        results: items.results,
+        name: items.name,
+        category: items.category,
+        description: items.description,
+        defaultPrice: items.defaultPrice,
+        features: items.features,
+        salePrice: items.results[0].sale_price,
+        rating: props.relatedRatings[j].avgRating.ratingPercentage
       })
     }
   }
@@ -67,7 +86,7 @@ const ProductCard = (props) => {
             className={`carousel-content show-${show}`}
             style={{ transform: `translateX(-${currentIndex * (100 / show)}%)` }}
           >
-            {relevantProps.map((each, index) =>
+            {allAccumulatedValues.map((each, index) =>
               <EachCard className="card"
                 info={each}
                 prodId={props.info}
@@ -75,6 +94,7 @@ const ProductCard = (props) => {
                 overViewProd={props.overViewProd}
                 overViewStyles={props.overViewStyles}
                 renderStars={props.renderStars}
+                relatedRatings={props.relatedRatings}
                 onClick={props.onClick}
                 key={index}
               />)}

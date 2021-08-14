@@ -18,7 +18,7 @@ class App extends React.Component {
       overview: '',
       styles: '',
       related: '',
-      mainProductID: '28212',
+      mainProductID: '36300',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},
@@ -26,7 +26,8 @@ class App extends React.Component {
       averageRating: 0,
       starRating: 0,
       helpfulReviews: [],
-      newestReviews: []
+      newestReviews: [],
+      relatedRatings: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
@@ -72,7 +73,8 @@ class App extends React.Component {
           starRating: data[6].avgRating.ratingPercentage,
           characteristics: data[6].characteristics,
           ratings: data[6].ratings,
-          recommended: data[6].recommended
+          recommended: data[6].recommended,
+          relatedRatings: data[7]
         })
       },
       error: (data) => {
@@ -123,7 +125,8 @@ class App extends React.Component {
           overViewProd={this.state.overview}
           overViewStyles={this.state.styles}
           renderStars={this.renderStars}
-          starRating={this.state.starRating}
+          relatedRatings={this.state.relatedRatings}
+          starRating={this.state.averageRating}
           onClick={this.getAllProductInfo}
         />
         <br></br>
