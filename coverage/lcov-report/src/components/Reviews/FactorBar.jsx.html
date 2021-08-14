@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.76% </span>
+                <span class="strong">3.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/21</span>
+                <span class='fraction'>1/27</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.76% </span>
+                <span class="strong">3.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/21</span>
+                <span class='fraction'>1/27</span>
             </div>
         
             
@@ -121,7 +121,9 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -144,6 +146,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,15 +164,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,56 +193,58 @@
 &nbsp;
 const FactorBar = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
   let factorValue = <span class="cstat-no" title="statement not covered" >(props.value / 5) * 13;</span>
-  let leftDescriptor;
-  let middleDescriptor;
-  let rightDescriptor;
+  let leftDescriptor,
+    centerDescriptor,
+    rightDescriptor;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (props.name === 'Size') {</span>
 <span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Too small';</span>
-<span class="cstat-no" title="statement not covered" >    middleDescriptor = 'Perfect';</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'Perfect';</span>
 <span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Too large';</span>
   }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (props.name === 'Width') {</span>
-<span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Narrow';</span>
-<span class="cstat-no" title="statement not covered" >    middleDescriptor = 'Perfect';</span>
-<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Wide'</span>
+<span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Too Narrow';</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'Perfect';</span>
+<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Too Wide'</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (props.name === 'Comfort' || props.name === 'Quality') {</span>
+<span class="cstat-no" title="statement not covered" >  if (props.name === 'Comfort') {</span>
+<span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Uncomfortable';</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'Ok';</span>
+<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Perfect'</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (props.name === 'Quality') {</span>
 <span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Poor';</span>
-<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Great'</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'What I Expected';</span>
+<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Perfect'</span>
   }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (props.name === 'Length') {</span>
-<span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Too Short';</span>
-<span class="cstat-no" title="statement not covered" >    middleDescriptor = 'Perfect';</span>
-<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Too Long';</span>
+<span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Runs Tight';</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'Perfect';</span>
+<span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Runs Long';</span>
   }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  if (props.name === 'Fit') {</span>
 <span class="cstat-no" title="statement not covered" >    leftDescriptor = 'Tight';</span>
+<span class="cstat-no" title="statement not covered" >    centerDescriptor = 'Perfect';</span>
 <span class="cstat-no" title="statement not covered" >    rightDescriptor = 'Loose';</span>
   }
-&nbsp;
-&nbsp;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div&gt;
       &lt;div className="factorName"&gt;{props.name}&lt;/div&gt;
-      {/* Each characteristic will be mapped out with the title, bar, and range. ex:
-        Size
-        {/* bar here with token
-        Too small - Perfect - Too Large */}
       &lt;div className="factorContainer"&gt;
         &lt;div className="factorBar"&gt;
-          &lt;div className="factorBreakLeft"&gt;&lt;/div&gt;
-          &lt;div className="factorBreakRight"&gt;&lt;/div&gt;
+          {/* &lt;div className="factorBreakLeft"&gt;&lt;/div&gt;
+          &lt;div className="factorBreakRight"&gt;&lt;/div&gt; */}
           &lt;div className="factorPoint" style={{'marginLeft': `${factorValue}em`}}&gt;&lt;/div&gt;
           &lt;div className="descriptors"&gt;
-            &lt;div&gt;{leftDescriptor}&lt;/div&gt;
-            &lt;div&gt;{middleDescriptor}&lt;/div&gt;
-            &lt;div&gt;{rightDescriptor}&lt;/div&gt;
+            &lt;div className="leftDescriptor"&gt;{leftDescriptor}&lt;/div&gt;
+            &lt;div className="centerDescriptor"&gt;{centerDescriptor}&lt;/div&gt;
+            &lt;div className="rightDescriptor"&gt;{rightDescriptor}&lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;br&gt;&lt;/br&gt;
@@ -248,15 +254,15 @@ const FactorBar = <span class="fstat-no" title="function not covered" >(p</span>
   )
 }
 &nbsp;
-&nbsp;
-export default FactorBar;</pre></td></tr></table></pre>
+export default FactorBar;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Aug 12 2021 18:35:53 GMT-0700 (Pacific Daylight Time)
+                at Thu Aug 12 2021 19:40:29 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

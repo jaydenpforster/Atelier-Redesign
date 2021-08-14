@@ -1,19 +1,6 @@
 import React from 'react'
 const NewSize = (props) => {
-  // console.log('props.chosenSize', props.chosenSize)
-  // if (props.chosenSize === '-') {
-  //   return (
-  //     <select
-  //       onClick={e => {
-  //         props.setChosenSize(' ')
-  //       }}
-  //     ><option>Select Size</option></select>
 
-  //   )
-  // }
-
-
-  // if (props.chosenSize === ' ') {
   let sizeOptions = []
 
   sizeOptions.push(
@@ -52,7 +39,7 @@ const NewSize = (props) => {
     >
       {sizeOptions}
     </select>
-  // console.log('this.props', props)
+
   return (
     <div>
       {selectSizes}

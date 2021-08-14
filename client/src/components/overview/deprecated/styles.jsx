@@ -13,7 +13,7 @@ class Styles extends React.Component {
   }
 
   renderStyleChoices() {
-    // console.log('props', this.props)
+
     let arr = [];
     let i = 0;
     for (let style of this.props.styles) {
@@ -25,7 +25,7 @@ class Styles extends React.Component {
             currentSku: style.style_id,
             currentStyleInfo: style
           })
-          console.log('state', this.state)
+
         }}
         id={style.style_id}>{style.name}</div>)
       i++;

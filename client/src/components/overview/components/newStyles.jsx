@@ -1,22 +1,17 @@
 import React from 'react'
 
 const NewStyles = (props) => {
-  // console.log('allStyles', props.allStyles)
-  // if (props.allStyles !== undefined) {
-  //   Object.keys(props.allStyles).map(style => {
-  //     console.log('sty', style)
-  //   })
-  // }
 
   let allStyles = [];
   let i = 0;
   for (let style in props.allStyles) {
     let product = props.allStyles[style]
+
     allStyles.push(
       <div
         className={props.allStyles[style].name}
         onClick={e => {
-          console.log('product', product)
+
           props.setCurrentStyleInfo(product)
           props.setMainPhoto(product.photos[0].url)
           props.setThumbnails(product.photos)

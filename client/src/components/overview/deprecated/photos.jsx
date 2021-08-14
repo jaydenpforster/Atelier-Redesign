@@ -9,14 +9,14 @@ class Photos extends React.Component {
   }
 
   renderThumbnails() {
-    console.log('this.props', this.props)
+
     if (this.props === undefined) {
       return <div></div>
     } else {
-      console.log('this.props2', this.props.pics)
+
       let picArr = [];
       for (let pic of this.props.pics) {
-        picArr.push(<img onClick={e => {console.log('thumbnail')}} height="150" width="100" src={pic.thumbnail_url}></img>)
+        picArr.push(<img onClick={e => { }} height="150" width="100" src={pic.thumbnail_url}></img>)
       }
       return picArr
     }
@@ -35,11 +35,11 @@ class Photos extends React.Component {
       renderPhoto = <div></div>
       renderThumbnails = <div></div>
     } else {
-      renderPhoto = <img height="200" width="150" onClick={e => {console.log('main photo')}} src={this.props.pics[0].url}></img>
+      renderPhoto = <img height="200" width="150" onClick={e => { }} src={this.props.pics[0].url}></img>
       renderThumbnails = renderThumbnails()
     }
 
-    // console.log('this.props2', this.props)
+
     return (
       <div>
         <div>Photos here</div>

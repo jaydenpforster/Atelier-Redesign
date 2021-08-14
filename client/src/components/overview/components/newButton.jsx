@@ -9,7 +9,7 @@ let NewButton = (props) => {
   return (
     <button onClick={e => {
       e.preventDefault()
-      console.log('clicked')
+
     }}>Add To Cart</button>
   )
 }
