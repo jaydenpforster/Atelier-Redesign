@@ -127,7 +127,9 @@ class App extends React.Component {
           onClick={this.getAllProductInfo}
         />
         <br></br>
-        <QnA renderStars={this.renderStars}/>
+        <QnA
+          renderStars={this.renderStars}
+          productId={this.state.mainProductID}/>
         <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}

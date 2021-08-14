@@ -10,10 +10,27 @@ class QnA extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      questionSearch: ''
+      questionSearch: '',
+      qnaData: []
     }
     this.changeQuestion = this.changeQuestion.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount () {
+    axios.get('qna/questions', {
+      params: {
+        id: this.props.productId
+      }
+    })
+      .then( (response) => {
+        // console.log(response)
+        this.setState({
+          qnaData: response
+        })
+        return
+      })
+      .catch((err)=>(console.log(err)))
   }
 
   changeQuestion(event) {
@@ -34,7 +51,6 @@ class QnA extends React.Component {
 
     this.setState({
       questionSearch: ''
-
     })
   }
 
@@ -44,7 +60,7 @@ class QnA extends React.Component {
       <div className='QnA'>
         <div id='QStart'>QUESTIONS & ANSWERS</div>
         <SearchQuestion submit={this.onSubmit} cQuestion={this.changeQuestion} qsearch={this.state.questionSearch}/>
-        <QuestionList />
+        <QuestionList qAndA ={this.state.qnaData}/>
         <TwoButtons />
       </div>
     )
