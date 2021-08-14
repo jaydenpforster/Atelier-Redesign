@@ -1,12 +1,11 @@
 import React from 'react'
+import Answer from './Answer.jsx'
 
-const Question = () => {
+const Question = (props) => {
   return (
     <div className="Questions">
       <li>QUESTION SHOULD GO HERE</li>
-      <div className="Answers">
-        <ul>ANSWERS TO THE QUESTION HERE</ul>
-      </div>
+      <Answer />
     </div>
   )
 }
