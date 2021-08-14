@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import SearchQuestion from './SearchQuestion.jsx';
 import TwoButtons from './TwoButtons.jsx';
+import QuestionList from './QuestionList.jsx'
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -43,6 +44,7 @@ class QnA extends React.Component {
       <div className='QnA'>
         <div id='QStart'>QUESTIONS & ANSWERS</div>
         <SearchQuestion submit={this.onSubmit} cQuestion={this.changeQuestion} qsearch={this.state.questionSearch}/>
+        <QuestionList />
         <TwoButtons />
       </div>
     )
