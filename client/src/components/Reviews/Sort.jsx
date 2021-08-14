@@ -19,7 +19,18 @@ class Sort extends React.Component {
 
   calculateTotalReviews() {
     let recs = this.props.recommended;
-    let total = (Number(recs.true) + Number(recs.false));
+    let total;
+    if (Object.keys(recs).length === 0) {
+      total = 0
+    } else if (Object.keys(recs).length === 1) {
+      if (recs.true) {
+        total = Number(recs.true)
+      } else {
+        total = Number(recs.false)
+      }
+    } else {
+      total = (Number(recs.true) + Number(recs.false));
+    }
     this.setState({
       howManyReviews: total
     })
@@ -145,15 +156,17 @@ class Sort extends React.Component {
     } else if (this.state.value === 'newest') {
       reviewsToPassDown = this.props.newestReviews;
     }
+
     return (
       <div>
         <label>
           <h4>{this.state.howManyReviews} reviews, sorted by &nbsp;
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="relevant">relevance</option>
-            <option value="helpful">helpfulness</option>
-            <option value="newest">date</option>
-          </select></h4>
+            <select value={this.state.value} onChange={this.handleChange}>
+              <option value="relevant">relevance</option>
+              <option value="helpful">helpfulness</option>
+              <option value="newest">date</option>
+            </select>
+          </h4>
         </label>
         <ReviewTiles
           reviews={reviewsToPassDown}
