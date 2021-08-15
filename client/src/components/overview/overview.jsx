@@ -1,6 +1,6 @@
 import React from 'react'
 import NewStyles from './components/newStyles.jsx'
-import NewPhotos from './components/NewPhotos.jsx'
+import NewPhotos from './components/newPhotos.jsx'
 import NewSize from './components/newSize.jsx'
 import NewAmount from './components/newAmount.jsx'
 import NewButton from './components/newButton.jsx'
