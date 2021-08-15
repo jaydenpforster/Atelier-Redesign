@@ -213,6 +213,10 @@ div {
   font-size: 90%;
 }
 
+.recPercentage {
+  font-size: 90%;
+}
+
 .factorContainer {
   width: 13em;
   background-color: transparent;
@@ -225,24 +229,6 @@ div {
   position: relative;
   z-index: -1;
 }
-
-/* .factorBreakLeft {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 4.7em;
-} */
-
-/* .factorBreakRight {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 9.7em;
-} */
 
 .factorPoint {
   position: relative;
@@ -276,11 +262,6 @@ div {
   flex: 1;
   text-align: right;
 }
-
-/* u:hover {
-  background-color: lightgreen;
-  cursor: pointer;
-} */
 
 .singleTile {
   width: 28em;
@@ -356,4 +337,26 @@ div {
 
 .reviewImages {
   display: inline-flex;
+}
+
+.filterMessages {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.appliedFilter {
+  margin-top: 0.15em;
+  margin-bottom: 0.08em;
+  width: 2.8em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: center;
+}
+
+.removeFilters:hover {
+  cursor: pointer;
 }
