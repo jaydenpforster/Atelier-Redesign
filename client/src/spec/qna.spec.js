@@ -2,21 +2,27 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../app.jsx';
 
-describe('My Test Suite', () => {
-  // eslint-disable-next-line no-undef
-  it('My Test Case', () => {
-    expect(true).toEqual(true);
-  });
+
+
+describe('QandA Component Tests', () => {
+
 });
 
-// eslint-disable-next-line func-style
-function sayHello (string) {
-  let response = 'Hello ' + string + '!';
-  return response;
-}
 
-test('responds with hello to input string', () => {
-  expect(sayHello('David')).toBe('Hello David!');
-})
+// describe('My Test Suite', () => {
+//   // eslint-disable-next-line no-undef
+//   it('My Test Case', () => {
+//     expect(true).toEqual(true);
+//   });
+// });
+
+// // eslint-disable-next-line func-style
+// function sayHello (string) {
+//   let response = 'Hello ' + string + '!';
+//   return response;
+// }
+
+// test('responds with hello to input string', () => {
+//   expect(sayHello('David')).toBe('Hello David!');
+// })
