@@ -150,8 +150,8 @@ class Sort extends React.Component {
       reviewsToPassDown = this.props.newestReviews;
     }
 
-    if (this.props.filter.length > 0) {
-      reviewsToPassDown = this.filter(this.props.filter, reviewsToPassDown);
+    if (this.props.filterNums.length > 0) {
+      reviewsToPassDown = this.filter(this.props.filterNums, reviewsToPassDown);
     }
 
     return (
