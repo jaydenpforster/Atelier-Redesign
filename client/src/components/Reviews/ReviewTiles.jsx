@@ -37,8 +37,8 @@ class ReviewTiles extends React.Component {
 
   render() {
     let allReviews = this.props.reviews;
-    let reviews;
-    let displayedReviews;
+    let reviews,
+      displayedReviews;
     let button = <div></div>
 
     if (allReviews === undefined || allReviews.length === 0) {

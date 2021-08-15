@@ -91,7 +91,7 @@ class App extends React.Component {
     rating = (rating / 5) * 100 || this.state.starRating;
     return (
       <div className='starContainer'>
-        <div className='starBox' style={{'width': `${rating}%`}}>
+        <div className='starBox' style={{ 'width': `${rating}%` }}>
           <div className='inlineStars'>
             <img className="starsLayout" src="star.png" alt="Star" />
             <img className="starsLayout" src="star.png" alt="Star" />
@@ -105,6 +105,7 @@ class App extends React.Component {
   }
 
   render() {
+
     let overview;
     if (this.state.overview.id === undefined) {
       overview = <></>

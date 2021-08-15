@@ -6,6 +6,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import App from '../app.jsx';
 import Overview from '../components/overview/overview.jsx';
+// import NewStyles from '../components/overview/newStyles.jsx';
 
 describe('My Test Suite', () => {
   test('My Test Case', () => {
@@ -35,4 +36,22 @@ describe('Overview', () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('Test function on Overview', () => {
+    let instance = new Overview()
+    expect(instance.jest()).toEqual('Jest')
+
+  })
+
+  test('Test showModal property on Overview', () => {
+    let instance = new Overview()
+    expect(instance.state.showModal).toEqual(false)
+    // expect(instance.state.showWarning).toEqual(false)
+  })
+  test('Test showWarning property on Overview', () => {
+    let instance = new Overview()
+    // expect(instance.state.showModal).toEqual(false)
+    expect(instance.state.showWarning).toEqual(false)
+  })
 });
+
