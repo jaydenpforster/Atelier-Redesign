@@ -190,6 +190,13 @@ div {
   z-index: -1;
 }
 
+.fullRatingLine:hover {
+  font-weight: bold;
+  cursor: pointer;
+  position: inherit;
+  z-index: -2;
+}
+
 .ratingBar {
   display: inline-block;
   width: 0%;
@@ -206,6 +213,10 @@ div {
   font-size: 90%;
 }
 
+.recPercentage {
+  font-size: 90%;
+}
+
 .factorContainer {
   width: 13em;
   background-color: transparent;
@@ -218,24 +229,6 @@ div {
   position: relative;
   z-index: -1;
 }
-
-/* .factorBreakLeft {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 4.7em;
-} */
-
-/* .factorBreakRight {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 9.7em;
-} */
 
 .factorPoint {
   position: relative;
@@ -270,11 +263,6 @@ div {
   text-align: right;
 }
 
-u:hover {
-  background-color: lightgreen;
-  cursor: pointer;
-}
-
 .singleTile {
   width: 28em;
   border-style: solid;
@@ -294,4 +282,81 @@ u:hover {
   max-height: 100vh;
   width: 30em;
   overflow: scroll;
+}
+
+.yes {
+  text-decoration: underline;
+}
+
+.yes:hover {
+  cursor: pointer;
+}
+
+.reviewResponse {
+  background-color: lightgreen;
+}
+
+.reviewImageOpen {
+  cursor: zoom-in;
+}
+
+.reviewImageClose {
+  cursor: zoom-out;
+}
+
+.revImgModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revImgModal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.revImgModal-header, revImgModal-footer {
+  padding: 10px;
+}
+
+.revImgModal-title {
+  margin: 0;
+}
+
+.revImgModal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.reviewImages {
+  display: inline-flex;
+}
+
+.filterMessages {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.appliedFilter {
+  margin-top: 0.15em;
+  margin-bottom: 0.08em;
+  width: 2.8em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: center;
+}
+
+.removeFilters:hover {
+  cursor: pointer;
 }
