@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Question from './Question.jsx'
 
@@ -8,7 +9,7 @@ class QuestionList extends React.Component {
 
   render() {
     return (
-      <div className="QuestionList">
+      <div className="questionList">
         {this.props.qAndA.map((inquiry, index) =>
           <Question key={index} question={inquiry.question_body} answer={inquiry.answers}/>
         )}

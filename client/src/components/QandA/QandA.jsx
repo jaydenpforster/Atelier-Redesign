@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
 import SearchQuestion from './SearchQuestion.jsx';
 import TwoButtons from './TwoButtons.jsx';
 import QuestionList from './QuestionList.jsx'
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class QnA extends React.Component {
   constructor (props) {
@@ -53,8 +54,8 @@ class QnA extends React.Component {
 
   render () {
     return (
-      <div className='QnA'>
-        <div id='QStart'>QUESTIONS & ANSWERS</div>
+      <div className='qnAWrapper'>
+        <header className='qHeader'><h3>QUESTIONS & ANSWERS</h3></header>
         <SearchQuestion submit={this.onSubmit} cQuestion={this.changeQuestion} qsearch={this.state.questionSearch}/>
         <QuestionList qAndA ={this.props.qData}/>
         <TwoButtons loadQ={this.loadQuestions} addQ={this.addQuestion} />
