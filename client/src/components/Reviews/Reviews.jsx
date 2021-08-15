@@ -16,6 +16,7 @@ class Reviews extends React.Component {
       filterNums: []
     }
     this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleRemoveFiltersClick = this.handleRemoveFiltersClick.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -45,6 +46,12 @@ class Reviews extends React.Component {
     }
   }
 
+  handleRemoveFiltersClick() {
+    this.setState({
+      filterNums: []
+    })
+  }
+
   // click handler for add a review button
 
   render() {
@@ -60,7 +67,9 @@ class Reviews extends React.Component {
           <RatingBreakdown
             ratings={this.props.ratings}
             recommended={this.props.recommended}
-            filter={this.handleFilterClick} />
+            filter={this.handleFilterClick}
+            filterNums={this.state.filterNums}
+            removeFilters={this.handleRemoveFiltersClick} />
           <br></br>
           <br></br>
           <FactorsBreakdown characteristics={this.props.characteristics} />
@@ -70,7 +79,7 @@ class Reviews extends React.Component {
             newestReviews={this.props.newestReviews}
             recommended={this.props.recommended}
             renderStars={this.props.renderStars}
-            filter={this.state.filterNums} />
+            filterNums={this.state.filterNums} />
           <br></br>
           {/*
           more reviews button with onClick
