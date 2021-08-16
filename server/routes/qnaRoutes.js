@@ -8,7 +8,7 @@ const wrap = fn => (...args) => fn(...args).catch(args[2]);
 router.get('/questions', wrap(async (req, res, next) => {
   try {
     const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${req.body.id}`,
-      {headers: {Authorization: config.TOKEN}});
+      {headers: {Authorization: process.env.TOKEN}});
 
     res.status(200).send(response.data);
   } catch (error) {
@@ -20,7 +20,7 @@ router.get('/questions', wrap(async (req, res, next) => {
 router.post('/questions', wrap(async (req, res, next)=> {
   try {
     const response = await axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${req.body.id}`,
-      {headers: {Authorization: config.TOKEN}});
+      {headers: {Authorization: process.env.TOKEN}});
     res.sendStatus(201);
   } catch (error) {
     console.log('Error in post /questions: ', error);
