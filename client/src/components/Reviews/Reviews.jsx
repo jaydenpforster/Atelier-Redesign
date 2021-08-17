@@ -52,8 +52,6 @@ class Reviews extends React.Component {
     })
   }
 
-  // click handler for add a review button
-
   render() {
     if (this.state.changed) {
       return (
@@ -79,12 +77,10 @@ class Reviews extends React.Component {
             newestReviews={this.props.newestReviews}
             recommended={this.props.recommended}
             renderStars={this.props.renderStars}
-            filterNums={this.state.filterNums} />
+            filterNums={this.state.filterNums}
+            name={this.props.name}
+            characteristics={this.props.characteristics} />
           <br></br>
-          {/*
-          more reviews button with onClick
-          add a review button with onClick
-          */}
         </div>
       )
     } else {

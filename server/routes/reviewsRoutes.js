@@ -13,4 +13,8 @@ router.put('/helpful', (req, res) => {
     })
 });
 
+router.post('/addReview', (req, res) => {
+  console.log('BODY: ', req.body)
+})
+
 module.exports = router;
