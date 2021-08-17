@@ -1,0 +1,24 @@
+.qnAWrapper {
+  display: grid;
+  width: 100%;
+  margin: 0 auto 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  grid-template-areas:
+  "header header header"
+  "search search search"
+  "qList qList qList"
+  "bButtons . ."
+}
+
+.qHeader {grid-area: header; }
+.qSearch {grid-area: search; }
+.questionList {grid-area: qList; }
+.twobuttons {grid-area: bButtons; }
+
+.qSearch .form-control-form-group {
+  background: rgb(255, 255, 255);
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
+

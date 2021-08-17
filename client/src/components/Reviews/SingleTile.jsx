@@ -1,14 +1,24 @@
 import React from 'react';
 import Images from './Images.jsx';
+import $ from 'jquery';
 
 class SingleTile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      extended: false
+      extended: false,
+      voted: false,
+      helpfulness: 0
     }
     this.formatDate = this.formatDate.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleExtendClick = this.handleExtendClick.bind(this);
+    this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      helpfulness: this.props.review.helpfulness
+    })
   }
 
   formatDate(dateString) {
@@ -33,12 +43,31 @@ class SingleTile extends React.Component {
     return `${month} ${day}, ${year}`;
   }
 
-  handleClick(event) {
+  handleExtendClick(event) {
     this.setState({
       extended: !this.state.extended
     })
-    //on click, reviewBody = fullReview
-    //show more becomes show less
+  }
+
+  handleHelpfulClick(event) {
+    let revId = this.props.review.review_id
+    if (this.state.voted === false) {
+      $.ajax({
+        url: '/reviews/helpful',
+        type: 'PUT',
+        data: {revId},
+        success: () => {
+          this.setState((prevState) => ({
+            helpfulness: prevState.helpfulness + 1,
+            voted: true
+          }));
+          document.getElementById(revId).style.cursor = 'not-allowed';
+          document.getElementById(revId).style.textDecoration = 'none';
+        }
+      })
+    } else {
+      alert('You\'ve already voted!')
+    }
   }
 
   render() {
@@ -47,9 +76,9 @@ class SingleTile extends React.Component {
     let date = this.formatDate(review.date);
     let revBody = review.body;
     let show = '';
-    let images;
-    let recommends;
-    let response;
+    let images,
+      recommends,
+      response;
 
     if (review.body.length > 250) {
       show = <u>Show more</u>
@@ -69,11 +98,11 @@ class SingleTile extends React.Component {
     }
 
     if (review.recommend) {
-      recommends = 'I recommend this product'
+      recommends = <div>&#10003; I recommend this product</div>
     }
 
     if (review.response) {
-      response = 'Response from seller: ' + <br></br> + review.response + <br></br>;
+      response = <div className="reviewResponse"><strong>Response from seller: </strong><br></br> {review.response}</div>;
     }
     return (
       <div>
@@ -81,11 +110,11 @@ class SingleTile extends React.Component {
           {renderStars(review.rating)}<br></br>
           {review.reviewer_name},&nbsp;{date}<br></br>
           <strong><p className="reviewSummary"></p>{review.summary}</strong><br></br>
-          <div className="reviewBody">{revBody} <a onClick={this.handleClick}>{show}</a></div><br></br>
+          <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div><br></br>
           <div className="reviewImages">{images}</div><br></br>
-          {recommends}
-          <div className="reviewResponse">{response}</div>
-          <p className="reviewHelpful">Helpful? <u>Yes</u> ({review.helpfulness})</p>
+          {recommends}<br></br>
+          {response}
+          <p className="reviewHelpful">Helpful? <a className="helpfulYes" onClick={this.handleHelpfulClick} id={this.props.review.review_id}>Yes</a> ({this.state.helpfulness})</p>
         </div>
         <br></br>
       </div>
@@ -95,12 +124,3 @@ class SingleTile extends React.Component {
 
 
 export default SingleTile;
-
-
-//TO DO: give image thumbnail ability to open in a modal window
-//displaying at full resolution with ability to close the window
-
-//TO DO: ability to click "yes" next to helpful, add to the amount voted yes,
-//and disable clicking after a vote.
-
-// console.log('Rating Helpfulness: ', review.helpfulness)

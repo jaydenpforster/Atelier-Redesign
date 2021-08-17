@@ -1,3 +1,19 @@
-.MainPhotoContainer {
+/* .MainPhotoContainer {
   position: relative;
 }
+
+.SelectedStyle {
+  color: yellow;
+}
+
+.SelectedThumbnail {
+  border: yellow;
+} */
+
+.mainPhoto:hover {
+  cursor: zoom-in;
+}
+
+/* .ProductTitle {
+  background-color: blue;
+} */

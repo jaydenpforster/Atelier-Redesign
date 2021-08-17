@@ -1,19 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReviewImgModal from './ReviewImgModal.jsx';
 
-class Images extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-    //bind
-  }
-
-  render() {
-    return (
-      <img src={this.props.src} width='10%' height='10%'></img>
-    )
-  }
+const Images = (props) => {
+  const [show, setShow] = useState(false);
+  return (
+    <div>
+      <img src={props.src} height="80%" width="80%" className="reviewImageOpen" onClick={ () => setShow(true) } />
+      <ReviewImgModal src={props.src} show={show} onClose={ () => setShow(false) }/>
+    </div>
+  )
 }
 
-export default Images
+export default Images;

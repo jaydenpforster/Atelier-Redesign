@@ -1,3 +1,5 @@
+styles.css
+
 .eachCard {
   /* border-style: solid;
   border-width: 1px;
@@ -16,35 +18,6 @@
 
 .cardImg {
   max-width: 200px;
-}
-
-.starContainer {
-  width: 4em;
-  position: relative ;
-}
-
-/*adjust width percentage according to review percentage*/
-/* height must match .starsLayout width */
-.starBox {
-  position: relative;
-  background-color: #525252;
-  width: 100%;
-  height: 0.8em;
-  z-index: -1;
-}
-
-.inlineStars {
-  width: 4em;
-  background-color: transparent;
-}
-
-/*stars width must be 1/5th of starContainer's width*/
-.starsLayout {
-  position: relative;
-  width: 0.8em;
-  height: auto;
-  float: left;
-  z-index: 1;
 }
 
 .modal {
@@ -166,6 +139,8 @@
   right: 24px;
 }
 
+
+/* REVIEWS CSS */
 .starsAverageRating {
   display: inline-block;
   font-size: 200%;
@@ -190,6 +165,13 @@ div {
   z-index: -1;
 }
 
+.fullRatingLine:hover {
+  font-weight: bold;
+  cursor: pointer;
+  position: inherit;
+  z-index: -2;
+}
+
 .ratingBar {
   display: inline-block;
   width: 0%;
@@ -206,6 +188,10 @@ div {
   font-size: 90%;
 }
 
+.recPercentage {
+  font-size: 90%;
+}
+
 .factorContainer {
   width: 13em;
   background-color: transparent;
@@ -218,24 +204,6 @@ div {
   position: relative;
   z-index: -1;
 }
-
-/* .factorBreakLeft {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 4.7em;
-} */
-
-/* .factorBreakRight {
-  position: absolute;
-  z-index: 1;
-  width: 0.3em;
-  height: 0.5em;
-  background: white;
-  margin-left: 9.7em;
-} */
 
 .factorPoint {
   position: relative;
@@ -270,11 +238,6 @@ div {
   text-align: right;
 }
 
-u:hover {
-  background-color: lightgreen;
-  cursor: pointer;
-}
-
 .singleTile {
   width: 28em;
   border-style: solid;
@@ -294,4 +257,180 @@ u:hover {
   max-height: 100vh;
   width: 30em;
   overflow: scroll;
+}
+
+.helpfulYes {
+  text-decoration: underline;
+}
+
+.helpfulYes:hover {
+  cursor: pointer;
+}
+
+.reviewResponse {
+  background-color: lightgreen;
+}
+
+.reviewImageOpen {
+  cursor: zoom-in;
+}
+
+.reviewImageClose {
+  cursor: zoom-out;
+}
+
+.revImgModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revImgModal-content {
+  width: 40%;
+  background-color: #fff;
+}
+
+.revImgModal-body {
+  padding: 1em;
+}
+
+.reviewImages {
+  display: inline-flex;
+}
+
+.filterMessages {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.appliedFilter {
+  margin-top: 0.15em;
+  margin-bottom: 0.08em;
+  width: 2.8em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: center;
+}
+
+.removeFilters:hover {
+  cursor: pointer;
+}
+
+.reviewForm-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewForm-content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: scroll;
+}
+.reviewForm-header, .reviewForm-footer {
+  padding: 1em;
+}
+
+.reviewForm-title {
+  margin: 0;
+}
+
+.reviewForm-body {
+  padding: 1em;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+table, tr {
+  width: 80%;
+}
+
+td {
+  width: 20%;
+  text-align: center;
+}
+
+.starContainer {
+  width: 4em;
+  position: relative ;
+}
+
+/*adjust width percentage according to review percentage*/
+/* height must match .starsLayout width */
+.starBox {
+  position: relative;
+  background-color: #525252;
+  width: 100%;
+  height: 0.8em;
+  z-index: -1;
+}
+
+.inlineStars {
+  width: 4em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.starsLayout {
+  position: relative;
+  width: 0.8em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
+
+.formStarContainer {
+  width: 8em;
+  position: relative;
+}
+
+/*adjust width percentage according to review percentage*/
+/* height must match .starsLayout width */
+.formStarBox {
+  position: static;
+  background-color: #525252;
+  width: 100%;
+  height: 1.6em;
+  z-index: -1;
+}
+
+.formInlineStars {
+  width: 8em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.formStarsLayout {
+  position: relative;
+  width: 1.6em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
+
+.formStars {
+  display: inline-flex;
+  width: 11em;
+  justify-content: space-between;
+}
+
+.meaning {
+  padding-top: 0.45em;
 }

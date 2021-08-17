@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import ReviewTiles from './ReviewTiles.jsx';
+import AppliedFilter from './AppliedFilter.jsx'
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class RatingBreakdown extends React.Component {
     }
     this.calculateRecPercentage = this.calculateRecPercentage.bind(this);
     this.calculateReviewTotals = this.calculateReviewTotals.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -65,8 +67,7 @@ class RatingBreakdown extends React.Component {
   }
 
   handleClick(event) {
-    let filterNumber = (event.target.innerText).slice(0, 1);
-    //later this will filter the displayed reviews
+    this.props.filter(event);
   }
 
   render() {
@@ -76,36 +77,60 @@ class RatingBreakdown extends React.Component {
     let threePortion = (this.state.three / totalCountOfReviews) * 100;
     let twoPortion = (this.state.two / totalCountOfReviews) * 100;
     let onePortion = (this.state.one / totalCountOfReviews) * 100;
+    let filterMessageStart;
+    let filterMessageEnd;
+    let appliedFilters;
+
+    if (this.props.filterNums.length > 0) {
+      filterMessageStart = <div>Applied filters:</div>
+      filterMessageEnd = <div className="removeFilters" onClick={this.props.removeFilters}><u>Remove Filters</u></div>
+
+      appliedFilters = this.props.filterNums.map((filter, index) =>
+        <AppliedFilter key={`filter-${index}`} filterNumber={filter} />
+      )
+    }
+
     return (
       <div>
         <div className="ratingBreakdown">
-          <u onClick={this.handleClick}>5 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
+          <strong>Rating Breakdown</strong>
+          {filterMessageStart}
+          <div className="filterMessages">
+            {appliedFilters}
+          </div>
+          {filterMessageEnd}
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>5 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fivePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.five})</p>
+          </div>
+
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>4 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
+          </div>
+
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>3 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
+          </div>
+
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>2 stars</u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
+          </div>
+
+          <div className="fullRatingLine" onClick={this.handleClick}>
+            <u>1 star </u>&nbsp;
+            <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
+            &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
+          </div>
           <br></br>
 
-          <u onClick={this.handleClick}>4 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${fourPortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.four})</p>
-          <br></br>
-
-          <u onClick={this.handleClick}>3 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${threePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.three})</p>
-          <br></br>
-
-          <u onClick={this.handleClick}>2 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${twoPortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.two})</p>
-          <br></br>
-
-          <u onClick={this.handleClick}>1 stars</u>&nbsp;
-          <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
-          &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
-          <br></br>
-          <br></br>
-
-          {this.state.recPercentage}% of reviews recommend this product
+          <span className="recPercentage">{this.state.recPercentage}% of reviews recommend this product</span>
         </div>
       </div>
     )

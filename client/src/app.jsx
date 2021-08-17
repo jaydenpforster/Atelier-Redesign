@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
       // cart: 'GET /cart
       overview: '',
+      name: '',
       styles: '',
       related: '',
       mainProductID: '36300',
@@ -27,7 +28,8 @@ class App extends React.Component {
       starRating: 0,
       helpfulReviews: [],
       newestReviews: [],
-      relatedRatings: []
+      relatedRatings: [],
+      questions: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
@@ -63,6 +65,7 @@ class App extends React.Component {
       success: (data) => {
         this.setState({
           overview: data[0],
+          name: data[0].name,
           styles: data[1],
           related: data[2],
           mainProductID: data[1].product_id,
@@ -74,7 +77,8 @@ class App extends React.Component {
           characteristics: data[6].characteristics,
           ratings: data[6].ratings,
           recommended: data[6].recommended,
-          relatedRatings: data[7]
+          questions: data[7].results,
+          relatedRatings: data[8]
         })
       },
       error: (data) => {
@@ -91,7 +95,7 @@ class App extends React.Component {
     rating = (rating / 5) * 100 || this.state.starRating;
     return (
       <div className='starContainer'>
-        <div className='starBox' style={{'width': `${rating}%`}}>
+        <div className='starBox' style={{ 'width': `${rating}%` }}>
           <div className='inlineStars'>
             <img className="starsLayout" src="star.png" alt="Star" />
             <img className="starsLayout" src="star.png" alt="Star" />
@@ -105,6 +109,7 @@ class App extends React.Component {
   }
 
   render() {
+
     let overview;
     if (this.state.overview.id === undefined) {
       overview = <></>
@@ -130,7 +135,11 @@ class App extends React.Component {
           onClick={this.getAllProductInfo}
         />
         <br></br>
-        <QnA renderStars={this.renderStars}/>
+        <QnA
+          renderStars={this.renderStars}
+          productId={this.state.mainProductID}
+          qData={this.state.questions}
+        />
         <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
@@ -141,6 +150,7 @@ class App extends React.Component {
           ratings={this.state.ratings}
           recommended={this.state.recommended}
           renderStars={this.renderStars}
+          name={this.state.name}
         />
       </div>
     )
