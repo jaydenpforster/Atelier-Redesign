@@ -6,12 +6,15 @@ class EachOutfit extends React.Component {
     this.state = {
       id: this.props.info.id
     }
-    this.click = this.click.bind(this)
+    this.click = this.click.bind(this);
+
   }
 
   click() {
     this.props.delete(this.props.info.id);
   }
+
+
 
   render() {
     return (
@@ -22,7 +25,17 @@ class EachOutfit extends React.Component {
         <div className="name">{this.props.info.name}</div>
         <div className="description">{this.props.info.description}</div>
         <div className="defaultPrice">${this.props.info.defaultPrice}</div>
-        <div>{this.props.renderStars()}</div>
+        <div className='starContainer'>
+          <div className='starBox' style={{ 'width': `${(this.props.info.averageRating / 5) * 100}%` }}>
+            <div className='inlineStars'>
+              <img className="starsLayout" src="star.png" alt="Star" />
+              <img className="starsLayout" src="star.png" alt="Star" />
+              <img className="starsLayout" src="star.png" alt="Star" />
+              <img className="starsLayout" src="star.png" alt="Star" />
+              <img className="starsLayout" src="star.png" alt="Star" />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

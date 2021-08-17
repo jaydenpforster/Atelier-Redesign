@@ -16,7 +16,7 @@ const Modal = (props) => {
             <tr>
               <th>{props.overViewProd.name}</th>
               <th>Feature</th>
-              <th>{props.info.name}</th>
+              <th className="modalName">{props.info.name}</th>
             </tr>
           </thead>
           <tbody>
