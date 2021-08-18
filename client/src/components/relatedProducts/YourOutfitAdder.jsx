@@ -4,7 +4,7 @@ import EachOutfit from './EachOutfit.jsx';
 class YourOutfitAdder extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = JSON.parse(window.localStorage.getItem('info')) || {
       eachOutfit: [],
       currentIndex: 0,
       length: 0
@@ -13,6 +13,12 @@ class YourOutfitAdder extends React.Component {
     this.delete = this.delete.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+  }
+
+
+  setState(state) {
+    window.localStorage.setItem('info', JSON.stringify(state));
+    super.setState(state);
   }
 
   click() {
