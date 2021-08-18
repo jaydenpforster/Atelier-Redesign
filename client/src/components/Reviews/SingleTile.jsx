@@ -65,8 +65,6 @@ class SingleTile extends React.Component {
           document.getElementById(revId).style.textDecoration = 'none';
         }
       })
-    } else {
-      alert('You\'ve already voted!')
     }
   }
 
@@ -121,6 +119,5 @@ class SingleTile extends React.Component {
     )
   }
 }
-
 
 export default SingleTile;
