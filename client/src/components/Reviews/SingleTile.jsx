@@ -35,7 +35,7 @@ class SingleTile extends React.Component {
       'October',
       'November',
       'December'
-    ]
+    ];
     let d = new Date(dateString);
     let month = months[d.getMonth()];
     let day = d.getDate();
