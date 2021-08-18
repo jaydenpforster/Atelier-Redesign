@@ -13,14 +13,12 @@ const NewPhotos = (props) => {
     // if (thumbnailArr.length === 4) { break; }
     thumbnailArr.push(
       <img
-        height='150'
-        width='120'
+        className="sideGallery"
         key={i}
         src={props.thumbnails[i].thumbnail_url}
         onClick={e => {
           e.preventDefault()
           props.setMainPhotoIndex('' + i)
-          // props.setThumbnailIndex('' + i)
         }}
         alt='Thumbnail' ></img>
     )
@@ -53,13 +51,13 @@ const NewPhotos = (props) => {
         }
 
       }}
-      height="250"
-      width="200"
+      // height="250"
+      // width="200"
       src={props.thumbnails[props.mainPhotoIndex].url}></img>
   }
 
   return (
-    <div>
+    <div className="OVMainChild1">
       {mainPhoto}
       <br></br>
       <p

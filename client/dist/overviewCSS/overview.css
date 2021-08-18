@@ -17,3 +17,30 @@
 /* .ProductTitle {
   background-color: blue;
 } */
+.Overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+/*
+.OVStyles{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+} */
+
+.StylePic{
+  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+}
+
+.mainPhoto{
+  height: 300px;
+  width: 300px;
+}
+
+.sideGallery{
+  height: 50px;
+  width: 50px;
+}
