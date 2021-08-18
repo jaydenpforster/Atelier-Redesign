@@ -106,48 +106,97 @@ class Overview extends React.Component {
       })
     }
   }
-  componentDidUpdate() {
-    /**
-      ON SKU ID CHANGE (Style Click)
-      Grab SelectSize
-      Change defaultValue Text to "SelectSize"
-     */
+
+  clickPhotos() {
+    axios({
+      method: 'POST',
+      url: '',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      }
+    })
   }
 
   render() {
     return (
       <div className="Overview" data-testid="Overview">
-        <div>Overview Here!</div>
-        {this.props.renderStars()}
-        <div className="ProductTitle" >{this.state.info.name}</div>
-        <div className="Category">{this.state.info.category}</div>
-        {/* <div>OV Price: {this.state.info.default_price}</div>  KEEP THIS ONE HERE*/}
-        <div className="Slogan">{this.state.info.slogan}</div>
-        <div className="Description">{this.state.info.description}</div>
+
+
         <br></br>
-        <NewStyles
-          showWarning={this.state.showWarning}
-          allStyles={this.state.styles.results}
-          selectedStyle={this.state.selectedStyle}
-          setSelectedStyle={this.setSelectedStyle}
-          currentStyleInfo={this.state.currentStyleInfo}
-          setCurrentStyleInfo={this.setCurrentStyleInfo}
-          setChosenSize={this.setChosenSize}
-          setMainPhoto={this.setMainPhoto}
-          setThumbnails={this.setThumbnails}
-          setAvailableSizes={this.setAvailableSizes}
-          setAvailableAmount={this.setAvailableAmount}
-          setSkuID={this.setSkuID}
-          setChosenAmount={this.setChosenAmount}
+        <div className="OVMain1">
+          <NewPhotos
+            currentStyleInfo={this.state.currentStyleInfo}
+            mainPhoto={this.state.mainPhoto}
+            setMainPhoto={this.setMainPhoto}
+            thumbnails={this.state.thumbnails}
+            setThumbnails={this.setThumbnails}
+            showModal={this.state.showModal}
+            setShowModal={this.setShowModal}
+            thumbnailIndex={this.state.thumbnailIndex}
+            setThumbnailIndex={this.setThumbnailIndex}
+            setMainPhotoIndex={this.setMainPhotoIndex}
+            mainPhotoIndex={this.state.mainPhotoIndex}
+          />
+          <div className="OVMainChild2">
+            <NewStyles
+              showWarning={this.state.showWarning}
+              allStyles={this.state.styles.results}
+              selectedStyle={this.state.selectedStyle}
+              setSelectedStyle={this.setSelectedStyle}
+              currentStyleInfo={this.state.currentStyleInfo}
+              setCurrentStyleInfo={this.setCurrentStyleInfo}
+              setChosenSize={this.setChosenSize}
+              setMainPhoto={this.setMainPhoto}
+              setThumbnails={this.setThumbnails}
+              setAvailableSizes={this.setAvailableSizes}
+              setAvailableAmount={this.setAvailableAmount}
+              setSkuID={this.setSkuID}
+              setChosenAmount={this.setChosenAmount}
+              thumbnails={this.state.thumbnails}
 
-          original_price={this.state.original_price}
-          sale_price={this.state.sale_price}
-          setOriginalPrice={this.setOriginalPrice}
-          setSalePrice={this.setSalePrice}
+              original_price={this.state.original_price}
+              sale_price={this.state.sale_price}
+              setOriginalPrice={this.setOriginalPrice}
+              setSalePrice={this.setSalePrice}
 
-          setMainPhotoIndex={this.setMainPhotoIndex}
-          mainPhotoIndex={this.state.mainPhotoIndex}
-        />
+              setMainPhotoIndex={this.setMainPhotoIndex}
+              mainPhotoIndex={this.state.mainPhotoIndex}
+            />
+            <NewSize
+              chosenSize={this.state.chosenSize}
+              chosenAmount={this.state.chosenAmount}
+              availableSizes={this.state.availableSizes}
+              setChosenSize={this.setChosenSize}
+              setAvailableAmount={this.setAvailableAmount}
+              setSkuID={this.setSkuID}
+              setChosenAmount={this.setChosenAmount}
+            />
+            <NewAmount
+              chosenSize={this.state.chosenSize}
+              availableAmount={this.state.availableAmount}
+              setChosenAmount={this.setChosenAmount}
+              chosenAmount={this.state.chosenAmount}
+            />
+            <NewButton
+              chosenSize={this.state.chosenSize}
+              chosenAmount={this.state.chosenAmount}
+              skuID={this.state.skuID}
+              showWarning={this.state.showWarning}
+              availableAmount={this.state.availableAmount}
+            />
+          </div>
+
+        </div>
+
+        <div className="OVMain2">
+          {this.props.renderStars()}
+          <div className="ProductTitle" >{this.state.info.name}</div>
+          <div className="Category">{this.state.info.category}</div>
+          {/* <div>OV Price: {this.state.info.default_price}</div>  KEEP THIS ONE HERE*/}
+          <div className="Slogan">{this.state.info.slogan}</div>
+          <div className="Description">{this.state.info.description}</div>
+        </div>
         <br></br>
         <Modal
           showModal={this.state.showModal}
@@ -160,44 +209,9 @@ class Overview extends React.Component {
           setMainPhotoIndex={this.setMainPhotoIndex}
         />
         <br></br>
-        <NewPhotos
-          currentStyleInfo={this.state.currentStyleInfo}
-          mainPhoto={this.state.mainPhoto}
-          setMainPhoto={this.setMainPhoto}
-          thumbnails={this.state.thumbnails}
-          setThumbnails={this.setThumbnails}
-          showModal={this.state.showModal}
-          setShowModal={this.setShowModal}
-          thumbnailIndex={this.state.thumbnailIndex}
-          setThumbnailIndex={this.setThumbnailIndex}
-          setMainPhotoIndex={this.setMainPhotoIndex}
-          mainPhotoIndex={this.state.mainPhotoIndex}
-        />
+
         <br></br>
-        <NewSize
-          chosenSize={this.state.chosenSize}
-          chosenAmount={this.state.chosenAmount}
-          availableSizes={this.state.availableSizes}
-          setChosenSize={this.setChosenSize}
-          setAvailableAmount={this.setAvailableAmount}
-          setSkuID={this.setSkuID}
-          setChosenAmount={this.setChosenAmount}
-        />
-        <br></br>
-        <NewAmount
-          chosenSize={this.state.chosenSize}
-          availableAmount={this.state.availableAmount}
-          setChosenAmount={this.setChosenAmount}
-          chosenAmount={this.state.chosenAmount}
-        />
-        <br></br>
-        <NewButton
-          chosenSize={this.state.chosenSize}
-          chosenAmount={this.state.chosenAmount}
-          skuID={this.state.skuID}
-          showWarning={this.state.showWarning}
-          availableAmount={this.state.availableAmount}
-        />
+
       </div>
     );
   }
