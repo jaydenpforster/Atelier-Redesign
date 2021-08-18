@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import ReviewTiles from './ReviewTiles.jsx';
 import AppliedFilter from './AppliedFilter.jsx'

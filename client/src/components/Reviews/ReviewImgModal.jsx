@@ -15,4 +15,4 @@ const ReviewImgModal = (props) => {
   )
 }
 
-export default ReviewImgModal
+export default ReviewImgModal;

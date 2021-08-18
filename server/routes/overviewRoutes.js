@@ -8,7 +8,7 @@ router.get('/product', (req, res) => {
     .then(data => {
       return data
     })
-    .catch(err => { console.error(err) })
+    .catch(err => { console.error('ERROR in overview /product', err) })
   let firstProductStylesInfo = getOverviewInfo.getProductStyles()
     .then(styles => {
       return styles

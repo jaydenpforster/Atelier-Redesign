@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
       // cart: 'GET /cart
       overview: '',
+      name: '',
       styles: '',
       related: '',
       mainProductID: '36300',
@@ -26,7 +27,9 @@ class App extends React.Component {
       averageRating: 0,
       starRating: 0,
       helpfulReviews: [],
-      newestReviews: []
+      newestReviews: [],
+      relatedRatings: [],
+      questions: []
     }
     //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
@@ -62,6 +65,7 @@ class App extends React.Component {
       success: (data) => {
         this.setState({
           overview: data[0],
+          name: data[0].name,
           styles: data[1],
           related: data[2],
           mainProductID: data[1].product_id,
@@ -72,7 +76,9 @@ class App extends React.Component {
           starRating: data[6].avgRating.ratingPercentage,
           characteristics: data[6].characteristics,
           ratings: data[6].ratings,
-          recommended: data[6].recommended
+          recommended: data[6].recommended,
+          questions: data[7].results,
+          relatedRatings: data[8]
         })
       },
       error: (data) => {
@@ -124,11 +130,16 @@ class App extends React.Component {
           overViewProd={this.state.overview}
           overViewStyles={this.state.styles}
           renderStars={this.renderStars}
-          starRating={this.state.starRating}
+          relatedRatings={this.state.relatedRatings}
+          starRating={this.state.averageRating}
           onClick={this.getAllProductInfo}
         />
         <br></br>
-        <QnA renderStars={this.renderStars} />
+        <QnA
+          renderStars={this.renderStars}
+          productId={this.state.mainProductID}
+          qData={this.state.questions}
+        />
         <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
@@ -139,6 +150,8 @@ class App extends React.Component {
           ratings={this.state.ratings}
           recommended={this.state.recommended}
           renderStars={this.renderStars}
+          name={this.state.name}
+          productId={this.state.mainProductID}
         />
       </div>
     )
