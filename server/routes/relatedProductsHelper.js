@@ -38,7 +38,7 @@ const getProductID = (productId) => {
         })
     })
     .catch((err) => {
-      console.log(err);
+      console.log('ERROR in relatedProductsHelper getProductID', err);
     })
 };
 
@@ -79,7 +79,7 @@ const getProductStyles = (productId) => {
         })
     })
     .catch((err) => {
-      console.log(err);
+      console.log('ERROR in relatedProductsHelper getProductStyles', err);
     })
 };
 

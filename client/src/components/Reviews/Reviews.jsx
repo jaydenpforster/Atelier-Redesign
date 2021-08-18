@@ -79,7 +79,8 @@ class Reviews extends React.Component {
             renderStars={this.props.renderStars}
             filterNums={this.state.filterNums}
             name={this.props.name}
-            characteristics={this.props.characteristics} />
+            characteristics={this.props.characteristics}
+            productId={this.props.productId} />
           <br></br>
         </div>
       )

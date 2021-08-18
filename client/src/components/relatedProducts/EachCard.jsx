@@ -66,7 +66,6 @@ class EachCard extends React.Component {
     }
     return (
       <div className="eachCard">
-        {console.log(this.props)}
         {this.props.info.results[0].photos[0].thumbnail_url ?
           <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
           <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}
