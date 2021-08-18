@@ -19,20 +19,24 @@ class EachOutfit extends React.Component {
   render() {
     return (
       <div className="eachOutfit">
-        <img src={this.props.info.results[0].photos[0].thumbnail_url}></img>
-        <img className="cardStar" onClick={this.click} src="star.png" alt="stars alt"></img>
-        <div className="category">{this.props.info.category}</div>
-        <div className="name">{this.props.info.name}</div>
-        <div className="description">{this.props.info.description}</div>
-        <div className="defaultPrice">${this.props.info.defaultPrice}</div>
-        <div className='starContainer'>
-          <div className='starBox' style={{ 'width': `${(this.props.info.averageRating / 5) * 100}%` }}>
-            <div className='inlineStars'>
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
+        {this.props.info.results[0].photos[0].thumbnail_url ?
+          <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
+          <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}
+        <img className="cardStar" onClick={this.click} src="relatedstar.png" alt="stars alt"></img>
+        <div className="textInfo">
+          <div className="category">{this.props.info.category}</div>
+          <div className="name">{this.props.info.name}</div>
+          <div className="description">{this.props.info.description}</div>
+          <div className="defaultPrice">${this.props.info.defaultPrice}</div>
+          <div className='starContainer'>
+            <div className='starBox' style={{ 'width': `${(this.props.info.averageRating / 5) * 100}%` }}>
+              <div className='inlineStars'>
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+              </div>
             </div>
           </div>
         </div>

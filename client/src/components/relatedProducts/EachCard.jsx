@@ -33,14 +33,27 @@ class EachCard extends React.Component {
     if (this.props.info.salePrice !== null) {
       return (
         <div className="eachCard">
-          <img onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
-          <img onClick={this.modalClick} className="cardStar" src="star.png" alt="stars alt"></img>
-          <div className="category">{this.props.info.category}</div>
-          <div className="name">{this.props.info.name}</div>
-          <div className="description">{this.props.info.description}</div>
-          <div className="defaultPrice" style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }}>${this.props.info.defaultPrice}</div>
-          <div className="defaultPrice">${this.props.info.salePrice}SALE!</div>
-          <div>{this.props.renderStars()}</div>
+          {this.props.info.results[0].photos[0].thumbnail_url ?
+            <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
+            <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}
+          <img className="cardStar" onClick={this.modalClick} src="relatedstar.png" alt="stars alt"></img>
+          <div className="textInfo">
+            <div className="category">{this.props.info.category}</div>
+            <div className="name">{this.props.info.name}</div>
+            <div className="description">{this.props.info.description}</div>
+            <div className="defaultPrice" style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }}>${this.props.info.defaultPrice}</div>
+            <div className='starContainer'>
+              <div className='starBox' style={{ 'width': `${this.props.info.rating}%` }}>
+                <div className='inlineStars'>
+                  <img className="starsLayout" src="star.png" alt="Star" />
+                  <img className="starsLayout" src="star.png" alt="Star" />
+                  <img className="starsLayout" src="star.png" alt="Star" />
+                  <img className="starsLayout" src="star.png" alt="Star" />
+                  <img className="starsLayout" src="star.png" alt="Star" />
+                </div>
+              </div>
+            </div>
+          </div>
           <Modal
             show={this.state.modalShow}
             close={this.modalClose}
@@ -53,20 +66,25 @@ class EachCard extends React.Component {
     }
     return (
       <div className="eachCard">
-        <img onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img>
-        <img onClick={this.modalClick} className="cardStar" src="star.png" alt="stars alt"></img>
-        <div className="category">{this.props.info.category}</div>
-        <div className="name">{this.props.info.name}</div>
-        <div className="description">{this.props.info.description}</div>
-        <div className="defaultPrice">${this.props.info.defaultPrice}</div>
-        <div className='starContainer'>
-          <div className='starBox' style={{ 'width': `${this.props.info.rating}%` }}>
-            <div className='inlineStars'>
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
-              <img className="starsLayout" src="star.png" alt="Star" />
+        {console.log(this.props)}
+        {this.props.info.results[0].photos[0].thumbnail_url ?
+          <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
+          <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}
+        <img className="cardStar" onClick={this.modalClick} src="relatedstar.png" alt="stars alt"></img>
+        <div className="textInfo">
+          <div className="category">{this.props.info.category}</div>
+          <div className="name">{this.props.info.name}</div>
+          <div className="description">{this.props.info.description}</div>
+          <div className="defaultPrice">${this.props.info.defaultPrice}</div>
+          <div className='starContainer'>
+            <div className='starBox' style={{ 'width': `${this.props.info.rating}%` }}>
+              <div className='inlineStars'>
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" alt="Star" />
+              </div>
             </div>
           </div>
         </div>
@@ -83,3 +101,4 @@ class EachCard extends React.Component {
 }
 
 export default EachCard;
+
