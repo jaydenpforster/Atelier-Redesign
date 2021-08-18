@@ -2,10 +2,12 @@ import React from 'react'
 
 const NewStyles = (props) => {
 
+
   let allStyles = [];
   let i = 0;
   for (let style in props.allStyles) {
     let product = props.allStyles[style]
+    console.log('product', product)
 
     allStyles.push(
       <div
@@ -33,7 +35,11 @@ const NewStyles = (props) => {
 
         }}
         key={i}>
-        {props.allStyles[style].name}
+        <img
+          className="StylePic"
+          src={product.photos[0].url}
+        >
+        </img>
       </div>)
     i++;
   }
@@ -52,7 +58,7 @@ const NewStyles = (props) => {
 
   return (
     <div>
-      <div>{allStyles}</div>
+      <div className="OVStyles">{allStyles}</div>
       {price}
     </div>)
 }

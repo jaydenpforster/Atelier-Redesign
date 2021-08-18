@@ -33,13 +33,15 @@ app.get('/getAllProductInfo', (req, res) => {
     reviewsHelper.getHelpfulReviews(req.query.id),
     reviewsHelper.getNewestReviews(req.query.id),
     reviewsHelper.getMetaData(req.query.id),
-    qnaHelper.getQuestions(req.query.id)
+    qnaHelper.getQuestions(req.query.id),
+    relatedHelper.getRelatedRatings(req.query.id)
   ])
     .then(arrOfInfo => {
+
       res.status(200).send(arrOfInfo)
     })
     .catch(err => {
-      console.log('err', err)
+      console.log('ERROR in /getAllProductInfo', err)
     })
 });
 

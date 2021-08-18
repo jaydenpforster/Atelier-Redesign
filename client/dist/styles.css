@@ -1,171 +1,7 @@
-.eachCard {
-  /* border-style: solid;
-  border-width: 1px;
-  max-width: 300px; */
-}
 
-.eachOutfit {
-  /* border-style: solid;
-  border-width: 1px;
-  max-width: 300px; */
-}
 
-.yourOutfitTitle {
-  margin-top: 50px;
-}
 
-.cardImg {
-  max-width: 200px;
-}
-
-.starContainer {
-  width: 4em;
-  position: relative ;
-}
-
-/*adjust width percentage according to review percentage*/
-/* height must match .starsLayout width */
-.starBox {
-  position: relative;
-  background-color: #525252;
-  width: 100%;
-  height: 0.8em;
-  z-index: -1;
-}
-
-.inlineStars {
-  width: 4em;
-  background-color: transparent;
-}
-
-/*stars width must be 1/5th of starContainer's width*/
-.starsLayout {
-  position: relative;
-  width: 0.8em;
-  height: auto;
-  float: left;
-  z-index: 1;
-}
-
-.modal {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modalContent {
-  width: 500px;
-  background-color: #fff;
-  border-left: 15px;
-}
-
-.modalHeader {
-  /* padding: 10px; */
-  border-top: 1px solid rgb(0, 0, 0);
-  border-left: 1px solid rgb(0, 0, 0);
-  border-right: 1px solid rgb(0, 0, 0);
-}
-
-.modalTitle {
-  margin: 0;
-}
-
-.modalBody {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  border-left: 1px solid rgb(0, 0, 0);
-  border-right: 1px solid rgb(0, 0, 0);
-}
-
-.cardStar {
-  position: relative;
-  width: 1em;
-  height: auto;
-  float: left;
-  z-index: 1;
-}
-
-.carousel-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.carousel-wrapper {
-  display: flex;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-content-wrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-content {
-  display: flex;
-  transition: all 250ms linear;
-  -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
-  scrollbar-width: none;  /* hide scrollbar in Firefox */
-}
-
-.carousel-content > * {
-  width: 100%;
-  flex-shrink: 0;
-  flex-grow: 1;
-}
-
-/* .carousel-content.show-2 > * {
-  width: 50%;
-}
-
-.carousel-content.show-3 > * {
-  width: calc(100% / 3);
-} */
-
-.carousel-content.show-4 > * {
-  width: calc(100% / 4);
-}
-
-/* hide scrollbar in webkit browser */
-.carousel-content::-webkit-scrollbar, .carousel-content::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-content > * {
-  width: 100%;
-  flex-shrink: 0;
-  flex-grow: 1;
-}
-
-.left-arrow, .right-arrow {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
-  background-color: white;
-  border: 1px solid #ddd;
-}
-
-.left-arrow {
-  left: 24px;
-}
-
-.right-arrow {
-  right: 24px;
-}
-
+/* REVIEWS CSS */
 .starsAverageRating {
   display: inline-block;
   font-size: 200%;
@@ -204,7 +40,7 @@ div {
   background-color: green;
   position: absolute;
   z-index: 1;
-}
+} */
 
 /* margin left needs to be one more em than ratingBarContainer width */
 .total {
@@ -284,11 +120,11 @@ div {
   overflow: scroll;
 }
 
-.yes {
+.helpfulYes {
   text-decoration: underline;
 }
 
-.yes:hover {
+.helpfulYes:hover {
   cursor: pointer;
 }
 
@@ -317,22 +153,12 @@ div {
 }
 
 .revImgModal-content {
-  width: 500px;
+  width: 40%;
   background-color: #fff;
 }
 
-.revImgModal-header, revImgModal-footer {
-  padding: 10px;
-}
-
-.revImgModal-title {
-  margin: 0;
-}
-
 .revImgModal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  padding: 1em;
 }
 
 .reviewImages {
@@ -359,4 +185,113 @@ div {
 
 .removeFilters:hover {
   cursor: pointer;
+}
+
+.reviewForm-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewForm-content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: scroll;
+}
+.reviewForm-header, .reviewForm-footer {
+  padding: 1em;
+}
+
+.reviewForm-title {
+  margin: 0;
+}
+
+.reviewForm-body {
+  padding: 1em;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+table, tr {
+  width: 80%;
+}
+
+td {
+  width: 20%;
+  text-align: center;
+}
+
+.starContainer {
+  width: 4em;
+  position: relative ;
+}
+
+/*adjust width percentage according to review percentage*/
+/* height must match .starsLayout width */
+.starBox {
+  position: relative;
+  background-color: #525252;
+  width: 100%;
+  height: 0.8em;
+  z-index: -1;
+}
+
+.inlineStars {
+  width: 4em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.starsLayout {
+  position: relative;
+  width: 0.8em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
+
+.formStarContainer {
+  width: 8em;
+  position: relative;
+}
+
+/*adjust width percentage according to review percentage*/
+/* height must match .starsLayout width */
+.formStarBox {
+  position: static;
+  background-color: #525252;
+  width: 100%;
+  height: 1.6em;
+  z-index: -1;
+}
+
+.formInlineStars {
+  width: 8em;
+  background-color: transparent;
+}
+
+/*stars width must be 1/5th of starContainer's width*/
+.formStarsLayout {
+  position: relative;
+  width: 1.6em;
+  height: auto;
+  float: left;
+  z-index: 1;
+}
+
+.formStars {
+  display: inline-flex;
+  width: 11em;
+  justify-content: space-between;
+}
+
+.meaning {
+  padding-top: 0.45em;
 }

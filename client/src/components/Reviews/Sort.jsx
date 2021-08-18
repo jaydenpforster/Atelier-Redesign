@@ -167,7 +167,10 @@ class Sort extends React.Component {
         </label>
         <ReviewTiles
           reviews={reviewsToPassDown}
-          renderStars={this.props.renderStars} />
+          renderStars={this.props.renderStars}
+          name={this.props.name}
+          characteristics={this.props.characteristics}
+          productId={this.props.productId} />
       </div>
     )
   }

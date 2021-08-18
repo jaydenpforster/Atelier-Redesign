@@ -78,7 +78,7 @@ let Modal = (props) => {
             {showSevenTNs}
           </div>
           <div className="OVmodal-footer">
-            <button onClick={e => { props.setShowModal() }} className="OVmodal-button">Close</button>
+            <button onClick={e => { props.setShowModal(false) }} className="OVmodal-button">Close</button>
           </div>
         </div>
       </div>

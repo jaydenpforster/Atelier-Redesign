@@ -11,7 +11,4 @@ const Images = (props) => {
   )
 }
 
-export default Images
-
-{/* <img src={props.src} height="25%" width="25%" className="reviewImageOpen" onClick={() => setShow(true)} />
-<ReviewImgModal src={props.src} onClose={() => setShow(false)} show={show} /> */}
+export default Images;
