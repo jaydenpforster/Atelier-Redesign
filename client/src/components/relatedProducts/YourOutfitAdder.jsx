@@ -49,6 +49,9 @@ class YourOutfitAdder extends React.Component {
         features: this.props.overViewProd.features,
         averageRating: this.props.starRating
       });
+      let tester = eachOutfitcopy;
+      localStorage.setItem('value', tester);
+      localStorage.getItem('value')
       this.setState({
         eachOutfit: eachOutfitcopy
       })
