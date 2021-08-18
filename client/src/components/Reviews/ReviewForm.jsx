@@ -236,10 +236,12 @@ class ReviewForm extends React.Component {
             Fit: this.state.Fit
           }
         },
-        success: (response) => {
-          console.log('Successful!')
+        success: () => {
+          $('.reviewForm-modal').remove();
         },
-        dataType: 'json'
+        error: (err) => {
+          console.log('ERROR in addReview post!: ', err)
+        }
       });
     }
   }
@@ -270,10 +272,10 @@ class ReviewForm extends React.Component {
     } else {
       counter = <span>Minimum reached</span>
     }
-    let picsButton;
-    if (this.state.photos.length < 5) {
-      picsButton = <button>Choose File</button>
-    }
+    // let picsButton;
+    // if (this.state.photos.length < 5) {
+    //   picsButton = <button>Choose File</button>
+    // }
 
     return (
       <div className="reviewForm-modal">
