@@ -10,12 +10,31 @@ class ReviewForm extends React.Component {
       rating: 0,
       meaning: '',
       rec: 'Yes',
-      Size: 0,
-      Width: 0,
-      Comfort: 0,
-      Quality: 0,
-      Length: 0,
-      Fit: 0,
+      recBool: true,
+      Size: {
+        id: 0,
+        rating: 0,
+      },
+      Width: {
+        id: 0,
+        rating: 0,
+      },
+      Comfort: {
+        id: 0,
+        rating: 0
+      },
+      Quality: {
+        id: 0,
+        rating: 0
+      },
+      Length: {
+        id: 0,
+        rating: 0
+      },
+      Fit: {
+        id: 0,
+        rating: 0
+      },
       SizeSelection: 'none selected',
       WidthSelection: 'none selected',
       ComfortSelection: 'none selected',
@@ -27,13 +46,65 @@ class ReviewForm extends React.Component {
       charsLeft: 50,
       photos: [],
       nickname: '',
-      email: ''
+      email: '',
+      submitChars: {}
     }
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleCharInputChange = this.handleCharInputChange.bind(this);
     this.handleStarClick = this.handleStarClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.calculateCharTotal = this.calculateCharTotal.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.characteristics['Size'] !== undefined) {
+      this.setState(prevState => ({
+        ['Size']: {
+          ...prevState['Size'],
+          id: this.props.characteristics['Size'].id
+        }
+      }))
+    };
+    if (this.props.characteristics['Width'] !== undefined) {
+      this.setState(prevState => ({
+        ['Width']: {
+          ...prevState['Width'],
+          id: this.props.characteristics['Width'].id
+        }
+      }))
+    };
+    if (this.props.characteristics['Comfort'] !== undefined) {
+      this.setState(prevState => ({
+        ['Comfort']: {
+          ...prevState['Comfort'],
+          id: this.props.characteristics['Comfort'].id
+        }
+      }))
+    };
+    if (this.props.characteristics['Quality'] !== undefined) {
+      this.setState(prevState => ({
+        ['Quality']: {
+          ...prevState['Quality'],
+          id: this.props.characteristics['Quality'].id
+        }
+      }))
+    };
+    if (this.props.characteristics['Length'] !== undefined) {
+      this.setState(prevState => ({
+        ['Length']: {
+          ...prevState['Length'],
+          id: this.props.characteristics['Length'].id
+        }
+      }))
+    };
+    if (this.props.characteristics['Fit'] !== undefined) {
+      this.setState(prevState => ({
+        ['Fit']: {
+          ...prevState['Fit'],
+          id: this.props.characteristics['Fit'].id
+        }
+      }))
+    }
   }
 
   handleInputChange(event) {
@@ -43,6 +114,18 @@ class ReviewForm extends React.Component {
     this.setState({
       [name]: value
     });
+
+    if (name === 'rec') {
+      if (value === 'Yes') {
+        this.setState({
+          recBool: true
+        })
+      } else if (value === 'No') {
+        this.setState({
+          recBool: false
+        })
+      }
+    }
   }
 
   handleCharInputChange(event) {
@@ -50,30 +133,33 @@ class ReviewForm extends React.Component {
     let value = target.value;
     let num = Number(target.attributes[1].value);
     let char = target.attributes[3].value;
-    this.setState({
-      [char]: num,
+    this.setState(prevState => ({
+      [char]: {
+        ...prevState[char],
+        rating: num
+      },
       [`${char}Selection`]: value
-    });
+    }));
   }
 
   calculateCharTotal() {
     let charTotal = 0;
-    if (this.state.Size > 0) {
+    if (this.state.Size.rating > 0) {
       charTotal += 1;
     }
-    if (this.state.Width > 0) {
+    if (this.state.Width.rating > 0) {
       charTotal += 1;
     }
-    if (this.state.Comfort > 0) {
+    if (this.state.Comfort.rating > 0) {
       charTotal += 1;
     }
-    if (this.state.Quality > 0) {
+    if (this.state.Quality.rating > 0) {
       charTotal += 1;
     }
-    if (this.state.Length > 0) {
+    if (this.state.Length.rating > 0) {
       charTotal += 1;
     }
-    if (this.state.Fir > 0) {
+    if (this.state.Fit.rating > 0) {
       charTotal += 1;
     }
     return charTotal;
@@ -129,7 +215,32 @@ class ReviewForm extends React.Component {
     if (needWarning) {
       alert(warningMessage);
     } else {
-      //post request here
+      $.ajax({
+        type: "POST",
+        url: '/reviews/addReview',
+        data: {
+          product_id: this.props.productId,
+          rating: this.state.rating,
+          summary: this.state.summary,
+          body: this.state.body,
+          recommend: this.state.recBool,
+          name: this.state.nickname,
+          email: this.state.email,
+          photos: [],
+          characteristics: {
+            Size: this.state.Size,
+            Width: this.state.Size,
+            Comfort: this.state.Comfort,
+            Quality: this.state.Quality,
+            Length: this.state.Length,
+            Fit: this.state.Fit
+          }
+        },
+        success: (response) => {
+          console.log('POST RESPONSE: ', response)
+        },
+        dataType: 'json'
+      });
     }
   }
 
@@ -163,6 +274,7 @@ class ReviewForm extends React.Component {
     if (this.state.photos.length < 5) {
       picsButton = <button>Choose File</button>
     }
+
     return (
       <div className="reviewForm-modal">
         <div className="reviewForm-content">
@@ -220,10 +332,6 @@ class ReviewForm extends React.Component {
                   onChange={this.handleInputChange} />
                 <br></br>
                 {counter}
-              </label>
-              <label>
-                <h3>Upload your photos</h3>
-                Need to figure this out later...
               </label>
               <label>
                 <h3><small><sup>*</sup></small>What is your nickname?</h3>

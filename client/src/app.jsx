@@ -148,6 +148,7 @@ class App extends React.Component {
           recommended={this.state.recommended}
           renderStars={this.renderStars}
           name={this.state.name}
+          productId={this.state.mainProductID}
         />
       </div>
     )

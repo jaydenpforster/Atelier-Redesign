@@ -8,6 +8,7 @@ const AddReview = (props) => {
       <button className="addReview" onClick={ () => setShow(true) }>Add A Review</button>
       <ReviewForm
         name={props.name}
+        productId={props.productId}
         characteristics={props.characteristics}
         show={show}
         onClose={ () => setShow(false) } />

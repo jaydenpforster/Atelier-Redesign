@@ -36,6 +36,7 @@ const getNewestReviews = (productId) => {
 }
 
 const filterMetaData = (metaData) => {
+  console.log('meta: ', metaData)
   return new Promise((resolve, reject) => {
     let filtered = {};
 
@@ -75,9 +76,12 @@ const filterMetaData = (metaData) => {
     //format characteristics
     let characteristics = {}
     for (let key in metaData.characteristics) {
+      let innerChar = {}
+      innerChar['id'] = metaData.characteristics[key].id
       let value = Number(metaData.characteristics[key].value)
       let fixedValue = Number((value).toFixed(1))
-      characteristics[key] = fixedValue;
+      innerChar['value'] = fixedValue;
+      characteristics[key] = innerChar;
     }
 
     filtered['ratings'] = ratings;
