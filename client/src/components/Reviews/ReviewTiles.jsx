@@ -66,9 +66,6 @@ class ReviewTiles extends React.Component {
           name={this.props.name}
           characteristics={this.props.characteristics}
           productId={this.props.productId} />
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     )
   }
