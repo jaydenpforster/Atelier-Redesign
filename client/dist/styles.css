@@ -89,11 +89,6 @@ div {
   text-align: left;
 }
 
-.centerDescriptor {
-  flex: 1;
-  text-align: center;
-}
-
 .rightDescriptor {
   flex: 1;
   text-align: right;
