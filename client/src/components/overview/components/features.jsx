@@ -20,10 +20,6 @@ class Features extends React.Component {
     return <div id="Features">{featuresArr}</div>
   }
 
-  componentDidMount() {
-  }
-
-
   render() {
     return (
       <>

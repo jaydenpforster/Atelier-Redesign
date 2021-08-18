@@ -5,6 +5,7 @@ import NewSize from './components/newSize.jsx'
 import NewAmount from './components/newAmount.jsx'
 import NewButton from './components/newButton.jsx'
 import Modal from './components/modal.jsx'
+import Features from './components/features.jsx'
 
 class Overview extends React.Component {
   constructor(props) {

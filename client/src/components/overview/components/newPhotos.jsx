@@ -58,45 +58,50 @@ const NewPhotos = (props) => {
 
   return (
     <div className="OVMainChild1">
-      {mainPhoto}
-      <br></br>
-      <p
-        onClick={e => {
+      <div className="MainPhotoContainer">
+        <p
+          onClick={e => {
 
-          if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
-            props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '' )
+            if (props.mainPhotoIndex === '0') {
+              props.setMainPhotoIndex(props.thumbnails.length - 1)
+            } else {
+              props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
+            }
+          }}
+        >Prev</p>
+        {mainPhoto}
+
+        <p
+          onClick={e => {
+            if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
+              props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
+            } else {
+              props.setMainPhotoIndex('0')
+            }
+          }}
+        >Next</p>
+      </div>
+
+      <div className="ThumbnailContainer">
+        <p onClick={e => {
+          if (props.thumbnailIndex === '0') {
+            props.setThumbnailIndex(props.thumbnails.length - 1)
           } else {
-            props.setMainPhotoIndex('0')
+            props.setThumbnailIndex((Number(props.thumbnailIndex) - 1) + '')
           }
-        }}
-      >Thumbscroll +</p>
-      <p
-        onClick={e => {
+        }}>{'<'}</p>
 
-          if (props.mainPhotoIndex === '0') {
-            props.setMainPhotoIndex(props.thumbnails.length - 1)
+        {showFour}
+
+        <p onClick={e => {
+          if (Number(props.thumbnailIndex) === props.thumbnails.length - 1) {
+            props.setThumbnailIndex('0')
           } else {
-            props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '' )
+            props.setThumbnailIndex((Number(props.thumbnailIndex) + 1) + '')
           }
-        }}
-      >Thumbscroll -</p>
-      <p onClick={e => {
-        if (props.thumbnailIndex === '0') {
-          props.setThumbnailIndex(props.thumbnails.length - 1)
-        } else {
-          props.setThumbnailIndex((Number(props.thumbnailIndex) - 1) + '')
-        }
-      }}>{'<'}</p>
+        }}>{'>'}</p>
+      </div>
 
-      {showFour}
-
-      <p onClick={e => {
-        if (Number(props.thumbnailIndex) === props.thumbnails.length - 1) {
-          props.setThumbnailIndex('0')
-        } else {
-          props.setThumbnailIndex((Number(props.thumbnailIndex) + 1) + '')
-        }
-      }}>{'>'}</p>
     </div>)
 }
 
