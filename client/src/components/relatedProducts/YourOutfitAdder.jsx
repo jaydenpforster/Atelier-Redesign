@@ -30,7 +30,8 @@ class YourOutfitAdder extends React.Component {
         category: this.props.overViewProd.category,
         description: this.props.overViewProd.description,
         defaultPrice: this.props.overViewProd.default_price,
-        features: this.props.overViewProd.features
+        features: this.props.overViewProd.features,
+        averageRating: this.props.starRating
       });
       this.setState({
         eachOutfit: eachOutfitcopy
@@ -45,7 +46,8 @@ class YourOutfitAdder extends React.Component {
         category: this.props.overViewProd.category,
         description: this.props.overViewProd.description,
         defaultPrice: this.props.overViewProd.default_price,
-        features: this.props.overViewProd.features
+        features: this.props.overViewProd.features,
+        averageRating: this.props.starRating
       });
       this.setState({
         eachOutfit: eachOutfitcopy
@@ -67,7 +69,6 @@ class YourOutfitAdder extends React.Component {
       this.setState({
         currentIndex: this.state.currentIndex + 1,
       })
-      // setCurrentIndex(prevState => prevState + 1)
     }
   }
 
@@ -76,7 +77,6 @@ class YourOutfitAdder extends React.Component {
       this.setState({
         currentIndex: this.state.currentIndex - 1
       })
-      // setCurrentIndex(prevState => prevState - 1)
     }
   }
 
@@ -122,7 +122,6 @@ class YourOutfitAdder extends React.Component {
                   renderStars={this.state.renderStars}
                   onClick={this.props.onClick}
                   delete={this.delete}
-                  starRating={this.props.starRating}
                   renderStars={this.props.renderStars}
                   key={index}
                 />)}

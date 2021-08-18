@@ -28,6 +28,7 @@ class App extends React.Component {
       starRating: 0,
       helpfulReviews: [],
       newestReviews: [],
+      relatedRatings: [],
       questions: []
     }
     //bind
@@ -76,7 +77,8 @@ class App extends React.Component {
           characteristics: data[6].characteristics,
           ratings: data[6].ratings,
           recommended: data[6].recommended,
-          questions: data[7].results
+          questions: data[7].results,
+          relatedRatings: data[8]
         })
       },
       error: (data) => {
@@ -128,7 +130,8 @@ class App extends React.Component {
           overViewProd={this.state.overview}
           overViewStyles={this.state.styles}
           renderStars={this.renderStars}
-          starRating={this.state.starRating}
+          relatedRatings={this.state.relatedRatings}
+          starRating={this.state.averageRating}
           onClick={this.getAllProductInfo}
         />
         <br></br>
