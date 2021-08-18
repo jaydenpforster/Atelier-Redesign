@@ -64,7 +64,8 @@ class ReviewTiles extends React.Component {
         {button}
         <AddReview
           name={this.props.name}
-          characteristics={this.props.characteristics} />
+          characteristics={this.props.characteristics}
+          productId={this.props.productId} />
         <br></br>
         <br></br>
         <br></br>
