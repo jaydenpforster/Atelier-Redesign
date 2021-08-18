@@ -220,7 +220,7 @@ class ReviewForm extends React.Component {
         url: '/reviews/addReview',
         data: {
           product_id: this.props.productId,
-          rating: this.state.rating,
+          rating: this.state.rating / 20,
           summary: this.state.summary,
           body: this.state.body,
           recommend: this.state.recBool,
@@ -237,7 +237,7 @@ class ReviewForm extends React.Component {
           }
         },
         success: (response) => {
-          console.log('POST RESPONSE: ', response)
+          console.log('Successful!')
         },
         dataType: 'json'
       });

@@ -16,7 +16,7 @@ const getProduct = (productID) => {
       return data.data
     })
     .catch(err => {
-      console.log('err', err)
+      console.log('ERROR in overview getProduct', err)
     })
 };
 const getProductStyles = (productID) => {
@@ -34,7 +34,7 @@ const getProductStyles = (productID) => {
       return data.data
     })
     .catch(err => {
-      console.log('err', err)
+      console.log('ERROR in overview getProductStyles', err)
     })
 
 };

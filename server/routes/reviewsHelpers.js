@@ -14,7 +14,7 @@ const getHelpfulReviews = (productId) => {
       return data.data.results;
     })
     .catch((err) => {
-      console.error('ERROR in getHelpfulReviews: ', err);
+      console.error('ERROR in getHelpfulReviews: ', err)
     })
 }
 
@@ -31,12 +31,11 @@ const getNewestReviews = (productId) => {
       return data.data.results;
     })
     .catch((err) => {
-      console.error('ERROR in getNewestReviews: ', err);
+      console.error('ERROR in getNewestReviews: ', err)
     })
 }
 
 const filterMetaData = (metaData) => {
-  console.log('meta: ', metaData)
   return new Promise((resolve, reject) => {
     let filtered = {};
 
@@ -108,7 +107,7 @@ const getMetaData = (productId) => {
         resolve(filterMetaData(data.data));
       })
       .catch((err) => {
-        reject('ERROR in getCharacteristics: ', err);
+        reject('ERROR in getCharacteristics: ', err)
       })
   });
 }
@@ -126,9 +125,63 @@ const addHelpfulVote = (reviewId) => {
       return data.status
     })
     .catch((err) => {
-      console.error('ERROR in addHelpfulVote: ', err);
+      console.error('ERROR in addHelpfulVote: ', err)
     });
 }
+
+const formatPostData = (postData) => {
+  return new Promise ((resolve, reject) => {
+    let formattedPostData = {};
+
+    formattedPostData['product_id'] = Number(postData.product_id);
+    formattedPostData['rating'] = Number(postData.rating);
+    formattedPostData['summary'] = postData.summary;
+    formattedPostData['body'] = postData.body;
+
+    let rec;
+    if (postData['recommend'] === 'true') {
+      rec = true;
+    } else if (postData['recommend'] === 'false') {
+      rec = false;
+    }
+
+    formattedPostData['recommend'] = rec;
+    formattedPostData['name'] = postData.name;
+    formattedPostData['email'] = postData.email;
+
+    let formattedChars = {};
+    let postChars = postData.characteristics;
+
+    for (key in postChars) {
+      if (postChars[key].id !== '0') {
+        formattedChars[postChars[key].id] = Number(postChars[key].rating)
+      }
+    }
+
+    formattedPostData['characteristics'] = formattedChars;
+    resolve(formattedPostData);
+  });
+}
+
+const addReview = (reviewData) => {
+  return axios({
+    method: 'POST',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
+    data: reviewData,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': config.TOKEN
+    }
+  })
+    .then((data) => {
+      return data.status
+    })
+    .catch((err) => {
+      console.error('ERROR in addReview: ', err)
+    });
+}
+
+
 
 
 
@@ -137,7 +190,9 @@ module.exports = {
   getNewestReviews,
   getMetaData,
   filterMetaData,
-  addHelpfulVote
+  addHelpfulVote,
+  formatPostData,
+  addReview
 }
 
 

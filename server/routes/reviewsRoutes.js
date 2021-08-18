@@ -9,12 +9,21 @@ router.put('/helpful', (req, res) => {
       res.sendStatus(data)
     })
     .catch((err) => {
-      console.log('ERROR in /helpful router: ', err)
+      console.log('ERROR in reviewRoutes /helpful', err)
     })
 });
 
 router.post('/addReview', (req, res) => {
-  console.log('BODY: ', req.body)
+  rev.formatPostData(req.body)
+    .then((readyData) => {
+      rev.addReview(readyData)
+    })
+    .then((data) => {
+      res.send(data)
+    })
+    .catch((err) => {
+      console.log('ERROR in reviewRoutes /addReview', err)
+    })
 })
 
 module.exports = router;

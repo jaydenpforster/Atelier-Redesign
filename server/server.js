@@ -39,7 +39,7 @@ app.get('/getAllProductInfo', (req, res) => {
       res.status(200).send(arrOfInfo)
     })
     .catch(err => {
-      console.log('err', err)
+      console.log('ERROR in /getAllProductInfo', err)
     })
 });
 
