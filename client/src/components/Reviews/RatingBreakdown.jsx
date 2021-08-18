@@ -77,9 +77,9 @@ class RatingBreakdown extends React.Component {
     let threePortion = (this.state.three / totalCountOfReviews) * 100;
     let twoPortion = (this.state.two / totalCountOfReviews) * 100;
     let onePortion = (this.state.one / totalCountOfReviews) * 100;
-    let filterMessageStart;
-    let filterMessageEnd;
-    let appliedFilters;
+    let filterMessageStart,
+      filterMessageEnd,
+      appliedFilters;
 
     if (this.props.filterNums.length > 0) {
       filterMessageStart = <div>Applied filters:</div>
