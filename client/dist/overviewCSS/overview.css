@@ -47,7 +47,50 @@
 
 .ThumbnailContainer{
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .MainPhotoContainer{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.NextMainPhoto{
+  /* border-width: 10px 75px 10px 10px; */
+  background-color: #f9e45b;
+  border: none;
+  color: white;
+  text-align: center;
+  width: 60px;
+  height: 40px;
+}
+
+.PrevMainPhoto{
+  /* border-width: 10px 75px 10px 10px; */
+  background-color: #f9e45b;
+  border: none;
+  color: white;
+  text-align: center;
+  width: 60px;
+  height: 40px;
+}
+
+.OVMainChild1{
+  background-color: rgb(153, 255, 255);
+}
+.OVDescription{
+  display: flex;
+  flex-direction: column;
+}
+
+.OVMain2{
+  display: flex;
+}
+
+.allFeatures{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: blue;
 }

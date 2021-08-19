@@ -1,18 +1,22 @@
 import React from 'react'
+import Zoom from 'react-img-zoom'
 
 let Modal = (props) => {
-  let thumbnailArr, showSevenTNs;
+  let thumbnailArr, showSevenTNs, mainPhoto, zoomPhoto;
   if (props !== undefined) {
     thumbnailArr = props.thumbnails.map((element, i) => {
       return (
         <img
+          className="OVModalThumbnail"
           height='150'
           width='120'
           key={i}
           src={props.thumbnails[i].thumbnail_url}
           onClick={e => {
             e.preventDefault()
+            props.setShowModalPhotoZoom(false)
             props.setMainPhotoIndex('' + i)
+            console.log('i', i)
           }}
           alt='Thumbnail' ></img>
       )
@@ -31,54 +35,86 @@ let Modal = (props) => {
     showSevenTNs.push(thumbnailArr[ii])
     ii++;
   }
-
-  let mainPhoto;
-  if (props.thumbnails[props.mainPhotoIndex] !== undefined) {
+  // console.log('props.showModalPhotoZoom', props.showModalPhotoZoom)
+  // if (props.thumbnails[props.mainPhotoIndex] !== undefined) {
+  if (props.showModalPhotoZoom === true) {
+    //   mainPhoto = <img
+    mainPhoto = <Zoom
+      className="ZoomIn"
+      onClick={e => {
+        alert('test')
+        console.log('click MainPhotoModal -')
+        props.setShowModalPhotoZoom(false)
+      }}
+      img={props.thumbnails[props.mainPhotoIndex].url}
+      zoomScale={2.5}
+      height={400}
+      width={500}
+    />
+  } else {
     mainPhoto = <img
       className="mainModalPhoto"
-      onClick={() => {
-
+      onClick={e => {
+        console.log('click MainPhotoModal +')
+        props.setShowModalPhotoZoom(true)
       }}
-      height="250"
-      width="200"
+      height="400"
+      width="300"
       src={props.thumbnails[props.mainPhotoIndex].url}></img>
   }
 
+  // }
+
   if (props.showModal === true) {
     return (
-      <div className="OVmodal">
+      <div
+        onClick={e => {
+          props.clickModal()
+        }}
+        className="OVmodal">
         <div onClick={e => { }} className="OVmodal-content">
           <div className="OVmodal-header">
-            <h4 className="OVmodal-title">Title</h4>
+            <h4 className="OVmodal-title"></h4>
           </div>
           <div className="OVmodal-body">
-            Modal Content
             {mainPhoto}
-            <p
-              onClick={e => {
+            <div className="OVModalArrows">
+              <p
+                onClick={e => {
 
-                if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
-                  props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
-                } else {
-                  props.setMainPhotoIndex('0')
-                }
-              }}
-            >Thumbscroll +</p>
-            <p
-              onClick={e => {
+                  if (props.mainPhotoIndex === '0') {
+                    props.setMainPhotoIndex(props.thumbnails.length - 1)
+                    props.setShowModalPhotoZoom(false)
+                  } else {
+                    props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
+                    props.setShowModalPhotoZoom(false)
+                  }
+                }}
+              >{'<'}</p>
+              <p
+                onClick={e => {
 
-                if (props.mainPhotoIndex === '0') {
-                  props.setMainPhotoIndex(props.thumbnails.length - 1)
-                } else {
-                  props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
-                }
-              }}
-            >Thumbscroll -</p>
+                  if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
+                    props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
+                    props.setShowModalPhotoZoom(false)
+                  } else {
+                    props.setMainPhotoIndex('0')
+                    props.setShowModalPhotoZoom(false)
+                  }
+                }}
+              >{'>'}</p>
+            </div>
+
             <br></br>
-            {showSevenTNs}
+            <div className="OVModalThumbnailContainer">
+              {showSevenTNs}
+            </div>
           </div>
           <div className="OVmodal-footer">
-            <button onClick={e => { props.setShowModal(false) }} className="OVmodal-button">Close</button>
+            <button onClick={e => {
+              props.setShowModal(false)
+              props.setShowModalPhotoZoom(false)
+            }} className="OVmodal-button">Close</button>
           </div>
         </div>
       </div>

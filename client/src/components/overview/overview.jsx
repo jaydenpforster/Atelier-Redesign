@@ -6,12 +6,14 @@ import NewAmount from './components/newAmount.jsx'
 import NewButton from './components/newButton.jsx'
 import Modal from './components/modal.jsx'
 import Features from './components/features.jsx'
-
+import axios from 'axios'
+import config from '../../../../config.js'
+// root / client / src / components / overview
 class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: '',
+      info: { features: undefined },
       styles: { results: [] },
       // Styles State
       selectedStyle: 0,
@@ -50,6 +52,7 @@ class Overview extends React.Component {
 
       original_price: '140.00',
       sale_price: '0',
+      showModalPhotoZoom: false,
 
     };
     this.setSelectedStyle = this.setSelectedStyle.bind(this)
@@ -68,6 +71,13 @@ class Overview extends React.Component {
     this.setOriginalPrice = this.setOriginalPrice.bind(this)
     this.setSalePrice = this.setSalePrice.bind(this)
     this.setMainPhotoIndex = this.setMainPhotoIndex.bind(this)
+    this.setShowModalPhotoZoom = this.setShowModalPhotoZoom.bind(this)
+    // Click Handlers
+    this.clickModal = this.clickModal.bind(this)
+    this.clickPhotos = this.clickPhotos.bind(this)
+    this.clickDescription = this.clickDescription.bind(this)
+    this.clickStyles = this.clickStyles.bind(this)
+    this.clickChosensSelectors = this.clickChosensSelectors.bind(this)
   }
   setSelectedStyle(selectedStyle) { this.setState({ selectedStyle }) }
   setCurrentSku(currentSku) { this.setState({ currentSku }) }
@@ -88,7 +98,119 @@ class Overview extends React.Component {
   setOriginalPrice(original_price) { this.setState({ original_price }) }
   setSalePrice(sale_price) { this.setState({ sale_price }) }
   // Keep this as a reminder on how to log something after changing state.
-  setMainPhotoIndex(mainPhotoIndex) { this.setState({ mainPhotoIndex }, () => { console.log('this.state.mainPhotoIndex', this.state.mainPhotoIndex) }) }
+  setMainPhotoIndex(mainPhotoIndex) { this.setState({ mainPhotoIndex }, () => { console.log('setMainPhotoIndex') }) }
+  setShowModalPhotoZoom(showModalPhotoZoom) {
+    this.setState({ showModalPhotoZoom }, () => { console.log('setShowModalPhotoZoom') })
+  }
+
+
+  consoleLogAfterSETSTATE(test) {
+    this.setState({ test }, () => {
+      console.log('The Second Argument of setState should be a function that runs')
+    })
+  }
+
+  clickModal() {
+    console.log('click log')
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Modals',
+        widget: 'Overview',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    }).then(test => {
+      console.log('test', test)
+    })
+  }
+  clickPhotos() {
+    console.log('click log')
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Photos',
+        widget: 'Overview',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    }).then(test => {
+      console.log('test', test)
+    })
+  }
+
+  clickDescription() {
+    console.log('click log')
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Description',
+        widget: 'Overview',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    }).then(test => {
+      console.log('test', test)
+    })
+  }
+  clickStyles() {
+    console.log('click log')
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Styles',
+        widget: 'Overview',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    }).then(test => {
+      console.log('test', test)
+    })
+  }
+  clickChosensSelectors() {
+    console.log('click log')
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'ChosenSelectors',
+        widget: 'Overview',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    }).then(test => {
+      console.log('test', test)
+    })
+  }
+
+
+
+
+
 
   jest() {
     return 'Jest'
@@ -108,25 +230,22 @@ class Overview extends React.Component {
     }
   }
 
-  clickPhotos() {
-    axios({
-      method: 'POST',
-      url: '',
-      headers: {
-        'User-Agent': 'request',
-        'Authorization': config.TOKEN
-      }
-    })
-  }
+
 
   render() {
+    let features;
+    if (this.state.info.features === undefined) {
+      features = <div></div>
+    } else {
+      features = <Features features={this.state.info.features} />
+    }
     return (
       <div className="Overview" data-testid="Overview">
-
 
         <br></br>
         <div className="OVMain1">
           <NewPhotos
+            clickPhotos={this.clickPhotos}
             currentStyleInfo={this.state.currentStyleInfo}
             mainPhoto={this.state.mainPhoto}
             setMainPhoto={this.setMainPhoto}
@@ -141,6 +260,7 @@ class Overview extends React.Component {
           />
           <div className="OVMainChild2">
             <NewStyles
+              clickChosensSelectors={this.clickChosensSelectors}
               showWarning={this.state.showWarning}
               allStyles={this.state.styles.results}
               selectedStyle={this.state.selectedStyle}
@@ -190,16 +310,24 @@ class Overview extends React.Component {
 
         </div>
 
-        <div className="OVMain2">
-          {this.props.renderStars()}
-          <div className="ProductTitle" >{this.state.info.name}</div>
-          <div className="Category">{this.state.info.category}</div>
-          {/* <div>OV Price: {this.state.info.default_price}</div>  KEEP THIS ONE HERE*/}
-          <div className="Slogan">{this.state.info.slogan}</div>
-          <div className="Description">{this.state.info.description}</div>
+        <div
+          onClick={e => {
+            this.clickDescription()
+          }}
+          className="OVMain2">
+          <div className="OVDescription">
+            {this.props.renderStars()}
+            <div className="ProductTitle" >{this.state.info.name}</div>
+            <div className="Category">{this.state.info.category}</div>
+            {/* <div>OV Price: {this.state.info.default_price}</div>  KEEP THIS ONE HERE*/}
+            <div className="Slogan">{this.state.info.slogan}</div>
+            <div className="Description">{this.state.info.description}</div>
+          </div>
+          {features}
         </div>
         <br></br>
         <Modal
+          clickModal={this.clickModal}
           showModal={this.state.showModal}
           setShowModal={this.setShowModal}
           currentStyleInfo={this.state.currentStyleInfo}
@@ -208,6 +336,8 @@ class Overview extends React.Component {
           mainPhotoIndex={this.state.mainPhotoIndex}
           setThumbnailIndex={this.setThumbnailIndex}
           setMainPhotoIndex={this.setMainPhotoIndex}
+          setShowModalPhotoZoom={this.setShowModalPhotoZoom}
+          showModalPhotoZoom={this.state.showModalPhotoZoom}
         />
         <br></br>
 
