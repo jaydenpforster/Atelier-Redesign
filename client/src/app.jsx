@@ -124,7 +124,7 @@ class App extends React.Component {
         <h1></h1>
         {overview}
         <br></br>
-        {/* <RelatedProducts
+        <RelatedProducts
           info={this.state.relatedProductIDs}
           detailInfo={this.state.related}
           overViewProd={this.state.overview}
@@ -152,7 +152,7 @@ class App extends React.Component {
           renderStars={this.renderStars}
           name={this.state.name}
           productId={this.state.mainProductID}
-        /> */}
+        />
       </div>
     )
   }
