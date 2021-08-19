@@ -14,7 +14,6 @@ class YourOutfitAdder extends React.Component {
     this.delete = this.delete.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
-    // this.setState = this.setState.bind(this);
   }
 
   setState(state) {
