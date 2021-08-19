@@ -7,11 +7,6 @@ const NewStyles = (props) => {
   let i = 0;
   for (let style in props.allStyles) {
     let product = props.allStyles[style]
-<<<<<<< HEAD
-
-=======
-    // console.log('product', product)
->>>>>>> 6a342ecd47d927ac5f487ee6ff5063ca6849f0a7
     allStyles.push(
       <div
         className={props.allStyles[style].name}

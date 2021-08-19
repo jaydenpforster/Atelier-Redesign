@@ -27,6 +27,7 @@ class EachCard extends React.Component {
 
   click() {
     this.props.onClick(this.props.info.id);
+
   }
 
   render() {
