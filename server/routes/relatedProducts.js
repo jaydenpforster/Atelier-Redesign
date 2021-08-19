@@ -28,7 +28,6 @@ router.get('/styles', (req, res) => {
 
 router.get('/ratings', (req, res) => {
   let productId = req.query.id;
-  let sortOption = req.query.sort;
 
   relatedProductsHelper.getRelatedRatings(productId)
     .then((data) => {
