@@ -285,7 +285,7 @@ class ReviewForm extends React.Component {
             <h3 className="reviewForm-subtitle">About the {this.props.name}</h3>
           </div>
           <div className="reviewForm-body">
-            <h3><small><sup>*</sup></small>Overall rating:</h3>
+            <h4 className="formReviewInput"><u>Overall Rating</u><small><sup>*</sup></small></h4>
             <FormStars
               starsClickMandatory={this.starsClickMandatory}
               clickStars={this.handleStarClick}
@@ -293,7 +293,7 @@ class ReviewForm extends React.Component {
               meaning={this.state.meaning} />
             <form>
               <label>
-                <h3><small><sup>*</sup></small>Do you recommend this product?</h3>
+                <h4 className="formReviewInput"><u>Do you recommend this product?</u><small><sup>*</sup></small></h4>
                 <input
                   name="rec"
                   type="radio"
@@ -307,11 +307,10 @@ class ReviewForm extends React.Component {
                   onChange={this.handleInputChange} />No
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Characteristics</h3>
                 {chars}
               </label>
               <label>
-                <h3>Review summary</h3>
+                <h4 className="reviewsInput"><u>Review Summary</u></h4>
                 <textarea
                   name="summary"
                   value={this.state.summary}
@@ -322,7 +321,7 @@ class ReviewForm extends React.Component {
                   onChange={this.handleInputChange} />
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Review body</h3>
+                <h4 className="reviewsInput"><u>Review Body</u><small><sup>*</sup></small></h4>
                 <textarea
                   name="body"
                   value={this.state.body}
@@ -336,7 +335,7 @@ class ReviewForm extends React.Component {
                 {counter}
               </label>
               <label>
-                <h3><small><sup>*</sup></small>What is your nickname?</h3>
+                <h4 className="reviewsInput"><u>What is your nickname?</u><small><sup>*</sup></small></h4>
                 <input
                   name="nickname"
                   type="text"
@@ -348,7 +347,7 @@ class ReviewForm extends React.Component {
                   For privacy reasons, do not use your full name or email address
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Your email</h3>
+                <h4 className="reviewsInput"><u>Your Email</u><small><sup>*</sup></small></h4>
                 <textarea
                   name="email"
                   type="email"
@@ -361,11 +360,10 @@ class ReviewForm extends React.Component {
                 <br></br>
                   For authentication reasons, you will not be emailed
                 <br></br>
+                <br></br>
               </label>
               <input type="submit" value="Submit review" onSubmit={ () => { return false } } onClick={this.handleSubmit}></input>
             </form>
-
-
           </div>
           <div className="reviewForm-footer">
             <button className="reviewForm-button" onClick={this.props.onClose}>Close</button>

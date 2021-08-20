@@ -57,16 +57,16 @@ const FormCharacteristic = (props) => {
     lowest = 'Runs tight';
     second = 'Runs slightly tight';
     middle = 'Perfect';
-    fourth = 'Runs slightly long';
+    fourth = 'Runs slightly loose';
     highest = 'Runs loose';
     selected = props.FitSelection;
   }
 
   return (
     <div>
-      <div className="charHeading">
-        <strong>{props.char}: {selected}</strong>
-      </div>
+      <header className="formCharHeading">
+        <h4 className="formReviewInput"><u>{props.char}</u><small><sup>* </sup></small><span>{selected}</span></h4>
+      </header>
       <table className="charTable">
         <tbody>
           <tr>
@@ -140,7 +140,6 @@ const FormCharacteristic = (props) => {
           </tr>
         </tbody>
       </table>
-      <br></br>
     </div>
   )
 }

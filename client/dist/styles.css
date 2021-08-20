@@ -201,7 +201,7 @@ div {
   overflow: scroll;
 }
 .reviewForm-header, .reviewForm-footer {
-  padding: 1em;
+  padding: 1% 1em 0.55% 1em;
 }
 
 .reviewForm-title {
@@ -212,6 +212,10 @@ div {
   padding: 1em;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+header.formCharHeading {
+  padding-top: 1%;
 }
 
 table, tr {
@@ -250,6 +254,30 @@ td {
   height: auto;
   float: left;
   z-index: 1;
+}
+
+h4 span {
+  font-weight: normal;
+}
+
+.reviewsInput {
+  margin-bottom: 0;
+}
+
+.formReviewInput {
+  margin-block-start: 1%;
+  margin-block-end: 0.5%;
+}
+
+.reviewForm-subtitle {
+  margin-left: 8%;
+  margin-bottom: 0;
+  margin-block-start: 0.5%;
+}
+
+.reviewForm-body {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .formStarContainer {
