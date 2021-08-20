@@ -25,7 +25,6 @@ class ReviewTiles extends React.Component {
 
   handleClick() {
     let newEnd = this.state.end + 2;
-    console.log('new end: ', newEnd)
     this.setState({
       end: newEnd
     })

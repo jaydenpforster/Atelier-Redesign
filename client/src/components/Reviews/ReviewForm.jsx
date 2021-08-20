@@ -245,7 +245,6 @@ class ReviewForm extends React.Component {
         }
       });
     }
-    this.props.recordClick(event)
   }
 
   render() {
