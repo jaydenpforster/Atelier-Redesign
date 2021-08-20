@@ -4,7 +4,6 @@ const app = express()
 const port = 4000;
 const path = require('path');
 const bodyParser = require('body-parser');
-const expressStaticGzip = require('express-static-gzip');
 // const overview = require('./routes/overviewRoutes');
 const ovRouteHelper = require('./routes/getOverviewInfo.js');
 const relatedProducts = require('./routes/relatedProducts');
@@ -12,8 +11,10 @@ const relatedHelper = require('./routes/relatedProductsHelper.js');
 const reviews = require('./routes/reviewsRoutes');
 const reviewsHelper = require('./routes/reviewsHelpers.js');
 const qna = require('./routes/qnaRoutes')
-const qnaHelper = require('./routes/qnaHelper')
+const qnaHelper = require('./routes/qnaHelper');
+const shrinkRay = require('shrink-ray-current');
 
+app.use(shrinkRay());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')))
@@ -21,13 +22,7 @@ app.use(express.static(path.join(__dirname, '/../client/dist')))
 app.use('/reviews', reviews);
 app.use('/relatedProducts', relatedProducts);
 app.use('/qna', qna);
-app.use('/', expressStaticGzip(path.join(__dirname, '/../client/dist'), {
-  enableBrotli: true,
-  orderPreference: ['br', 'gz'],
-  setHeaders: function (res, path) {
-    res.setHeader("Cache-Control", "public, max-age=31536000");
-  }
-}));
+
 // app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
 
 
