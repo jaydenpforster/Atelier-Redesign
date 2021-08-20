@@ -28,29 +28,4 @@ router.post('/addReview', (req, res) => {
     })
 })
 
-router.post('/interactions', (req, res) => {
-  console.log('inside post')
-  let interactionPromises = [];
-  for (let i = 0; i < req.body.length; i++) {
-    interactionPromises.push(
-      axios({
-        method: 'POST',
-        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
-        data: req.body,
-        headers: {
-          'User-Agent': 'request',
-          'Authorization': config.TOKEN
-        }
-      })
-        .then((data) => {
-          console.log('inner interactions data: ', data)
-        })
-    )
-    return Promise.all(interactionPromises)
-      .then((data) => {
-        console.log()
-      })
-  }
-});
-
 module.exports = router;

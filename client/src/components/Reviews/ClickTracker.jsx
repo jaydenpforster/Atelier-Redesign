@@ -1,5 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
+import axios from 'axios'
+import config from '../../../../config.js'
 
 class ClickTracker extends React.Component {
   constructor(props) {
@@ -13,22 +14,30 @@ class ClickTracker extends React.Component {
   recordClick(event) {
     let newInteractions = this.state.interactions.slice();
     if (newInteractions.length > 5) {
-      console.log('moving into AJAX call')
-      $.ajax({
-        type: 'POST',
-        url: '/reviews/interactions',
-        data: {interactions: newInteractions},
-        success: () => {
-          this.setState({
-            interactions: []
+      for (let i = 0; i < newInteractions.length; i++) {
+        axios({
+          method: 'POST',
+          url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+          data: newInteractions[i],
+          headers: {
+            'Authorization': config.TOKEN
+          }
+        })
+          .then((data) => {
+            this.setState({
+              interactions: []
+            })
           })
-        },
-        error: (err) => {
-          console.log('ERROR in recordClick post!: ', err)
-        }
-      });
+          .catch((err) => {
+            console.log('ERROR in recordClick: ', err)
+          })
+      }
     }
     let element = event.target.className;
+    if (element === '') {
+      element = 'ratingsAndReviewsWidget'
+    }
+    console.log('ELEMENT: ', element)
     let isRecorded = {
       element: element,
       widget: 'Reviews Widget',
