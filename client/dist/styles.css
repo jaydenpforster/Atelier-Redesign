@@ -1,7 +1,45 @@
+.APP {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
-
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
 /* REVIEWS CSS */
+#theReviews {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-template-rows: auto auto;
+  grid-gap: 2%;
+  padding: 2%
+}
+
+#ratingsBlock {
+  display: grid;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+
+#factorsBlock {
+  display: grid;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1
+}
+
+#leftBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .starsAverageRating {
   display: inline-block;
   font-size: 200%;
@@ -40,8 +78,7 @@ div {
   background-color: green;
   position: absolute;
   z-index: 1;
-} */
-
+}
 
 /* margin left needs to be one more em than ratingBarContainer width */
 .total {
@@ -96,9 +133,18 @@ div {
 }
 
 .singleTile {
-  width: 28em;
-  border-style: solid;
+  border-bottom-style: solid;
   padding: 1%;
+}
+
+.topOfSingleTile {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: top;
+}
+
+.nameAndDate {
+  vertical-align: top;
 }
 
 .reviewSummary {
@@ -108,12 +154,19 @@ div {
   max-width: 60ch;
 }
 
+.reviewRecommends {
+  padding: 1%;
+}
+
+.reviewResponse {
+  padding: 1%;
+}
+
 .reviewTiles {
-  border-style: solid;
   padding: 1%;
   max-height: 100vh;
-  width: 30em;
   overflow: scroll;
+  border-top-style: solid;
 }
 
 .helpfulYes {
@@ -122,6 +175,12 @@ div {
 
 .helpfulYes:hover {
   cursor: pointer;
+}
+
+h4.reviewsSort-total {
+  margin-block-start: 0;
+  margin-block-end: 2%;
+  padding-left: 2%;
 }
 
 .reviewResponse {
@@ -159,6 +218,9 @@ div {
 
 .reviewImages {
   display: inline-flex;
+  width: 30%;
+  height: 30%;
+  padding-top: 1%;
 }
 
 .filterMessages {
@@ -183,6 +245,41 @@ div {
   cursor: pointer;
 }
 
+.reviewsButtons {
+  display: flex;
+  justify-content: space-evenly;
+  padding-right: 30%;
+  padding-left: 30%;
+}
+
+button.moreReviewsButton {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-radius: 0;
+  font-family: inherit;
+}
+
+button.addReviewButton {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-radius: 0;
+  font-family: inherit;
+}
+
+button.reviewForm-button {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-radius: 0;
+  font-family: inherit;
+}
+
+input[type="submit"] {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-radius: 0;
+  font-family: inherit;
+}
+
 .reviewForm-modal {
   position: fixed;
   left: 0;
@@ -193,6 +290,8 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-style: solid;
+  border-color: black;
 }
 
 .reviewForm-content {

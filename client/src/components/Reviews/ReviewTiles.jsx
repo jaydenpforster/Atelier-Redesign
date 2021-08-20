@@ -61,17 +61,19 @@ class ReviewTiles extends React.Component {
     }
 
     return (
-      <div>
+      <div className="outerReviewTiles">
         <div className='reviewTiles' onClick={(e) => this.props.recordClick(e)}>
           {displayedReviews}
         </div>
         <br></br>
-        <div className="moreReviewsButton">{button}</div>
-        <AddReview
-          name={this.props.name}
-          characteristics={this.props.characteristics}
-          productId={this.props.productId}
-          recordClick={(e) => this.props.recordClick(e)} />
+        <div className="reviewsButtons">
+          <div className="moreReviewsButton">{button}</div>
+          <AddReview
+            name={this.props.name}
+            characteristics={this.props.characteristics}
+            productId={this.props.productId}
+            recordClick={(e) => this.props.recordClick(e)} />
+        </div>
       </div>
     )
   }

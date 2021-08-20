@@ -55,36 +55,47 @@ class Reviews extends React.Component {
         <ClickTracker>
           {tracker => (
             <div>
-              <Stars
-                recordClick={tracker.recordClick}
-                renderStars={this.props.renderStars}
-                averageRating={this.props.averageRating}
-                numOfRatings={this.state.numOfRatings} />
-              <br></br>
-              <RatingBreakdown
-                recordClick={tracker.recordClick}
-                ratings={this.props.ratings}
-                recommended={this.props.recommended}
-                filter={this.handleFilterClick}
-                filterNums={this.state.filterNums}
-                removeFilters={this.handleRemoveFiltersClick} />
-              <br></br>
-              <br></br>
-              <FactorsBreakdown
-                recordClick={tracker.recordClick}
-                characteristics={this.props.characteristics} />
-              <br></br>
-              <Sort
-                recordClick={tracker.recordClick}
-                helpfulReviews={this.props.helpfulReviews}
-                newestReviews={this.props.newestReviews}
-                recommended={this.props.recommended}
-                renderStars={this.props.renderStars}
-                filterNums={this.state.filterNums}
-                name={this.props.name}
-                characteristics={this.props.characteristics}
-                productId={this.props.productId} />
-              <br></br>
+              <h3>Ratings & Reviews</h3>
+              <div id="theReviews">
+                <div id="leftBlock">
+                  <div id="ratingsBlock">
+                    <Stars
+                      recordClick={tracker.recordClick}
+                      renderStars={this.props.renderStars}
+                      averageRating={this.props.averageRating}
+                      numOfRatings={this.state.numOfRatings} />
+                    <br></br>
+                    <RatingBreakdown
+                      recordClick={tracker.recordClick}
+                      ratings={this.props.ratings}
+                      recommended={this.props.recommended}
+                      filter={this.handleFilterClick}
+                      filterNums={this.state.filterNums}
+                      removeFilters={this.handleRemoveFiltersClick} />
+                    <br></br>
+                    <br></br>
+                  </div>
+                  <div id="factorsBlock">
+                    <FactorsBreakdown
+                      recordClick={tracker.recordClick}
+                      characteristics={this.props.characteristics} />
+                    <br></br>
+                  </div>
+                </div>
+                <div id="rightBlock">
+                  <Sort
+                    recordClick={tracker.recordClick}
+                    helpfulReviews={this.props.helpfulReviews}
+                    newestReviews={this.props.newestReviews}
+                    recommended={this.props.recommended}
+                    renderStars={this.props.renderStars}
+                    filterNums={this.state.filterNums}
+                    name={this.props.name}
+                    characteristics={this.props.characteristics}
+                    productId={this.props.productId} />
+                  <br></br>
+                </div>
+              </div>
             </div>
           )}
         </ClickTracker>
