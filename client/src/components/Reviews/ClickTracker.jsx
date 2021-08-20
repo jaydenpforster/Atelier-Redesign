@@ -37,7 +37,6 @@ class ClickTracker extends React.Component {
     if (element === '') {
       element = 'ratingsAndReviewsWidget'
     }
-    console.log('ELEMENT: ', element)
     let isRecorded = {
       element: element,
       widget: 'Reviews Widget',
