@@ -248,8 +248,12 @@ h4.reviewsSort-total {
 .reviewsButtons {
   display: flex;
   justify-content: space-evenly;
-  padding-right: 30%;
-  padding-left: 30%;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
+.moreReviewsButton {
+  width: 40%;
 }
 
 button.moreReviewsButton {
@@ -257,6 +261,13 @@ button.moreReviewsButton {
   border-color: rgb(239, 239, 239);
   border-radius: 0;
   font-family: inherit;
+  padding: 10%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.addReview {
+  width: 40%;
 }
 
 button.addReviewButton {
@@ -264,6 +275,9 @@ button.addReviewButton {
   border-color: rgb(239, 239, 239);
   border-radius: 0;
   font-family: inherit;
+  padding: 10%;
+  width: 100%;
+  cursor: pointer;
 }
 
 button.reviewForm-button {
@@ -271,6 +285,9 @@ button.reviewForm-button {
   border-color: rgb(239, 239, 239);
   border-radius: 0;
   font-family: inherit;
+  padding: 0.85%;
+  width: 15%;
+  cursor: pointer;
 }
 
 input[type="submit"] {
@@ -278,6 +295,9 @@ input[type="submit"] {
   border-color: rgb(239, 239, 239);
   border-radius: 0;
   font-family: inherit;
+  padding: 1%;
+  width: 15%;
+  cursor: pointer;
 }
 
 .reviewForm-modal {
