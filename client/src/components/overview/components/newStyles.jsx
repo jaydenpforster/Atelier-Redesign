@@ -7,7 +7,6 @@ const NewStyles = (props) => {
   let i = 0;
   for (let style in props.allStyles) {
     let product = props.allStyles[style]
-    // console.log('product', product)
     allStyles.push(
       <div
         className={props.allStyles[style].name}
