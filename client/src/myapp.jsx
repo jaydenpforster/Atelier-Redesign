@@ -92,7 +92,7 @@ class App extends React.Component {
         styles={this.state.styles} />
     }
     return (
-      <div>
+      <div className="APP">
         <h1></h1>
         {overview}
         <br></br>

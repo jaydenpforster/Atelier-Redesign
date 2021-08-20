@@ -13,14 +13,12 @@ const NewPhotos = (props) => {
     // if (thumbnailArr.length === 4) { break; }
     thumbnailArr.push(
       <img
-        height='150'
-        width='120'
+        className="sideGallery"
         key={i}
         src={props.thumbnails[i].thumbnail_url}
         onClick={e => {
           e.preventDefault()
           props.setMainPhotoIndex('' + i)
-          // props.setThumbnailIndex('' + i)
         }}
         alt='Thumbnail' ></img>
     )
@@ -53,52 +51,64 @@ const NewPhotos = (props) => {
         }
 
       }}
-      height="250"
-      width="200"
+      // height="250"
+      // width="200"
       src={props.thumbnails[props.mainPhotoIndex].url}></img>
   }
 
   return (
-    <div>
-      {mainPhoto}
-      <br></br>
-      <p
-        onClick={e => {
+    <div
+      onClick={e => {
+        props.clickPhotos()
+      }}
+      className="OVMainChild1">
+      <div className="MainPhotoContainer">
+        <div className="ThumbnailContainer">
+          <p onClick={e => {
+            if (props.thumbnailIndex === '0') {
+              props.setThumbnailIndex(props.thumbnails.length - 1)
+            } else {
+              props.setThumbnailIndex((Number(props.thumbnailIndex) - 1) + '')
+            }
+          }}>{'^'}</p>
 
-          if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
-            props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '' )
-          } else {
-            props.setMainPhotoIndex('0')
-          }
-        }}
-      >Thumbscroll +</p>
-      <p
-        onClick={e => {
+          {showFour}
 
-          if (props.mainPhotoIndex === '0') {
-            props.setMainPhotoIndex(props.thumbnails.length - 1)
-          } else {
-            props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '' )
-          }
-        }}
-      >Thumbscroll -</p>
-      <p onClick={e => {
-        if (props.thumbnailIndex === '0') {
-          props.setThumbnailIndex(props.thumbnails.length - 1)
-        } else {
-          props.setThumbnailIndex((Number(props.thumbnailIndex) - 1) + '')
-        }
-      }}>{'<'}</p>
+          <p onClick={e => {
+            if (Number(props.thumbnailIndex) === props.thumbnails.length - 1) {
+              props.setThumbnailIndex('0')
+            } else {
+              props.setThumbnailIndex((Number(props.thumbnailIndex) + 1) + '')
+            }
+          }}>{'v'}</p>
+        </div>
+        <button
+          className="PrevMainPhoto"
+          onClick={e => {
 
-      {showFour}
+            if (props.mainPhotoIndex === '0') {
+              props.setMainPhotoIndex(props.thumbnails.length - 1)
+            } else {
+              props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
+            }
+          }}
+        >Prev</button>
+        {mainPhoto}
 
-      <p onClick={e => {
-        if (Number(props.thumbnailIndex) === props.thumbnails.length - 1) {
-          props.setThumbnailIndex('0')
-        } else {
-          props.setThumbnailIndex((Number(props.thumbnailIndex) + 1) + '')
-        }
-      }}>{'>'}</p>
+        <button
+          className="NextMainPhoto"
+          onClick={e => {
+            if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
+              props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
+            } else {
+              props.setMainPhotoIndex('0')
+            }
+          }}
+        >Next</button>
+      </div>
+
+
+
     </div>)
 }
 
