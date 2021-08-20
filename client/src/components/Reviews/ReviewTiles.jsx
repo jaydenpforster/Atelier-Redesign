@@ -23,7 +23,7 @@ class ReviewTiles extends React.Component {
     }
   }
 
-  handleClick() {
+  handleClick(event) {
     let newEnd = this.state.end + 2;
     this.setState({
       end: newEnd
@@ -34,6 +34,7 @@ class ReviewTiles extends React.Component {
         button: false
       })
     }
+    this.props.recordClick(event);
   }
 
   render() {
@@ -46,29 +47,31 @@ class ReviewTiles extends React.Component {
       reviews = 'There are no reviews for this product.'
     } else {
       reviews = allReviews.map((rev, index) => {
-        return <SingleTile key={`review-${index}`} review={rev} renderStars={this.props.renderStars} />
+        return <SingleTile
+          key={`review-${index}`}
+          review={rev}
+          renderStars={this.props.renderStars}
+          recordClick={(e) => this.props.recordClick(e)} />
       })
       displayedReviews = reviews.slice(this.state.start, this.state.end);
     }
 
     if (this.state.button === true) {
-      button = <button type="button" onClick={this.handleClick}>More Reviews</button>
+      button = <button className="moreReviewsButton" type="button" onClick={this.handleClick}>More Reviews</button>
     }
 
     return (
       <div>
-        <div className='reviewTiles'>
+        <div className='reviewTiles' onClick={(e) => this.props.recordClick(e)}>
           {displayedReviews}
         </div>
         <br></br>
-        {button}
+        <div className="moreReviewsButton">{button}</div>
         <AddReview
           name={this.props.name}
           characteristics={this.props.characteristics}
-          productId={this.props.productId} />
-        <br></br>
-        <br></br>
-        <br></br>
+          productId={this.props.productId}
+          recordClick={(e) => this.props.recordClick(e)} />
       </div>
     )
   }
