@@ -55,7 +55,7 @@ class Reviews extends React.Component {
         <ClickTracker>
           {tracker => (
             <div>
-              <h3>Ratings & Reviews</h3>
+              <h3 className="reviewsWidget">Ratings & Reviews</h3>
               <div id="theReviews">
                 <div id="leftBlock">
                   <div id="ratingsBlock">

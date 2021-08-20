@@ -1,4 +1,26 @@
-.APP {
+:root {
+  --background-color: #fff;
+  --text-color: #0a3055;
+  --button-color: #f9e45b;
+  --button-text-color: #0a3055;
+  --star-color: #0a3055;
+  --bar-color: #ebebeb;
+  --highlights-color: #6db784;
+  --pointer-color: #6db784;
+}
+
+[data-theme="dark"] {
+  --background-color: #0a3055;
+  --text-color: #fff;
+  --button-color: #f9e45b;
+  --button-text-color: #0a3055;
+  --star-color: #686868;
+  --bar-color: #fff;
+  --highlights-color: #6db784;
+  --pointer-color: #686868;
+}
+
+#APP {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -6,11 +28,21 @@
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   overflow-x: hidden;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h3.reviewsWidget {
+  padding-left: 2%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button#APP {
+  background-color: var(--button-color);
 }
 
 /* REVIEWS CSS */
@@ -19,7 +51,7 @@ code {
   grid-template-columns: 30% auto;
   grid-template-rows: auto auto;
   grid-gap: 2%;
-  padding: 2%
+  padding: 2%;
 }
 
 #ratingsBlock {
@@ -40,6 +72,9 @@ code {
   justify-content: flex-start;
 }
 
+#rightBlock {
+}
+
 .starsAverageRating {
   display: inline-block;
   font-size: 200%;
@@ -51,33 +86,29 @@ code {
   vertical-align: top;
 }
 
-div {
-  color: #525252;
-}
-
 .ratingBarContainer {
   display: inline-block;
   width: 10.45em;
   height: 0.5em;
-  background-color: #ebebeb;
+  background-color: var(--bar-color);
   position: relative;
-  z-index: -1;
+  z-index: 1;
 }
 
 .fullRatingLine:hover {
   font-weight: bold;
   cursor: pointer;
   position: inherit;
-  z-index: -2;
+  z-index: 0;
 }
 
 .ratingBar {
   display: inline-block;
   width: 0%;
   height: 0.5em;
-  background-color: green;
+  background-color: var(--highlights-color);
   position: absolute;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* margin left needs to be one more em than ratingBarContainer width */
@@ -99,19 +130,19 @@ div {
 .factorBar {
   width: 113%;
   height: 0.5em;
-  background-color: #ebebeb;
+  background-color: var(--bar-color);
   position: relative;
-  z-index: -1;
+  z-index: 1;
 }
 
 .factorPoint {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   width: 0;
   height: 0;
   border-left: 0.55em solid transparent;
   border-right: 0.55em solid transparent;
-  border-top: 0.8em solid #525252;
+  border-top: 0.8em solid var(--pointer-color);
   margin-left: 6.5em;
 }
 
@@ -183,8 +214,14 @@ h4.reviewsSort-total {
   padding-left: 2%;
 }
 
+.reviewsSort-options {
+  color: var(--button-text-color);
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+}
+
 .reviewResponse {
-  background-color: lightgreen;
+  background-color: var(--highlights-color);
 }
 
 .reviewImageOpen {
@@ -209,7 +246,6 @@ h4.reviewsSort-total {
 
 .revImgModal-content {
   width: 40%;
-  background-color: #fff;
 }
 
 .revImgModal-body {
@@ -258,12 +294,14 @@ h4.reviewsSort-total {
 
 button.moreReviewsButton {
   border-style: solid;
-  border-color: rgb(239, 239, 239);
   border-radius: 0;
+  border-color: var(--button-color);
+  color: var(--button-text-color);
   font-family: inherit;
   padding: 10%;
   width: 100%;
   cursor: pointer;
+  background-color: var(--button-color);
 }
 
 .addReview {
@@ -272,32 +310,38 @@ button.moreReviewsButton {
 
 button.addReviewButton {
   border-style: solid;
-  border-color: rgb(239, 239, 239);
   border-radius: 0;
+  color: var(--button-text-color);
+  border-color: var(--button-color);
   font-family: inherit;
   padding: 10%;
   width: 100%;
   cursor: pointer;
+  background-color: var(--button-color);;
 }
 
 button.reviewForm-button {
   border-style: solid;
-  border-color: rgb(239, 239, 239);
   border-radius: 0;
+  color: var(--button-text-color);
+  border-color: var(--button-color);
   font-family: inherit;
   padding: 0.85%;
   width: 15%;
   cursor: pointer;
+  background-color: var(--button-color);
 }
 
 input[type="submit"] {
   border-style: solid;
-  border-color: rgb(239, 239, 239);
   border-radius: 0;
+  color: var(--button-text-color);
+  border-color: var(--button-color);
   font-family: inherit;
   padding: 1%;
   width: 15%;
   cursor: pointer;
+  background-color: var(--button-color);
 }
 
 .reviewForm-modal {
@@ -317,7 +361,6 @@ input[type="submit"] {
 .reviewForm-content {
   width: 100%;
   height: 100%;
-  background-color: #fff;
   overflow: scroll;
 }
 .reviewForm-header, .reviewForm-footer {
@@ -330,8 +373,8 @@ input[type="submit"] {
 
 .reviewForm-body {
   padding: 1em;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid var(--background-color);
+  border-bottom: 1px solid var(--background-color);
 }
 
 header.formCharHeading {
@@ -356,10 +399,10 @@ td {
 /* height must match .starsLayout width */
 .starBox {
   position: relative;
-  background-color: #525252;
   width: 100%;
   height: 0.8em;
-  z-index: -1;
+  z-index: 1;
+  background-color: var(--star-color);
 }
 
 .inlineStars {
@@ -373,7 +416,7 @@ td {
   width: 0.8em;
   height: auto;
   float: left;
-  z-index: 1;
+  z-index: 3;
 }
 
 h4 span {
@@ -409,10 +452,10 @@ h4 span {
 /* height must match .starsLayout width */
 .formStarBox {
   position: static;
-  background-color: #525252;
+  background-color: var(--star-color);
   width: 100%;
   height: 1.6em;
-  z-index: -1;
+  z-index: 2;
 }
 
 .formInlineStars {
@@ -426,7 +469,7 @@ h4 span {
   width: 1.6em;
   height: auto;
   float: left;
-  z-index: 1;
+  z-index: 3;
 }
 
 .formStars {
