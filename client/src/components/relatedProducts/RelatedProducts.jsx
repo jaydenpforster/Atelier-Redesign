@@ -17,7 +17,6 @@ class RelatedProducts extends React.Component {
   }
 
   clickRelatedProductTracker() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',

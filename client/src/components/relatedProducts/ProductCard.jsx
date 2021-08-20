@@ -5,7 +5,7 @@ const ProductCard = (props) => {
   if (!props.detailInfo) {
     return null;
   }
-console.log(props.detailInfo)
+
   let combine = props.detailInfo.reduce((map, value) => {
     map[value.product_id] = value;
     return map;
