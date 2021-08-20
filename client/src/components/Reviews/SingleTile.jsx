@@ -47,6 +47,7 @@ class SingleTile extends React.Component {
     this.setState({
       extended: !this.state.extended
     })
+    this.props.recordClick(event);
   }
 
   handleHelpfulClick(event) {
@@ -66,6 +67,7 @@ class SingleTile extends React.Component {
         }
       })
     }
+    (e) => props.recordClick(e);
   }
 
   render() {
@@ -91,28 +93,52 @@ class SingleTile extends React.Component {
 
     if (review.photos.length > 0) {
       images = review.photos.map((photo, index) =>
-        <Images key={`photo-${index}`} src={photo.url} />
+        <Images
+          key={`photo-${index}`}
+          src={photo.url}
+          recordClick={(e) => this.props.recordClick(e)} />
       )
     }
 
     if (review.recommend) {
-      recommends = <div>&#10003; I recommend this product</div>
+      recommends = <div
+        className="reviewRecommends"
+        onClick={(e) => this.props.recordClick(e)}>
+          &#10003; I recommend this product
+      </div>
     }
 
     if (review.response) {
-      response = <div className="reviewResponse"><strong>Response from seller: </strong><br></br> {review.response}</div>;
+      response = <div
+        className="reviewResponse"
+        onClick={(e) => this.props.recordClick(e)}>
+        <strong>Response from seller: </strong><br></br>
+        {review.response}
+      </div>;
     }
     return (
       <div>
-        <div className="singleTile">
+        <div className="singleTile"
+          onClick={(e) => this.props.recordClick(e)}>
           {renderStars(review.rating)}<br></br>
           {review.reviewer_name},&nbsp;{date}<br></br>
-          <strong><p className="reviewSummary"></p>{review.summary}</strong><br></br>
+          <strong><p className="reviewSummary" onClick={(e) => this.props.recordClick(e)}></p>{review.summary}</strong><br></br>
           <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div><br></br>
           <div className="reviewImages">{images}</div><br></br>
           {recommends}<br></br>
           {response}
-          <p className="reviewHelpful">Helpful? <a className="helpfulYes" onClick={this.handleHelpfulClick} id={this.props.review.review_id}>Yes</a> ({this.state.helpfulness})</p>
+          <p
+            className="reviewHelpful"
+            onClick={(e) => this.props.recordClick(e)}>
+              Helpful?
+            <a
+              className="helpfulYes"
+              onClick={this.handleHelpfulClick}
+              id={this.props.review.review_id}>
+                Yes
+            </a>
+              ({this.state.helpfulness})
+          </p>
         </div>
         <br></br>
       </div>

@@ -36,14 +36,14 @@ const FactorBar = (props) => {
   }
 
   return (
-    <div>
-      <div className="factorName">{props.name}</div>
+    <div className="factorBarsInReviews" onClick={(e) => props.recordClick(e)}>
+      <div className="factorName" onClick={(e) => props.recordClick(e)}>{props.name}</div>
       <div className="factorContainer">
-        <div className="factorBar">
-          <div className="factorPoint" style={{'marginLeft': `${factorValue}em`}}></div>
+        <div className="factorBar" onClick={(e) => props.recordClick(e)}>
+          <div className="factorPoint" style={{'marginLeft': `${factorValue}em`}} onClick={(e) => props.recordClick(e)}></div>
           <div className="descriptors">
-            <div className="leftDescriptor">{leftDescriptor}</div>
-            <div className="rightDescriptor">{rightDescriptor}</div>
+            <div className="leftDescriptor" onClick={(e) => props.recordClick(e)}>{leftDescriptor}</div>
+            <div className="rightDescriptor" onClick={(e) => props.recordClick(e)}>{rightDescriptor}</div>
           </div>
         </div>
         <br></br>

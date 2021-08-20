@@ -5,7 +5,7 @@ const ReviewImgModal = (props) => {
     return null;
   }
   return (
-    <div className="revImgModal">
+    <div className="revImgModal" onClick={(e) => props.recordClick(e)}>
       <div className="revImgModal-content">
         <div className="revImgModal-body">
           <img src={props.src} height="100%" width="100%" className="reviewImageClose" onClick={props.onClose} />

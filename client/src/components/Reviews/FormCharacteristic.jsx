@@ -63,9 +63,11 @@ const FormCharacteristic = (props) => {
   }
 
   return (
-    <div>
+    <div
+      className="formCharacteristicsInReviews"
+      onClick={(e) => props.recordClick(e)}>
       <header className="formCharHeading">
-        <h4 className="formReviewInput"><u>{props.char}</u><small><sup>* </sup></small><span>{selected}</span></h4>
+        <h4 className="formReviewInput"><u className="currentFormCharacteristic" onClick={(e) => props.recordClick(e)}>{props.char}</u><small><sup>* </sup></small><span>{selected}</span></h4>
       </header>
       <table className="charTable">
         <tbody>
@@ -78,7 +80,9 @@ const FormCharacteristic = (props) => {
                 value={`${lowest}`}
                 char={props.char}
                 name={`characteristics-${props.char}`}
-                onChange={props.handleCharInputChange} />
+                onChange={props.handleCharInputChange}
+                className="lowestRadioChar"
+                onClick={(e) => props.recordClick(e)} />
             </td>
             <td>
               <input
@@ -88,7 +92,9 @@ const FormCharacteristic = (props) => {
                 value={`${second}`}
                 char={props.char}
                 name={`characteristics-${props.char}`}
-                onChange={props.handleCharInputChange} />
+                onChange={props.handleCharInputChange}
+                className="secondRadioChar"
+                onClick={(e) => props.recordClick(e)} />
             </td>
             <td>
               <input
@@ -98,7 +104,9 @@ const FormCharacteristic = (props) => {
                 value={`${middle}`}
                 char={props.char}
                 name={`characteristics-${props.char}`}
-                onChange={props.handleCharInputChange} />
+                onChange={props.handleCharInputChange}
+                className="middleRadioChar"
+                onClick={(e) => props.recordClick(e)} />
             </td>
             <td>
               <input
@@ -108,7 +116,9 @@ const FormCharacteristic = (props) => {
                 value={`${fourth}`}
                 char={props.char}
                 name={`characteristics-${props.char}`}
-                onChange={props.handleCharInputChange} />
+                onChange={props.handleCharInputChange}
+                className="fourthRadioChar"
+                onClick={(e) => props.recordClick(e)} />
             </td>
             <td>
               <input
@@ -118,7 +128,9 @@ const FormCharacteristic = (props) => {
                 value={`${highest}`}
                 char={props.char}
                 name={`characteristics-${props.char}`}
-                onChange={props.handleCharInputChange} />
+                onChange={props.handleCharInputChange}
+                className="highestRadioChar"
+                onClick={(e) => props.recordClick(e)} />
             </td>
           </tr>
           <tr>

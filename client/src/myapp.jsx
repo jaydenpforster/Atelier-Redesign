@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
 import RelatedProducts from './components/relatedProducts/RelatedProducts.jsx';
@@ -15,7 +14,7 @@ class App extends React.Component {
       name: '',
       styles: '',
       related: '',
-      mainProductID: '36306',
+      mainProductID: '36301',
       relatedProductIDs: '',
       characteristics: {},
       ratings: {},

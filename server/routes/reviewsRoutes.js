@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express();
 const rev = require('./reviewsHelpers');
+const axios = require('axios');
+const config = require('../../config.js');
 
 router.put('/helpful', (req, res) => {
   let reviewId = req.body.revId;
@@ -14,19 +16,41 @@ router.put('/helpful', (req, res) => {
 });
 
 router.post('/addReview', (req, res) => {
-  console.log('ONE')
   rev.formatPostData(req.body)
     .then((readyData) => {
-      console.log('THREE')
       return rev.addReview(readyData)
     })
     .then((data) => {
-      console.log('SIX: ', data)
       res.sendStatus(data)
     })
     .catch((err) => {
       console.log('ERROR in reviewRoutes /addReview', err)
     })
 })
+
+router.post('/interactions', (req, res) => {
+  console.log('inside post')
+  let interactionPromises = [];
+  for (let i = 0; i < req.body.length; i++) {
+    interactionPromises.push(
+      axios({
+        method: 'POST',
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+        data: req.body,
+        headers: {
+          'User-Agent': 'request',
+          'Authorization': config.TOKEN
+        }
+      })
+        .then((data) => {
+          console.log('inner interactions data: ', data)
+        })
+    )
+    return Promise.all(interactionPromises)
+      .then((data) => {
+        console.log()
+      })
+  }
+});
 
 module.exports = router;

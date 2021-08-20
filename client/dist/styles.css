@@ -42,6 +42,7 @@ div {
   z-index: 1;
 } */
 
+
 /* margin left needs to be one more em than ratingBarContainer width */
 .total {
   display: inline-block;
@@ -178,7 +179,7 @@ div {
   text-align: center;
 }
 
-.removeFilters:hover {
+.removeFiltersButton:hover {
   cursor: pointer;
 }
 

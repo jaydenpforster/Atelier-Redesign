@@ -165,7 +165,6 @@ const formatPostData = (postData) => {
 }
 
 const addReview = (reviewData) => {
-  console.log('FOUR');
   return axios({
     method: 'POST',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
@@ -176,7 +175,6 @@ const addReview = (reviewData) => {
     }
   })
     .then((data) => {
-      console.log('FIVE, :', data.status)
       return data.status
     })
     .catch((err) => {
