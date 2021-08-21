@@ -1,4 +1,6 @@
 /*eslint-env es6*/
+require('dotenv').config();
+
 const express = require('express')
 const app = express()
 const port = 4000;
@@ -24,8 +26,6 @@ app.use('/relatedProducts', relatedProducts);
 app.use('/qna', qna);
 
 // app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
-
-
 
 app.get('/getAllProductInfo', (req, res) => {
   Promise.all([

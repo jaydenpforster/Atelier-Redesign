@@ -4,6 +4,8 @@ package-lock.json
 bundle.js
 coverage
 
+*.pem
+*.env
 client/dist/bundle.js
 /Users/mini/Class/api/client/dist/bundle.js
 /client/dist/bundle.js

@@ -1,21 +1,59 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
-import Question from './Question.jsx'
+import React, { useEffect, useState } from 'react';
+import Question from './Question.jsx';
 
-class QuestionList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const QuestionList = ({setShowModal, filteredQuestion, setIsQuestionModal, setQuestionBody, }) => {
 
-  render() {
-    return (
-      <div className="questionList">
-        {this.props.qAndA.map((inquiry, index) =>
-          <Question key={index} question={inquiry.question_body} answer={inquiry.answers}/>
+  console.log(filteredQuestion);
+  const [questionLimit, setQuestionLimit] = useState(2);
+  const addLimit = () => {
+    setQuestionLimit(questionLimit + 2);
+  };
+
+  const addQuestion = () => {
+    console.log('I am add question button');
+    setShowModal(true);
+    setIsQuestionModal(true);
+  };
+
+  useEffect(() => {
+    setQuestionLimit(2);
+  }, [filteredQuestion]);
+
+  const reneredQuestion =
+    filteredQuestion != null
+      ? filteredQuestion.slice(0, questionLimit).map((question) => {
+        return (
+          <Question
+            key={question.question_id}
+            setIsQuestionModal={setIsQuestionModal}
+            setShowModal={setShowModal}
+            question={question}
+            setQuestionBody={setQuestionBody}
+          />
+        );
+      })
+      : '';
+  return (
+    <div>
+      <div className="question-list">{reneredQuestion}</div>
+      <div className="question-list-footer">
+        {reneredQuestion ? (
+          questionLimit < filteredQuestion.length ? (
+            <button className="footer-button" onClick={addLimit}>
+              MORE ANSWERED QUESTIONS
+            </button>
+          ) : (
+            ''
+          )
+        ) : (
+          ''
         )}
+        <button className="footer-button" onClick={addQuestion}>
+          ADD A QUESTION +
+        </button>
       </div>
-    )
-  }
+    </div>
+  );
 }
 
 export default QuestionList;

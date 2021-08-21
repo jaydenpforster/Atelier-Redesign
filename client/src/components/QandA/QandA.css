@@ -1,0 +1,159 @@
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+
+/* Search Bar Styles */
+.search-heading {
+  font-size: 1.7rem;
+  font-weight: normal;
+  color: gray;
+}
+.search-input {
+  width: 99%;
+  margin: auto;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+.icon-search {
+  margin-left: -2.5rem;
+  font-size: 1.7rem;
+}
+
+/* Question Element */
+.question-header {
+  display: flex;
+  align-items: center;
+}
+/* .question-answer {
+  height: 70%;
+  max-height: 100%;
+} */
+.question-search {
+  height: 15vh;
+}
+.question-list {
+  overflow: auto;
+}
+.question-extras {
+  display: flex;
+  margin-left: auto;
+  align-self: flex-end;
+  font-size: 1.2rem;
+}
+.question-helpfulness {
+  padding-right: 00.5rem;
+  border-right: gray 1px solid;
+  color: gray;
+}
+.add-answer {
+  padding: 1rem 0.5rem;
+  border: none;
+  background-color: inherit;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.add-answer:disabled {
+  cursor: not-allowed;
+}
+
+/* questions list footer */
+
+.footer-button {
+  padding: 2rem;
+  font-size: 1.5rem;
+  background-color: white;
+  border: black 1px solid;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.answer-list-body {
+  display: flex;
+}
+.answer-tag {
+  margin-right: 1rem;
+}
+.answer {
+  font-size: 1.7rem;
+  color: gray;
+}
+.answer-body {
+  color: rgb(34, 33, 33);
+}
+.load-more-answers {
+  border: none;
+  background-color: white;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.answer-footer {
+  display: flex;
+  align-items: center;
+}
+.answer-footer-label {
+  height: 2rem;
+  padding-right: 1rem;
+  font-size: 1.5rem;
+}
+.user {
+  border-right: solid 1px gray;
+}
+.helpful {
+  padding: 0 1rem;
+  margin-top: -1.5rem;
+}
+.report {
+  border-right: none;
+  border-left: grey solid 1px;
+  padding: 0 1rem;
+}
+.report-btn {
+  border: none;
+  background-color: inherit;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.answer-photos {
+  display: flex;
+}
+
+.answer-photo {
+  width: 10rem;
+  margin: 1rem;
+}
+/*Question Form*/
+.required:after {
+  content: " *";
+  color: red;
+}
+.submit-btn {
+  padding: 1rem 6rem;
+  display: block;
+  margin: auto;
+  margin-top: 0.5rem;
+}
+form {
+  font-size: 1.5rem;
+}
+.label {
+  display: block;
+  margin-top: 1rem;
+}
+#main-input {
+  width: 98%;
+  height: 9rem;
+}
+#name-input,
+#email-input {
+  width: 40%;
+}
