@@ -92,7 +92,7 @@ class App extends React.Component {
         styles={this.state.styles} />
     }
     return (
-      <div className="APP">
+      <div id="APP">
         <h1></h1>
         {overview}
         <br></br>
@@ -123,8 +123,7 @@ class App extends React.Component {
           recommended={this.state.recommended}
           renderStars={this.renderStars}
           name={this.state.name}
-          productId={this.state.mainProductID}
-        />
+          productId={this.state.mainProductID} />
       </div>
     )
   }

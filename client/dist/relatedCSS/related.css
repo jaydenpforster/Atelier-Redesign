@@ -180,7 +180,7 @@ h2 {
 /* height must match .starsLayout width */
 .starBox {
   position: relative;
-  background-color: #525252;
+  background-color: var(--star-color);
   width: 100%;
   height: 0.8em;
   z-index: -1;
