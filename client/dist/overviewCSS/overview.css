@@ -59,8 +59,8 @@
 .NextMainPhoto{
   /* border-width: 10px 75px 10px 10px; */
   background-color: #f9e45b;
+  color: #0a3055;
   border: none;
-  color: white;
   text-align: center;
   width: 60px;
   height: 40px;
@@ -69,15 +69,15 @@
 .PrevMainPhoto{
   /* border-width: 10px 75px 10px 10px; */
   background-color: #f9e45b;
+  color: #0a3055;
   border: none;
-  color: white;
   text-align: center;
   width: 60px;
   height: 40px;
 }
 
 .OVMainChild1{
-  background-color: rgb(153, 255, 255);
+  background-color: #6db784
 }
 .OVDescription{
   display: flex;
@@ -93,4 +93,8 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: blue;
+}
+
+button {
+  color: #0a3055;
 }
