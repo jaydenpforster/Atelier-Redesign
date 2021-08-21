@@ -14,14 +14,11 @@ let NewButton = (props) => {
       // If state is 'select size'
       if (props.chosenSize === '-') {
         // open select tag
-        console.log('addToCart chosensize')
+        // console.log('addToCart chosensize')
       }
 
       // send req based on state
-      // console.log('props.chosenSize HERE', props.chosenSize)
-      // console.log('props.chosenAmount HERE', props.chosenAmount)
       for (let i = 0; i < Number(props.chosenAmount); i++) {
-        console.log('axios sent', props.skuID)
         axios({
           method: 'POST',
           url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/cart',

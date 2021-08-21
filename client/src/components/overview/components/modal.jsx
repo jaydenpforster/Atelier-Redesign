@@ -8,7 +8,7 @@ let Modal = (props) => {
       return (
         <img
           className="OVModalThumbnail"
-          height='150'
+          height='100'
           width='120'
           key={i}
           src={props.thumbnails[i].thumbnail_url}
@@ -16,7 +16,6 @@ let Modal = (props) => {
             e.preventDefault()
             props.setShowModalPhotoZoom(false)
             props.setMainPhotoIndex('' + i)
-            // console.log('i', i)
           }}
           alt='Thumbnail' ></img>
       )
@@ -35,10 +34,9 @@ let Modal = (props) => {
     showSevenTNs.push(thumbnailArr[ii])
     ii++;
   }
-  // console.log('props.showModalPhotoZoom', props.showModalPhotoZoom)
-  // if (props.thumbnails[props.mainPhotoIndex] !== undefined) {
+
   if (props.showModalPhotoZoom === true) {
-    //   mainPhoto = <img
+
     leftArrow = <div></div>
     rightArrow = <div></div>
     showSevenTNs = <div></div>
@@ -46,7 +44,6 @@ let Modal = (props) => {
       <div
         className="ZoomDiv"
         onClick={e => {
-          console.log('click MainPhotoModal -')
           props.setShowModalPhotoZoom(false)
         }}
       >
@@ -88,7 +85,6 @@ let Modal = (props) => {
     mainPhoto = <img
       className="mainModalPhoto"
       onClick={e => {
-        console.log('click MainPhotoModal +')
         props.setShowModalPhotoZoom(true)
       }}
       height="400"

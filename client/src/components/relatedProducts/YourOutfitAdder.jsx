@@ -87,6 +87,7 @@ class YourOutfitAdder extends React.Component {
   }
 
   render() {
+    // console.log('props', this.props)
     if (this.state.eachOutfit.eachOutfit === 0) {
       return (
         <div className="carousel-container">

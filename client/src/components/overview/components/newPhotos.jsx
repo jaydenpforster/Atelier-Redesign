@@ -1,39 +1,49 @@
 import React from 'react'
-/**
-Array of thumbnail photos
-all of them
-pick 4 from the array based on index
-show the four
- */
 
 const NewPhotos = (props) => {
+  // const highlightMe = (class, index) => {
+  //   let elements = document.getElementsByClassName(class)
+  //   for (let i = 0; i < elements.length; i++) {
+  //     elements[i].style.border = ''
+  //   }
+  //   elements[props.mainPhotoIndex].style.border = '5px solid gold'
+  // }
 
   let thumbnailArr = [];
   for (let i = 0; i < props.thumbnails.length; i++) {
-    // if (thumbnailArr.length === 4) { break; }
+
     thumbnailArr.push(
       <img
-        className="sideGallery"
+        className={"sideGallery " + i}
         key={i}
-        src={props.thumbnails[i].thumbnail_url} // CHANGE ME
+        src={props.thumbnails[i].thumbnail_url}
         onClick={e => {
           e.preventDefault()
           props.setMainPhotoIndex('' + i)
+
+          // // // Change all sideGallery's CSS to have no glow
+          // let sideGalleryContainer = document.getElementsByClassName("sideGallery")
+          // console.log('sideGalleryContainer', sideGalleryContainer)
+          // for (let j = 0; j < sideGalleryContainer.length; j++) {
+          //   sideGalleryContainer[j].style.border = ''
+          // }
+          // // // Change the one's sideGallery's CSS to have glow (sideGalleryContainer[i].style.border = '5px solid gold')
+          // sideGalleryContainer[i].style.border = '5px solid gold'
         }}
         alt='Thumbnail' ></img>
     )
   }
-  // No While Loop. Make a Function. Make Edge Case for less than 7 photos
-  let showFour = []
+
+  let showThumbs = []
   let ii = props.thumbnailIndex
 
-  if (thumbnailArr.length <= 4) {
-    showFour = thumbnailArr
+  if (thumbnailArr.length <= 5) {
+    showThumbs = thumbnailArr
   } else if (thumbnailArr.length > 1) {
-    while (showFour.length !== 4) {
+    while (showThumbs.length !== 5) {
 
       if (thumbnailArr[ii] === undefined) { ii = 0; }
-      showFour.push(thumbnailArr[ii])
+      showThumbs.push(thumbnailArr[ii])
       ii++;
     }
   }
@@ -42,7 +52,7 @@ const NewPhotos = (props) => {
 
   if (props.thumbnails[props.mainPhotoIndex] !== undefined) {
     mainPhoto = <img
-      className="mainPhoto"
+      className={"mainPhoto "}
       onClick={() => {
         if (props.showModal === true) {
           props.setShowModal(false)
@@ -52,7 +62,6 @@ const NewPhotos = (props) => {
       }}
       src={props.thumbnails[props.mainPhotoIndex].url}></img>
   }
-  // console.log('props.thumbnails[props.mainPhotoIndex].url}', props.thumbnails[props.mainPhotoIndex].url})
   return (
     <div
       onClick={e => {
@@ -60,7 +69,6 @@ const NewPhotos = (props) => {
       }}
       className="OVMainChild1">
       <div
-        // style="background-image: url(https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg)"
         className="MainPhotoContainer">
         <div className="ThumbnailContainer">
           <p onClick={e => {
@@ -71,7 +79,7 @@ const NewPhotos = (props) => {
             }
           }}>{'^'}</p>
 
-          {showFour}
+          {showThumbs}
 
           <p onClick={e => {
             if (Number(props.thumbnailIndex) === props.thumbnails.length - 1) {
@@ -111,12 +119,5 @@ const NewPhotos = (props) => {
     </div>)
 }
 
-
-// Carousel
-/**
-on click of next
-run a function that changes state
-based on state, make next thumbnails!
- */
 
 export default NewPhotos

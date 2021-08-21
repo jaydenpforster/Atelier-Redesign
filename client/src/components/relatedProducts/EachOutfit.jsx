@@ -14,8 +14,6 @@ class EachOutfit extends React.Component {
     this.props.delete(this.props.info.id);
   }
 
-
-
   render() {
     return (
       <div className="eachOutfit">
@@ -45,25 +43,5 @@ class EachOutfit extends React.Component {
   }
 
 }
-
-// const EachOutfit = (props) => {
-
-//   const click = () => {
-//     console.log(typeof event.target)
-//   }
-
-//   return(
-//     <div className="eachOutfit">
-//       <img src={props.info.results[0].photos[0].thumbnail_url}></img>
-//       <img className="cardStar" value={props.info.id} onClick={click} src="star.png" alt="stars alt"></img>
-//       <div className="category">{props.info.category}</div>
-//       <div className="name">{props.info.name}</div>
-//       <div className="description">{props.info.description}</div>
-//       <div className="defaultPrice">${props.info.defaultPrice}</div>
-//       <div>{props.renderStars()}</div>
-//     </div>
-//   )
-
-// }
 
 export default EachOutfit

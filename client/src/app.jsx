@@ -121,6 +121,11 @@ class App extends React.Component {
     }
     return (
       <div className="APP">
+        <div
+          onClick={e => {
+            alert('Use product code FECSALE to get 15% today only!')
+          }}
+          className="heading">Site wide Message! Many Products on Sale Today!</div>
         <h1></h1>
         {overview}
         <br></br>

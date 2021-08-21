@@ -6,11 +6,11 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   z-index: 100;
   display: flex;
-  flex-direction: column;
 }
 
 .OVmodal-content {
@@ -51,8 +51,8 @@
 }
 
 .ZoomIn{
-  height: 600px;
-  width: 500px;
+  height: 800px;
+  width: 600px;
 }
 .ZoomDiv:hover{
   cursor: zoom-out;
@@ -65,6 +65,45 @@
 .ThumbnailContainer{
   position: absolute;
   top: 1%;
-  left: 17%;
+  left: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.OVModalThumbnail{
+  margin-left: 10px;
+}
+.OVmodal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.OVModalThumbnailContainer{
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .OVmodal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.OVModalArrows{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+} */
+.mainModalPhoto{
+  position: relative;
+  margin-left: 35%;
+}
+.ZoomDiv{
+  position: relative;
+  margin-left: 23%;
+}

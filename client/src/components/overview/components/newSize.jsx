@@ -40,16 +40,12 @@ const NewSize = (props) => {
     >
       {sizeOptions}
     </select>
-  console.log('props.chosenSize', props.chosenSize)
   return (
     <div>
       {selectSizes}
       <p>Size Chosen: {props.chosenSize}</p>
     </div>
   )
-  // }
-
-
 }
 
 export default NewSize
