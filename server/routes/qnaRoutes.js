@@ -21,7 +21,13 @@ router.get('/questions', wrap(async (req, res, next) => {
 //post question
 router.post('/questions', wrap(async (req, res, next)=> {
 
-  let question = req.body.question;
+  let question = {
+    body: req.body.postBody,
+    name: req.body.name,
+    email: req.body.email,
+    product_id: req.body.id
+  }
+
   try {
     const response = await axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/:${req.body.id}`, question,
       {headers: {Authorization: process.env.TOKEN}});
