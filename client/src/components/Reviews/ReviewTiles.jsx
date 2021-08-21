@@ -40,35 +40,41 @@ class ReviewTiles extends React.Component {
     let allReviews = this.props.reviews;
     let reviews,
       displayedReviews;
-    let button = <div></div>
+    let button = <button
+      className="moreReviewsButton"
+      type="button"
+      onClick={this.handleClick}
+      style={this.state.button ? {} : { display: 'none' }}>
+      More Reviews
+    </button>
 
     if (allReviews === undefined || allReviews.length === 0) {
       reviews = 'There are no reviews for this product.'
     } else {
       reviews = allReviews.map((rev, index) => {
-        return <SingleTile key={`review-${index}`} review={rev} renderStars={this.props.renderStars} />
+        return <SingleTile
+          key={`review-${index}`}
+          review={rev}
+          renderStars={this.props.renderStars}
+          recordClick={(e) => this.props.recordClick(e)} />
       })
       displayedReviews = reviews.slice(this.state.start, this.state.end);
     }
 
-    if (this.state.button === true) {
-      button = <button type="button" onClick={this.handleClick}>More Reviews</button>
-    }
-
     return (
-      <div>
-        <div className='reviewTiles'>
+      <div className="outerReviewTiles">
+        <div className='reviewTiles' onClick={(e) => this.props.recordClick(e)}>
           {displayedReviews}
         </div>
-        <br></br>
-        {button}
-        <AddReview
-          name={this.props.name}
-          characteristics={this.props.characteristics}
-          productId={this.props.productId} />
-        <br></br>
-        <br></br>
-        <br></br>
+        <div className="reviewsButtons">
+          <div className="moreReviewsButton"
+          >{button}</div>
+          <AddReview
+            name={this.props.name}
+            characteristics={this.props.characteristics}
+            productId={this.props.productId}
+            recordClick={(e) => this.props.recordClick(e)} />
+        </div>
       </div>
     )
   }

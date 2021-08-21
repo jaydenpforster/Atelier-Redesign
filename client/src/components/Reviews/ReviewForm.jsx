@@ -184,6 +184,7 @@ class ReviewForm extends React.Component {
       rating: newRating,
       meaning: newMeaning
     });
+    this.props.recordClick(event)
   }
 
   handleSubmit(event) {
@@ -216,7 +217,7 @@ class ReviewForm extends React.Component {
       alert(warningMessage);
     } else {
       $.ajax({
-        type: "POST",
+        type: 'POST',
         url: '/reviews/addReview',
         data: {
           product_id: this.props.productId,
@@ -263,14 +264,24 @@ class ReviewForm extends React.Component {
           ComfortSelection={this.state.ComfortSelection}
           QualitySelection={this.state.QualitySelection}
           LengthSelection={this.state.LengthSelection}
-          FitSelection={this.state.FitSelection} />
+          FitSelection={this.state.FitSelection}
+          className="characteristicsInReviewForm"
+          recordClick={(e) => this.props.recordClick(e)} />
       )
     }
     let counter;
     if (this.state.body.length < this.state.charsLeft) {
-      counter = <span>Minimum required characters left: [{this.state.charsLeft - this.state.body.length}]</span>
+      counter = <span
+        className="counterInReviewForm"
+        onClick={(e) => this.props.recordClick(e)}>
+          Minimum required characters left: [{this.state.charsLeft - this.state.body.length}]
+      </span>
     } else {
-      counter = <span>Minimum reached</span>
+      counter = <span
+        className="counterInReviewForm"
+        onClick={(e) => this.props.recordClick(e)}>
+          Minimum reached
+      </span>
     }
     // let picsButton;
     // if (this.state.photos.length < 5) {
@@ -278,40 +289,44 @@ class ReviewForm extends React.Component {
     // }
 
     return (
-      <div className="reviewForm-modal">
+      <div className="reviewForm-modal" onClick={(e) => this.props.recordClick(e)}>
         <div className="reviewForm-content">
           <div className="reviewForm-header">
             <h2 className="reviewForm-title">Write Your Review</h2>
             <h3 className="reviewForm-subtitle">About the {this.props.name}</h3>
           </div>
           <div className="reviewForm-body">
-            <h3><small><sup>*</sup></small>Overall rating:</h3>
+            <h4 className="formReviewInput"><u className="overallRating" onClick={(e) => this.props.recordClick(e)}>Overall Rating</u><small><sup>*</sup></small></h4>
             <FormStars
               starsClickMandatory={this.starsClickMandatory}
               clickStars={this.handleStarClick}
               rating={this.state.rating}
-              meaning={this.state.meaning} />
+              meaning={this.state.meaning}
+              recordClick={(e) => this.props.recordClick(e)} />
             <form>
               <label>
-                <h3><small><sup>*</sup></small>Do you recommend this product?</h3>
+                <h4 className="formReviewInput"><u className="doYouRec" onClick={(e) => this.props.recordClick(e)}>Do you recommend this product?</u><small><sup>*</sup></small></h4>
                 <input
                   name="rec"
                   type="radio"
                   value="Yes"
                   defaultChecked
-                  onChange={this.handleInputChange} />Yes
+                  onChange={this.handleInputChange}
+                  className="formInputYes"
+                  onClick={(e) => this.props.recordClick(e)}/>Yes
                 <input
                   name="rec"
                   type="radio"
                   value="No"
-                  onChange={this.handleInputChange} />No
+                  onChange={this.handleInputChange}
+                  className="formInputNo"
+                  onClick={(e) => this.props.recordClick(e)}/>No
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Characteristics</h3>
                 {chars}
               </label>
               <label>
-                <h3>Review summary</h3>
+                <h4 className="reviewsInput"><u className="reviewSummary" onClick={(e) => this.props.recordClick(e)}>Review Summary</u></h4>
                 <textarea
                   name="summary"
                   value={this.state.summary}
@@ -319,10 +334,12 @@ class ReviewForm extends React.Component {
                   maxLength="60"
                   rows={1}
                   cols={60}
-                  onChange={this.handleInputChange} />
+                  onChange={this.handleInputChange}
+                  className="formTextAreaSummary"
+                  onClick={(e) => this.props.recordClick(e)} />
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Review body</h3>
+                <h4 className="reviewsInput"><u className="reviewBody" onClick={(e) => this.props.recordClick(e)}>Review Body</u><small><sup>*</sup></small></h4>
                 <textarea
                   name="body"
                   value={this.state.body}
@@ -331,24 +348,28 @@ class ReviewForm extends React.Component {
                   maxLength="1000"
                   rows={6}
                   cols={60}
-                  onChange={this.handleInputChange} />
+                  onChange={this.handleInputChange}
+                  className="formTextAreaBody"
+                  onClick={(e) => this.props.recordClick(e)} />
                 <br></br>
                 {counter}
               </label>
               <label>
-                <h3><small><sup>*</sup></small>What is your nickname?</h3>
+                <h4 className="reviewsInput"><u className="formNickname" onClick={(e) => this.props.recordClick(e)}>What is your nickname?</u><small><sup>*</sup></small></h4>
                 <input
                   name="nickname"
                   type="text"
                   value={this.state.nickname}
                   placeholder="Example: jackson11!"
                   maxLength="60"
-                  onChange={this.handleInputChange} />
+                  onChange={this.handleInputChange}
+                  className="formTextNickName"
+                  onClick={(e) => this.props.recordClick(e)} />
                 <br></br>
                   For privacy reasons, do not use your full name or email address
               </label>
               <label>
-                <h3><small><sup>*</sup></small>Your email</h3>
+                <h4 className="reviewsInput"><u className="formEmail" onClick={(e) => this.props.recordClick(e)}>Your Email</u><small><sup>*</sup></small></h4>
                 <textarea
                   name="email"
                   type="email"
@@ -357,15 +378,18 @@ class ReviewForm extends React.Component {
                   maxLength="60"
                   rows={1}
                   cols={30}
-                  onChange={this.handleInputChange} />
+                  onChange={this.handleInputChange}
+                  className="formTextAreaEmail"
+                  onClick={(e) => this.props.recordClick(e)} />
                 <br></br>
                   For authentication reasons, you will not be emailed
                 <br></br>
+                <br></br>
               </label>
-              <input type="submit" value="Submit review" onSubmit={ () => { return false } } onClick={this.handleSubmit}></input>
+              <div className="submitReviewButton">
+                <input type="submit" value="Submit Review" onSubmit={ () => { return false } } onClick={this.handleSubmit}></input>
+              </div>
             </form>
-
-
           </div>
           <div className="reviewForm-footer">
             <button className="reviewForm-button" onClick={this.props.onClose}>Close</button>

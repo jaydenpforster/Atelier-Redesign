@@ -27,6 +27,7 @@ class EachCard extends React.Component {
 
   click() {
     this.props.onClick(this.props.info.id);
+
   }
 
   render() {
@@ -65,7 +66,7 @@ class EachCard extends React.Component {
       )
     }
     return (
-      <div className="eachCard">
+      <div className="eachCard" onClick={e => {this.props.tracker()}}>
         {this.props.info.results[0].photos[0].thumbnail_url ?
           <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
           <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}

@@ -10,11 +10,14 @@ const FactorsBreakdown = (props) => {
   }
 
   const factors = factorNames.map((name, index) =>
-    <FactorBar key={`factor-${index}`} name={name} value={factorValues[index]} />
+    <FactorBar
+      key={`factor-${index}`}
+      name={name} value={factorValues[index]}
+      recordClick={(e) => props.recordClick(e)}/>
   )
 
   return (
-    <div>
+    <div className="factorsBreakdown" onClick={(e) => props.recordClick(e)}>
       {factors}
     </div>
   )

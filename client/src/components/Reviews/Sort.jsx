@@ -155,22 +155,25 @@ class Sort extends React.Component {
     }
 
     return (
-      <div>
-        <label>
-          <h4>{reviewsToPassDown.length} reviews, sorted by &nbsp;
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="relevant">relevance</option>
-              <option value="helpful">helpfulness</option>
-              <option value="newest">date</option>
-            </select>
-          </h4>
-        </label>
-        <ReviewTiles
-          reviews={reviewsToPassDown}
-          renderStars={this.props.renderStars}
-          name={this.props.name}
-          characteristics={this.props.characteristics}
-          productId={this.props.productId} />
+      <div id="outerReviewsBlock">
+        <div id="reviewsBlock">
+          <label className="reviewsSort" onClick={(e) => this.props.recordClick(e)}>
+            <h4 className="reviewsSort-total" onClick={(e) => this.props.recordClick(e)}>{reviewsToPassDown.length} reviews, sorted by &nbsp;
+              <select className="reviewsSort-options" value={this.state.value} onChange={this.handleChange}>
+                <option onClick={(e) => this.props.recordClick(e)} value="relevant">relevance</option>
+                <option onClick={(e) => this.props.recordClick(e)} value="helpful">helpfulness</option>
+                <option onClick={(e) => this.props.recordClick(e)} value="newest">recent</option>
+              </select>
+            </h4>
+          </label>
+          <ReviewTiles
+            reviews={reviewsToPassDown}
+            renderStars={this.props.renderStars}
+            name={this.props.name}
+            characteristics={this.props.characteristics}
+            productId={this.props.productId}
+            recordClick={(e) => this.props.recordClick(e)} />
+        </div>
       </div>
     )
   }

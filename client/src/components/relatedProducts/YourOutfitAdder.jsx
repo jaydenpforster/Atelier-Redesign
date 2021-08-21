@@ -1,10 +1,13 @@
 import React from 'react';
 import EachOutfit from './EachOutfit.jsx';
+import axios from 'axios';
+import config from '../../../../config.js';
 
 class YourOutfitAdder extends React.Component {
   constructor(props) {
     super(props);
-    this.state = JSON.parse(window.localStorage.getItem('info')) || {
+    this.state = JSON.parse(window.localStorage.getItem('info')) ||
+    {
       eachOutfit: [],
       currentIndex: 0,
       length: 0
@@ -15,7 +18,6 @@ class YourOutfitAdder extends React.Component {
     this.prev = this.prev.bind(this);
   }
 
-
   setState(state) {
     window.localStorage.setItem('info', JSON.stringify(state));
     super.setState(state);
@@ -24,6 +26,24 @@ class YourOutfitAdder extends React.Component {
   click() {
     let eachOutfitcopy = this.state.eachOutfit.slice();
     let compareId = this.props.overViewStyles.product_id;
+
+    if (eachOutfitcopy.length < 1) {
+      eachOutfitcopy.push({
+        id: this.props.overViewStyles.product_id,
+        results: this.props.overViewStyles.results,
+        name: this.props.overViewProd.name,
+        category: this.props.overViewProd.category,
+        description: this.props.overViewProd.description,
+        defaultPrice: this.props.overViewProd.default_price,
+        features: this.props.overViewProd.features,
+        averageRating: this.props.starRating
+      });
+      this.setState({
+        eachOutfit: eachOutfitcopy,
+        currentIndex: this.state.currentIndex,
+        length: this.state.length
+      })
+    }
 
     if (eachOutfitcopy.length >= 1) {
       if (eachOutfitcopy.filter(eachOutfit => eachOutfit.id === compareId).length > 0) {
@@ -40,25 +60,25 @@ class YourOutfitAdder extends React.Component {
         averageRating: this.props.starRating
       });
       this.setState({
-        eachOutfit: eachOutfitcopy
+        eachOutfit: eachOutfitcopy,
+        currentIndex: this.state.currentIndex,
+        length: this.state.length
       })
     }
 
-    if (eachOutfitcopy.length < 1) {
-      eachOutfitcopy.push({
-        id: this.props.overViewStyles.product_id,
-        results: this.props.overViewStyles.results,
-        name: this.props.overViewProd.name,
-        category: this.props.overViewProd.category,
-        description: this.props.overViewProd.description,
-        defaultPrice: this.props.overViewProd.default_price,
-        features: this.props.overViewProd.features,
-        averageRating: this.props.starRating
-      });
-      this.setState({
-        eachOutfit: eachOutfitcopy
-      })
-    }
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Your Outfit Adder',
+        widget: 'Related Products',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    })
   }
 
   delete(idNum) {
@@ -66,14 +86,18 @@ class YourOutfitAdder extends React.Component {
     let indexToDelete = eachOutfitcopy.map((item) => { return item.id; }).indexOf(idNum);
     eachOutfitcopy.splice(indexToDelete, 1);
     this.setState({
-      eachOutfit: eachOutfitcopy
+      eachOutfit: eachOutfitcopy,
+      currentIndex: this.state.currentIndex,
+      length: this.state.length
     })
   }
 
   next() {
     if (this.state.currentIndex < (this.state.eachOutfit.length - this.props.show)) {
       this.setState({
+        eachOutfit: this.state.eachOutfit,
         currentIndex: this.state.currentIndex + 1,
+        length: this.state.length
       })
     }
   }
@@ -81,14 +105,15 @@ class YourOutfitAdder extends React.Component {
   prev() {
     if (this.state.currentIndex > 0) {
       this.setState({
-        currentIndex: this.state.currentIndex - 1
+        eachOutfit: this.state.eachOutfit,
+        currentIndex: this.state.currentIndex - 1,
+        length: this.state.length
       })
     }
   }
 
   render() {
-    // console.log('props', this.props)
-    if (this.state.eachOutfit.eachOutfit === 0) {
+    if (this.state.eachOutfit === null) {
       return (
         <div className="carousel-container">
           <div onClick={this.click} className="img">

@@ -2,7 +2,6 @@ import React from 'react'
 
 const NewStyles = (props) => {
 
-
   let allStyles = [];
   let i = 0;
   for (let style in props.allStyles) {
