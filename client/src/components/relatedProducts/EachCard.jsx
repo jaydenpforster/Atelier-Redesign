@@ -46,11 +46,11 @@ class EachCard extends React.Component {
             <div className='starContainer'>
               <div className='starBox' style={{ 'width': `${this.props.info.rating}%` }}>
                 <div className='inlineStars'>
-                  <img className="starsLayout" src="star.png" alt="Star" />
-                  <img className="starsLayout" src="star.png" alt="Star" />
-                  <img className="starsLayout" src="star.png" alt="Star" />
-                  <img className="starsLayout" src="star.png" alt="Star" />
-                  <img className="starsLayout" src="star.png" alt="Star" />
+                  <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                  <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                  <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                  <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                  <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
                 </div>
               </div>
             </div>
@@ -79,11 +79,11 @@ class EachCard extends React.Component {
           <div className='starContainer'>
             <div className='starBox' style={{ 'width': `${this.props.info.rating}%` }}>
               <div className='inlineStars'>
-                <img className="starsLayout" src="star.png" alt="Star" />
-                <img className="starsLayout" src="star.png" alt="Star" />
-                <img className="starsLayout" src="star.png" alt="Star" />
-                <img className="starsLayout" src="star.png" alt="Star" />
-                <img className="starsLayout" src="star.png" alt="Star" />
+                <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
+                <img className="starsLayout" src="star.png" height="5" width="5" alt="Star" />
               </div>
             </div>
           </div>
