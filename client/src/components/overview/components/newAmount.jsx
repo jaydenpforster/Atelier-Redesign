@@ -34,6 +34,7 @@ let NewAmount = (props) => {
     >
       {amountArr}
     </select>
+  console.log('props.chosenAmount', props.chosenAmount)
   return (
     <div>
       <p>Please Select Size</p>

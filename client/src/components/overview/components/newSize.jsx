@@ -7,6 +7,7 @@ const NewSize = (props) => {
     <option
       key="100"
       value={'-'}
+      required
     >Select Size</option>)
 
   let sizeI = 0
@@ -39,7 +40,7 @@ const NewSize = (props) => {
     >
       {sizeOptions}
     </select>
-
+  console.log('props.chosenSize', props.chosenSize)
   return (
     <div>
       {selectSizes}

@@ -124,6 +124,7 @@ class App extends React.Component {
         <h1></h1>
         {overview}
         <br></br>
+
         <RelatedProducts
           info={this.state.relatedProductIDs}
           detailInfo={this.state.related}

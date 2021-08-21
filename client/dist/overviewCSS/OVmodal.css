@@ -54,6 +54,17 @@
   height: 600px;
   width: 500px;
 }
-.ZoomIn:hover{
-  cursor: pointer;
+.ZoomDiv:hover{
+  cursor: zoom-out;
 }
+
+.MainPhotoContainer{
+  position: relative;
+}
+
+.ThumbnailContainer{
+  position: absolute;
+  top: 1%;
+  left: 17%;
+}
+

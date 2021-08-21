@@ -8,6 +8,8 @@ import Modal from './components/modal.jsx'
 import Features from './components/features.jsx'
 import axios from 'axios'
 import config from '../../../../config.js'
+
+
 // root / client / src / components / overview
 class Overview extends React.Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class Overview extends React.Component {
       // sizeAmount State
       chosenSize: '-',
       chosenAmount: '',
-      skuID: '',
+      skuID: '36300',
       availableSizes: [{ size: '-', quantity: '8' }],
       availableAmount: '-',
       // Photos
@@ -103,13 +105,6 @@ class Overview extends React.Component {
     this.setState({ showModalPhotoZoom }, () => { console.log('setShowModalPhotoZoom') })
   }
 
-
-  consoleLogAfterSETSTATE(test) {
-    this.setState({ test }, () => {
-      console.log('The Second Argument of setState should be a function that runs')
-    })
-  }
-
   clickModal() {
     console.log('click log')
     let time = new Date()
@@ -125,8 +120,6 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickPhotos() {
@@ -144,8 +137,6 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
 
@@ -164,8 +155,6 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickStyles() {
@@ -183,8 +172,6 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickChosensSelectors() {
@@ -202,8 +189,6 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
 
@@ -248,15 +233,15 @@ class Overview extends React.Component {
             clickPhotos={this.clickPhotos}
             currentStyleInfo={this.state.currentStyleInfo}
             mainPhoto={this.state.mainPhoto}
-            setMainPhoto={this.setMainPhoto}
-            thumbnails={this.state.thumbnails}
-            setThumbnails={this.setThumbnails}
-            showModal={this.state.showModal}
-            setShowModal={this.setShowModal}
             thumbnailIndex={this.state.thumbnailIndex}
+            mainPhotoIndex={this.state.mainPhotoIndex}
+            thumbnails={this.state.thumbnails}
+            showModal={this.state.showModal}
+            setMainPhoto={this.setMainPhoto}
+            setThumbnails={this.setThumbnails}
+            setShowModal={this.setShowModal}
             setThumbnailIndex={this.setThumbnailIndex}
             setMainPhotoIndex={this.setMainPhotoIndex}
-            mainPhotoIndex={this.state.mainPhotoIndex}
           />
           <div className="OVMainChild2">
             <NewStyles
@@ -340,9 +325,6 @@ class Overview extends React.Component {
           showModalPhotoZoom={this.state.showModalPhotoZoom}
         />
         <br></br>
-
-        <br></br>
-
       </div>
     );
   }

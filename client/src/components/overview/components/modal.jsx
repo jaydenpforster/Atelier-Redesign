@@ -2,7 +2,7 @@ import React from 'react'
 import Zoom from 'react-img-zoom'
 
 let Modal = (props) => {
-  let thumbnailArr, showSevenTNs, mainPhoto, zoomPhoto;
+  let thumbnailArr, showSevenTNs, mainPhoto, zoomPhoto, rightArrow, leftArrow;
   if (props !== undefined) {
     thumbnailArr = props.thumbnails.map((element, i) => {
       return (
@@ -16,7 +16,7 @@ let Modal = (props) => {
             e.preventDefault()
             props.setShowModalPhotoZoom(false)
             props.setMainPhotoIndex('' + i)
-            console.log('i', i)
+            // console.log('i', i)
           }}
           alt='Thumbnail' ></img>
       )
@@ -39,19 +39,52 @@ let Modal = (props) => {
   // if (props.thumbnails[props.mainPhotoIndex] !== undefined) {
   if (props.showModalPhotoZoom === true) {
     //   mainPhoto = <img
-    mainPhoto = <Zoom
-      className="ZoomIn"
-      onClick={e => {
-        alert('test')
-        console.log('click MainPhotoModal -')
-        props.setShowModalPhotoZoom(false)
-      }}
-      img={props.thumbnails[props.mainPhotoIndex].url}
-      zoomScale={2.5}
-      height={400}
-      width={500}
-    />
+    leftArrow = <div></div>
+    rightArrow = <div></div>
+    showSevenTNs = <div></div>
+    mainPhoto =
+      <div
+        className="ZoomDiv"
+        onClick={e => {
+          console.log('click MainPhotoModal -')
+          props.setShowModalPhotoZoom(false)
+        }}
+      >
+        <Zoom
+          className="ZoomIn"
+          img={props.thumbnails[props.mainPhotoIndex].url}
+          zoomScale={2.5}
+          height={400}
+          width={500}
+        />
+      </div>
   } else {
+
+    leftArrow = <p
+      onClick={e => {
+
+        if (props.mainPhotoIndex === '0') {
+          props.setMainPhotoIndex(props.thumbnails.length - 1)
+          props.setShowModalPhotoZoom(false)
+        } else {
+          props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
+          props.setShowModalPhotoZoom(false)
+        }
+      }}
+    >{'<'}</p>
+
+    rightArrow = <p
+      onClick={e => {
+
+        if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
+          props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
+          props.setShowModalPhotoZoom(false)
+        } else {
+          props.setMainPhotoIndex('0')
+          props.setShowModalPhotoZoom(false)
+        }
+      }}
+    >{'>'}</p>
     mainPhoto = <img
       className="mainModalPhoto"
       onClick={e => {
@@ -79,30 +112,9 @@ let Modal = (props) => {
           <div className="OVmodal-body">
             {mainPhoto}
             <div className="OVModalArrows">
-              <p
-                onClick={e => {
 
-                  if (props.mainPhotoIndex === '0') {
-                    props.setMainPhotoIndex(props.thumbnails.length - 1)
-                    props.setShowModalPhotoZoom(false)
-                  } else {
-                    props.setMainPhotoIndex((Number(props.mainPhotoIndex) - 1) + '')
-                    props.setShowModalPhotoZoom(false)
-                  }
-                }}
-              >{'<'}</p>
-              <p
-                onClick={e => {
-
-                  if (Number(props.mainPhotoIndex) !== props.thumbnails.length - 1) {
-                    props.setMainPhotoIndex((Number(props.mainPhotoIndex) + 1) + '')
-                    props.setShowModalPhotoZoom(false)
-                  } else {
-                    props.setMainPhotoIndex('0')
-                    props.setShowModalPhotoZoom(false)
-                  }
-                }}
-              >{'>'}</p>
+              {leftArrow}
+              {rightArrow}
             </div>
 
             <br></br>

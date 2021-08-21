@@ -14,14 +14,14 @@ router.put('/helpful', (req, res) => {
 });
 
 router.post('/addReview', (req, res) => {
-  console.log('ONE')
+  // console.log('ONE')
   rev.formatPostData(req.body)
     .then((readyData) => {
-      console.log('THREE')
+      // console.log('THREE')
       return rev.addReview(readyData)
     })
     .then((data) => {
-      console.log('SIX: ', data)
+      // console.log('SIX: ', data)
       res.sendStatus(data)
     })
     .catch((err) => {

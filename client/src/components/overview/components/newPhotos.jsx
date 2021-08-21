@@ -15,7 +15,7 @@ const NewPhotos = (props) => {
       <img
         className="sideGallery"
         key={i}
-        src={props.thumbnails[i].thumbnail_url}
+        src={props.thumbnails[i].thumbnail_url} // CHANGE ME
         onClick={e => {
           e.preventDefault()
           props.setMainPhotoIndex('' + i)
@@ -49,20 +49,19 @@ const NewPhotos = (props) => {
         } else {
           props.setShowModal(true)
         }
-
       }}
-      // height="250"
-      // width="200"
       src={props.thumbnails[props.mainPhotoIndex].url}></img>
   }
-
+  // console.log('props.thumbnails[props.mainPhotoIndex].url}', props.thumbnails[props.mainPhotoIndex].url})
   return (
     <div
       onClick={e => {
         props.clickPhotos()
       }}
       className="OVMainChild1">
-      <div className="MainPhotoContainer">
+      <div
+        // style="background-image: url(https://st.depositphotos.com/1428083/2946/i/600/depositphotos_29460297-stock-photo-bird-cage.jpg)"
+        className="MainPhotoContainer">
         <div className="ThumbnailContainer">
           <p onClick={e => {
             if (props.thumbnailIndex === '0') {
