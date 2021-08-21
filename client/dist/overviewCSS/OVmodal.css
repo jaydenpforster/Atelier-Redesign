@@ -8,10 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
 
 .OVmodal-content {
-  width: 300px;
+  width: 900px;
   background-color: white;
 }
 
@@ -30,4 +33,27 @@
 }
 .OVMain1{
   display:flex;
+}
+
+.OVModalThumbnailContainer{
+  display:flex;
+}
+.OVmodal-body{
+  display:flex;
+  flex-direction: column;
+}
+.OVModalArrows{
+  display:flex;
+  justify-content: space-around;
+}
+.mainModalPhoto:hover{
+  cursor: crosshair;
+}
+
+.ZoomIn{
+  height: 600px;
+  width: 500px;
+}
+.ZoomIn:hover{
+  cursor: pointer;
 }

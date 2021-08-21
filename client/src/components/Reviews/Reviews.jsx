@@ -1,11 +1,9 @@
 import React from 'react';
-import $ from 'jquery';
 import Stars from './Stars.jsx';
 import Sort from './Sort.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import FactorsBreakdown from './FactorsBreakdown.jsx';
-import ReviewTiles from './ReviewTiles.jsx';
-import ReviewForm from './ReviewForm.jsx';
+import ClickTracker from './ClickTracker.jsx';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -28,7 +26,6 @@ class Reviews extends React.Component {
     }
   }
 
-
   handleFilterClick(event) {
     let filterNumber = (event.target.innerText).slice(0, 1);
     filterNumber = Number(filterNumber);
@@ -46,7 +43,7 @@ class Reviews extends React.Component {
     }
   }
 
-  handleRemoveFiltersClick() {
+  handleRemoveFiltersClick(event) {
     this.setState({
       filterNums: []
     })
@@ -55,34 +52,42 @@ class Reviews extends React.Component {
   render() {
     if (this.state.changed) {
       return (
-        <div>
-          <h1>Reviews</h1>
-          <Stars
-            renderStars={this.props.renderStars}
-            averageRating={this.props.averageRating}
-            numOfRatings={this.state.numOfRatings} />
-          <br></br>
-          <RatingBreakdown
-            ratings={this.props.ratings}
-            recommended={this.props.recommended}
-            filter={this.handleFilterClick}
-            filterNums={this.state.filterNums}
-            removeFilters={this.handleRemoveFiltersClick} />
-          <br></br>
-          <br></br>
-          <FactorsBreakdown characteristics={this.props.characteristics} />
-          <br></br>
-          <Sort
-            helpfulReviews={this.props.helpfulReviews}
-            newestReviews={this.props.newestReviews}
-            recommended={this.props.recommended}
-            renderStars={this.props.renderStars}
-            filterNums={this.state.filterNums}
-            name={this.props.name}
-            characteristics={this.props.characteristics}
-            productId={this.props.productId} />
-          <br></br>
-        </div>
+        <ClickTracker>
+          {tracker => (
+            <div>
+              <Stars
+                recordClick={tracker.recordClick}
+                renderStars={this.props.renderStars}
+                averageRating={this.props.averageRating}
+                numOfRatings={this.state.numOfRatings} />
+              <br></br>
+              <RatingBreakdown
+                recordClick={tracker.recordClick}
+                ratings={this.props.ratings}
+                recommended={this.props.recommended}
+                filter={this.handleFilterClick}
+                filterNums={this.state.filterNums}
+                removeFilters={this.handleRemoveFiltersClick} />
+              <br></br>
+              <br></br>
+              <FactorsBreakdown
+                recordClick={tracker.recordClick}
+                characteristics={this.props.characteristics} />
+              <br></br>
+              <Sort
+                recordClick={tracker.recordClick}
+                helpfulReviews={this.props.helpfulReviews}
+                newestReviews={this.props.newestReviews}
+                recommended={this.props.recommended}
+                renderStars={this.props.renderStars}
+                filterNums={this.state.filterNums}
+                name={this.props.name}
+                characteristics={this.props.characteristics}
+                productId={this.props.productId} />
+              <br></br>
+            </div>
+          )}
+        </ClickTracker>
       )
     } else {
       return null;

@@ -2,7 +2,7 @@ import React from 'react';
 
 const FormStars = (props) => {
   return (
-    <div className="formStars">
+    <div className="formStars" onClick={(e) => props.recordClick(e)}>
       <div className='formStarContainer'>
         <div className='formStarBox' style={{ 'width': `${props.rating}%` }}>
           <div className='formInlineStars'>
@@ -14,7 +14,11 @@ const FormStars = (props) => {
           </div>
         </div>
       </div>
-      <span className="meaning">{props.meaning}</span>
+      <span
+        className="meaning"
+        onClick={(e) => props.recordClick(e)}>
+        {props.meaning}
+      </span>
     </div>
   )
 }

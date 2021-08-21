@@ -1,20 +1,15 @@
 'use strict';
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import ReactDOM from 'react-dom';
-// eslint-disable-next-line no-unused-vars
 import $ from 'jquery';
 import Overview from './components/overview/overview.jsx';
 import RelatedProducts from './components/relatedProducts/RelatedProducts.jsx';
 import QnA from './components/QandA/QandA.jsx';
 import Reviews from './components/Reviews/Reviews.jsx';
-// import axios from 'axios'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // cart: 'GET /cart
       overview: '',
       name: '',
       styles: '',
@@ -31,31 +26,9 @@ class App extends React.Component {
       relatedRatings: [],
       questions: []
     }
-    //bind
     this.getAllProductInfo = this.getAllProductInfo.bind(this)
     this.renderStars = this.renderStars.bind(this);
   }
-
-  //GET REQUESTS
-
-  //Overview
-  //productId
-  //style
-  //stars
-  //cart
-
-  //Related Products / Main
-  //productId
-  //style
-  //stars
-
-  //QandA
-  //...
-
-  //Revies
-  //productId
-  //stars / reviews
-  //metadata
 
   getAllProductInfo(id) {
     $.ajax({
@@ -109,7 +82,6 @@ class App extends React.Component {
   }
 
   render() {
-
     let overview;
     if (this.state.overview.id === undefined) {
       overview = <></>
@@ -158,6 +130,4 @@ class App extends React.Component {
   }
 }
 
-
-// ReactDOM.render(<App />, document.getElementById('app'));
 export default App;

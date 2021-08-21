@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import config from '../../../../config.js';
 
 class EachOutfit extends React.Component {
   constructor(props) {
@@ -12,17 +14,29 @@ class EachOutfit extends React.Component {
 
   click() {
     this.props.delete(this.props.info.id);
+
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Your Outfit Delete',
+        widget: 'Related Products',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    })
   }
-
-
 
   render() {
     return (
       <div className="eachOutfit">
         {this.props.info.results[0].photos[0].thumbnail_url ?
-          <img className="cardImg" onClick={this.click} src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
-          <img className="cardImg" onClick={this.click} src="comingsoon.png"></img>}
-        <img className="cardStar" onClick={this.click} src="relatedstar.png" alt="stars alt"></img>
+          <img className="cardImg" src={this.props.info.results[0].photos[0].thumbnail_url}></img> :
+          <img className="cardImg" src="comingsoon.png"></img>}
+        <img className="cardStar" onClick={this.click} src="x.png" alt="stars alt"></img>
         <div className="textInfo">
           <div className="category">{this.props.info.category}</div>
           <div className="name">{this.props.info.name}</div>
@@ -45,25 +59,5 @@ class EachOutfit extends React.Component {
   }
 
 }
-
-// const EachOutfit = (props) => {
-
-//   const click = () => {
-//     console.log(typeof event.target)
-//   }
-
-//   return(
-//     <div className="eachOutfit">
-//       <img src={props.info.results[0].photos[0].thumbnail_url}></img>
-//       <img className="cardStar" value={props.info.id} onClick={click} src="star.png" alt="stars alt"></img>
-//       <div className="category">{props.info.category}</div>
-//       <div className="name">{props.info.name}</div>
-//       <div className="description">{props.info.description}</div>
-//       <div className="defaultPrice">${props.info.defaultPrice}</div>
-//       <div>{props.renderStars()}</div>
-//     </div>
-//   )
-
-// }
 
 export default EachOutfit
