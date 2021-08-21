@@ -92,7 +92,7 @@ class App extends React.Component {
         styles={this.state.styles} />
     }
     return (
-      <div className="APP">
+      <div id="APP">
         <div
           onClick={e => {
             alert('Use product code FECSALE to get 15% today only!')
