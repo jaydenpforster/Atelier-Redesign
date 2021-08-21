@@ -124,12 +124,11 @@ class RatingBreakdown extends React.Component {
           </div>
 
           <div className="fullRatingLine" onClick={this.handleClick}>
-            <u className="1Star">1 star </u>&nbsp;
+            <u className="1Star">1 star</u>&nbsp;&nbsp;&nbsp;
             <div className="ratingBarContainer"><div className="ratingBar" style={{'width': `${onePortion}%`}}></div></div>
             &nbsp;<p style={{'fontSize': '90%', 'display': 'inline-block'}}>({this.state.one})</p>
           </div>
           <br></br>
-
           <span className="recPercentage" onClick={(e) => this.props.recordClick(e)}>{this.state.recPercentage}% of reviews recommend this product</span>
         </div>
       </div>
