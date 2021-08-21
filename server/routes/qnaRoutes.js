@@ -64,7 +64,7 @@ router.put('/qHelpful', wrap(async (req, res, next)=> {
   console.log('This is to mark helpful id ', req.body.qId)
 
   try {
-    const response = await axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${req.body.qId}/helpful`,
+    const response = await axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/:${req.body.qId}/helpful`,
       {headers: {Authorization: process.env.TOKEN}});
     res.sendStatus(201);
   } catch (error) {

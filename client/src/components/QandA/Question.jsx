@@ -18,11 +18,29 @@ const Question = ({question, setIsQuestionModal, setShowModal, setQuestionBody, 
   const tagHelpful = (id) => {
     console.log(`Question is tagged helpful ${id}`);
 
-    let data = {qId: id}
-    axios.put('http://localhost:4000/qna/qHelpful', data)
-      .then(data =>{
-        return data
-      })
+    // let data = {qId: id}
+
+    // axios({
+    //   method: 'put',
+    //   url: 'http://localhost:4000/qna/qHelpful',
+    //   data: data
+    // }).then ((response) => {
+    //   console.log('response for put: ', response)
+    // }).catch((err) => {
+    //   console.log('response error for put: ', err)
+    // })
+
+    let helpfulCount = document.getElementById('helpfulQ').innerHTML
+    console.log(typeof helpfulCount, helpfulCount)
+
+    helpfulCount = Number(helpfulCount.replace(/[^\d.-]/g, ''));
+
+    console.log(typeof helpfulCount, helpfulCount)
+
+    helpfulCount++;
+    console.log(helpfulCount)
+    document.getElementById('helpfulQ').innerHTML = helpfulCount.toString();
+    console.log(helpfulCount)
 
     setTaggedHelpful(true);
   };
@@ -43,7 +61,7 @@ const Question = ({question, setIsQuestionModal, setShowModal, setQuestionBody, 
             >
               Yes
             </button>
-            <label htmlFor="">({question.question_helpfulness})</label>
+            <label htmlFor="" id="helpfulQ">({question.question_helpfulness})</label>
           </div>
           <button
             className="add-answer"

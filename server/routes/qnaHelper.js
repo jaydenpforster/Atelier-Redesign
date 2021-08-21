@@ -7,7 +7,7 @@ module.exports.getQuestions = async function (id) {
   try {
     const response = await axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${id}`, {
       headers: {
-        Authorization: process.env.TOKEN
+        Authorization: config.TOKEN
       }
     })
 

@@ -11,6 +11,20 @@ const Answer = ({ answer }) => {
   };
   const tagAnswerHelpful = (id) => {
     console.log(`Answer id ${id} is tagged helpful`);
+
+
+    let helpfulCount = document.getElementById('aHelp').innerHTML
+    console.log(typeof helpfulCount, helpfulCount)
+
+    helpfulCount = Number(helpfulCount.replace(/[^\d.-]/g, ''));
+
+    console.log(typeof helpfulCount, helpfulCount)
+
+    helpfulCount++;
+    console.log(helpfulCount)
+    document.getElementById('aHelp').innerHTML = helpfulCount.toString();
+    console.log(helpfulCount)
+
     setHelpful(true);
   };
   const renderedPhotos = answer.photos
@@ -45,7 +59,7 @@ const Answer = ({ answer }) => {
           >
             Yes
           </button>
-          <label>({answer.helpfulness})</label>
+          <label id="aHelp">({answer.helpfulness})</label>
         </div>
         <div className="answer-footer-label report">
           {!reported ? (
