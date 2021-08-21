@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import Search from './Search.jsx';
 import QuestionList from './QuestionList.jsx';
@@ -30,6 +29,7 @@ const QnA = (props) => {
       data.sort(compare);
     }
     setQuestions(data);
+    console.log('This is questions: ', questions);
 
   }, [props.qData]);
 

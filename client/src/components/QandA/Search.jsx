@@ -3,17 +3,18 @@ import React, { useState, useEffect } from 'react';
 const filterQuestion = (questions, searchText) => {
   const newQuestionSet = { product_id: questions.product_id, results: [] };
   if (questions.length > 0) {
-    for (const key in questions.results) {
+    for (const key in questions) {
       if (
-        questions.results[key].question_body
+        questions[key].question_body
           .toLowerCase()
           .includes(searchText.toLowerCase()) // for case insensitive search
       ) {
-        newQuestionSet.results.push(questions.results[key]);
+        newQuestionSet.results.push(questions[key]);
       }
     }
   }
-  return newQuestionSet;
+  console.log('This is newQuestionSet: ', newQuestionSet)
+  return newQuestionSet.results;
 };
 
 const Search = ({ questions, setFilteredQuestion }) => {

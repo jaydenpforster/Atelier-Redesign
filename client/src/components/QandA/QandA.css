@@ -35,7 +35,6 @@ html {
   height: 15vh;
 }
 .question-list {
-  height: 75vh;
   overflow: auto;
 }
 .question-extras {
