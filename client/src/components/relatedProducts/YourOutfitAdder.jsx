@@ -1,5 +1,7 @@
 import React from 'react';
 import EachOutfit from './EachOutfit.jsx';
+import axios from 'axios';
+import config from '../../../../config.js';
 
 class YourOutfitAdder extends React.Component {
   constructor(props) {
@@ -63,6 +65,20 @@ class YourOutfitAdder extends React.Component {
         length: this.state.length
       })
     }
+
+    let time = new Date()
+    axios({
+      method: 'POST',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
+      headers: {
+        'Authorization': config.TOKEN
+      },
+      data: {
+        element: 'Your Outfit Adder',
+        widget: 'Related Products',
+        time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
+      }
+    })
   }
 
   delete(idNum) {

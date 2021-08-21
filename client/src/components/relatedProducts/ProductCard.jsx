@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import EachCard from './EachCard.jsx';
-import YourOutfitAdder from './YourOutfitAdder.jsx';
 
 const ProductCard = (props) => {
   if (!props.detailInfo) {
@@ -96,6 +95,7 @@ const ProductCard = (props) => {
                 renderStars={props.renderStars}
                 relatedRatings={props.relatedRatings}
                 onClick={props.onClick}
+                tracker={props.tracker}
                 key={index}
               />)}
           </div>

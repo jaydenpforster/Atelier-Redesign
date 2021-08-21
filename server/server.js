@@ -11,8 +11,10 @@ const relatedHelper = require('./routes/relatedProductsHelper.js');
 const reviews = require('./routes/reviewsRoutes');
 const reviewsHelper = require('./routes/reviewsHelpers.js');
 const qna = require('./routes/qnaRoutes')
-const qnaHelper = require('./routes/qnaHelper')
+const qnaHelper = require('./routes/qnaHelper');
+const shrinkRay = require('shrink-ray-current');
 
+app.use(shrinkRay());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')))
@@ -20,6 +22,7 @@ app.use(express.static(path.join(__dirname, '/../client/dist')))
 app.use('/reviews', reviews);
 app.use('/relatedProducts', relatedProducts);
 app.use('/qna', qna);
+
 // app.use('/overview', overview) //http://localhost:4000/overview/firstProduct
 
 
