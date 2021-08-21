@@ -125,10 +125,10 @@ class YourOutfitAdder extends React.Component {
     }
     return (
       <div className="carousel-container">
-        <div onClick={this.click} className="img">
+        <div className="img">
           CLICK TO ADD TO YOUR OUTFIT
         </div>
-        <div className="cardRating">*****</div>
+        <img className="cardRating" src="plus.png" onClick={this.click}/>
 
         <div className="carousel-wrapper">
           {this.state.currentIndex > 0 &&
