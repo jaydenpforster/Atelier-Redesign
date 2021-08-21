@@ -34,7 +34,7 @@ const NewStyles = (props) => {
         key={i}>
         <img
           className="StylePic"
-          src={product.photos[0].url}
+          src={product.photos[0].thumbnail_url}
         >
         </img>
       </div>)
