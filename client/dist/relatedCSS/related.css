@@ -4,9 +4,12 @@
   border-width: 1px;
   max-width: 300px;
 } */
-
+.cardRating {
+  height: 2em;
+  width: 2em;
+}
 .relatedProduct {
-  font-family: Andale Mono;
+  /* font-family: Andale Mono; */
   border-bottom: 1px solid black;
 }
 

@@ -24,3 +24,17 @@
     //       className="ZoomPhoto"
     //     ></div>
     //   )
+
+
+  consoleLogAfterSETSTATE(test) {
+    this.setState({ test }, () => {
+      console.log('The Second Argument of setState should be a function that runs')
+    })
+  }
+
+  useStateHook() {} // Watch a video
+
+      headers: {
+        'User-Agent': 'request',
+        'Authorization': config.TOKEN
+      },
