@@ -4,8 +4,8 @@ import axios from 'axios';
 
 import Search from './Search.jsx';
 import QuestionList from './QuestionList.jsx';
-import Modal from './Modal/Modaljsx';
-import "./App.css";
+import Modal from './Modal/Modal.jsx';
+import './QandA.css';
 import QuestionForm from './QuestionForm.jsx';
 import AnswerForm from './AnswerForm.jsx';
 
@@ -23,17 +23,19 @@ const QnA = (props) => {
   const [isQuestionModal, setIsQuestionModal] = useState(true);
 
   useEffect(() => {
-    (props.qData) => {
-      if (data.results.length > 1) {
-        data.results.sort(compare);
-      }
-      setQuestions(data);
-    };
-  }, []);
+    console.log('This is qData: ', props.qData)
+
+    let data = props.qData.slice();
+    if (data.length > 1) {
+      data.sort(compare);
+    }
+    setQuestions(data);
+
+  }, [props.qData]);
 
   return (
     <div className="QnA">
-      {questions && questions.results && questions.results.length > 0 ? (
+      {questions && questions.length > 0 ? (
         <div className="question-answer">
           <div className="questions-search">
             <Search

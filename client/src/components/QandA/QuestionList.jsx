@@ -21,7 +21,7 @@ const QuestionList = ({setShowModal, filteredQuestion, setIsQuestionModal, setQu
 
   const reneredQuestion =
     filteredQuestion != null
-      ? filteredQuestion.results.slice(0, questionLimit).map((question) => {
+      ? filteredQuestion.slice(0, questionLimit).map((question) => {
         return (
           <Question
             key={question.question_id}
@@ -38,7 +38,7 @@ const QuestionList = ({setShowModal, filteredQuestion, setIsQuestionModal, setQu
       <div className="question-list">{reneredQuestion}</div>
       <div className="question-list-footer">
         {reneredQuestion ? (
-          questionLimit < filteredQuestion.results.length ? (
+          questionLimit < filteredQuestion.length ? (
             <button className="footer-button" onClick={addLimit}>
               MORE ANSWERED QUESTIONS
             </button>

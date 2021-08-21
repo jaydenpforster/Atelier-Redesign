@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const filterQuestion = (questions, searchText) => {
   const newQuestionSet = { product_id: questions.product_id, results: [] };
-  if (questions.results.length > 0) {
+  if (questions.length > 0) {
     for (const key in questions.results) {
       if (
         questions.results[key].question_body
