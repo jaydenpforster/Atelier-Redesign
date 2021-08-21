@@ -130,7 +130,6 @@ const addHelpfulVote = (reviewId) => {
 }
 
 const formatPostData = (postData) => {
-  console.log('TWO')
   return new Promise ((resolve, reject) => {
     let formattedPostData = {};
 

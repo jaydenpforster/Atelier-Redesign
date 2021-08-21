@@ -118,24 +118,29 @@ class SingleTile extends React.Component {
     }
     return (
       <div>
-        <div className="singleTile"
+        <div
+          className="singleTile"
           onClick={(e) => this.props.recordClick(e)}>
-          {renderStars(review.rating)}<br></br>
-          {review.reviewer_name},&nbsp;{date}<br></br>
-          <strong><p className="reviewSummary" onClick={(e) => this.props.recordClick(e)}></p>{review.summary}</strong><br></br>
-          <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div><br></br>
-          <div className="reviewImages">{images}</div><br></br>
-          {recommends}<br></br>
+          <div className="topOfSingleTile">
+            {renderStars(review.rating)}<br></br>
+            <div className="nameAndDate">
+              {review.reviewer_name},&nbsp;{date}<br></br>
+            </div>
+          </div>
+          <strong><p className="reviewSummary" onClick={(e) => this.props.recordClick(e)}>{review.summary}</p></strong>
+          <div className="reviewBody">{revBody} <a onClick={this.handleExtendClick}>{show}</a></div>
+          <div className="reviewImages">{images}</div>
+          {recommends}
           {response}
           <p
             className="reviewHelpful"
             onClick={(e) => this.props.recordClick(e)}>
-              Helpful?
+              Helpful? &nbsp;
             <a
               className="helpfulYes"
               onClick={this.handleHelpfulClick}
               id={this.props.review.review_id}>
-                Yes
+              Yes
             </a>
               ({this.state.helpfulness})
           </p>

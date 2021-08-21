@@ -7,7 +7,7 @@ const Images = (props) => {
     <div
       className="imagesInReviews"
       onClick={(e) => props.recordClick(e)}>
-      <img src={props.src} height="80%" width="80%" className="reviewImageOpen" onClick={ () => setShow(true) } />
+      <img src={props.src} height="80%" width="80%" alt="image added to review" className="reviewImageOpen" onClick={ () => setShow(true) } />
       <ReviewImgModal
         src={props.src}
         show={show} onClose={ () => setShow(false) }

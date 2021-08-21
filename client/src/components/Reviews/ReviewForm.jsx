@@ -245,7 +245,6 @@ class ReviewForm extends React.Component {
         }
       });
     }
-    this.props.recordClick(event)
   }
 
   render() {
@@ -388,7 +387,7 @@ class ReviewForm extends React.Component {
                 <br></br>
               </label>
               <div className="submitReviewButton">
-                <input type="submit" value="Submit review" onSubmit={ () => { return false } } onClick={this.handleSubmit}></input>
+                <input type="submit" value="Submit Review" onSubmit={ () => { return false } } onClick={this.handleSubmit}></input>
               </div>
             </form>
           </div>
