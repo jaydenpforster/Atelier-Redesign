@@ -8,6 +8,8 @@ import Modal from './components/modal.jsx'
 import Features from './components/features.jsx'
 import axios from 'axios'
 import config from '../../../../config.js'
+
+
 // root / client / src / components / overview
 class Overview extends React.Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class Overview extends React.Component {
       // sizeAmount State
       chosenSize: '-',
       chosenAmount: '',
-      skuID: '',
+      skuID: '36300',
       availableSizes: [{ size: '-', quantity: '8' }],
       availableAmount: '-',
       // Photos
@@ -83,41 +85,28 @@ class Overview extends React.Component {
   setCurrentSku(currentSku) { this.setState({ currentSku }) }
   setCurrentStyleInfo(currentStyleInfo) { this.setState({ currentStyleInfo }) }
   setSkuID(skuID) { this.setState({ skuID }) }
-
   setChosenSize(chosenSize) { this.setState({ chosenSize }) }
   setChosenAmount(chosenAmount) { this.setState({ chosenAmount }) }
   setAvailableSizes(availableSizes) { this.setState({ availableSizes }) }
   setAvailableAmount(availableAmount) { this.setState({ availableAmount }) }
-
   setMainPhoto(mainPhoto) { this.setState({ mainPhoto }) }
   setThumbnails(thumbnails) { this.setState({ thumbnails }) }
   setShowWarning(showWarning) { this.setState({ showWarning }) }
-
   setShowModal(showModal) { this.setState({ showModal }) }
   setThumbnailIndex(thumbnailIndex) { this.setState({ thumbnailIndex }) }
   setOriginalPrice(original_price) { this.setState({ original_price }) }
   setSalePrice(sale_price) { this.setState({ sale_price }) }
-  // Keep this as a reminder on how to log something after changing state.
-  setMainPhotoIndex(mainPhotoIndex) { this.setState({ mainPhotoIndex }, () => { console.log('setMainPhotoIndex') }) }
-  setShowModalPhotoZoom(showModalPhotoZoom) {
-    this.setState({ showModalPhotoZoom }, () => { console.log('setShowModalPhotoZoom') })
-  }
+  setMainPhotoIndex(mainPhotoIndex) { this.setState({ mainPhotoIndex }) }
+  setShowModalPhotoZoom(showModalPhotoZoom) { this.setState({ showModalPhotoZoom }) }
 
-
-  consoleLogAfterSETSTATE(test) {
-    this.setState({ test }, () => {
-      console.log('The Second Argument of setState should be a function that runs')
-    })
-  }
-
+  // Leaving a config.TOKEN here Exposes the token. Import the functions from interactions.js right above this file
+  // and give the components the interactions there.
   clickModal() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
       headers: {
-        'User-Agent': 'request',
         'Authorization': config.TOKEN
       },
       data: {
@@ -125,18 +114,14 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickPhotos() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
       headers: {
-        'User-Agent': 'request',
         'Authorization': config.TOKEN
       },
       data: {
@@ -144,19 +129,15 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
 
   clickDescription() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
       headers: {
-        'User-Agent': 'request',
         'Authorization': config.TOKEN
       },
       data: {
@@ -164,18 +145,14 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickStyles() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
       headers: {
-        'User-Agent': 'request',
         'Authorization': config.TOKEN
       },
       data: {
@@ -183,18 +160,14 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
   clickChosensSelectors() {
-    console.log('click log')
     let time = new Date()
     axios({
       method: 'POST',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions',
       headers: {
-        'User-Agent': 'request',
         'Authorization': config.TOKEN
       },
       data: {
@@ -202,20 +175,12 @@ class Overview extends React.Component {
         widget: 'Overview',
         time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + '-' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds()
       }
-    }).then(test => {
-      console.log('test', test)
     })
   }
-
-
-
-
-
 
   jest() {
     return 'Jest'
   }
-
 
   componentDidMount() {
     if (this.props !== undefined) {
@@ -229,8 +194,18 @@ class Overview extends React.Component {
       })
     }
   }
-
-
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.setState({
+        info: this.props.overview,
+        styles: this.props.styles,
+        currentStyleInfo: this.props.styles.results[0],
+        availableSizes: this.props.styles.results[0].skus,
+        mainPhoto: this.props.styles.results[0].photos[0].url,
+        thumbnails: this.props.styles.results[0].photos,
+      })
+    }
+  }
 
   render() {
     let features;
@@ -248,15 +223,15 @@ class Overview extends React.Component {
             clickPhotos={this.clickPhotos}
             currentStyleInfo={this.state.currentStyleInfo}
             mainPhoto={this.state.mainPhoto}
-            setMainPhoto={this.setMainPhoto}
-            thumbnails={this.state.thumbnails}
-            setThumbnails={this.setThumbnails}
-            showModal={this.state.showModal}
-            setShowModal={this.setShowModal}
             thumbnailIndex={this.state.thumbnailIndex}
+            mainPhotoIndex={this.state.mainPhotoIndex}
+            thumbnails={this.state.thumbnails}
+            showModal={this.state.showModal}
+            setMainPhoto={this.setMainPhoto}
+            setThumbnails={this.setThumbnails}
+            setShowModal={this.setShowModal}
             setThumbnailIndex={this.setThumbnailIndex}
             setMainPhotoIndex={this.setMainPhotoIndex}
-            mainPhotoIndex={this.state.mainPhotoIndex}
           />
           <div className="OVMainChild2">
             <NewStyles
@@ -299,6 +274,7 @@ class Overview extends React.Component {
               setChosenAmount={this.setChosenAmount}
               chosenAmount={this.state.chosenAmount}
             />
+            {/* {Rename NewButton to AddToCart} */}
             <NewButton
               chosenSize={this.state.chosenSize}
               chosenAmount={this.state.chosenAmount}
@@ -319,7 +295,6 @@ class Overview extends React.Component {
             {this.props.renderStars()}
             <div className="ProductTitle" >{this.state.info.name}</div>
             <div className="Category">{this.state.info.category}</div>
-            {/* <div>OV Price: {this.state.info.default_price}</div>  KEEP THIS ONE HERE*/}
             <div className="Slogan">{this.state.info.slogan}</div>
             <div className="Description">{this.state.info.description}</div>
           </div>
@@ -340,9 +315,6 @@ class Overview extends React.Component {
           showModalPhotoZoom={this.state.showModalPhotoZoom}
         />
         <br></br>
-
-        <br></br>
-
       </div>
     );
   }
