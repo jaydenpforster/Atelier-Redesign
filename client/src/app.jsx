@@ -93,7 +93,7 @@ class App extends React.Component {
     }
     return (
       <div id="APP">
-        {/* <h1></h1>
+        <h1></h1>
         {overview}
         <br></br>
         <RelatedProducts
@@ -112,7 +112,7 @@ class App extends React.Component {
           productId={this.state.mainProductID}
           qData={this.state.questions}
         />
-        <br></br> */}
+        <br></br>
         <Reviews
           helpfulReviews={this.state.helpfulReviews}
           newestReviews={this.state.newestReviews}
