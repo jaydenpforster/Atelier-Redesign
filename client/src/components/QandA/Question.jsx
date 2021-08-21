@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import AnswerList from './AnswerList.jsx';
 
+import axios from 'axios';
+
+
 const Question = ({question, setIsQuestionModal, setShowModal, setQuestionBody, }) => {
 
   const [taggedHelpful, setTaggedHelpful] = useState(false);
@@ -14,6 +17,13 @@ const Question = ({question, setIsQuestionModal, setShowModal, setQuestionBody, 
 
   const tagHelpful = (id) => {
     console.log(`Question is tagged helpful ${id}`);
+
+    let data = {qId: id}
+    axios.put('http://localhost:4000/qna/qHelpful', data)
+      .then(data =>{
+        return data
+      })
+
     setTaggedHelpful(true);
   };
 

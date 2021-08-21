@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const QuestionForm = ({ onClose }) => {
-  const [question, setQuestion] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [email, setEmail] = useState("");
+
+const QuestionForm = ( { onClose }) => {
+  const [question, setQuestion] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(question);
     console.log(nickname);
     console.log(email);
+
     onClose();
   };
   return (
